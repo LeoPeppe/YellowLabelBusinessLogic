@@ -1,0 +1,20 @@
+package it.cle.project.dao.hbn;
+
+import it.cle.project.dao.RisultatiIndiciDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.RisultatiIndici;
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * The Class HbnPAIDao.
+ */
+//@Component //aggiunto da me
+@Repository
+public class HbnRisultatiIndiciDao extends AbstractHbnDao<RisultatiIndici> implements RisultatiIndiciDao {
+	
+	
+	
+	
+
+}

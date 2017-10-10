@@ -1,0 +1,15 @@
+package it.cle.project.dao.hbn;
+
+import org.springframework.stereotype.Repository;
+
+import it.cle.project.dao.SituazCognitivaSvamaDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.SituazCognitivaSvama;
+
+/**
+ * The Class HbnSituazCognitivaSvamaDao.
+ */
+@Repository
+public class HbnSituazCognitivaSvamaDao extends AbstractHbnDao<SituazCognitivaSvama> implements SituazCognitivaSvamaDao{
+
+}

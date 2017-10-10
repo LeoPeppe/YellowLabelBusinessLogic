@@ -1,0 +1,341 @@
+package it.cle.project.model;
+
+import it.cle.project.model.composti.npi.AgitazioneAggressivita;
+import it.cle.project.model.composti.npi.Allucinazioni;
+import it.cle.project.model.composti.npi.Ansia;
+import it.cle.project.model.composti.npi.ApatiaIndifferenza;
+import it.cle.project.model.composti.npi.AttivitaMotoriaAberrante;
+import it.cle.project.model.composti.npi.Deliri;
+import it.cle.project.model.composti.npi.DepressioneDisforia;
+import it.cle.project.model.composti.npi.Disinibizione;
+import it.cle.project.model.composti.npi.DisturbiAlimentazione;
+import it.cle.project.model.composti.npi.DisturbiSonno;
+import it.cle.project.model.composti.npi.EuforiaEsaltazione;
+import it.cle.project.model.composti.npi.IrritabilitaLabilita;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndiceNPI.
+ */
+@Entity
+@Table(name = "indice_npi")
+@XmlRootElement(name="indice_npi")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class IndiceNPI {
+	
+	/** The id indice npi. */
+	private Integer idIndiceNPI;
+	
+	/** The agitazione aggressivita. */
+	@Valid
+	private AgitazioneAggressivita agitazioneAggressivita;
+	
+	/** The allucinazioni. */
+	@Valid
+	private Allucinazioni allucinazioni;
+	
+	/** The ansia. */
+	@Valid
+	private Ansia ansia;
+	
+	/** The apatia indifferenza. */
+	@Valid
+	private ApatiaIndifferenza apatiaIndifferenza;
+	
+	/** The attivita motoria aberrante. */
+	@Valid
+	private AttivitaMotoriaAberrante attivitaMotoriaAberrante;
+	
+	/** The deliri. */
+	@Valid
+	private Deliri deliri;
+	
+	/** The depressione disforia. */
+	@Valid
+	private DepressioneDisforia depressioneDisforia;
+	
+	/** The disinibizione. */
+	@Valid
+	private Disinibizione disinibizione;
+	
+	/** The disturbi alimentazione. */
+	@Valid
+	private DisturbiAlimentazione disturbiAlimentazione;
+	
+	/** The disturbi sonno. */
+	@Valid
+	private DisturbiSonno disturbiSonno;
+	
+	/** The euforia esaltazione. */
+	@Valid
+	private EuforiaEsaltazione euforiaEsaltazione;
+	
+	/** The irritabilita labilita. */
+	@Valid
+	private IrritabilitaLabilita irritabilitaLabilita;
+	
+	/**
+	 * Gets the id indice npi.
+	 *
+	 * @return the id indice npi
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceNPI() {
+		return idIndiceNPI;
+	}
+
+	/**
+	 * Sets the id indice npi.
+	 *
+	 * @param idIndiceNPI the new id indice npi
+	 */
+	public void setIdIndiceNPI(Integer idIndiceNPI) {
+		this.idIndiceNPI = idIndiceNPI;
+	}
+
+	/**
+	 * Gets the agitazione aggressivita.
+	 *
+	 * @return the agitazione aggressivita
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public AgitazioneAggressivita getAgitazioneAggressivita() {
+		return agitazioneAggressivita;
+	}
+
+	/**
+	 * Sets the agitazione aggressivita.
+	 *
+	 * @param agitazioneAggressivita the new agitazione aggressivita
+	 */
+	public void setAgitazioneAggressivita(AgitazioneAggressivita agitazioneAggressivita) {
+		this.agitazioneAggressivita = agitazioneAggressivita;
+	}
+	
+	/**
+	 * Gets the allucinazioni.
+	 *
+	 * @return the allucinazioni
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public Allucinazioni getAllucinazioni() {
+		return allucinazioni;
+	}
+
+	/**
+	 * Sets the allucinazioni.
+	 *
+	 * @param allucinazioni the new allucinazioni
+	 */
+	public void setAllucinazioni(Allucinazioni allucinazioni) {
+		this.allucinazioni = allucinazioni;
+	}
+
+	/**
+	 * Gets the ansia.
+	 *
+	 * @return the ansia
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public Ansia getAnsia() {
+		return ansia;
+	}
+
+	/**
+	 * Sets the ansia.
+	 *
+	 * @param ansia the new ansia
+	 */
+	public void setAnsia(Ansia ansia) {
+		this.ansia = ansia;
+	}
+
+	/**
+	 * Gets the apatia indifferenza.
+	 *
+	 * @return the apatia indifferenza
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public ApatiaIndifferenza getApatiaIndifferenza() {
+		return apatiaIndifferenza;
+	}
+
+	/**
+	 * Sets the apatia indifferenza.
+	 *
+	 * @param apatiaIndifferenza the new apatia indifferenza
+	 */
+	public void setApatiaIndifferenza(ApatiaIndifferenza apatiaIndifferenza) {
+		this.apatiaIndifferenza = apatiaIndifferenza;
+	}
+
+	/**
+	 * Gets the attivita motoria aberrante.
+	 *
+	 * @return the attivita motoria aberrante
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public AttivitaMotoriaAberrante getAttivitaMotoriaAberrante() {
+		return attivitaMotoriaAberrante;
+	}
+
+	/**
+	 * Sets the attivita motoria aberrante.
+	 *
+	 * @param attivitaMotoriaAberrante the new attivita motoria aberrante
+	 */
+	public void setAttivitaMotoriaAberrante(AttivitaMotoriaAberrante attivitaMotoriaAberrante) {
+		this.attivitaMotoriaAberrante = attivitaMotoriaAberrante;
+	}
+
+	/**
+	 * Gets the deliri.
+	 *
+	 * @return the deliri
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public Deliri getDeliri() {
+		return deliri;
+	}
+
+	/**
+	 * Sets the deliri.
+	 *
+	 * @param deliri the new deliri
+	 */
+	public void setDeliri(Deliri deliri) {
+		this.deliri = deliri;
+	}
+
+	/**
+	 * Gets the depressione disforia.
+	 *
+	 * @return the depressione disforia
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public DepressioneDisforia getDepressioneDisforia() {
+		return depressioneDisforia;
+	}
+
+	/**
+	 * Sets the depressione disforia.
+	 *
+	 * @param depressioneDisforia the new depressione disforia
+	 */
+	public void setDepressioneDisforia(DepressioneDisforia depressioneDisforia) {
+		this.depressioneDisforia = depressioneDisforia;
+	}
+
+	/**
+	 * Gets the disinibizione.
+	 *
+	 * @return the disinibizione
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public Disinibizione getDisinibizione() {
+		return disinibizione;
+	}
+
+	/**
+	 * Sets the disinibizione.
+	 *
+	 * @param disinibizione the new disinibizione
+	 */
+	public void setDisinibizione(Disinibizione disinibizione) {
+		this.disinibizione = disinibizione;
+	}
+
+	/**
+	 * Gets the disturbi alimentazione.
+	 *
+	 * @return the disturbi alimentazione
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public DisturbiAlimentazione getDisturbiAlimentazione() {
+		return disturbiAlimentazione;
+	}
+
+	/**
+	 * Sets the disturbi alimentazione.
+	 *
+	 * @param disturbiAlimentazione the new disturbi alimentazione
+	 */
+	public void setDisturbiAlimentazione(DisturbiAlimentazione disturbiAlimentazione) {
+		this.disturbiAlimentazione = disturbiAlimentazione;
+	}
+
+	/**
+	 * Gets the disturbi sonno.
+	 *
+	 * @return the disturbi sonno
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public DisturbiSonno getDisturbiSonno() {
+		return disturbiSonno;
+	}
+
+	/**
+	 * Sets the disturbi sonno.
+	 *
+	 * @param disturbiSonno the new disturbi sonno
+	 */
+	public void setDisturbiSonno(DisturbiSonno disturbiSonno) {
+		this.disturbiSonno = disturbiSonno;
+	}
+
+	/**
+	 * Gets the euforia esaltazione.
+	 *
+	 * @return the euforia esaltazione
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public EuforiaEsaltazione getEuforiaEsaltazione() {
+		return euforiaEsaltazione;
+	}
+
+	/**
+	 * Sets the euforia esaltazione.
+	 *
+	 * @param euforiaEsaltazione the new euforia esaltazione
+	 */
+	public void setEuforiaEsaltazione(EuforiaEsaltazione euforiaEsaltazione) {
+		this.euforiaEsaltazione = euforiaEsaltazione;
+	}
+
+	/**
+	 * Gets the irritabilita labilita.
+	 *
+	 * @return the irritabilita labilita
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public IrritabilitaLabilita getIrritabilitaLabilita() {
+		return irritabilitaLabilita;
+	}
+
+	/**
+	 * Sets the irritabilita labilita.
+	 *
+	 * @param irritabilitaLabilita the new irritabilita labilita
+	 */
+	public void setIrritabilitaLabilita(IrritabilitaLabilita irritabilitaLabilita) {
+		this.irritabilitaLabilita = irritabilitaLabilita;
+	}
+
+
+
+}

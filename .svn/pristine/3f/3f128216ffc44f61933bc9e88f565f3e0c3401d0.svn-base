@@ -1,0 +1,194 @@
+package it.cle.project.model;
+
+import it.cle.project.model.composti.npi.AgitazioneAggressivita;
+import it.cle.project.model.composti.npi.Allucinazioni;
+import it.cle.project.model.composti.npi.Ansia;
+import it.cle.project.model.composti.npi.ApatiaIndifferenza;
+import it.cle.project.model.composti.npi.AttivitaMotoriaAberrante;
+import it.cle.project.model.composti.npi.Deliri;
+import it.cle.project.model.composti.npi.DepressioneDisforia;
+import it.cle.project.model.composti.npi.Disinibizione;
+import it.cle.project.model.composti.npi.DisturbiAlimentazione;
+import it.cle.project.model.composti.npi.DisturbiSonno;
+import it.cle.project.model.composti.npi.EuforiaEsaltazione;
+import it.cle.project.model.composti.npi.IrritabilitaLabilita;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@Entity
+@Table(name = "indice_npi")
+@XmlRootElement(name="indice_npi")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class IndiceNPI {
+	
+	private Integer idIndiceNPI;
+	
+	@Valid
+	private AgitazioneAggressivita agitazioneAggressivita;
+	
+	@Valid
+	private Allucinazioni allucinazioni;
+	
+	@Valid
+	private Ansia ansia;
+	
+	@Valid
+	private ApatiaIndifferenza apatiaIndifferenza;
+	
+	@Valid
+	private AttivitaMotoriaAberrante attivitaMotoriaAberrante;
+	
+	@Valid
+	private Deliri deliri;
+	
+	@Valid
+	private DepressioneDisforia depressioneDisforia;
+	
+	@Valid
+	private Disinibizione disinibizione;
+	
+	@Valid
+	private DisturbiAlimentazione disturbiAlimentazione;
+	
+	@Valid
+	private DisturbiSonno disturbiSonno;
+	
+	@Valid
+	private EuforiaEsaltazione euforiaEsaltazione;
+	
+	@Valid
+	private IrritabilitaLabilita irritabilitaLabilita;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceNPI() {
+		return idIndiceNPI;
+	}
+
+	public void setIdIndiceNPI(Integer idIndiceNPI) {
+		this.idIndiceNPI = idIndiceNPI;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public AgitazioneAggressivita getAgitazioneAggressivita() {
+		return agitazioneAggressivita;
+	}
+
+	public void setAgitazioneAggressivita(AgitazioneAggressivita agitazioneAggressivita) {
+		this.agitazioneAggressivita = agitazioneAggressivita;
+	}
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	public Allucinazioni getAllucinazioni() {
+		return allucinazioni;
+	}
+
+	public void setAllucinazioni(Allucinazioni allucinazioni) {
+		this.allucinazioni = allucinazioni;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public Ansia getAnsia() {
+		return ansia;
+	}
+
+	public void setAnsia(Ansia ansia) {
+		this.ansia = ansia;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public ApatiaIndifferenza getApatiaIndifferenza() {
+		return apatiaIndifferenza;
+	}
+
+	public void setApatiaIndifferenza(ApatiaIndifferenza apatiaIndifferenza) {
+		this.apatiaIndifferenza = apatiaIndifferenza;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public AttivitaMotoriaAberrante getAttivitaMotoriaAberrante() {
+		return attivitaMotoriaAberrante;
+	}
+
+	public void setAttivitaMotoriaAberrante(AttivitaMotoriaAberrante attivitaMotoriaAberrante) {
+		this.attivitaMotoriaAberrante = attivitaMotoriaAberrante;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public Deliri getDeliri() {
+		return deliri;
+	}
+
+	public void setDeliri(Deliri deliri) {
+		this.deliri = deliri;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public DepressioneDisforia getDepressioneDisforia() {
+		return depressioneDisforia;
+	}
+
+	public void setDepressioneDisforia(DepressioneDisforia depressioneDisforia) {
+		this.depressioneDisforia = depressioneDisforia;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public Disinibizione getDisinibizione() {
+		return disinibizione;
+	}
+
+	public void setDisinibizione(Disinibizione disinibizione) {
+		this.disinibizione = disinibizione;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public DisturbiAlimentazione getDisturbiAlimentazione() {
+		return disturbiAlimentazione;
+	}
+
+	public void setDisturbiAlimentazione(DisturbiAlimentazione disturbiAlimentazione) {
+		this.disturbiAlimentazione = disturbiAlimentazione;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public DisturbiSonno getDisturbiSonno() {
+		return disturbiSonno;
+	}
+
+	public void setDisturbiSonno(DisturbiSonno disturbiSonno) {
+		this.disturbiSonno = disturbiSonno;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public EuforiaEsaltazione getEuforiaEsaltazione() {
+		return euforiaEsaltazione;
+	}
+
+	public void setEuforiaEsaltazione(EuforiaEsaltazione euforiaEsaltazione) {
+		this.euforiaEsaltazione = euforiaEsaltazione;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public IrritabilitaLabilita getIrritabilitaLabilita() {
+		return irritabilitaLabilita;
+	}
+
+	public void setIrritabilitaLabilita(IrritabilitaLabilita irritabilitaLabilita) {
+		this.irritabilitaLabilita = irritabilitaLabilita;
+	}
+
+
+
+}

@@ -1,0 +1,38 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceNPI;
+
+// TODO: Auto-generated Javadoc
+/**
+ * Interfaccia IndiceBarthelService.
+ *
+ * @author Germano
+ */
+public interface IndiceNPIService {
+	
+	/**
+	 * Calcola la situazione prevenzione Decubiti.
+	 *
+	 * @param indiceNPI the indice npi
+	 * @return the integer
+	 */
+	public Integer calcolaIndiceNPI(IndiceNPI indiceNPI);
+	
+	/**
+	 * inserisce i valori per il calcolo dell' indice NPI.
+	 *
+	 * @param indiceNPI the indice npi
+	 */
+	public void insert(IndiceNPI indiceNPI);
+	
+	/**
+	 * Recupera i valori per il calcolo dell'indice NPI.
+	 *
+	 * @param idIndiceNPI the id indice npi
+	 * @return the indice npi
+	 */
+	public IndiceNPI selectById(Integer idIndiceNPI);
+
+	
+	
+}

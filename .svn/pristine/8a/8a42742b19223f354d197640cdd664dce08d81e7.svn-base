@@ -1,0 +1,20 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceBesBulimia;
+
+public interface IndiceBesBulimiaService {
+	
+	/**
+	 * Calcola la situazione p 
+	 * @param IndiceADL indiceBarthel
+	 */
+	public Integer calcolaBulimia(IndiceBesBulimia indiceBesBulimia);
+	
+	
+	/**
+	 * Codifica la situazione funzionale in base al punteggio
+	 *
+	 */
+	public String codificaSituazione(Integer punteggio);
+
+}

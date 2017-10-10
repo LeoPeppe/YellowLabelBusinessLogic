@@ -1,0 +1,7 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+public class DatiVeicoliDTO implements Serializable {
+
+}

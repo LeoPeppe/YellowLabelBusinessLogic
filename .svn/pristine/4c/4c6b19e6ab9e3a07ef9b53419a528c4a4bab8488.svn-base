@@ -1,0 +1,70 @@
+package it.cle.project.dao;
+
+import java.io.Serializable;
+import java.util.List;
+
+/**
+ * The Interface Dao.
+ * @author Fronza
+ * @param <T> the generic type
+ */
+public interface Dao<T extends Object> {
+	
+	/**
+	 * Torna il count
+	 * @return long
+	 */
+	long count();
+	
+	/**
+	 * Crea
+	 * @param T t
+	 */
+	void create(T t);
+	
+	/**
+	 * Cancella.
+	 * @param T t
+	 */
+	void delete(T t);
+	
+	/**
+	 * Cancella tutto.
+	 */
+	void deleteAll();
+	
+	/**
+	 * Cancella dato l' id.
+	 * @param Serializable id
+	 */
+	void deleteById(Serializable id);
+	
+	/**
+	 * Esiste.
+	 * @param Serializable id
+	 * @return true, if successful
+	 */
+	boolean exists(Serializable id);
+	
+	/**
+	 * Recupera 
+	 * @param Serializable id
+	 * @return List<T>
+	 */
+	T get(Serializable id);
+	
+	List<T> getAll();
+	
+	/**
+	 * Carica.
+	 * @param Serializable id
+	 * @return T t
+	 */
+	T load(Serializable id);
+	
+	/**
+	 * Aggiorna.
+	 * @param T t
+	 */
+	void update(T t);
+}

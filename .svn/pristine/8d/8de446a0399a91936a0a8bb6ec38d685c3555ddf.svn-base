@@ -1,0 +1,30 @@
+package it.cle.project.validator;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+public class IntegerSet implements ConstraintValidator<ValidateIntegerSet, Integer> {  
+	  
+	private List<Integer> valueList;
+
+    @Override
+    public void initialize(ValidateIntegerSet constraintAnnotation) {
+        valueList = new ArrayList<Integer>();
+        for(int val : constraintAnnotation.acceptedValues()) {
+            valueList.add(Integer.valueOf(val));
+        }
+    }
+
+    @Override
+    public boolean isValid(Integer value, ConstraintValidatorContext context) {
+        if(!valueList.contains(value)) {
+            return false;
+        }
+        return true;
+    }
+}

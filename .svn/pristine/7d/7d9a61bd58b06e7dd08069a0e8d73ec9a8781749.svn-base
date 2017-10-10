@@ -1,0 +1,15 @@
+package it.cle.project.dao.hbn;
+
+import org.springframework.stereotype.Repository;
+
+import it.cle.project.dao.IndiceBUTDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.IndiceBUT;
+
+/**
+ * The Class HbnIndiceBUTDao.
+ */
+@Repository
+public class HbnIndiceBUTDao extends AbstractHbnDao<IndiceBUT> implements IndiceBUTDao{
+
+}

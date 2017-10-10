@@ -1,0 +1,83 @@
+package it.cle.project.model;
+
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@Entity
+@Table(name ="psan")
+@XmlRootElement(name ="psan")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Psan implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	
+	private Integer idPSAN;
+	@Valid
+	private IndiceVIP indiceVip;
+	@Valid
+	private IndiceVPIA indiceVpia;
+	@Valid
+	private IndiceVPOT indiceVpot;
+	
+	public Psan() {
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdPSAN() {
+		return idPSAN;
+	}
+
+	public void setIdPSAN(Integer idPSAN) {
+		this.idPSAN = idPSAN;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceVIP getIndiceVip() {
+		return indiceVip;
+	}
+
+	public void setIndiceVip(IndiceVIP indiceVip) {
+		this.indiceVip = indiceVip;
+	}
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceVPIA getIndiceVpia() {
+		return indiceVpia;
+	}
+
+	public void setIndiceVpia(IndiceVPIA indiceVpia) {
+		this.indiceVpia = indiceVpia;
+	}
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceVPOT getIndiceVpot() {
+		return indiceVpot;
+	}
+
+	public void setIndiceVpot(IndiceVPOT indiceVpot) {
+		this.indiceVpot = indiceVpot;
+	}
+
+
+
+	
+
+
+}

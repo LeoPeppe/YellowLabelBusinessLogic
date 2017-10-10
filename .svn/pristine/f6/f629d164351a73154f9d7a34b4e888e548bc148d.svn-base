@@ -1,0 +1,60 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "DatiGenerali") 
+public class DatiGeneraliDTO implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private DatiGeneraliDocumentoDTO datiGeneraliDocumento;
+	private DatiDocumentoDTO datiOrdineAcquisto;
+	private DatiDocumentoDTO datiContratto;
+	private DatiDocumentoDTO datiConvenzione;
+	private DatiDocumentoDTO datiRicezione;
+	/**
+	 * mancano altri
+	 */
+	public DatiGeneraliDocumentoDTO getDatiGeneraliDocumento() {
+		return datiGeneraliDocumento;
+	}
+	@XmlElement(name="DatiGeneraliDocumento")
+	public void setDatiGeneraliDocumento(DatiGeneraliDocumentoDTO datiGeneraliDocumento) {
+		this.datiGeneraliDocumento = datiGeneraliDocumento;
+	}
+	public DatiDocumentoDTO getDatiOrdineAcquisto() {
+		return datiOrdineAcquisto;
+	}
+	@XmlElement(name="DatiOrdineAcquisto")
+	public void setDatiOrdineAcquisto(DatiDocumentoDTO datiOrdineAcquisto) {
+		this.datiOrdineAcquisto = datiOrdineAcquisto;
+	}
+	public DatiDocumentoDTO getDatiContratto() {
+		return datiContratto;
+	}
+	@XmlElement(name="DatiContratto")
+	public void setDatiContratto(DatiDocumentoDTO datiContratto) {
+		this.datiContratto = datiContratto;
+	}
+	public DatiDocumentoDTO getDatiConvenzione() {
+		return datiConvenzione;
+	}
+	public void setDatiConvenzione(DatiDocumentoDTO datiConvenzione) {
+		this.datiConvenzione = datiConvenzione;
+	}
+	public DatiDocumentoDTO getDatiRicezione() {
+		return datiRicezione;
+	}
+	public void setDatiRicezione(DatiDocumentoDTO datiRicezione) {
+		this.datiRicezione = datiRicezione;
+	}
+	
+	
+
+}

@@ -1,0 +1,15 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.DatiFattura;
+
+public interface DatiFatturaDao extends Dao<DatiFattura> {
+	
+	
+	
+	public Long getIdFattura(DatiFattura datiFattura); 
+	
+	public Integer getNuovoNumFattura(); 
+	
+	public Integer getNuovoIdFattura() ;
+
+}

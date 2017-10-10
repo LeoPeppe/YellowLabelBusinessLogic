@@ -1,0 +1,42 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceVIP;
+
+// TODO: Auto-generated Javadoc
+/**
+ * interfaccia IndiceVIPService.
+ *
+ * @author pierluigi.anaclerio
+ */
+public interface IndiceVIPService {
+	
+	/**
+	 * Calcola indiceVIP.
+	 *
+	 * @param indiceVIP the indice vip
+	 * @return the integer
+	 */
+	public Integer calcolaIndiceVIP(IndiceVIP indiceVIP);
+	
+	
+	/**
+	 * Select by id.
+	 *
+	 * @param idIndiceVIP the id indice vip
+	 * @return the indice vip
+	 */
+	public IndiceVIP selectById(Integer idIndiceVIP);
+
+
+	/**
+	 * Insert.
+	 *
+	 * @param indiceVIP the indice vip
+	 */
+	void insert(IndiceVIP indiceVIP);
+
+
+//	public String codificaVIP(Integer vip);
+	
+
+}

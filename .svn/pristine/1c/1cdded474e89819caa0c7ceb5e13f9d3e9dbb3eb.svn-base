@@ -1,0 +1,15 @@
+package it.cle.project.dao.hbn;
+
+import it.cle.project.dao.IndiceBarthelMobilitaDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.IndiceBarthelMobilita;
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * The Class HbnIndiceBarthelDao.
+ */
+@Repository
+public class HbnIndiceBarthelMobilitaDao extends AbstractHbnDao<IndiceBarthelMobilita> implements IndiceBarthelMobilitaDao {
+	
+}

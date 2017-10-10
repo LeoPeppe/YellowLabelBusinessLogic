@@ -1,0 +1,85 @@
+package it.cle.project.model;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndiceVPOT.
+ */
+@Entity
+@Table(name = "indice_vpot")
+@XmlRootElement(name="indice_vpot")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class IndiceVPOT{
+	
+	
+	/** The id indice vpot. */
+	private Integer idIndiceVPOT;
+	
+	/** The vpot. */
+	private Integer vpot;
+		
+	
+
+	/**
+	 * Gets the id indice vpot.
+	 *
+	 * @return the id indice vpot
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceVPOT() {
+		return idIndiceVPOT;
+	}
+
+	/**
+	 * Sets the id indice vpot.
+	 *
+	 * @param idIndiceVPOT the new id indice vpot
+	 */
+	public void setIdIndiceVPOT(Integer idIndiceVPOT) {
+		this.idIndiceVPOT = idIndiceVPOT;
+	}
+	
+	/**
+	 * Gets the vpot.
+	 *
+	 * @return the vpot
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,20,25 })
+	@Column(name = "vpot")
+	public Integer getVpot() {
+		return vpot;
+	}
+
+	/**
+	 * Sets the vpot.
+	 *
+	 * @param vpot the new vpot
+	 */
+	public void setVpot(Integer vpot) {
+		this.vpot = vpot;
+	}
+	
+
+	/**
+	 * Instantiates a new indice VPOT.
+	 */
+	public IndiceVPOT() {
+    }
+
+}

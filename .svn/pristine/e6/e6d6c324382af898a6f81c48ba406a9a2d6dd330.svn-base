@@ -1,0 +1,188 @@
+package it.cle.project.dto.fattura;
+
+
+import it.cle.project.dto.ReportPrestazioniDTO;
+import it.cle.project.utils.Utils;
+
+import java.io.Serializable;
+import java.io.StringWriter;
+import java.util.List;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.apache.log4j.Logger;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DatiInputFatturaDTO.
+ */
+@XmlRootElement(name = "componi_fattura") 
+@XmlAccessorType(XmlAccessType.FIELD)
+public class DatiInputFatturaDTO  implements Serializable{
+	
+//	<componi_fattura>
+//	  <costo_prestazioni>
+//	    <prestazione></prestazione>
+//	    <num_prestazioni></num_prestazioni>
+//	    <costo_unitario></costo_unitario>
+//	    <importo_prestazioni></importo_prestazioni>  
+//	  </costo_prestazioni>
+//	  <totaleFattura></totaleFattura>
+//	  <comuneFattura></comuneFattura>
+//	  <dataDaFattura></dataDaFattura>
+//	  <dataAFattura>/</dataAFattura>
+//
+//	</componi_fattura>
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+	/** The logger. */
+	protected Logger logger = Logger.getLogger(DatiInputFatturaDTO.class);
+	
+	/** The lista prestazioni. */
+	@XmlElement(name = "costo_prestazioni")
+	@XmlElementWrapper(name="dati_input_fattura")
+	private List<ReportPrestazioniDTO> listaPrestazioni;
+	
+	/** The totale fattura. */
+	@XmlElement(name = "totaleFattura")
+	private String  totaleFattura;
+	
+	/** The comune fattura. */
+	@XmlElement(name = "comuneFattura")
+	private String comuneFattura;
+	
+	/** The data da fattura. */
+	@XmlElement(name = "dataDaFattura")
+	private String dataDaFattura;
+	
+	/** The data a fattura. */
+	@XmlElement(name = "dataAFattura")
+	private String dataAFattura;
+	
+	
+
+	/**
+	 * Gets the lista prestazioni.
+	 *
+	 * @return the lista prestazioni
+	 */
+	public List<ReportPrestazioniDTO> getListaPrestazioni() {
+		return listaPrestazioni;
+	}
+	
+	/**
+	 * Sets the lista prestazioni.
+	 *
+	 * @param listaPrestazioni the new lista prestazioni
+	 */
+	public void setListaPrestazioni(List<ReportPrestazioniDTO> listaPrestazioni) {
+		this.listaPrestazioni = listaPrestazioni;
+	}
+
+	/**
+	 * Gets the totale fattura.
+	 *
+	 * @return the totale fattura
+	 */
+	public String getTotaleFattura() {
+		return totaleFattura;
+	}
+
+	/**
+	 * Sets the totale fattura.
+	 *
+	 * @param totaleFattura the new totale fattura
+	 */
+	public void setTotaleFattura(String totaleFattura) {
+		this.totaleFattura = totaleFattura;
+	}
+
+	/**
+	 * Gets the comune fattura.
+	 *
+	 * @return the comune fattura
+	 */
+	public String getComuneFattura() {
+		return comuneFattura;
+	}
+
+	/**
+	 * Sets the comune fattura.
+	 *
+	 * @param comuneFattura the new comune fattura
+	 */
+	public void setComuneFattura(String comuneFattura) {
+		this.comuneFattura = comuneFattura;
+	}
+
+	/**
+	 * Gets the data da fattura.
+	 *
+	 * @return the data da fattura
+	 */
+	public String getDataDaFattura() {
+		return dataDaFattura;
+	}
+
+	/**
+	 * Sets the data da fattura.
+	 *
+	 * @param dataDaFattura the new data da fattura
+	 */
+	public void setDataDaFattura(String dataDaFattura) {
+		this.dataDaFattura = dataDaFattura;
+	}
+
+	/**
+	 * Gets the data a fattura.
+	 *
+	 * @return the data a fattura
+	 */
+	public String getDataAFattura() {
+		return dataAFattura;
+	}
+
+	/**
+	 * Sets the data a fattura.
+	 *
+	 * @param dataAFattura the new data a fattura
+	 */
+	public void setDataAFattura(String dataAFattura) {
+		this.dataAFattura = dataAFattura;
+	}
+	
+	
+	/**
+	 * To string xml.
+	 *
+	 * @return the string
+	 */
+	public String toStringXML() {
+		
+		StringWriter out = new StringWriter();
+		
+		try {
+		JAXBContext jc = JAXBContext.newInstance(DatiInputFatturaDTO.class);
+		Marshaller marsh = jc.createMarshaller();
+		marsh.setProperty("com.sun.xml.bind.xmlDeclaration", Boolean.FALSE);
+		marsh.marshal(this, out);
+		
+		} catch(Exception e) {
+			
+			logger.error("Errore in DatiInputFatturaDTO.toStringXML()");
+			logger.error(Utils.getStackTrace(e));
+		}
+		return out.toString();
+	}
+	
+
+}

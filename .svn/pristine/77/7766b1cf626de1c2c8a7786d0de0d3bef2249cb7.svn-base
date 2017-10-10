@@ -1,0 +1,15 @@
+package it.cle.project.dao.hbn;
+
+import it.cle.project.dao.IndiceBesDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.IndiceBesBulimia;
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * The Class HbnIndiceBesDao.
+ */
+@Repository
+public class HbnIndiceBesDao extends AbstractHbnDao<IndiceBesBulimia> implements IndiceBesDao {
+
+}

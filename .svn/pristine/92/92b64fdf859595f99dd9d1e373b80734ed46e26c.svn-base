@@ -1,0 +1,98 @@
+package it.cle.project.model;
+
+import it.cle.project.model.composti.but.IndiceBUTa;
+import it.cle.project.model.composti.but.IndiceBUTb;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.xml.bind.annotation.XmlRootElement;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndiceBUT.
+ */
+@Entity
+@Table(name = "indice_but")
+@XmlRootElement(name="indice_but")
+public class IndiceBUT {
+	
+	/** The id indice but. */
+	private Integer idIndiceBUT;
+	
+	/** The indice bu ta. */
+	@Valid
+	private IndiceBUTa indiceBUTa;
+	
+	/** The indice bu tb. */
+	@Valid
+	private IndiceBUTb indiceBUTb;
+
+	/**
+	 * Gets the id indice but.
+	 *
+	 * @return the id indice but
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceBUT() {
+		return idIndiceBUT;
+	}
+
+	/**
+	 * Sets the id indice but.
+	 *
+	 * @param idIndiceBUT the new id indice but
+	 */
+	public void setIdIndiceBUT(Integer idIndiceBUT) {
+		this.idIndiceBUT = idIndiceBUT;
+	}
+
+	/**
+	 * Gets the indice bu ta.
+	 *
+	 * @return the indice bu ta
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceBUTa getIndiceBUTa() {
+		return indiceBUTa;
+	}
+
+	/**
+	 * Sets the indice bu ta.
+	 *
+	 * @param indiceBUTa the new indice bu ta
+	 */
+	public void setIndiceBUTa(IndiceBUTa indiceBUTa) {
+		this.indiceBUTa = indiceBUTa;
+	}
+
+	/**
+	 * Gets the indice bu tb.
+	 *
+	 * @return the indice bu tb
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceBUTb getIndiceBUTb() {
+		return indiceBUTb;
+	}
+
+	/**
+	 * Sets the indice bu tb.
+	 *
+	 * @param indiceBUTb the new indice bu tb
+	 */
+	public void setIndiceBUTb(IndiceBUTb indiceBUTb) {
+		this.indiceBUTb = indiceBUTb;
+	}
+	
+	
+
+}

@@ -1,0 +1,138 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FatturaElettronicaBodyDTO.
+ */
+@XmlRootElement(name = "FatturaElettronicaBody") 
+@XmlType(propOrder={"datiGenerali", "datiBeniServizi", "datiVeicoli", "datiPagamento", "allegati"})
+public class FatturaElettronicaBodyDTO implements Serializable {
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The dati generali. */
+	private DatiGeneraliDTO datiGenerali;
+	
+	/** The dati beni servizi. */
+	private DatiBeniServiziDTO datiBeniServizi;
+	
+	/** The dati veicoli. */
+	private DatiVeicoliDTO datiVeicoli;
+	
+	/** The dati pagamento. */
+	private DatiPagamentoDTO datiPagamento;
+	
+	/** The allegati. */
+	private AllegatiDTO allegati;
+	
+	
+	
+	/**
+	 * Gets the dati generali.
+	 *
+	 * @return the dati generali
+	 */
+	public DatiGeneraliDTO getDatiGenerali() {
+		return datiGenerali;
+	}
+	
+	/**
+	 * Sets the dati generali.
+	 *
+	 * @param datiGenerali the new dati generali
+	 */
+	@XmlElement(name="DatiGenerali")
+	public void setDatiGenerali(DatiGeneraliDTO datiGenerali) {
+		this.datiGenerali = datiGenerali;
+	}
+	
+	/**
+	 * Gets the dati beni servizi.
+	 *
+	 * @return the dati beni servizi
+	 */
+	public DatiBeniServiziDTO getDatiBeniServizi() {
+		return datiBeniServizi;
+	}
+	
+	/**
+	 * Sets the dati beni servizi.
+	 *
+	 * @param datiBeniServizi the new dati beni servizi
+	 */
+	@XmlElement(name="DatiBeniServizi")
+	public void setDatiBeniServizi(DatiBeniServiziDTO datiBeniServizi) {
+		this.datiBeniServizi = datiBeniServizi;
+	}
+	
+	/**
+	 * Gets the dati veicoli.
+	 *
+	 * @return the dati veicoli
+	 */
+	public DatiVeicoliDTO getDatiVeicoli() {
+		return datiVeicoli;
+	}
+	
+	/**
+	 * Sets the dati veicoli.
+	 *
+	 * @param datiVeicoli the new dati veicoli
+	 */
+	@XmlElement(name="DatiVeicoli")
+	public void setDatiVeicoli(DatiVeicoliDTO datiVeicoli) {
+		this.datiVeicoli = datiVeicoli;
+	}
+	
+	/**
+	 * Gets the dati pagamento.
+	 *
+	 * @return the dati pagamento
+	 */
+	public DatiPagamentoDTO getDatiPagamento() {
+		return datiPagamento;
+	}
+	
+	/**
+	 * Sets the dati pagamento.
+	 *
+	 * @param datiPagamento the new dati pagamento
+	 */
+	@XmlElement(name="DatiPagamento")
+	public void setDatiPagamento(DatiPagamentoDTO datiPagamento) {
+		this.datiPagamento = datiPagamento;
+	}
+	
+	/**
+	 * Gets the allegati.
+	 *
+	 * @return the allegati
+	 */
+	public AllegatiDTO getAllegati() {
+		return allegati;
+	}
+	
+	/**
+	 * Sets the allegati.
+	 *
+	 * @param allegati the new allegati
+	 */
+	@XmlElement(name="Allegati")
+	public void setAllegati(AllegatiDTO allegati) {
+		this.allegati = allegati;
+	}
+	
+	
+
+	
+	
+
+}

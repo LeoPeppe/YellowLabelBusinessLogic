@@ -1,0 +1,8 @@
+package it.cle.project.dao.hbn;
+
+import it.cle.project.dao.ErogatoreDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+
+public class HbnErogatoreDao extends AbstractHbnDao<ErogatoreDao>  implements ErogatoreDao {
+
+}

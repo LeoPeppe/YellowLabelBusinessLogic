@@ -1,0 +1,15 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.RisultatiIndici;
+
+/**
+ * The Interface PAIDao.
+ */
+public interface RisultatiIndiciDao extends Dao<RisultatiIndici> {
+	
+	
+	
+		
+	
+
+}

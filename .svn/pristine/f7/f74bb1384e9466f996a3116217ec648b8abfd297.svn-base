@@ -1,0 +1,104 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceNPI;
+import it.cle.project.model.IndiceSPMSQ;
+
+/**
+ * Interfaccia IndiceBarthelService.
+ *
+ * @author Germano
+ */
+public interface IndiceNPIService {
+	
+	/**
+	 * Calcola la situazione prevenzione Decubiti
+	 * @param IndiceNPI indiceNPI
+	 */
+	public Integer calcolaIndiceNPI(IndiceNPI indiceNPI);
+	
+	/**
+	 * inserisce i valori per il calcolo dell' indice NPI
+	 * @param IndiceNPI indiceNPI
+	 */
+	public void insert(IndiceNPI indiceNPI);
+	
+	/**
+	 * Recupera i valori per il calcolo dell'indice NPI
+	 * @param Integer idIndiceNPI
+	 */
+	public IndiceNPI selectById(Integer idIndiceNPI);
+
+	
+	
+//	/**
+//	 * Calcola AgitazioneAggressivita agitazioneAggressivita
+//	 * @param AgitazioneAggressivita agitazioneAggressivita
+//	 */
+//	public Integer calcolaAgitazioneAggressivita(AgitazioneAggressivita agitazioneAggressivita);
+//	
+//	/**
+//	 * Calcola Allucinazioni Allucinazioni
+//	 * @param Allucinazioni Allucinazioni
+//	 */
+//	public Integer calcolaAllucinazioni(Allucinazioni Allucinazioni);
+//	
+//	/**
+//	 * Calcola Allucinazioni Allucinazioni
+//	 * @param Allucinazioni Allucinazioni
+//	 */
+//	public Integer calcolaAnsia(Ansia ansia);
+//	
+//	/**
+//	 * Calcola ApatiaIndifferenza apatiaIndifferenza
+//	 * @param ApatiaIndifferenza apatiaIndifferenza
+//	 */
+//	public Integer calcolaApatiaIndifferenza(ApatiaIndifferenza apatiaIndifferenza);
+//	
+//	/**
+//	 * Calcola AttivitaMotoriaAberrante attivitaMotoriaAberrante
+//	 * @param AttivitaMotoriaAberrante attivitaMotoriaAberrante
+//	 */
+//	public Integer calcolaAttivitaMotoriaAberrante(AttivitaMotoriaAberrante attivitaMotoriaAberrante);
+//	
+//	/**
+//	 * Calcola Deliri deliri
+//	 * @param Deliri deliri
+//	 */
+//	public Integer calcolaDeliri(Deliri deliri);
+//	
+//	/**
+//	 * Calcola DepressioneDisforia depressioneDisforia
+//	 * @param DepressioneDisforia depressioneDisforia
+//	 */
+//	public Integer calcolaDepressioneDisforia(DepressioneDisforia depressioneDisforia);
+//	
+//	/**
+//	 * Calcola Disinibizione disinibizione
+//	 * @param Disinibizione disinibizione
+//	 */
+//	public Integer calcolaDisinibizione(Disinibizione disinibizione);
+//	
+//	/**
+//	 * Calcola DisturbiAlimentazione disturbiAlimentazione
+//	 * @param DisturbiAlimentazione disturbiAlimentazione
+//	 */
+//	public Integer calcolaDisturbiAlimentazione(DisturbiAlimentazione disturbiAlimentazione);
+//	
+//	/**
+//	 * Calcola DisturbiSonno disturbiSonno
+//	 * @param DisturbiSonno disturbiSonno
+//	 */
+//	public Integer calcolaDisturbiSonno(DisturbiSonno disturbiSonno);
+//	
+//	/**
+//	 * Calcola EuforiaEsaltazione euforiaEsaltazione
+//	 * @param EuforiaEsaltazione euforiaEsaltazione
+//	 */
+//	public Integer calcolaEuforiaEsaltazione(EuforiaEsaltazione euforiaEsaltazione);
+//	
+//	/**
+//	 * Calcola IrritabilitaLabilita irritabilitaLabilita
+//	 * @param IrritabilitaLabilita irritabilitaLabilita
+//	 */
+//	public Integer calcolaIrritabilitaLabilita(IrritabilitaLabilita irritabilitaLabilita);
+}

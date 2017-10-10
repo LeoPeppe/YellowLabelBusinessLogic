@@ -1,0 +1,24 @@
+package it.cle.project.dao;
+
+import java.util.Date;
+import java.util.List;
+
+import it.cle.project.dto.ReportPrestazioniDTO;
+import it.cle.project.model.Intervento;
+
+public interface InterventoDao {
+
+	void insert(Intervento intervento);
+
+	Intervento selectById(Integer idintervento);
+
+	public List<Intervento> selectByComune(String comune);
+	
+	public List<Intervento> selectByComuneData(String comune, Date data_da, Date data_a);
+	
+	
+	public List<ReportPrestazioniDTO> selectReportPrestazioni(String comune, Date data_da, Date data_a);
+	
+	
+
+}

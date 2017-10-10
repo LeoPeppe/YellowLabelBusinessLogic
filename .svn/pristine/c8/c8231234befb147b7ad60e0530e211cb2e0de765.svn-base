@@ -1,0 +1,32 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceExtonSmith;
+
+/**
+ * Interfaccia IndiceBarthelService.
+ *
+ * @author Fronza
+ */
+public interface IndiceExtonSmithService {
+	
+	/**
+	 * Calcola la situazione prevenzione Decubiti
+	 * @param IndiceADL indiceBarthel
+	 */
+	public Integer calcolaPrevDecub(IndiceExtonSmith indiceExtonSmith);
+	
+	
+	/**
+	 * inserisce i valori per il calcolo dell' indice di ExtonSmith
+	 * @param IndicExtonSmith indiceExtonSmith
+	 */
+	public void insert(IndiceExtonSmith indiceExtonSmith);
+	
+
+	/**
+	 * Recupera i valori per il calcolo dell'indice di ExtonSmith
+	 * @param Integer idIndiceExtonSmith
+	 */
+	public IndiceExtonSmith selectById(Integer idIndiceExtonSmith);
+
+}

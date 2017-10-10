@@ -1,0 +1,15 @@
+package it.cle.project.service;
+
+import it.cle.project.model.Pai;
+
+/**
+
+ */
+public interface PaiService {
+	
+	
+	public void insert(Pai pai);
+	
+	
+	
+}

@@ -1,0 +1,15 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.Pai;
+
+/**
+ * The Interface PAIDao.
+ */
+public interface PaiDao extends Dao<Pai> {
+	
+	
+	
+		
+	
+
+}

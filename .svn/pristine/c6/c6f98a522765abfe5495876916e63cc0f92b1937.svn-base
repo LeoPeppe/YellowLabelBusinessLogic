@@ -1,0 +1,97 @@
+package it.cle.project.service.impl;
+
+
+import it.cle.project.dao.InterventoDao;
+import it.cle.project.dto.ReportPrestazioniDTO;
+import it.cle.project.dto.ReportPrestazioniResponseDTO;
+import it.cle.project.model.Intervento;
+import it.cle.project.service.InterventoService;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class OperatoreServiceImpl.
+ * Questa classe implementa la Business Logic e 
+ * i metodi per le operazioni base relative all' Intervento
+ */
+@Service("interventoService")
+@Transactional
+public class InterventoServiceImpl implements InterventoService {
+	
+	/** The dao. */
+	@Autowired
+	private InterventoDao dao;
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.InterventoService#selectByComune(java.lang.String)
+	 */
+	@Override
+	public List<Intervento> selectByComune(String comune) {
+
+		return dao.selectByComune(comune);
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.InterventoService#selectById(java.lang.Integer)
+	 */
+	@Override
+	public Intervento selectById(Integer idintervento) {
+		
+		return dao.selectById(idintervento);
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.InterventoService#selectByComuneData(java.lang.String, java.util.Date, java.util.Date)
+	 */
+	@Override
+	public List<Intervento> selectByComuneData(String comune, Date data_da, Date data_a) {
+		
+		return dao.selectByComuneData(comune, data_da, data_a);
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.InterventoService#getReportPrestazioni(java.lang.String, java.util.Date, java.util.Date)
+	 */
+	@Override
+	public ReportPrestazioniResponseDTO getReportPrestazioni(String comune, Date data_da, Date data_a) {
+		
+		ReportPrestazioniResponseDTO response = new  ReportPrestazioniResponseDTO();
+		List<ReportPrestazioniDTO> listaPrestazioni = new ArrayList<ReportPrestazioniDTO>();
+		Double totale = 0.00;
+		
+		listaPrestazioni = dao.selectReportPrestazioni(comune, data_da, data_a);
+		totale = calcolaTotale(listaPrestazioni);
+		
+		response.setElencoPrestazioni(listaPrestazioni);
+		response.setTotale(totale);
+		return response;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.InterventoService#calcolaTotale(java.util.List)
+	 */
+	@Override
+	public Double calcolaTotale(List<ReportPrestazioniDTO> elenco) {
+
+			Double totale = 0.00;
+			
+			for(ReportPrestazioniDTO dto : elenco){
+				totale += dto.getImporto_prestazioni();
+			}
+			return totale;
+	}
+	
+	
+	
+
+
+	
+
+}

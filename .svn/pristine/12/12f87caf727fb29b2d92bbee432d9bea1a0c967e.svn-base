@@ -1,0 +1,20 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.Committente;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface CommittenteDao.
+ */
+public interface CommittenteDao extends Dao<Committente> {
+	
+	
+	/**
+	 * Gets the committente by denominazione.
+	 *
+	 * @param denominazione the denominazione
+	 * @return the committente by denominazione
+	 */
+	public Committente getCommittenteByDenominazione(String denominazione);
+
+}

@@ -1,0 +1,273 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlRootElement;
+// TODO: Auto-generated Javadoc
+
+/**
+ * The Class DatiGeneraliDocumentoDTO.
+ */
+@XmlRootElement
+public class DatiGeneraliDocumentoDTO implements Serializable {
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The tipo documento. */
+	private String tipoDocumento;
+	
+	/** The divisa. */
+	private String divisa;
+	
+	/** The data. */
+	private Date data; // YYY-MM-DD
+	
+	/** The numero. */
+	private String numero;
+	
+	/** The dati ritenuta. */
+	private DatiRitenutaDTO datiRitenuta;
+	
+	/** The dati bollo. */
+	private DatiBolloDTO datiBollo;
+	
+	/** The dati cassa previdenziale. */
+	private DatiCassaPrevidenzialeDTO datiCassaPrevidenziale;
+	
+	/** The sconto maggiorazione. */
+	private ScontoDTO scontoMaggiorazione;
+	
+	/** The importo totale documento. */
+	private Double importoTotaleDocumento;
+	
+	/** The arrotondamento. */
+	private Double arrotondamento;
+	
+	/** The causale. */
+	private String causale;
+	
+	/** The art73. */
+	private String art73;
+	
+	/**
+	 * Gets the tipo documento.
+	 *
+	 * @return the tipoDocumento
+	 */
+	public String getTipoDocumento() {
+		return tipoDocumento;
+	}
+	
+	/**
+	 * Sets the tipo documento.
+	 *
+	 * @param tipoDocumento the tipoDocumento to set
+	 */
+	public void setTipoDocumento(String tipoDocumento) {
+		this.tipoDocumento = tipoDocumento;
+	}
+	
+	/**
+	 * Gets the divisa.
+	 *
+	 * @return the divisa
+	 */
+	public String getDivisa() {
+		return divisa;
+	}
+	
+	/**
+	 * Sets the divisa.
+	 *
+	 * @param divisa the divisa to set
+	 */
+	public void setDivisa(String divisa) {
+		this.divisa = divisa;
+	}
+	
+	/**
+	 * Gets the data.
+	 *
+	 * @return the data
+	 */
+	public Date getData() {
+		return data;
+	}
+	
+	/**
+	 * Sets the data.
+	 *
+	 * @param data the data to set
+	 */
+	public void setData(Date data) {
+		this.data = data;
+	}
+	
+	/**
+	 * Gets the numero.
+	 *
+	 * @return the numero
+	 */
+	public String getNumero() {
+		return numero;
+	}
+	
+	/**
+	 * Sets the numero.
+	 *
+	 * @param numero the numero to set
+	 */
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+	
+	/**
+	 * Gets the dati ritenuta.
+	 *
+	 * @return the datiRitenuta
+	 */
+	public DatiRitenutaDTO getDatiRitenuta() {
+		return datiRitenuta;
+	}
+	
+	/**
+	 * Sets the dati ritenuta.
+	 *
+	 * @param datiRitenuta the datiRitenuta to set
+	 */
+	public void setDatiRitenuta(DatiRitenutaDTO datiRitenuta) {
+		this.datiRitenuta = datiRitenuta;
+	}
+	
+	/**
+	 * Gets the dati bollo.
+	 *
+	 * @return the dati bollo
+	 */
+	public DatiBolloDTO getDatiBollo() {
+		return datiBollo;
+	}
+	
+	/**
+	 * Sets the dati bollo.
+	 *
+	 * @param datiBollo the new dati bollo
+	 */
+	public void setDatiBollo(DatiBolloDTO datiBollo) {
+		this.datiBollo = datiBollo;
+	}
+	
+	/**
+	 * Gets the dati cassa previdenziale.
+	 *
+	 * @return the dati cassa previdenziale
+	 */
+	public DatiCassaPrevidenzialeDTO getDatiCassaPrevidenziale() {
+		return datiCassaPrevidenziale;
+	}
+	
+	/**
+	 * Sets the dati cassa previdenziale.
+	 *
+	 * @param datiCassaPrevidenziale the new dati cassa previdenziale
+	 */
+	public void setDatiCassaPrevidenziale(DatiCassaPrevidenzialeDTO datiCassaPrevidenziale) {
+		this.datiCassaPrevidenziale = datiCassaPrevidenziale;
+	}
+	
+	/**
+	 * Gets the sconto maggiorazione.
+	 *
+	 * @return the sconto maggiorazione
+	 */
+	public ScontoDTO getScontoMaggiorazione() {
+		return scontoMaggiorazione;
+	}
+	
+	/**
+	 * Sets the sconto maggiorazione.
+	 *
+	 * @param scontoMaggiorazione the new sconto maggiorazione
+	 */
+	public void setScontoMaggiorazione(ScontoDTO scontoMaggiorazione) {
+		this.scontoMaggiorazione = scontoMaggiorazione;
+	}
+	
+	/**
+	 * Gets the importo totale documento.
+	 *
+	 * @return the importo totale documento
+	 */
+	public Double getImportoTotaleDocumento() {
+		return importoTotaleDocumento;
+	}
+	
+	/**
+	 * Sets the importo totale documento.
+	 *
+	 * @param importoTotaleDocumento the new importo totale documento
+	 */
+	public void setImportoTotaleDocumento(Double importoTotaleDocumento) {
+		this.importoTotaleDocumento = importoTotaleDocumento;
+	}
+	
+	/**
+	 * Gets the arrotondamento.
+	 *
+	 * @return the arrotondamento
+	 */
+	public Double getArrotondamento() {
+		return arrotondamento;
+	}
+	
+	/**
+	 * Sets the arrotondamento.
+	 *
+	 * @param arrotondamento the new arrotondamento
+	 */
+	public void setArrotondamento(Double arrotondamento) {
+		this.arrotondamento = arrotondamento;
+	}
+	
+	/**
+	 * Gets the causale.
+	 *
+	 * @return the causale
+	 */
+	public String getCausale() {
+		return causale;
+	}
+	
+	/**
+	 * Sets the causale.
+	 *
+	 * @param causale the new causale
+	 */
+	public void setCausale(String causale) {
+		this.causale = causale;
+	}
+	
+	/**
+	 * Gets the art73.
+	 *
+	 * @return the art73
+	 */
+	public String getArt73() {
+		return art73;
+	}
+	
+	/**
+	 * Sets the art73.
+	 *
+	 * @param art73 the new art73
+	 */
+	public void setArt73(String art73) {
+		this.art73 = art73;
+	}
+	
+	
+	
+
+}

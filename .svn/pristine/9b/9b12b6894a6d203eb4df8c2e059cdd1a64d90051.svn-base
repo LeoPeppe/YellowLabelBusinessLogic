@@ -1,0 +1,166 @@
+package it.cle.project.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+/**
+ * Questa classe definisce l'entità Indice ADL, una scala ordinale utilizzata
+ * per misurare le prestazioni di un soggetto nelle attività della vita
+ * quotidiana (ADL, activities of daily living).
+ * 
+ * @author Fronza
+ * @version 1.0
+ * @see <a href="http://it.wikipedia.org/wiki/Indice_di_Barthel"
+ *      target="_blank">La scala di Barthel o Indice di Barthel ADL</a>
+ */
+@Entity
+@Table(name = "indice_vpia")
+@XmlRootElement(name = "indice_vpia")
+public class IndiceVPIA implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Integer idVPIA;
+
+	/**
+	 * The vPia. Validazione: //0,10,15,25
+	 */
+//	private Integer vPia;
+
+	/**
+	 * The condizioniGenerali. Validazione: //1,2,3,4
+	 */
+	private Integer condizioniGenerali;
+	/**
+	 * The statoMentale. Validazione: //1,2,3,4
+	 */
+	private Integer statoMentale;
+	/**
+	 * The attivita. Validazione: //1,2,3,4
+	 */
+	private Integer attivita;
+	/**
+	 * The mobilita. Validazione: //1,2,3,4
+	 */
+	private Integer mobilita;
+	/**
+	 * The incontinenza. Validazione: //1,2,3,4
+	 */
+	private Integer incontinenza;
+
+//	private Integer totale;
+	/**
+	 * The incontinenza. Validazione: //15,25
+	 */
+	private Integer piaghe;
+	
+	
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 1,2,3,4 })
+	@Column(name = "condizioni_generali")
+	public Integer getCondizioniGenerali() {
+		return condizioniGenerali;
+	}
+
+	public void setCondizioniGenerali(Integer condizioniGenerali) {
+		this.condizioniGenerali = condizioniGenerali;
+	}
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 1,2,3,4 })
+	@Column(name = "stato_mentale")
+	public Integer getStatoMentale() {
+		return statoMentale;
+	}
+
+	public void setStatoMentale(Integer statoMentale) {
+		this.statoMentale = statoMentale;
+	}
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 1,2,3,4 })
+	@Column(name = "attivita")
+	public Integer getAttivita() {
+		return attivita;
+	}
+
+	public void setAttivita(Integer attivita) {
+		this.attivita = attivita;
+	}
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 1,2,3,4 })
+	@Column(name = "mobilita")
+	public Integer getMobilita() {
+		return mobilita;
+	}
+
+	public void setMobilita(Integer mobilita) {
+		this.mobilita = mobilita;
+	}
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 1,2,3,4 })
+	@Column(name = "incontinenza")
+	public Integer getIncontinenza() {
+		return incontinenza;
+	}
+
+	public void setIncontinenza(Integer incontinenza) {
+		this.incontinenza = incontinenza;
+	}
+//	@NotNull
+//	@Column(name = "totale")
+//	public Integer getTotale() {
+//		return totale;
+//	}
+//
+//	public void setTotale(Integer totale) {
+//		this.totale = totale;
+//	}
+
+	public IndiceVPIA() {
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdVPIA() {
+		return idVPIA;
+	}
+
+	public void setIdVPIA(Integer idVPIA) {
+		this.idVPIA = idVPIA;
+	}
+
+//	@NotNull
+//	@ValidateIntegerSet(acceptedValues = { 0, 10, 15, 25 })
+//	@Column(name = "vpia")
+//	public Integer getvPia() {
+//		return vPia;
+//	}
+
+//	public void setvPia(Integer vPia) {
+//		this.vPia = vPia;
+//	}
+//	@ValidateIntegerSet(acceptedValues = { 15, 25 })
+	@Column(name = "piaghe")
+	public Integer getPiaghe() {
+		return piaghe;
+	}
+
+	public void setPiaghe(Integer piaghe) {
+		this.piaghe = piaghe;
+	}
+
+}

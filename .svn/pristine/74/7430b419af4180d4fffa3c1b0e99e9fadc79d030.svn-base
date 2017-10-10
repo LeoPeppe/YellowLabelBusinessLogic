@@ -1,0 +1,109 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+// TODO: Auto-generated Javadoc
+
+/**
+ * The Class DatiGestionaliDTO.
+ */
+@XmlRootElement
+public class DatiGestionaliDTO implements Serializable {
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The tipo dato. */
+	private String tipoDato;
+	
+	/** The riferimento testo. */
+	private String riferimentoTesto;
+	
+	/** The riferimento numero. */
+	private Double riferimentoNumero;
+	
+	/** The riferimento data. */
+	private String riferimentoData; // YYYY-MM-DD
+	
+	
+	/**
+	 * Gets the tipo dato.
+	 *
+	 * @return the tipo dato
+	 */
+	public String getTipoDato() {
+		return tipoDato;
+	}
+	
+	/**
+	 * Sets the tipo dato.
+	 *
+	 * @param tipoDato the new tipo dato
+	 */
+	@XmlElement(name="TipoDato")
+	public void setTipoDato(String tipoDato) {
+		this.tipoDato = tipoDato;
+	}
+	
+	/**
+	 * Gets the riferimento testo.
+	 *
+	 * @return the riferimento testo
+	 */
+	public String getRiferimentoTesto() {
+		return riferimentoTesto;
+	}
+	
+	/**
+	 * Sets the riferimento testo.
+	 *
+	 * @param riferimentoTesto the new riferimento testo
+	 */
+	@XmlElement(name="RiferimentoTesto")
+	public void setRiferimentoTesto(String riferimentoTesto) {
+		this.riferimentoTesto = riferimentoTesto;
+	}
+	
+	/**
+	 * Gets the riferimento numero.
+	 *
+	 * @return the riferimento numero
+	 */
+	public Double getRiferimentoNumero() {
+		return riferimentoNumero;
+	}
+	
+	/**
+	 * Sets the riferimento numero.
+	 *
+	 * @param riferimentoNumero the new riferimento numero
+	 */
+	@XmlElement(name="RiferimentoNumero")
+	public void setRiferimentoNumero(Double riferimentoNumero) {
+		this.riferimentoNumero = riferimentoNumero;
+	}
+	
+	/**
+	 * Gets the riferimento data.
+	 *
+	 * @return the riferimento data
+	 */
+	public String getRiferimentoData() {
+		return riferimentoData;
+	}
+	
+	/**
+	 * Sets the riferimento data.
+	 *
+	 * @param riferimentoData the new riferimento data
+	 */
+	@XmlElement(name="RiferimentoData")
+	public void setRiferimentoData(String riferimentoData) {
+		this.riferimentoData = riferimentoData;
+	}
+	
+	
+
+}

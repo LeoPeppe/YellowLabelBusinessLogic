@@ -1,0 +1,138 @@
+package it.cle.project.service.impl;
+
+import it.cle.project.dao.PsanDao;
+import it.cle.project.model.IndiceVIP;
+import it.cle.project.model.IndiceVPIA;
+import it.cle.project.model.IndiceVPOT;
+import it.cle.project.model.Psan;
+import it.cle.project.service.PsanService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PsanServiceImpl.
+ */
+@Service("psanService")
+@Transactional
+public class PsanServiceImpl implements PsanService {
+	
+	/** The Constant vsan1. */
+	private static final String vsan1="1- bassa";
+	
+	/** The Constant vsan2. */
+	private static final String vsan2="2- intermedia";
+	
+	/** The Constant vsan3. */
+	private static final String vsan3="3- elevata";
+	
+
+	
+	/** The dao. */
+	@Autowired
+	private PsanDao dao;
+
+	
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.PsanService#calcolaPsan(it.cle.project.model.Psan)
+	 */
+	@Override
+	public Integer calcolaPsan(Psan psan) {
+		IndiceVPOTServiceImpl indiceVPOTServiceImpl= new IndiceVPOTServiceImpl();
+		IndiceVPIAServiceImpl indiceVPIAServiceImpl= new IndiceVPIAServiceImpl();
+		IndiceVIPImpl indiceVIPImpl = new IndiceVIPImpl();
+		
+		
+		
+		Integer vsan= 0;
+		Integer vpot= indiceVPOTServiceImpl.calcolaVPOT(psan.getIndiceVpot());
+		Integer vpia = indiceVPIAServiceImpl.calcolaVPIA(psan.getIndiceVpia());
+		Integer vip = indiceVIPImpl.calcolaIndiceVIP(psan.getIndiceVip());
+		
+		vsan= vip+vpia+vpot;
+		
+		return vsan;
+	}
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.PsanService#codificaPsan(java.lang.Integer)
+	 */
+	@Override
+	public String codificaPsan(Integer vsan) {
+		String vsamCodificato=null;
+		
+
+		if(vsan>=0 && vsan<6 ){
+			vsamCodificato = vsan1;
+		}
+		if(vsan>=10 && vsan<21){
+			vsamCodificato = vsan2;
+		}
+		if(vsan>=25){
+			vsamCodificato = vsan3;
+		}
+		
+		
+		return vsamCodificato;
+	}
+	
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.PsanService#selectById(java.lang.Integer)
+	 */
+	@Override
+	public Psan selectById(Integer idPsan) {
+		return dao.get(idPsan);
+	}
+
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.PsanService#insert(it.cle.project.model.Psan)
+	 */
+	@Override
+	public void insert(Psan psan) {
+		 dao.get(psan);
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.PsanService#calcolaVpot(it.cle.project.model.IndiceVPOT)
+	 */
+	@Override
+	public Integer calcolaVpot(IndiceVPOT indiceVpot) {
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.PsanService#calcolaVpia(it.cle.project.model.IndiceVPIA)
+	 */
+	@Override
+	public Integer calcolaVpia(IndiceVPIA indiceVpia) {
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.PsanService#calcolaVip(it.cle.project.model.IndiceVIP)
+	 */
+	@Override
+	public Integer calcolaVip(IndiceVIP indiceVip) {
+		return null;
+	}
+
+	
+	
+
+
+
+
+
+	
+
+	
+	
+
+}

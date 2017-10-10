@@ -1,0 +1,21 @@
+package it.cle.project.dao.hbn;
+
+import it.cle.project.dao.OperatoreDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.Operatore;
+
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * The Class HbnIndiceADLDao.
+ */
+//@Component //aggiunto da me
+@Repository
+public class HbnOperatoreDao extends AbstractHbnDao<Operatore> implements OperatoreDao {
+	
+	
+	
+	
+
+}

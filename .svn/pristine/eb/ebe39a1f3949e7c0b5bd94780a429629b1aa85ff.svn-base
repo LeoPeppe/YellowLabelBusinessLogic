@@ -1,0 +1,149 @@
+package it.cle.project.service.impl;
+
+import it.cle.project.dao.IndiceEAT26Dao;
+import it.cle.project.model.IndiceEAT26;
+import it.cle.project.service.IndiceEAT26Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndiceEAT26ServiceImpl.
+ */
+@Service("indiceEAT26Service")
+@Transactional
+public class IndiceEAT26ServiceImpl implements IndiceEAT26Service {
+
+	/** The dao. */
+	@Autowired 
+	private IndiceEAT26Dao dao;
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.IndiceEAT26Service#calcolaIndiceEAT26(it.cle.project.model.IndiceEAT26)
+	 */
+	@Override
+	public String calcolaIndiceEAT26(IndiceEAT26 indiceEAT26) {
+		String result="Non si rilevano disturbi del comportamento alimentare";
+		Integer valoreIndiceEAT26 = 0;
+		valoreIndiceEAT26 = indiceEAT26.getDomandaAltriMagra()+
+				 indiceEAT26.getDomandaAutocontrollo()+
+				 indiceEAT26.getDomandaCibiDietetici()+
+				 indiceEAT26.getDomandaCibiNuovi()+
+				 indiceEAT26.getDomandaCibiZuccheri()+
+				 indiceEAT26.getDomandaCiboPensieri()+
+				 indiceEAT26.getDomandaContenutoCalorico()+
+				 indiceEAT26.getDomandaControlloVita()+
+				 indiceEAT26.getDomandaDesiderioDimagrire()+
+				 indiceEAT26.getDomandaDieta()+
+				 indiceEAT26.getDomandaDisagioDolci()+
+				 indiceEAT26.getDomandaEvitareCarboidrati()+
+				 indiceEAT26.getDomandaEvitareMangiare()+
+				 indiceEAT26.getDomandaGinnastica()+
+				 indiceEAT26.getDomandaGrassoCorpo()+
+				 indiceEAT26.getDomandaImpulsoVomitare()+
+				 indiceEAT26.getDomandaMangiareVoracita()+
+				 indiceEAT26.getDomandaPauraIngrassare()+
+				 indiceEAT26.getDomandaPensareCibo()+
+				 indiceEAT26.getDomandaPressioneAltri()+
+				 indiceEAT26.getDomandaSensazioneAltri()+
+				 indiceEAT26.getDomandaSensoColpa()+
+				 indiceEAT26.getDomandaSminuzzareCibo()+
+				 indiceEAT26.getDomandaStomacoVuoto()+
+				 indiceEAT26.getDomandaTempoPasto()+
+				 indiceEAT26.getDomandaVomito();
+		
+		
+		//dichiarazione caso 2
+		Integer due = indiceEAT26.getDomandaEvitareMangiare();
+		Integer sette = indiceEAT26.getDomandaEvitareCarboidrati();
+		Integer sedici = indiceEAT26.getDomandaCibiZuccheri();
+		Integer diciassette = indiceEAT26.getDomandaCibiDietetici();
+		Integer ventuno = indiceEAT26.getDomandaCiboPensieri();
+		
+		//dichiarazione caso 4
+		Integer uno = indiceEAT26.getDomandaPauraIngrassare();
+		Integer tre = indiceEAT26.getDomandaPensareCibo();
+		Integer quattro = indiceEAT26.getDomandaMangiareVoracita();
+		Integer cinque = indiceEAT26.getDomandaSminuzzareCibo();
+		Integer sei = indiceEAT26.getDomandaContenutoCalorico();
+		Integer otto = indiceEAT26.getDomandaSensazioneAltri();
+		Integer nove = indiceEAT26.getDomandaVomito();
+		Integer dieci = indiceEAT26.getDomandaSensoColpa();
+		Integer undici = indiceEAT26.getDomandaDesiderioDimagrire();
+		Integer dodici = indiceEAT26.getDomandaGinnastica();
+		Integer tredici = indiceEAT26.getDomandaAltriMagra();
+		Integer quattordici = indiceEAT26.getDomandaGrassoCorpo();
+		Integer quindici = indiceEAT26.getDomandaTempoPasto();
+		Integer diciotto = indiceEAT26.getDomandaControlloVita();
+		Integer diciannove = indiceEAT26.getDomandaAutocontrollo();
+		Integer venti = indiceEAT26.getDomandaPressioneAltri();
+		Integer ventidue = indiceEAT26.getDomandaDisagioDolci();
+		Integer ventitre = indiceEAT26.getDomandaDieta();
+		Integer ventiquattro = indiceEAT26.getDomandaStomacoVuoto();
+		Integer venticinque = indiceEAT26.getDomandaImpulsoVomitare();
+		Integer ventisei = indiceEAT26.getDomandaCibiNuovi();
+
+				
+		//caso 3  BMI PRIORITA MAGGIORE
+		int caso_bmi = calcolaIndiceBMI(indiceEAT26);
+		if(caso_bmi<18){
+					result= " Rivolgersi ad uno specialista nei disturbi dell'alimentazione per un'accurata valutazione diagnostica";
+		}
+				
+		//caso 1  valoreIndiceEAT26  >20 PRIORITA 2
+		else if(valoreIndiceEAT26 >= 20){
+		result="L'Idice EAT26 è :"+valoreIndiceEAT26+" Rivolgersi ad uno specialista nei disturbi dell'alimentazione per un'accurata valutazione diagnostica";
+		}
+		//caso 2  PRIORITA 3 --- almeno una risposta affermativa ad almeno una delle 5 domande comportamentali
+		//le 5 domande comportamentali sono: 2,7,16,17,21
+		else if(due ==3 || sette ==3 || sedici ==3 || diciassette ==3 || ventuno ==3 ){
+			result= " Rivolgersi ad uno specialista nei disturbi dell'alimentazione per un'accurata valutazione diagnostica";
+		}
+		
+		//caso 4
+		// sensazione di avere un qualche problema con il cibo e richiedere spontaneamente una consulenza specialistica
+		//tutte le 26 meno le 5 comportamentali
+		else if(uno ==3 || tre ==3 || quattro ==3 || cinque ==3 || sei ==3 ||otto ==3 || nove ==3 || dieci ==3 || undici ==3 || dodici ==3 || 
+				tredici ==3 || quattordici ==3 || quindici ==3 || diciotto ==3 || diciannove ==3 ||venti ==3 || ventidue ==3 || ventitre ==3 || ventiquattro ==3 || venticinque ==3
+				|| ventisei == 3){
+			result= " Rivolgersi ad uno specialista nei disturbi dell'alimentazione per un'accurata valutazione diagnostica";
+		}
+		
+		return result;
+	}
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.IndiceEAT26Service#insert(it.cle.project.model.IndiceEAT26)
+	 */
+	@Override
+	public void insert(IndiceEAT26 indiceEAT) {
+		dao.create(indiceEAT);
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.IndiceEAT26Service#calcolaIndiceBMI(it.cle.project.model.IndiceEAT26)
+	 */
+	@Override
+	public Integer calcolaIndiceBMI(IndiceEAT26 indiceEAT26) {
+		int bmi=0;
+		
+		Double peso = indiceEAT26.getPeso();
+		Double altezza = indiceEAT26.getAltezza();
+//		String sesso = indiceEAT26.getSesso();
+		
+		 bmi = (int) (peso/Math.pow(altezza, (double)2));
+		
+//		if(sesso.equals("M") && (bmi <20)){
+//				result=bmi;
+//		}
+//		if(sesso.equals("F") && (bmi <19)){
+//			result=bmi;
+//		}
+		
+		return bmi;
+	}
+	
+}

@@ -1,0 +1,38 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceExtonSmith;
+
+// TODO: Auto-generated Javadoc
+/**
+ * Interfaccia IndiceBarthelService.
+ *
+ * @author Fronza
+ */
+public interface IndiceExtonSmithService {
+	
+	/**
+	 * Calcola la situazione prevenzione Decubiti.
+	 *
+	 * @param indiceExtonSmith the indice exton smith
+	 * @return the integer
+	 */
+	public Integer calcolaPrevDecub(IndiceExtonSmith indiceExtonSmith);
+	
+	
+	/**
+	 * inserisce i valori per il calcolo dell' indice di ExtonSmith.
+	 *
+	 * @param indiceExtonSmith the indice exton smith
+	 */
+	public void insert(IndiceExtonSmith indiceExtonSmith);
+	
+
+	/**
+	 * Recupera i valori per il calcolo dell'indice di ExtonSmith.
+	 *
+	 * @param idIndiceExtonSmith the id indice exton smith
+	 * @return the indice exton smith
+	 */
+	public IndiceExtonSmith selectById(Integer idIndiceExtonSmith);
+
+}

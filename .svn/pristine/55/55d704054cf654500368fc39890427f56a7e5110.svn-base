@@ -1,0 +1,490 @@
+package it.cle.project.model.composti.npi;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+/**
+ * The Class ApatiaIndifferenza.
+ */
+@Entity
+@Table(name = "apatia_indifferenza")
+@XmlRootElement(name="apatia_indifferenza")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class ApatiaIndifferenza {
+
+	/**  The id ApatiaIndifferenza. */
+	private Integer idApatiaIndifferenza;
+	
+	/**  Questo flag indica se il questionario è applicabile o meno. */
+	private Boolean nonApplicabile;
+	
+	/**  Questo campo indica la motivazione in caso di non applicabilità. */
+	private String motivazione;
+	
+	/**   Questo campo indica la seguente domanda:  Il paziente ha interesse verso il mondo che lo circonda? Ha perso interesse nel fare le cose o è meno  motivato ad iniziare cose nuove? Il paziente ha difficoltà nell'introdursi in conversazioni o nelle  faccende di casa? Il paziente è apatico o indifferente?   NO (se no, procedere con la successiva domanda di screening)  SÌ (procedere con le seguenti domande). */
+	private Boolean domandaPreliminare;
+	
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente è meno spontaneo o meno attivo del solito?. */
+	private Integer fDomandaMenoSpontaneo;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente è meno spontaneo o meno attivo del solito?. */
+	private Integer gDomandaMenoSpontaneo;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente è meno disponibile ad iniziare conversazioni?. */
+	private Integer fDomandaMenoDisponibile;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente è meno disponibile ad iniziare conversazioni?. */
+	private Integer gDomandaMenoDisponibile;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente si comporta meno affettuosamente o mostra perdita delle emozioni rispetto al solito?. */
+	private Integer fDomandaMenoAffettuoso;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente si comporta meno affettuosamente o mostra perdita delle emozioni rispetto al solito?. */
+	private Integer gDomandaMenoAffettuoso;	
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente contribuisce meno alle faccende di casa?. */
+	private Integer fDomandaContribuisceMeno;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente contribuisce meno alle faccende di casa?. */
+	private Integer gDomandaContribuisceMeno;		
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente sembra meno interessato alle attività ed ai progetti degli altri?. */
+	private Integer fDomandaMenoInteressato;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente sembra meno interessato alle attività ed ai progetti degli altri?. */
+	private Integer gDomandaMenoInteressato;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente ha perso interesse verso gli amici ed i parenti?. */
+	private Integer fDomandaMenoInteresseAmici;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente ha perso interesse verso gli amici ed i parenti?. */
+	private Integer gDomandaMenoInteresseAmici;	
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente è meno entusiasta dei suoi interessi?. */
+	private Integer fDomandaMenoEntusiasta;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente è meno entusiasta dei suoi interessi?. */
+	private Integer gDomandaMenoEntusiasta;	
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente mostra altri segni di noncuranza nel fare cose nuove?. */
+	private Integer fDomandaAltriSegni;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente mostra altri segni di noncuranza nel fare cose nuove?. */
+	private Integer gDomandaAltriSegni;
+	
+	/**
+	 * Gets the id apatia indifferenza.
+	 *
+	 * @return the id apatia indifferenza
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdApatiaIndifferenza() {
+		return idApatiaIndifferenza;
+	}
+
+	/**
+	 * Sets the id apatia indifferenza.
+	 *
+	 * @param idApatiaIndifferenza the new id apatia indifferenza
+	 */
+	public void setIdApatiaIndifferenza(Integer idApatiaIndifferenza) {
+		this.idApatiaIndifferenza = idApatiaIndifferenza;
+	}
+
+	/**
+	 * Gets the non applicabile.
+	 *
+	 * @return the non applicabile
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "non_applicabile")
+	public Boolean getNonApplicabile() {
+		return nonApplicabile;
+	}
+
+	/**
+	 * Sets the non applicabile.
+	 *
+	 * @param nonApplicabile the new non applicabile
+	 */
+	public void setNonApplicabile(Boolean nonApplicabile) {
+		this.nonApplicabile = nonApplicabile;
+	}
+
+	/**
+	 * Gets the motivazione.
+	 *
+	 * @return the motivazione
+	 */
+	@Column(name = "motivazione")
+	public String getMotivazione() {
+		return motivazione;
+	}
+
+	/**
+	 * Sets the motivazione.
+	 *
+	 * @param motivazione the new motivazione
+	 */
+	public void setMotivazione(String motivazione) {
+		this.motivazione = motivazione;
+	}
+
+	/**
+	 * Gets the domanda preliminare.
+	 *
+	 * @return the domanda preliminare
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_preliminare")
+	public Boolean getDomandaPreliminare() {
+		return domandaPreliminare;
+	}
+
+	/**
+	 * Sets the domanda preliminare.
+	 *
+	 * @param domandaPreliminare the new domanda preliminare
+	 */
+	public void setDomandaPreliminare(Boolean domandaPreliminare) {
+		this.domandaPreliminare = domandaPreliminare;
+	}
+
+	/**
+	 * Gets the f domanda meno spontaneo.
+	 *
+	 * @return the f domanda meno spontaneo
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_meno_spontaneo")
+	public Integer getfDomandaMenoSpontaneo() {
+		return fDomandaMenoSpontaneo;
+	}
+
+	/**
+	 * Sets the f domanda meno spontaneo.
+	 *
+	 * @param fDomandaMenoSpontaneo the new f domanda meno spontaneo
+	 */
+	public void setfDomandaMenoSpontaneo(Integer fDomandaMenoSpontaneo) {
+		this.fDomandaMenoSpontaneo = fDomandaMenoSpontaneo;
+	}
+
+	/**
+	 * Gets the g domanda meno spontaneo.
+	 *
+	 * @return the g domanda meno spontaneo
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_meno_spontaneo")
+	public Integer getgDomandaMenoSpontaneo() {
+		return gDomandaMenoSpontaneo;
+	}
+
+	/**
+	 * Sets the g domanda meno spontaneo.
+	 *
+	 * @param gDomandaMenoSpontaneo the new g domanda meno spontaneo
+	 */
+	public void setgDomandaMenoSpontaneo(Integer gDomandaMenoSpontaneo) {
+		this.gDomandaMenoSpontaneo = gDomandaMenoSpontaneo;
+	}
+
+	/**
+	 * Gets the f domanda meno disponibile.
+	 *
+	 * @return the f domanda meno disponibile
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_meno_disponibile")
+	public Integer getfDomandaMenoDisponibile() {
+		return fDomandaMenoDisponibile;
+	}
+
+	/**
+	 * Sets the f domanda meno disponibile.
+	 *
+	 * @param fDomandaMenoDisponibile the new f domanda meno disponibile
+	 */
+	public void setfDomandaMenoDisponibile(Integer fDomandaMenoDisponibile) {
+		this.fDomandaMenoDisponibile = fDomandaMenoDisponibile;
+	}
+
+	/**
+	 * Gets the g domanda meno disponibile.
+	 *
+	 * @return the g domanda meno disponibile
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_meno_disponibile")
+	public Integer getgDomandaMenoDisponibile() {
+		return gDomandaMenoDisponibile;
+	}
+
+	/**
+	 * Sets the g domanda meno disponibile.
+	 *
+	 * @param gDomandaMenoDisponibile the new g domanda meno disponibile
+	 */
+	public void setgDomandaMenoDisponibile(Integer gDomandaMenoDisponibile) {
+		this.gDomandaMenoDisponibile = gDomandaMenoDisponibile;
+	}
+
+	/**
+	 * Gets the f domanda meno affettuoso.
+	 *
+	 * @return the f domanda meno affettuoso
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_meno_affettuoso")
+	public Integer getfDomandaMenoAffettuoso() {
+		return fDomandaMenoAffettuoso;
+	}
+
+	/**
+	 * Sets the f domanda meno affettuoso.
+	 *
+	 * @param fDomandaMenoAffettuoso the new f domanda meno affettuoso
+	 */
+	public void setfDomandaMenoAffettuoso(Integer fDomandaMenoAffettuoso) {
+		this.fDomandaMenoAffettuoso = fDomandaMenoAffettuoso;
+	}
+
+	/**
+	 * Gets the g domanda meno affettuoso.
+	 *
+	 * @return the g domanda meno affettuoso
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_meno_affettuoso")
+	public Integer getgDomandaMenoAffettuoso() {
+		return gDomandaMenoAffettuoso;
+	}
+
+	/**
+	 * Sets the g domanda meno affettuoso.
+	 *
+	 * @param gDomandaMenoAffettuoso the new g domanda meno affettuoso
+	 */
+	public void setgDomandaMenoAffettuoso(Integer gDomandaMenoAffettuoso) {
+		this.gDomandaMenoAffettuoso = gDomandaMenoAffettuoso;
+	}
+
+	/**
+	 * Gets the f domanda contribuisce meno.
+	 *
+	 * @return the f domanda contribuisce meno
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_contribuisce_meno")
+	public Integer getfDomandaContribuisceMeno() {
+		return fDomandaContribuisceMeno;
+	}
+
+	/**
+	 * Sets the f domanda contribuisce meno.
+	 *
+	 * @param fDomandaContribuisceMeno the new f domanda contribuisce meno
+	 */
+	public void setfDomandaContribuisceMeno(Integer fDomandaContribuisceMeno) {
+		this.fDomandaContribuisceMeno = fDomandaContribuisceMeno;
+	}
+
+	/**
+	 * Gets the g domanda contribuisce meno.
+	 *
+	 * @return the g domanda contribuisce meno
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_contribuisce_meno")
+	public Integer getgDomandaContribuisceMeno() {
+		return gDomandaContribuisceMeno;
+	}
+
+	/**
+	 * Sets the g domanda contribuisce meno.
+	 *
+	 * @param gDomandaContribuisceMeno the new g domanda contribuisce meno
+	 */
+	public void setgDomandaContribuisceMeno(Integer gDomandaContribuisceMeno) {
+		this.gDomandaContribuisceMeno = gDomandaContribuisceMeno;
+	}
+
+	/**
+	 * Gets the f domanda meno interessato.
+	 *
+	 * @return the f domanda meno interessato
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_meno_interessato")
+	public Integer getfDomandaMenoInteressato() {
+		return fDomandaMenoInteressato;
+	}
+
+	/**
+	 * Sets the f domanda meno interessato.
+	 *
+	 * @param fDomandaMenoInteressato the new f domanda meno interessato
+	 */
+	public void setfDomandaMenoInteressato(Integer fDomandaMenoInteressato) {
+		this.fDomandaMenoInteressato = fDomandaMenoInteressato;
+	}
+
+	/**
+	 * Gets the g domanda meno interessato.
+	 *
+	 * @return the g domanda meno interessato
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_meno_interessato")
+	public Integer getgDomandaMenoInteressato() {
+		return gDomandaMenoInteressato;
+	}
+
+	/**
+	 * Sets the g domanda meno interessato.
+	 *
+	 * @param gDomandaMenoInteressato the new g domanda meno interessato
+	 */
+	public void setgDomandaMenoInteressato(Integer gDomandaMenoInteressato) {
+		this.gDomandaMenoInteressato = gDomandaMenoInteressato;
+	}
+
+	/**
+	 * Gets the f domanda meno interesse amici.
+	 *
+	 * @return the f domanda meno interesse amici
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_meno_interessate_amici")
+	public Integer getfDomandaMenoInteresseAmici() {
+		return fDomandaMenoInteresseAmici;
+	}
+
+	/**
+	 * Sets the f domanda meno interesse amici.
+	 *
+	 * @param fDomandaMenoInteresseAmici the new f domanda meno interesse amici
+	 */
+	public void setfDomandaMenoInteresseAmici(Integer fDomandaMenoInteresseAmici) {
+		this.fDomandaMenoInteresseAmici = fDomandaMenoInteresseAmici;
+	}
+
+	/**
+	 * Gets the g domanda meno interesse amici.
+	 *
+	 * @return the g domanda meno interesse amici
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_meno_interessate_amici")
+	public Integer getgDomandaMenoInteresseAmici() {
+		return gDomandaMenoInteresseAmici;
+	}
+
+	/**
+	 * Sets the g domanda meno interesse amici.
+	 *
+	 * @param gDomandaMenoInteresseAmici the new g domanda meno interesse amici
+	 */
+	public void setgDomandaMenoInteresseAmici(Integer gDomandaMenoInteresseAmici) {
+		this.gDomandaMenoInteresseAmici = gDomandaMenoInteresseAmici;
+	}
+
+	/**
+	 * Gets the f domanda meno entusiasta.
+	 *
+	 * @return the f domanda meno entusiasta
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_meno_entusiasta")
+	public Integer getfDomandaMenoEntusiasta() {
+		return fDomandaMenoEntusiasta;
+	}
+
+	/**
+	 * Sets the f domanda meno entusiasta.
+	 *
+	 * @param fDomandaMenoEntusiasta the new f domanda meno entusiasta
+	 */
+	public void setfDomandaMenoEntusiasta(Integer fDomandaMenoEntusiasta) {
+		this.fDomandaMenoEntusiasta = fDomandaMenoEntusiasta;
+	}
+
+	/**
+	 * Gets the g domanda meno entusiasta.
+	 *
+	 * @return the g domanda meno entusiasta
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_meno_entusiasta")
+	public Integer getgDomandaMenoEntusiasta() {
+		return gDomandaMenoEntusiasta;
+	}
+
+	/**
+	 * Sets the g domanda meno entusiasta.
+	 *
+	 * @param gDomandaMenoEntusiasta the new g domanda meno entusiasta
+	 */
+	public void setgDomandaMenoEntusiasta(Integer gDomandaMenoEntusiasta) {
+		this.gDomandaMenoEntusiasta = gDomandaMenoEntusiasta;
+	}
+
+	/**
+	 * Gets the f domanda altri segni.
+	 *
+	 * @return the f domanda altri segni
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_altri_segni")
+	public Integer getfDomandaAltriSegni() {
+		return fDomandaAltriSegni;
+	}
+
+	/**
+	 * Sets the f domanda altri segni.
+	 *
+	 * @param fDomandaAltriSegni the new f domanda altri segni
+	 */
+	public void setfDomandaAltriSegni(Integer fDomandaAltriSegni) {
+		this.fDomandaAltriSegni = fDomandaAltriSegni;
+	}
+
+	/**
+	 * Gets the g domanda altri segni.
+	 *
+	 * @return the g domanda altri segni
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_altri_segni")
+	public Integer getgDomandaAltriSegni() {
+		return gDomandaAltriSegni;
+	}
+
+	/**
+	 * Sets the g domanda altri segni.
+	 *
+	 * @param gDomandaAltriSegni the new g domanda altri segni
+	 */
+	public void setgDomandaAltriSegni(Integer gDomandaAltriSegni) {
+		this.gDomandaAltriSegni = gDomandaAltriSegni;
+	}	
+	
+}

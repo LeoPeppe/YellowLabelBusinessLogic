@@ -1,0 +1,24 @@
+package it.cle.project.service;
+
+import it.cle.project.model.Prestazioni;
+
+import java.util.List;
+/**
+ * Interfaccia IndiceADLService.
+ *
+ * @author dfronza
+ */
+
+
+public interface PrestazioniService {
+	
+	public String calcolaRangeADL(String rangeADLInput);
+	public String calcolaRangeBarthel(String rangeBarthelInput);
+	public String calcolaRangeRete(String rangeReteInput);
+	
+	
+	
+
+	public List<Prestazioni> select(String rangeADL,String rangeBarthel, String rangeRete);
+	public List<Prestazioni> selectTutte();
+}

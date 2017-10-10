@@ -1,0 +1,10 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.SituazCognitivaSvama;
+
+/**
+ * The Interface SituazCognitivaSvamaDao.
+ */
+public interface SituazCognitivaSvamaDao extends Dao<SituazCognitivaSvama> {
+
+}

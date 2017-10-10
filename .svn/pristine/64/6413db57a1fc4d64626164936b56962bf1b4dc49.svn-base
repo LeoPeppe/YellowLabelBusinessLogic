@@ -1,0 +1,309 @@
+package it.cle.project.model.composti.npi;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+@Entity
+@Table(name = "allucinazioni")
+@XmlRootElement(name="allucinazioni")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Allucinazioni {
+	
+	/** The id Allucinazioni */
+	private Integer idAllucinazioni;
+	
+	/** Questo flag indica se il questionario è applicabile o meno */
+	private Boolean nonApplicabile;
+	
+	/** Questo campo indica la motivazione in caso di non applicabilità */
+	private String motivazione;
+	
+	/** 
+	 * Questo campo indica la seguente domanda: 
+	 * Il paziente è molto nervoso, allarmato, spaventato senza veri motivi? Sembra molto teso o agitato? 
+	 * È impaurito dal rimanere lontano da voi?
+	 *  
+	 *  NO (se no, procedere con la successiva domanda di screening) 
+	 *  SÌ (procedere con le seguenti domande)
+	*/
+	private Boolean domandaPreliminare;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente dice di sentire delle voci o si comporta come se le sentisse?
+	 * */
+	private Integer fDomandaVoci;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente dice di sentire delle voci o si comporta come se le sentisse?
+	 * */
+	private Integer gDomandaVoci;
+
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente parla con persone che non sono presenti?
+	 * */
+	private Integer fDomandaPersoneNonPresenti;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente parla con persone che non sono presenti?
+	 * */
+	private Integer gDomandaPersoneNonPresenti;
+
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente riferisce di vedere cose che gli altri non vedono o si comporta come se vedesse cose che gli altri non vedono (come persone, animali, luci..)?
+	 * */
+	private Integer fDomandaVisioneCose;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente riferisce di vedere cose che gli altri non vedono o si comporta come se vedesse cose che gli altri non vedono (come persone, animali, luci..)?
+	 * */
+	private Integer gDomandaVisioneCose;
+
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente dice di sentire odori che gli altri non sentono?	 
+	 * */
+	private Integer fDomandaOdori;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente dice di sentire odori che gli altri non sentono?	
+	 * */
+	private Integer gDomandaOdori;
+
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente riferisce di sentire cose che strisciano o lo toccano sulla pelle?
+	 * */
+	private Integer fDomandaToccoPelle;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente riferisce di sentire cose che strisciano o lo toccano sulla pelle?
+	 * */
+	private Integer gDomandaToccoPelle;
+
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente riferisce di percepire sapori senza una causa nota?
+	 * */
+	private Integer fDomandaSapori;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente riferisce di percepire sapori senza una causa nota?
+	 * */
+	private Integer gDomandaSapori;
+
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente riferisce altre esperienze sensoriali insolite?
+	 * */
+	private Integer fDomandaEsperienzeSensoriali;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente riferisce altre esperienze sensoriali insolite?
+	 * */
+	private Integer gDomandaEsperienzeSensoriali;
+
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdAllucinazioni() {
+		return idAllucinazioni;
+	}
+
+	public void setIdAllucinazioni(Integer idAllucinazioni) {
+		this.idAllucinazioni = idAllucinazioni;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "non_applicabile")
+	public Boolean getNonApplicabile() {
+		return nonApplicabile;
+	}
+
+	public void setNonApplicabile(Boolean nonApplicabile) {
+		this.nonApplicabile = nonApplicabile;
+	}
+
+	@Column(name = "motivazione")
+	public String getMotivazione() {
+		return motivazione;
+	}
+
+	public void setMotivazione(String motivazione) {
+		this.motivazione = motivazione;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_preliminare")
+	public Boolean getDomandaPreliminare() {
+		return domandaPreliminare;
+	}
+
+	public void setDomandaPreliminare(Boolean domandaPreliminare) {
+		this.domandaPreliminare = domandaPreliminare;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_voci")
+	public Integer getfDomandaVoci() {
+		return fDomandaVoci;
+	}
+
+	public void setfDomandaVoci(Integer fDomandaVoci) {
+		this.fDomandaVoci = fDomandaVoci;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_voci")
+	public Integer getgDomandaVoci() {
+		return gDomandaVoci;
+	}
+
+	public void setgDomandaVoci(Integer gDomandaVoci) {
+		this.gDomandaVoci = gDomandaVoci;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_persone_non_presenti")
+	public Integer getfDomandaPersoneNonPresenti() {
+		return fDomandaPersoneNonPresenti;
+	}
+
+	public void setfDomandaPersoneNonPresenti(Integer fDomandaPersoneNonPresenti) {
+		this.fDomandaPersoneNonPresenti = fDomandaPersoneNonPresenti;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_persone_non_presenti")
+	public Integer getgDomandaPersoneNonPresenti() {
+		return gDomandaPersoneNonPresenti;
+	}
+
+	public void setgDomandaPersoneNonPresenti(Integer gDomandaPersoneNonPresenti) {
+		this.gDomandaPersoneNonPresenti = gDomandaPersoneNonPresenti;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_visione_cose")	
+	public Integer getfDomandaVisioneCose() {
+		return fDomandaVisioneCose;
+	}
+
+	public void setfDomandaVisioneCose(Integer fDomandaVisioneCose) {
+		this.fDomandaVisioneCose = fDomandaVisioneCose;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_visione_cose")
+	public Integer getgDomandaVisioneCose() {
+		return gDomandaVisioneCose;
+	}
+
+	public void setgDomandaVisioneCose(Integer gDomandaVisioneCose) {
+		this.gDomandaVisioneCose = gDomandaVisioneCose;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_odori")	
+	public Integer getfDomandaOdori() {
+		return fDomandaOdori;
+	}
+
+	public void setfDomandaOdori(Integer fDomandaOdori) {
+		this.fDomandaOdori = fDomandaOdori;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_odori")
+	public Integer getgDomandaOdori() {
+		return gDomandaOdori;
+	}
+
+	public void setgDomandaOdori(Integer gDomandaOdori) {
+		this.gDomandaOdori = gDomandaOdori;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_tocco_pelle")
+	public Integer getfDomandaToccoPelle() {
+		return fDomandaToccoPelle;
+	}
+
+	public void setfDomandaToccoPelle(Integer fDomandaToccoPelle) {
+		this.fDomandaToccoPelle = fDomandaToccoPelle;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_tocco_pelle")
+	public Integer getgDomandaToccoPelle() {
+		return gDomandaToccoPelle;
+	}
+
+	public void setgDomandaToccoPelle(Integer gDomandaToccoPelle) {
+		this.gDomandaToccoPelle = gDomandaToccoPelle;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_sapori")
+	public Integer getfDomandaSapori() {
+		return fDomandaSapori;
+	}
+
+	public void setfDomandaSapori(Integer fDomandaSapori) {
+		this.fDomandaSapori = fDomandaSapori;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_sapori")
+	public Integer getgDomandaSapori() {
+		return gDomandaSapori;
+	}
+
+	public void setgDomandaSapori(Integer gDomandaSapori) {
+		this.gDomandaSapori = gDomandaSapori;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_esperienze_sensoriali")
+	public Integer getfDomandaEsperienzeSensoriali() {
+		return fDomandaEsperienzeSensoriali;
+	}
+
+	public void setfDomandaEsperienzeSensoriali(Integer fDomandaEsperienzeSensoriali) {
+		this.fDomandaEsperienzeSensoriali = fDomandaEsperienzeSensoriali;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_esperienze_sensoriali")
+	public Integer getgDomandaEsperienzeSensoriali() {
+		return gDomandaEsperienzeSensoriali;
+	}
+
+	public void setgDomandaEsperienzeSensoriali(Integer gDomandaEsperienzeSensoriali) {
+		this.gDomandaEsperienzeSensoriali = gDomandaEsperienzeSensoriali;
+	}
+}

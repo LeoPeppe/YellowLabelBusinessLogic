@@ -1,0 +1,239 @@
+package it.cle.project.model;
+
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DatiAssistito.
+ */
+@Entity
+@Table(name = "dati_assistito")
+@XmlRootElement(name = "dati_assistito")  
+//@XmlAccessorType(XmlAccessType.FIELD)
+public class DatiAssistito implements Serializable{
+	
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The id dati assistito. */
+	private Integer idDatiAssistito;
+
+	/** The cognome. */
+	private String cognome;
+	
+	/** The nome. */
+	private String nome;
+	
+	/** The data nascita. */
+	private String dataNascita;
+	
+	/** The indirizzo. */
+	private String indirizzo;
+	
+	/** The citta residenza. */
+	private String cittaResidenza;
+	
+	/** The codice fiscale. */
+	private String codiceFiscale;
+	
+	/** The persona riferimento. */
+	private String personaRiferimento;
+	
+	
+	
+	
+	/**
+	 * Gets the id dati assistito.
+	 *
+	 * @return the id dati assistito
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdDatiAssistito() {
+		return idDatiAssistito;
+	}
+	
+	/**
+	 * Sets the id dati assistito.
+	 *
+	 * @param idDatiAssistito the new id dati assistito
+	 */
+	@XmlAttribute(name="idDatiAssistito")
+	public void setIdDatiAssistito(Integer idDatiAssistito) {
+		this.idDatiAssistito = idDatiAssistito;
+	}
+	
+	/**
+	 * Gets the cognome.
+	 *
+	 * @return the cognome
+	 */
+	@NotNull
+	@Column(name = "cognome")
+	public String getCognome() {
+		return cognome;
+	}
+	
+	/**
+	 * Sets the cognome.
+	 *
+	 * @param cognome the new cognome
+	 */
+	@XmlElement(name="cognome")
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+	
+	/**
+	 * Gets the nome.
+	 *
+	 * @return the nome
+	 */
+	@NotNull
+	@Column(name = "nome")
+	public String getNome() {
+		return nome;
+	}
+	
+	/**
+	 * Sets the nome.
+	 *
+	 * @param nome the new nome
+	 */
+	@XmlElement(name="nome")
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	/**
+	 * Gets the data nascita.
+	 *
+	 * @return the data nascita
+	 */
+	@NotNull
+	@Column(name = "dataNascita")
+	public String getDataNascita() {
+		return dataNascita;
+	}
+	
+	/**
+	 * Sets the data nascita.
+	 *
+	 * @param dataNascita the new data nascita
+	 */
+	@XmlElement(name="dataNascita")
+	public void setDataNascita(String dataNascita) {
+		this.dataNascita = dataNascita;
+	}
+	
+	/**
+	 * Gets the indirizzo.
+	 *
+	 * @return the indirizzo
+	 */
+	@NotNull
+	@Column(name = "indirizzo")
+	public String getIndirizzo() {
+		return indirizzo;
+	}
+	
+	/**
+	 * Sets the indirizzo.
+	 *
+	 * @param indirizzo the new indirizzo
+	 */
+	@XmlElement(name="indirizzo")
+	public void setIndirizzo(String indirizzo) {
+		this.indirizzo = indirizzo;
+	}
+	
+	/**
+	 * Gets the citta residenza.
+	 *
+	 * @return the citta residenza
+	 */
+	@NotNull
+	@Column(name = "cittaResidenza")
+	public String getCittaResidenza() {
+		return cittaResidenza;
+	}
+	
+	/**
+	 * Sets the citta residenza.
+	 *
+	 * @param cittaResidenza the new citta residenza
+	 */
+	@XmlElement(name="cittaResidenza")
+	public void setCittaResidenza(String cittaResidenza) {
+		this.cittaResidenza = cittaResidenza;
+	}
+	
+	/**
+	 * Gets the codice fiscale.
+	 *
+	 * @return the codice fiscale
+	 */
+	@NotNull
+	@Column(name = "codiceFiscale")
+	public String getCodiceFiscale() {
+		return codiceFiscale;
+	}
+	
+	/**
+	 * Sets the codice fiscale.
+	 *
+	 * @param codiceFiscale the new codice fiscale
+	 */
+	@XmlElement(name="codiceFiscale")
+	public void setCodiceFiscale(String codiceFiscale) {
+		this.codiceFiscale = codiceFiscale;
+	}
+	
+	/**
+	 * Gets the persona riferimento.
+	 *
+	 * @return the persona riferimento
+	 */
+	@NotNull
+	@Column(name = "personaRiferimento")
+	public String getPersonaRiferimento() {
+		return personaRiferimento;
+	}
+	
+	/**
+	 * Sets the persona riferimento.
+	 *
+	 * @param personaRiferimento the new persona riferimento
+	 */
+	@XmlElement(name="personaRiferimento")
+	public void setPersonaRiferimento(String personaRiferimento) {
+		this.personaRiferimento = personaRiferimento;
+	}
+
+	
+	/**
+	 * Instantiates a new dati assistito.
+	 */
+	public DatiAssistito() {
+    }
+	
+	
+
+}

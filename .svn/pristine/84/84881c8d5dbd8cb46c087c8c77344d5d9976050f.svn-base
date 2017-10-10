@@ -1,0 +1,10 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.Committente;
+
+public interface CommittenteDao extends Dao<Committente> {
+	
+	
+	public Committente getCommittenteByDenominazione(String denominazione);
+
+}

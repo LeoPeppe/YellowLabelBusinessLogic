@@ -1,0 +1,85 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
+public class DatiRiepilogoDTO implements Serializable {
+
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Double aliquotaIva;
+	private String natura;
+	private Double speseAccessorie;
+	private Double arrotondamento;
+	private Double imponibileImporto;
+	private Double imposta;
+	private String esigibilitaIva;
+	private String riferimentoNormativo;
+	
+	
+	public Double getAliquotaIva() {
+		return aliquotaIva;
+	}
+	@XmlElement(name="AliquotaIVA")
+	public void setAliquotaIva(Double aliquotaIva) {
+		this.aliquotaIva = aliquotaIva;
+	}
+	public String getNatura() {
+		return natura;
+	}
+	@XmlElement(name="Natura")
+	public void setNatura(String natura) {
+		this.natura = natura;
+	}
+	public Double getSpeseAccessorie() {
+		return speseAccessorie;
+	}
+	@XmlElement(name="SpeseAccessorie")
+	public void setSpeseAccessorie(Double speseAccessorie) {
+		this.speseAccessorie = speseAccessorie;
+	}
+	public Double getArrotondamento() {
+		return arrotondamento;
+	}
+	@XmlElement(name="Arrotondamento")
+	public void setArrotondamento(Double arrotondamento) {
+		this.arrotondamento = arrotondamento;
+	}
+	public Double getImponibileImporto() {
+		return imponibileImporto;
+	}
+	@XmlElement(name="ImponibileImporto")
+	public void setImponibileImporto(Double imponibileImporto) {
+		this.imponibileImporto = imponibileImporto;
+	}
+	public Double getImposta() {
+		return imposta;
+	}
+	@XmlElement(name="Imposta")
+	public void setImposta(Double imposta) {
+		this.imposta = imposta;
+	}
+	public String getEsigibilitaIva() {
+		return esigibilitaIva;
+	}
+	@XmlElement(name="EsigibilitaIVA")
+	public void setEsigibilitaIva(String esigibilitaIva) {
+		this.esigibilitaIva = esigibilitaIva;
+	}
+	public String getRiferimentoNormativo() {
+		return riferimentoNormativo;
+	}
+	@XmlElement(name="RiferimentoNormativo")
+	public void setRiferimentoNormativo(String riferimentoNormativo) {
+		this.riferimentoNormativo = riferimentoNormativo;
+	}
+	
+	
+	
+}

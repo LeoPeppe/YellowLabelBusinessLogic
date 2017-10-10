@@ -1,0 +1,455 @@
+package it.cle.project.model.composti.npi;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class EuforiaEsaltazione.
+ */
+@Entity
+@Table(name = "euforia_esaltazione")
+@XmlRootElement(name="euforia_esaltazione")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class EuforiaEsaltazione {
+
+	/**  The id EuforiaEsaltazione. */
+	private Integer idEuforiaEsaltazione;
+	
+	/**  Questo flag indica se il questionario è applicabile o meno. */
+	private Boolean nonApplicabile;
+	
+	/**  Questo campo indica la motivazione in caso di non applicabilità. */
+	private String motivazione;
+	
+	/** 
+	 * Questo campo indica la seguente domanda: 
+	 * Il paziente è eccessivamente felice o allegro senza motivo? Non si intende la normale felicità 
+	 * mostrata alla vista di amici, quando si ricevono regali, o quando si sta coi parenti. Vi sto chiedendo 
+	 * se il paziente ha un persistente ed anormale stato di euforia o se trova ridicole cose che gli altri non 
+	 * trovano divertenti.
+	 *  
+	 * NO (se no, procedere con la successiva domanda di screening) 
+	 * SÌ (procedere con le seguenti domande)
+	*/
+	private Boolean domandaPreliminare;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente sembra sentirsi eccessivamente bene o essere troppo felice, in modo differente dal solito?. */
+	private Integer fDomandaDifferenteDalSolito;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente sembra sentirsi eccessivamente bene o essere troppo felice, in modo differente dal solito?. */
+	private Integer gDomandaDifferenteDalSolito;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente trova ridicole e ride per cose che altri non ritengono spiritose?. */
+	private Integer fDomandaCoseRidicole;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente trova ridicole e ride per cose che altri non ritengono spiritose?. */
+	private Integer gDomandaCoseRidicole;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente ha un senso dell'umorismo da bambino con la tendenza a ridacchiare o ridere  quando non è il caso (come per esempio quando qualche contrattempo colpisce altre persone)?. */
+	private Integer fDomandaSensoUmorismo;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente ha un senso dell'umorismo da bambino con la tendenza a ridacchiare o ridere  quando non è il caso (come per esempio quando qualche contrattempo colpisce altre persone)?. */
+	private Integer gDomandaSensoUmorismo;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente fa degli scherzi o compie osservazioni che sono poco spiritose ma che lui pensa  divertenti?. */
+	private Integer fDomandaOsservazioni;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente fa degli scherzi o compie osservazioni che sono poco spiritose ma che lui pensa  divertenti?. */
+	private Integer gDomandaOsservazioni;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente compie scherzi come dare pizzicotti oppure fa dei giochetti solo per divertimento?. */
+	private Integer fDomandaScherzi;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente compie scherzi come dare pizzicotti oppure fa dei giochetti solo per divertimento?. */
+	private Integer gDomandaScherzi;	
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Si vanta o dice di essere molto più bravo o più ricco di quanto sia veramente?. */
+	private Integer fDomandaBravoRicco;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Si vanta o dice di essere molto più bravo o più ricco di quanto sia veramente?. */
+	private Integer gDomandaBravoRicco;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente mostra altri segni che indicano che si sente troppo bene o troppo felice?. */
+	private Integer fDomandaAltriSegni;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente mostra altri segni che indicano che si sente troppo bene o troppo felice?. */
+	private Integer gDomandaAltriSegni;
+	
+	/**
+	 * Gets the id euforia esaltazione.
+	 *
+	 * @return the id euforia esaltazione
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdEuforiaEsaltazione() {
+		return idEuforiaEsaltazione;
+	}
+
+	/**
+	 * Sets the id euforia esaltazione.
+	 *
+	 * @param idEuforiaEsaltazione the new id euforia esaltazione
+	 */
+	public void setIdEuforiaEsaltazione(Integer idEuforiaEsaltazione) {
+		this.idEuforiaEsaltazione = idEuforiaEsaltazione;
+	}
+
+	/**
+	 * Gets the non applicabile.
+	 *
+	 * @return the non applicabile
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "non_applicabile")
+	public Boolean getNonApplicabile() {
+		return nonApplicabile;
+	}
+
+	/**
+	 * Sets the non applicabile.
+	 *
+	 * @param nonApplicabile the new non applicabile
+	 */
+	public void setNonApplicabile(Boolean nonApplicabile) {
+		this.nonApplicabile = nonApplicabile;
+	}
+	
+	/**
+	 * Gets the motivazione.
+	 *
+	 * @return the motivazione
+	 */
+	@Column(name = "motivazione")
+	public String getMotivazione() {
+		return motivazione;
+	}
+	
+	/**
+	 * Sets the motivazione.
+	 *
+	 * @param motivazione the new motivazione
+	 */
+	public void setMotivazione(String motivazione) {
+		this.motivazione = motivazione;
+	}
+
+	/**
+	 * Gets the domanda preliminare.
+	 *
+	 * @return the domanda preliminare
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_preliminare")
+	public Boolean getDomandaPreliminare() {
+		return domandaPreliminare;
+	}
+
+	/**
+	 * Sets the domanda preliminare.
+	 *
+	 * @param domandaPreliminare the new domanda preliminare
+	 */
+	public void setDomandaPreliminare(Boolean domandaPreliminare) {
+		this.domandaPreliminare = domandaPreliminare;
+	}
+
+	/**
+	 * Gets the f domanda differente dal solito.
+	 *
+	 * @return the f domanda differente dal solito
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_differente_dal_solito")
+	public Integer getfDomandaDifferenteDalSolito() {
+		return fDomandaDifferenteDalSolito;
+	}
+
+	/**
+	 * Sets the f domanda differente dal solito.
+	 *
+	 * @param fDomandaDifferenteDalSolito the new f domanda differente dal solito
+	 */
+	public void setfDomandaDifferenteDalSolito(Integer fDomandaDifferenteDalSolito) {
+		this.fDomandaDifferenteDalSolito = fDomandaDifferenteDalSolito;
+	}
+
+	/**
+	 * Gets the g domanda differente dal solito.
+	 *
+	 * @return the g domanda differente dal solito
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_differente_dal_solito")
+	public Integer getgDomandaDifferenteDalSolito() {
+		return gDomandaDifferenteDalSolito;
+	}
+
+	/**
+	 * Sets the g domanda differente dal solito.
+	 *
+	 * @param gDomandaDifferenteDalSolito the new g domanda differente dal solito
+	 */
+	public void setgDomandaDifferenteDalSolito(Integer gDomandaDifferenteDalSolito) {
+		this.gDomandaDifferenteDalSolito = gDomandaDifferenteDalSolito;
+	}
+
+	/**
+	 * Gets the f domanda cose ridicole.
+	 *
+	 * @return the f domanda cose ridicole
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_cose_ridicole")
+	public Integer getfDomandaCoseRidicole() {
+		return fDomandaCoseRidicole;
+	}
+
+	/**
+	 * Sets the f domanda cose ridicole.
+	 *
+	 * @param fDomandaCoseRidicole the new f domanda cose ridicole
+	 */
+	public void setfDomandaCoseRidicole(Integer fDomandaCoseRidicole) {
+		this.fDomandaCoseRidicole = fDomandaCoseRidicole;
+	}
+
+	/**
+	 * Gets the g domanda cose ridicole.
+	 *
+	 * @return the g domanda cose ridicole
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_cose_ridicole")
+	public Integer getgDomandaCoseRidicole() {
+		return gDomandaCoseRidicole;
+	}
+
+	/**
+	 * Sets the g domanda cose ridicole.
+	 *
+	 * @param gDomandaCoseRidicole the new g domanda cose ridicole
+	 */
+	public void setgDomandaCoseRidicole(Integer gDomandaCoseRidicole) {
+		this.gDomandaCoseRidicole = gDomandaCoseRidicole;
+	}
+
+	/**
+	 * Gets the f domanda senso umorismo.
+	 *
+	 * @return the f domanda senso umorismo
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_senso_umorismo")
+	public Integer getfDomandaSensoUmorismo() {
+		return fDomandaSensoUmorismo;
+	}
+
+	/**
+	 * Sets the f domanda senso umorismo.
+	 *
+	 * @param fDomandaSensoUmorismo the new f domanda senso umorismo
+	 */
+	public void setfDomandaSensoUmorismo(Integer fDomandaSensoUmorismo) {
+		this.fDomandaSensoUmorismo = fDomandaSensoUmorismo;
+	}
+
+	/**
+	 * Gets the g domanda senso umorismo.
+	 *
+	 * @return the g domanda senso umorismo
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_senso_umorismo")
+	public Integer getgDomandaSensoUmorismo() {
+		return gDomandaSensoUmorismo;
+	}
+
+	/**
+	 * Sets the g domanda senso umorismo.
+	 *
+	 * @param gDomandaSensoUmorismo the new g domanda senso umorismo
+	 */
+	public void setgDomandaSensoUmorismo(Integer gDomandaSensoUmorismo) {
+		this.gDomandaSensoUmorismo = gDomandaSensoUmorismo;
+	}
+
+	/**
+	 * Gets the f domanda osservazioni.
+	 *
+	 * @return the f domanda osservazioni
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_osservazioni")
+	public Integer getfDomandaOsservazioni() {
+		return fDomandaOsservazioni;
+	}
+
+	/**
+	 * Sets the f domanda osservazioni.
+	 *
+	 * @param fDomandaOsservazioni the new f domanda osservazioni
+	 */
+	public void setfDomandaOsservazioni(Integer fDomandaOsservazioni) {
+		this.fDomandaOsservazioni = fDomandaOsservazioni;
+	}
+
+	/**
+	 * Gets the g domanda osservazioni.
+	 *
+	 * @return the g domanda osservazioni
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_osservazioni")
+	public Integer getgDomandaOsservazioni() {
+		return gDomandaOsservazioni;
+	}
+
+	/**
+	 * Sets the g domanda osservazioni.
+	 *
+	 * @param gDomandaOsservazioni the new g domanda osservazioni
+	 */
+	public void setgDomandaOsservazioni(Integer gDomandaOsservazioni) {
+		this.gDomandaOsservazioni = gDomandaOsservazioni;
+	}
+
+	/**
+	 * Gets the f domanda scherzi.
+	 *
+	 * @return the f domanda scherzi
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_scherzi")
+	public Integer getfDomandaScherzi() {
+		return fDomandaScherzi;
+	}
+
+	/**
+	 * Sets the f domanda scherzi.
+	 *
+	 * @param fDomandaScherzi the new f domanda scherzi
+	 */
+	public void setfDomandaScherzi(Integer fDomandaScherzi) {
+		this.fDomandaScherzi = fDomandaScherzi;
+	}
+
+	/**
+	 * Gets the g domanda scherzi.
+	 *
+	 * @return the g domanda scherzi
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_scherzi")
+	public Integer getgDomandaScherzi() {
+		return gDomandaScherzi;
+	}
+
+	/**
+	 * Sets the g domanda scherzi.
+	 *
+	 * @param gDomandaScherzi the new g domanda scherzi
+	 */
+	public void setgDomandaScherzi(Integer gDomandaScherzi) {
+		this.gDomandaScherzi = gDomandaScherzi;
+	}
+
+	/**
+	 * Gets the f domanda bravo ricco.
+	 *
+	 * @return the f domanda bravo ricco
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_bravo_ricco")
+	public Integer getfDomandaBravoRicco() {
+		return fDomandaBravoRicco;
+	}
+
+	/**
+	 * Sets the f domanda bravo ricco.
+	 *
+	 * @param fDomandaBravoRicco the new f domanda bravo ricco
+	 */
+	public void setfDomandaBravoRicco(Integer fDomandaBravoRicco) {
+		this.fDomandaBravoRicco = fDomandaBravoRicco;
+	}
+
+	/**
+	 * Gets the g domanda bravo ricco.
+	 *
+	 * @return the g domanda bravo ricco
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_bravo_ricco")
+	public Integer getgDomandaBravoRicco() {
+		return gDomandaBravoRicco;
+	}
+
+	/**
+	 * Sets the g domanda bravo ricco.
+	 *
+	 * @param gDomandaBravoRicco the new g domanda bravo ricco
+	 */
+	public void setgDomandaBravoRicco(Integer gDomandaBravoRicco) {
+		this.gDomandaBravoRicco = gDomandaBravoRicco;
+	}
+
+	/**
+	 * Gets the f domanda altri segni.
+	 *
+	 * @return the f domanda altri segni
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_altri_segni")
+	public Integer getfDomandaAltriSegni() {
+		return fDomandaAltriSegni;
+	}
+
+	/**
+	 * Sets the f domanda altri segni.
+	 *
+	 * @param fDomandaAltriSegni the new f domanda altri segni
+	 */
+	public void setfDomandaAltriSegni(Integer fDomandaAltriSegni) {
+		this.fDomandaAltriSegni = fDomandaAltriSegni;
+	}
+
+	/**
+	 * Gets the g domanda altri segni.
+	 *
+	 * @return the g domanda altri segni
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_altri_segni")
+	public Integer getgDomandaAltriSegni() {
+		return gDomandaAltriSegni;
+	}
+
+	/**
+	 * Sets the g domanda altri segni.
+	 *
+	 * @param gDomandaAltriSegni the new g domanda altri segni
+	 */
+	public void setgDomandaAltriSegni(Integer gDomandaAltriSegni) {
+		this.gDomandaAltriSegni = gDomandaAltriSegni;
+	}
+	
+	
+}

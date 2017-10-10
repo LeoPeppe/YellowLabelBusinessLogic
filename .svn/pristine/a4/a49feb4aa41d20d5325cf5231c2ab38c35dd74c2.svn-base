@@ -1,0 +1,12 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.IndiceSPMSQ;
+
+/**
+ * Interfaccia IndiceBarthelDao.
+ * @author Fronza
+ */
+public interface IndiceSPMSQDao extends Dao<IndiceSPMSQ>{
+
+}
+

@@ -1,0 +1,14 @@
+package it.cle.project.config;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+
+/**
+ * The Class AppConfig.
+ */
+@Configuration
+@ComponentScan(basePackages = {"it.cle.project.dao.hbn", "it.cle.project.dao.hibernate", "it.cle.project.validation", "it.cle.project.service.impl"})
+@Import( { PropertyPlaceholderConfig.class, DataConfig.class  } )
+public class AppConfig {
+}

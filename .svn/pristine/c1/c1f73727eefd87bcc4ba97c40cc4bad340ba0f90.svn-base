@@ -1,0 +1,45 @@
+package it.cle.project.service.impl;
+
+
+import it.cle.project.dao.hbn.HbnDatiAssistitoDao;
+import it.cle.project.model.DatiAssistito;
+import it.cle.project.service.DatiAssistitoService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndiceADLServiceImpl.
+ * Questa classe implementa contiene la Business Logic e 
+ * i metodi per le operazioni base relative all' indice ADL
+ */
+@Service("datiAssistitoService")
+@Transactional
+public class DatiAssistitoServiceImpl implements DatiAssistitoService {
+	
+	
+	/** The dao. */
+	@Autowired
+	private HbnDatiAssistitoDao dao;
+	
+		
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.DatiAssistitoService#selectById(java.lang.Integer)
+	 */
+	public DatiAssistito selectById(Integer idDatiAssistito){
+		
+		return dao.get(idDatiAssistito);
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.DatiAssistitoService#insert(it.cle.project.model.DatiAssistito)
+	 */
+	@Override
+	public void insert(DatiAssistito datiAssistito) {
+		dao.create(datiAssistito);
+		
+	}
+}

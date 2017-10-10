@@ -1,0 +1,19 @@
+package it.cle.project.dao.hbn;
+
+import org.springframework.stereotype.Repository;
+
+import it.cle.project.dao.ErogatoreDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.Erogatore;
+
+/**
+ * The Class HbnErogatoreDao.
+ */
+@Repository
+public class HbnErogatoreDao extends AbstractHbnDao<Erogatore>  implements ErogatoreDao {
+	
+//	public HbnErogatoreDao() {
+//		super();
+//	}
+
+}

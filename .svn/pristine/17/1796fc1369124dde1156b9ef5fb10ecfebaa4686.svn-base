@@ -1,0 +1,283 @@
+package it.cle.project.model;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@Entity
+@Table(name = "indice_bes_bulimia")
+@XmlRootElement(name = "indice_bes")
+public class IndiceBesBulimia {
+	
+	/** The id IndiceBesBulimia. */
+	private Integer idIndiceBesBulimia;
+	
+	/** The Domanda 1. 
+	 *  Validazione: //0,0,1,3 */
+	private Integer domanda1;
+
+	/** The Domanda 2. 
+	 *  Validazione: //0,1,2,3 */
+	private Integer Domanda2;
+	
+	/** The Domanda 3. 
+	 *  Validazione: //0,1,3,3 */
+	private Integer domanda3;
+	
+	/** The Domanda 4. 
+	 *  Validazione: //0,0,0,3 */
+	private Integer domanda4;
+	
+	/** The Domanda 5. 
+	 *  Validazione: //0,1,2,3 */
+	private Integer domanda5;
+	
+	/** The Domanda 6. 
+	 *  Validazione: //0,1,3 */
+	private Integer domanda6;
+	
+	/** The Domanda 7. 
+	 *  Validazione: //0,2,3,3 */
+	private Integer domanda7;
+
+	/** The Domanda 8. 
+	 *  Validazione: //0,1,2,3 */
+	private Integer domanda8;
+	
+	/** The Domanda 9. 
+	 *  Validazione: //0,1,2,3 */
+	private Integer domanda9;
+	
+	/** The Domanda 10. 
+	 *  Validazione: //0,1,2,3 */
+	private Integer domanda10;
+	
+	/** The Domanda 11. 
+	 *  Validazione: //0,1,2,3 */
+	private Integer domanda11;
+	
+	/** The Domanda 12. 
+	 *  Validazione: //0,1,2,3 */
+	private Integer domanda12;
+	
+	/** The Domanda 13. 
+	 *  Validazione: //0,0,2,3 */
+	private Integer domanda13;
+	
+	/** The Domanda 14. 
+	 *  Validazione: //0,1,2,3 */
+	private Integer domanda14;
+	
+	/** The Domanda 15. 
+	 *  Validazione: //0,1,2,3 */
+	private Integer domanda15;
+	
+	/** The Domanda 16. 
+	 *  Validazione: //0,1,2 */
+	private Integer domanda16;
+
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceBesBulimia() {
+		return idIndiceBesBulimia;
+	}
+
+	public void setIdIndiceBesBulimia(Integer idIndiceBesBulimia) {
+		this.idIndiceBesBulimia = idIndiceBesBulimia;
+	}
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,0,1,3 })
+	@Column(name = "domanda1")
+	public Integer getDomanda1() {
+		return domanda1;
+	}
+
+	public void setDomanda1(Integer domanda1) {
+		this.domanda1 = domanda1;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda2")
+	public Integer getDomanda2() {
+		return Domanda2;
+	}
+
+	public void setDomanda2(Integer domanda2) {
+		Domanda2 = domanda2;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,3,3 })
+	@Column(name = "domanda3")
+	public Integer getDomanda3() {
+		return domanda3;
+	}
+
+	public void setDomanda3(Integer domanda3) {
+		this.domanda3 = domanda3;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,0,0,3 })
+	@Column(name = "domanda4")
+	public Integer getDomanda4() {
+		return domanda4;
+	}
+
+	public void setDomanda4(Integer domanda4) {
+		this.domanda4 = domanda4;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda5")
+	public Integer getDomanda5() {
+		return domanda5;
+	}
+
+	public void setDomanda5(Integer domanda5) {
+		this.domanda5 = domanda5;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,3 })
+	@Column(name = "domanda6")
+	public Integer getDomanda6() {
+		return domanda6;
+	}
+
+	public void setDomanda6(Integer domanda6) {
+		this.domanda6 = domanda6;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,2,3,3 })
+	@Column(name = "domanda7")
+	public Integer getDomanda7() {
+		return domanda7;
+	}
+
+	public void setDomanda7(Integer domanda7) {
+		this.domanda7 = domanda7;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda8")
+	public Integer getDomanda8() {
+		return domanda8;
+	}
+
+	public void setDomanda8(Integer domanda8) {
+		this.domanda8 = domanda8;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda9")
+	public Integer getDomanda9() {
+		return domanda9;
+	}
+
+	public void setDomanda9(Integer domanda9) {
+		this.domanda9 = domanda9;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda10")
+	public Integer getDomanda10() {
+		return domanda10;
+	}
+
+	public void setDomanda10(Integer domanda10) {
+		this.domanda10 = domanda10;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda11")
+	public Integer getDomanda11() {
+		return domanda11;
+	}
+
+	public void setDomanda11(Integer domanda11) {
+		this.domanda11 = domanda11;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda12")
+	public Integer getDomanda12() {
+		return domanda12;
+	}
+
+	public void setDomanda12(Integer domanda12) {
+		this.domanda12 = domanda12;
+	}
+	
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,0,2,3 })
+	@Column(name = "domanda13")
+	public Integer getDomanda13() {
+		return domanda13;
+	}
+
+	public void setDomanda13(Integer domanda13) {
+		this.domanda13 = domanda13;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda14")
+	public Integer getDomanda14() {
+		return domanda14;
+	}
+
+	public void setDomanda14(Integer domanda14) {
+		this.domanda14 = domanda14;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda15")
+	public Integer getDomanda15() {
+		return domanda15;
+	}
+
+	public void setDomanda15(Integer domanda15) {
+		this.domanda15 = domanda15;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2})
+	@Column(name = "domanda16")
+	public Integer getDomanda16() {
+		return domanda16;
+	}
+
+	public void setDomanda16(Integer domanda16) {
+		this.domanda16 = domanda16;
+	}
+	
+	public IndiceBesBulimia() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	
+	
+	
+}

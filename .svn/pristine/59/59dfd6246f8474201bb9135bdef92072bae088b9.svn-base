@@ -1,0 +1,317 @@
+package it.cle.project.model.composti.npi;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+
+@Entity
+@Table(name = "euforia_esaltazione")
+@XmlRootElement(name="euforia_esaltazione")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class EuforiaEsaltazione {
+
+	/** The id EuforiaEsaltazione */
+	private Integer idEuforiaEsaltazione;
+	
+	/** Questo flag indica se il questionario è applicabile o meno */
+	private Boolean nonApplicabile;
+	
+	/** Questo campo indica la motivazione in caso di non applicabilità */
+	private String motivazione;
+	
+	/** 
+	 * Questo campo indica la seguente domanda: 
+	 * Il paziente è eccessivamente felice o allegro senza motivo? Non si intende la normale felicità 
+	 * mostrata alla vista di amici, quando si ricevono regali, o quando si sta coi parenti. Vi sto chiedendo 
+	 * se il paziente ha un persistente ed anormale stato di euforia o se trova ridicole cose che gli altri non 
+	 * trovano divertenti.
+	 *  
+	 * NO (se no, procedere con la successiva domanda di screening) 
+	 * SÌ (procedere con le seguenti domande)
+	*/
+	private Boolean domandaPreliminare;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente sembra sentirsi eccessivamente bene o essere troppo felice, in modo differente dal solito?
+	 * */
+	private Integer fDomandaDifferenteDalSolito;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente sembra sentirsi eccessivamente bene o essere troppo felice, in modo differente dal solito?
+	 * */
+	private Integer gDomandaDifferenteDalSolito;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente trova ridicole e ride per cose che altri non ritengono spiritose?
+	 * */
+	private Integer fDomandaCoseRidicole;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente trova ridicole e ride per cose che altri non ritengono spiritose?
+	 * */
+	private Integer gDomandaCoseRidicole;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente ha un senso dell'umorismo da bambino con la tendenza a ridacchiare o ridere 
+	 * quando non è il caso (come per esempio quando qualche contrattempo colpisce altre persone)?
+	 * */
+	private Integer fDomandaSensoUmorismo;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente ha un senso dell'umorismo da bambino con la tendenza a ridacchiare o ridere 
+	 * quando non è il caso (come per esempio quando qualche contrattempo colpisce altre persone)?
+	 * */
+	private Integer gDomandaSensoUmorismo;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente fa degli scherzi o compie osservazioni che sono poco spiritose ma che lui pensa 
+	 * divertenti?
+	 * */
+	private Integer fDomandaOsservazioni;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente fa degli scherzi o compie osservazioni che sono poco spiritose ma che lui pensa 
+	 * divertenti?
+	 * */
+	private Integer gDomandaOsservazioni;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente compie scherzi come dare pizzicotti oppure fa dei giochetti solo per divertimento?
+	 * */
+	private Integer fDomandaScherzi;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente compie scherzi come dare pizzicotti oppure fa dei giochetti solo per divertimento?
+	 * */
+	private Integer gDomandaScherzi;	
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Si vanta o dice di essere molto più bravo o più ricco di quanto sia veramente?
+	 * */
+	private Integer fDomandaBravoRicco;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Si vanta o dice di essere molto più bravo o più ricco di quanto sia veramente?
+	 * */
+	private Integer gDomandaBravoRicco;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente mostra altri segni che indicano che si sente troppo bene o troppo felice?
+	 * */
+	private Integer fDomandaAltriSegni;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente mostra altri segni che indicano che si sente troppo bene o troppo felice?
+	 * */
+	private Integer gDomandaAltriSegni;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdEuforiaEsaltazione() {
+		return idEuforiaEsaltazione;
+	}
+
+	public void setIdEuforiaEsaltazione(Integer idEuforiaEsaltazione) {
+		this.idEuforiaEsaltazione = idEuforiaEsaltazione;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "non_applicabile")
+	public Boolean getNonApplicabile() {
+		return nonApplicabile;
+	}
+
+	public void setNonApplicabile(Boolean nonApplicabile) {
+		this.nonApplicabile = nonApplicabile;
+	}
+	
+	@Column(name = "motivazione")
+	public String getMotivazione() {
+		return motivazione;
+	}
+	
+	public void setMotivazione(String motivazione) {
+		this.motivazione = motivazione;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_preliminare")
+	public Boolean getDomandaPreliminare() {
+		return domandaPreliminare;
+	}
+
+	public void setDomandaPreliminare(Boolean domandaPreliminare) {
+		this.domandaPreliminare = domandaPreliminare;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_differente_dal_solito")
+	public Integer getfDomandaDifferenteDalSolito() {
+		return fDomandaDifferenteDalSolito;
+	}
+
+	public void setfDomandaDifferenteDalSolito(Integer fDomandaDifferenteDalSolito) {
+		this.fDomandaDifferenteDalSolito = fDomandaDifferenteDalSolito;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_differente_dal_solito")
+	public Integer getgDomandaDifferenteDalSolito() {
+		return gDomandaDifferenteDalSolito;
+	}
+
+	public void setgDomandaDifferenteDalSolito(Integer gDomandaDifferenteDalSolito) {
+		this.gDomandaDifferenteDalSolito = gDomandaDifferenteDalSolito;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_cose_ridicole")
+	public Integer getfDomandaCoseRidicole() {
+		return fDomandaCoseRidicole;
+	}
+
+	public void setfDomandaCoseRidicole(Integer fDomandaCoseRidicole) {
+		this.fDomandaCoseRidicole = fDomandaCoseRidicole;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_cose_ridicole")
+	public Integer getgDomandaCoseRidicole() {
+		return gDomandaCoseRidicole;
+	}
+
+	public void setgDomandaCoseRidicole(Integer gDomandaCoseRidicole) {
+		this.gDomandaCoseRidicole = gDomandaCoseRidicole;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_senso_umorismo")
+	public Integer getfDomandaSensoUmorismo() {
+		return fDomandaSensoUmorismo;
+	}
+
+	public void setfDomandaSensoUmorismo(Integer fDomandaSensoUmorismo) {
+		this.fDomandaSensoUmorismo = fDomandaSensoUmorismo;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_senso_umorismo")
+	public Integer getgDomandaSensoUmorismo() {
+		return gDomandaSensoUmorismo;
+	}
+
+	public void setgDomandaSensoUmorismo(Integer gDomandaSensoUmorismo) {
+		this.gDomandaSensoUmorismo = gDomandaSensoUmorismo;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_osservazioni")
+	public Integer getfDomandaOsservazioni() {
+		return fDomandaOsservazioni;
+	}
+
+	public void setfDomandaOsservazioni(Integer fDomandaOsservazioni) {
+		this.fDomandaOsservazioni = fDomandaOsservazioni;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_osservazioni")
+	public Integer getgDomandaOsservazioni() {
+		return gDomandaOsservazioni;
+	}
+
+	public void setgDomandaOsservazioni(Integer gDomandaOsservazioni) {
+		this.gDomandaOsservazioni = gDomandaOsservazioni;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_scherzi")
+	public Integer getfDomandaScherzi() {
+		return fDomandaScherzi;
+	}
+
+	public void setfDomandaScherzi(Integer fDomandaScherzi) {
+		this.fDomandaScherzi = fDomandaScherzi;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_scherzi")
+	public Integer getgDomandaScherzi() {
+		return gDomandaScherzi;
+	}
+
+	public void setgDomandaScherzi(Integer gDomandaScherzi) {
+		this.gDomandaScherzi = gDomandaScherzi;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_bravo_ricco")
+	public Integer getfDomandaBravoRicco() {
+		return fDomandaBravoRicco;
+	}
+
+	public void setfDomandaBravoRicco(Integer fDomandaBravoRicco) {
+		this.fDomandaBravoRicco = fDomandaBravoRicco;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_bravo_ricco")
+	public Integer getgDomandaBravoRicco() {
+		return gDomandaBravoRicco;
+	}
+
+	public void setgDomandaBravoRicco(Integer gDomandaBravoRicco) {
+		this.gDomandaBravoRicco = gDomandaBravoRicco;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_altri_segni")
+	public Integer getfDomandaAltriSegni() {
+		return fDomandaAltriSegni;
+	}
+
+	public void setfDomandaAltriSegni(Integer fDomandaAltriSegni) {
+		this.fDomandaAltriSegni = fDomandaAltriSegni;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "g_domanda_altri_segni")
+	public Integer getgDomandaAltriSegni() {
+		return gDomandaAltriSegni;
+	}
+
+	public void setgDomandaAltriSegni(Integer gDomandaAltriSegni) {
+		this.gDomandaAltriSegni = gDomandaAltriSegni;
+	}
+	
+	
+}

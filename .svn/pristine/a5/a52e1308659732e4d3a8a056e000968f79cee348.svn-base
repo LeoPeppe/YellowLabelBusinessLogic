@@ -1,0 +1,17 @@
+package it.cle.project.dao;
+
+
+import it.cle.project.model.Pai_Prestazioni;
+
+
+/**
+ * The Interface PAIDao.
+ */
+public interface Pai_PrestazioniDao extends Dao<Pai_Prestazioni> {
+	
+	
+	
+		
+	
+
+}

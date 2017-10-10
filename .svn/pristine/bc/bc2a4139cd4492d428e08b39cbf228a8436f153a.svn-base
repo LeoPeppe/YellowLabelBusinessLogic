@@ -1,0 +1,12 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.IndiceExtonSmith;
+
+/**
+ * Interfaccia IndiceBarthelDao.
+ *
+ * @author Fronza
+ */
+public interface IndiceExtonSmithDao extends Dao<IndiceExtonSmith> {
+
+}

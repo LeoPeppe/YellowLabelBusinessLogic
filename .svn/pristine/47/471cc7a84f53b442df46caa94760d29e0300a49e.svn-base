@@ -1,0 +1,79 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="DatiAnagrafici")
+public class DatiAnagraficiDTO implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private IdentificativoFiscaleDTO idFiscaleIVA ;
+	private String codiceFiscale;
+	private AnagraficaDTO anagrafica;
+	private String regimeFiscale;
+
+	/**
+	 * @return the codiceFiscale
+	 */
+	public String getCodiceFiscale() {
+		return codiceFiscale;
+	}
+	/**
+	 * @param codiceFiscale the codiceFiscale to set
+	 */
+	@XmlElement(name="codiceFiscale")
+	public void setCodiceFiscale(String codiceFiscale) {
+		this.codiceFiscale = codiceFiscale;
+	}
+	/**
+	 * @return the regimeFiscale
+	 */
+	public String getRegimeFiscale() {
+		return regimeFiscale;
+	}
+	/**
+	 * @param regimeFiscale the regimeFiscale to set
+	 */
+	@XmlElement(name="regimeFiscale")
+	public void setRegimeFiscale(String regimeFiscale) {
+		this.regimeFiscale = regimeFiscale;
+	}
+	/**
+	 * @return the anagrafica
+	 */
+	public AnagraficaDTO getAnagrafica() {
+		return anagrafica;
+	}
+	/**
+	 * @param anagrafica the anagrafica to set
+	 */
+	@XmlElement(name="Anagrafica")
+	public void setAnagrafica(AnagraficaDTO anagrafica) {
+		this.anagrafica = anagrafica;
+	}
+	/**
+	 * @return the idFiscaleIVA
+	 */
+	public IdentificativoFiscaleDTO getIdFiscaleIVA() {
+		return idFiscaleIVA;
+	}
+	/**
+	 * @param idFiscaleIVA the idFiscaleIVA to set
+	 */
+	@XmlElement(name="IdFiscaleIVA")
+	public void setIdFiscaleIVA(IdentificativoFiscaleDTO idFiscaleIVA) {
+		this.idFiscaleIVA = idFiscaleIVA;
+	}
+
+	
+	
+	
+	
+
+}

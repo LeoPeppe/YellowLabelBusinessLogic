@@ -1,0 +1,152 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SedeDTO.
+ */
+@XmlRootElement
+public class SedeDTO implements Serializable {
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The indirizzo. */
+	private String indirizzo;
+	
+	/** The numero civico. */
+	private String numeroCivico;
+	
+	/** The cap. */
+	private String cap;
+	
+	/** The comune. */
+	private String comune;
+	
+	/** The provincia. */
+	private String provincia;
+	
+	/** The nazione. */
+	private String nazione;
+	
+	/**
+	 * Gets the indirizzo.
+	 *
+	 * @return the indirizzo
+	 */
+	public String getIndirizzo() {
+		return indirizzo;
+	}
+	
+	/**
+	 * Sets the indirizzo.
+	 *
+	 * @param indirizzo the indirizzo to set
+	 */
+	@XmlElement(name="indirizzo")
+	public void setIndirizzo(String indirizzo) {
+		this.indirizzo = indirizzo;
+	}
+	
+	/**
+	 * Gets the numero civico.
+	 *
+	 * @return the numeroCivico
+	 */
+	public String getNumeroCivico() {
+		return numeroCivico;
+	}
+	
+	/**
+	 * Sets the numero civico.
+	 *
+	 * @param numeroCivico the numeroCivico to set
+	 */
+	@XmlElement(name="numeroCivico")
+	public void setNumeroCivico(String numeroCivico) {
+		this.numeroCivico = numeroCivico;
+	}
+	
+	/**
+	 * Gets the cap.
+	 *
+	 * @return the cap
+	 */
+	public String getCap() {
+		return cap;
+	}
+	
+	/**
+	 * Sets the cap.
+	 *
+	 * @param cap the cap to set
+	 */
+	@XmlElement(name="CAP")
+	public void setCap(String cap) {
+		this.cap = cap;
+	}
+	
+	/**
+	 * Gets the comune.
+	 *
+	 * @return the comune
+	 */
+	public String getComune() {
+		return comune;
+	}
+	
+	/**
+	 * Sets the comune.
+	 *
+	 * @param comune the comune to set
+	 */
+	@XmlElement(name="comune")
+	public void setComune(String comune) {
+		this.comune = comune;
+	}
+	
+	/**
+	 * Gets the provincia.
+	 *
+	 * @return the provincia
+	 */
+	public String getProvincia() {
+		return provincia;
+	}
+	
+	/**
+	 * Sets the provincia.
+	 *
+	 * @param provincia the provincia to set
+	 */
+	@XmlElement(name="provincia")
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+	
+	/**
+	 * Gets the nazione.
+	 *
+	 * @return the nazione
+	 */
+	public String getNazione() {
+		return nazione;
+	}
+	
+	/**
+	 * Sets the nazione.
+	 *
+	 * @param nazione the nazione to set
+	 */
+	@XmlElement(name="nazione")
+	public void setNazione(String nazione) {
+		this.nazione = nazione;
+	}
+	
+	
+
+}

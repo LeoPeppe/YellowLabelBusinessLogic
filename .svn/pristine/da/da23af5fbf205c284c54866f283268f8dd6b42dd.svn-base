@@ -1,0 +1,242 @@
+package it.cle.project.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Intervento.
+ *
+ * @author 
+ * @version 1.0
+ * @see <a href="http://it.wikipedia.org/wiki/Indice_di_Barthel" target="_blank">La scala di Barthel o Indice di Barthel ADL</a>
+ */
+@Entity
+@Table(name = "intervento")
+@XmlRootElement(name = "intervento")  
+//@XmlAccessorType(XmlAccessType.FIELD)
+public class Intervento implements Serializable{
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 5453759458671343269L;
+
+	
+
+	/** The id intervento. */
+	private Integer idintervento;
+	
+	/** The comune. */
+	private String comune;
+	
+	//private Integer idAssistito;
+	
+//	private Integer idOperatore;
+	
+	/** The data_ora_da. */
+	private Date data_ora_da;
+	
+	/** The data_ora_a. */
+	private Date data_ora_a;
+	
+	/** The id_prestazione. */
+	private Integer id_prestazione;
+	
+	/** The flag_confermato. */
+	private Boolean flag_confermato;
+	
+	
+//	@ManyToOne
+/** The assistito. */
+//	@JoinColumn(name = "idDatiAssistito")
+	private DatiAssistito assistito ;
+	
+
+	/** The operatore. */
+	private Operatore operatore;
+	
+	
+	
+	/**
+	 * Gets the idintervento.
+	 *
+	 * @return the idintervento
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdintervento() {
+		return idintervento;
+	}
+	
+	/**
+	 * Sets the idintervento.
+	 *
+	 * @param idintervento the new idintervento
+	 */
+	@XmlAttribute(name="idintervento")
+	public void setIdintervento(Integer idintervento) {
+		this.idintervento = idintervento;
+	}
+
+	
+
+	/**
+	 * Gets the comune.
+	 *
+	 * @return the comune
+	 */
+	@Column (name = "comune")
+	public String getComune() {
+		return comune;
+	}
+	
+	/**
+	 * Sets the comune.
+	 *
+	 * @param idComune the new comune
+	 */
+	@XmlAttribute(name="comune")
+	public void setComune(String idComune) {
+		this.comune = idComune;
+	}
+	
+	/**
+	 * Gets the data_ora_da.
+	 *
+	 * @return the data_ora_da
+	 */
+	@Column (name = "data_ora_da")
+	public Date getData_ora_da() {
+		return data_ora_da;
+	}
+	
+	/**
+	 * Sets the data_ora_da.
+	 *
+	 * @param data_ora_da the new data_ora_da
+	 */
+	@XmlAttribute(name="data_ora_da")
+	public void setData_ora_da(Date data_ora_da) {
+		this.data_ora_da = data_ora_da;
+	}
+	
+	/**
+	 * Gets the data_ora_a.
+	 *
+	 * @return the data_ora_a
+	 */
+	@Column (name = "data_ora_a")
+	public Date getData_ora_a() {
+		return data_ora_a;
+	}
+	
+	/**
+	 * Sets the data_ora_a.
+	 *
+	 * @param data_ora_a the new data_ora_a
+	 */
+	@XmlAttribute(name="data_ora_a")
+	public void setData_ora_a(Date data_ora_a) {
+		this.data_ora_a = data_ora_a;
+	}
+	
+	/**
+	 * Gets the id_prestazione.
+	 *
+	 * @return the id_prestazione
+	 */
+	@Column (name = "id_prestazione")
+	public Integer getId_prestazione() {
+		return id_prestazione;
+	}
+	
+	/**
+	 * Sets the id_prestazione.
+	 *
+	 * @param id_prestazione the new id_prestazione
+	 */
+	@XmlAttribute(name="id_prestazione")
+	public void setId_prestazione(Integer id_prestazione) {
+		this.id_prestazione = id_prestazione;
+	}
+	
+	/**
+	 * Gets the flag_confermato.
+	 *
+	 * @return the flag_confermato
+	 */
+	@Column (name = "flag_confermato")
+	public Boolean getFlag_confermato() {
+		return flag_confermato;
+	}
+	
+	/**
+	 * Sets the flag_confermato.
+	 *
+	 * @param flag_confermato the new flag_confermato
+	 */
+	@XmlAttribute(name="flag_confermato")
+	public void setFlag_confermato(Boolean flag_confermato) {
+		this.flag_confermato = flag_confermato;
+	}
+
+	
+	/**
+	 * Gets the operatore.
+	 *
+	 * @return the operatore
+	 */
+	@ManyToOne(cascade = CascadeType.ALL)	
+	public Operatore getOperatore() {
+		return operatore;
+	}
+	
+	/**
+	 * Sets the operatore.
+	 *
+	 * @param operatore the new operatore
+	 */
+	public void setOperatore(Operatore operatore) {
+		this.operatore = operatore;
+	}
+
+	
+	/**
+	 * Gets the assistito.
+	 *
+	 * @return the assistito
+	 */
+	@ManyToOne(cascade = CascadeType.ALL)
+	public DatiAssistito getAssistito() {
+		return assistito;
+	}
+	
+	/**
+	 * Sets the assistito.
+	 *
+	 * @param assistito the new assistito
+	 */
+	public void setAssistito(DatiAssistito assistito) {
+		this.assistito = assistito;
+	}
+	/**
+	 * Instantiates a new Intervento.
+	 */
+	public Intervento() {
+    }
+	
+	
+	
+}

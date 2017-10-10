@@ -1,0 +1,589 @@
+package it.cle.project.model.composti.but;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@Entity
+@Table(name="indice_but_b")
+@XmlRootElement(name="indice_but_b")
+public class IndiceBUTb {
+	
+	/** id indice BUTb */
+	private Integer idIndiceBUTb;
+	
+	/** la statura
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer statura;
+	
+	/** domanda la forma della testa
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer formaTesta;
+	
+	/** domanda la forma del viso
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer formaViso;
+	
+	/**  la pelle
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer pelle;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer capelli;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer fronte;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer sopracciglia;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer occhi;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer naso;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer labbra;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer bocca;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer denti;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer orecchie;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer collo;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer mento;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer baffi;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer barba;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer peli;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer spalle;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer braccia;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer mani;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer torace;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer mammelle;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer stomaco;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer ventre;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer genitali;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer natiche;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer anche;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer cosce;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer ginocchia;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer gambe;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer caviglie;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer piedi;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer odore;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer rumori;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer sudare;
+	
+	/**  i capelli
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer arrossire;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceBUTb() {
+		return idIndiceBUTb;
+	}
+
+	public void setIdIndiceBUTb(Integer idIndiceBUTb) {
+		this.idIndiceBUTb = idIndiceBUTb;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="statura")
+	public Integer getStatura() {
+		return statura;
+	}
+
+	public void setStatura(Integer statura) {
+		this.statura = statura;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="forma_testa")
+	public Integer getFormaTesta() {
+		return formaTesta;
+	}
+
+	public void setFormaTesta(Integer formaTesta) {
+		this.formaTesta = formaTesta;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="forma_viso")
+	public Integer getFormaViso() {
+		return formaViso;
+	}
+
+	public void setFormaViso(Integer formaViso) {
+		this.formaViso = formaViso;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="pelle")
+	public Integer getPelle() {
+		return pelle;
+	}
+
+	public void setPelle(Integer pelle) {
+		this.pelle = pelle;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="capelli")
+	public Integer getCapelli() {
+		return capelli;
+	}
+
+	public void setCapelli(Integer capelli) {
+		this.capelli = capelli;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="fronte")
+	public Integer getFronte() {
+		return fronte;
+	}
+
+	public void setFronte(Integer fronte) {
+		this.fronte = fronte;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="sopracciglia")
+	public Integer getSopracciglia() {
+		return sopracciglia;
+	}
+
+	public void setSopracciglia(Integer sopracciglia) {
+		this.sopracciglia = sopracciglia;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="occhi")
+	public Integer getOcchi() {
+		return occhi;
+	}
+
+	public void setOcchi(Integer occhi) {
+		this.occhi = occhi;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="naso")
+	public Integer getNaso() {
+		return naso;
+	}
+
+	public void setNaso(Integer naso) {
+		this.naso = naso;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="labbra")
+	public Integer getLabbra() {
+		return labbra;
+	}
+
+	public void setLabbra(Integer labbra) {
+		this.labbra = labbra;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="bocca")
+	public Integer getBocca() {
+		return bocca;
+	}
+
+	public void setBocca(Integer bocca) {
+		this.bocca = bocca;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="denti")
+	public Integer getDenti() {
+		return denti;
+	}
+
+	public void setDenti(Integer denti) {
+		this.denti = denti;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="orecchie")
+	public Integer getOrecchie() {
+		return orecchie;
+	}
+
+	public void setOrecchie(Integer orecchie) {
+		this.orecchie = orecchie;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="collo")
+	public Integer getCollo() {
+		return collo;
+	}
+
+	public void setCollo(Integer collo) {
+		this.collo = collo;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="mento")
+	public Integer getMento() {
+		return mento;
+	}
+
+	public void setMento(Integer mento) {
+		this.mento = mento;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="baffi")
+	public Integer getBaffi() {
+		return baffi;
+	}
+
+	public void setBaffi(Integer baffi) {
+		this.baffi = baffi;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="barba")
+	public Integer getBarba() {
+		return barba;
+	}
+
+	public void setBarba(Integer barba) {
+		this.barba = barba;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="peli")
+	public Integer getPeli() {
+		return peli;
+	}
+
+	public void setPeli(Integer peli) {
+		this.peli = peli;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="spalle")
+	public Integer getSpalle() {
+		return spalle;
+	}
+
+	public void setSpalle(Integer spalle) {
+		this.spalle = spalle;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="braccia")
+	public Integer getBraccia() {
+		return braccia;
+	}
+
+	public void setBraccia(Integer braccia) {
+		this.braccia = braccia;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="mani")
+	public Integer getMani() {
+		return mani;
+	}
+
+	public void setMani(Integer mani) {
+		this.mani = mani;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="torace")
+	public Integer getTorace() {
+		return torace;
+	}
+
+	public void setTorace(Integer torace) {
+		this.torace = torace;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="mammelle")
+	public Integer getMammelle() {
+		return mammelle;
+	}
+
+	public void setMammelle(Integer mammelle) {
+		this.mammelle = mammelle;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="stomaco")
+	public Integer getStomaco() {
+		return stomaco;
+	}
+
+	public void setStomaco(Integer stomaco) {
+		this.stomaco = stomaco;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="ventre")
+	public Integer getVentre() {
+		return ventre;
+	}
+
+	public void setVentre(Integer ventre) {
+		this.ventre = ventre;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="genitali")
+	public Integer getGenitali() {
+		return genitali;
+	}
+
+	public void setGenitali(Integer genitali) {
+		this.genitali = genitali;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="natiche")
+	public Integer getNatiche() {
+		return natiche;
+	}
+
+	public void setNatiche(Integer natiche) {
+		this.natiche = natiche;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="anche")
+	public Integer getAnche() {
+		return anche;
+	}
+
+	public void setAnche(Integer anche) {
+		this.anche = anche;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="cosce")
+	public Integer getCosce() {
+		return cosce;
+	}
+
+	public void setCosce(Integer cosce) {
+		this.cosce = cosce;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="ginocchia")
+	public Integer getGinocchia() {
+		return ginocchia;
+	}
+
+	public void setGinocchia(Integer ginocchia) {
+		this.ginocchia = ginocchia;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="gambe")
+	public Integer getGambe() {
+		return gambe;
+	}
+
+	public void setGambe(Integer gambe) {
+		this.gambe = gambe;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="caviglie")
+	public Integer getCaviglie() {
+		return caviglie;
+	}
+
+	public void setCaviglie(Integer caviglie) {
+		this.caviglie = caviglie;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="piedi")
+	public Integer getPiedi() {
+		return piedi;
+	}
+
+	public void setPiedi(Integer piedi) {
+		this.piedi = piedi;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="odore")
+	public Integer getOdore() {
+		return odore;
+	}
+
+	public void setOdore(Integer odore) {
+		this.odore = odore;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="rumori")
+	public Integer getRumori() {
+		return rumori;
+	}
+
+	public void setRumori(Integer rumori) {
+		this.rumori = rumori;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="sudare")
+	public Integer getSudare() {
+		return sudare;
+	}
+
+	public void setSudare(Integer sudare) {
+		this.sudare = sudare;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="arrossire")
+	public Integer getArrossire() {
+		return arrossire;
+	}
+
+	public void setArrossire(Integer arrossire) {
+		this.arrossire = arrossire;
+	}
+
+}

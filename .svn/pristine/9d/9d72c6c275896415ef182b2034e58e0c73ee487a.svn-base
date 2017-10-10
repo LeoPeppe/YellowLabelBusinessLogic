@@ -1,0 +1,7 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.SituazCognitivaSvama;
+
+public interface SituazCognitivaSvamaDao extends Dao<SituazCognitivaSvama> {
+
+}

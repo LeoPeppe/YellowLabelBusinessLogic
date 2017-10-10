@@ -1,0 +1,256 @@
+package it.cle.project.dao.hbn;
+
+
+import it.cle.project.dao.PrestazioniDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.Prestazioni;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class HbnPrestazioniDao.
+ */
+//@Service("prestazioniService")
+//@Transactional
+@Repository("prestazioniDao")
+public class HbnPrestazioniDao extends AbstractHbnDao<PrestazioniDao> implements PrestazioniDao  {
+	 
+
+
+	
+	
+	
+
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.dao.PrestazioniDao#select(java.lang.String, java.lang.String, java.lang.String)
+	 */
+	public List<Prestazioni> select(String rangeADL,String rangeBarthel, String rangeRete) {
+		
+		List<Prestazioni> prestazioni = null;
+		Session session = getSession();
+
+//		System.out.println("rangeADL "+rangeADL +" rangeBarthel "+rangeBarthel+ " rangeRete "+rangeRete);
+		
+		 String intervalli[]= intervalliQuery(rangeADL,rangeBarthel, rangeRete);
+		
+		 String adlString = intervalli[0];
+		 String barthelString = intervalli[1];
+		 String reteString= intervalli[2];
+		 
+		 
+
+	
+		String sql = "SELECT tipo_prestazione.descrizione FROM prestazione_range"
+				+ " INNER JOIN tipo_prestazione "
+				+ "ON tipo_prestazione.idPrestazione = prestazione_range.idPrestazione_range"
+				+ " WHERE "+ adlString
+				+ " AND "+barthelString
+				+ " AND "+reteString;
+				
+				
+				
+				
+//				+ " WHERE prestazione_range.RangeADL_0_14 ="+adl0_14
+//				+ "  AND  prestazione_range.RangeADL_15_49 ="+adl15_49
+//				+ "  AND  prestazione_range.RangeADL_50_60 ="+adl50_60
+//				+ "  AND  prestazione_range.RangeBarthel_0_14 ="+barthel0_14
+//				+ "  AND  prestazione_range.RangeBarthel_15_29 ="+barthel15_29
+//				+ "  AND  prestazione_range.RangeBarthel_30_40 ="+barthel30_40
+//				+ "  AND  prestazione_range.RangeRete_0_80 = "+rete0_80
+//				+ "  AND  prestazione_range.RangeRete_85_150 = "+rete85_150
+//				+ "  AND  prestazione_range.RangeRete_165_240 = "+rete165_240;
+		
+		
+		SQLQuery query = session.createSQLQuery(sql);
+		query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+		prestazioni = query.list();
+		
+		
+		return prestazioni;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.dao.PrestazioniDao#calcolaRangeADL(java.lang.String)
+	 */
+	@Override
+	public String calcolaRangeADL(String rangeADLInput) {
+	
+	
+	String subAdl =rangeADLInput.substring(0,rangeADLInput.indexOf('-'));
+//			System.out.println("Valore numerico adl " +Integer.parseInt(subAdl));
+	
+			int adlInd =Integer.parseInt(subAdl);
+			String range = "";
+			if(adlInd < 15){
+				range = "rangeADL_0_14";
+			}
+			if(adlInd >= 15 && adlInd < 50){
+				range = "rangeADL_15_49";
+			}
+			if(adlInd >= 50 && adlInd < 61){
+				range = "rangeADL_50_60";
+			}
+			
+			
+		return range;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.dao.PrestazioniDao#calcolaRangeBarthel(java.lang.String)
+	 */
+	@Override
+	public String calcolaRangeBarthel(String rangeBarthelInput) {
+
+
+		String subBarthel =rangeBarthelInput.substring(0,rangeBarthelInput.indexOf('-'));
+//		System.out.println("Valore numerico  barthel" +Integer.parseInt(subBarthel));
+		
+		int barthleInd = Integer.parseInt(subBarthel);
+		
+		String range = "";
+		if(barthleInd < 15){
+			range = "rangeBarthel_0_14";
+		}
+		if(barthleInd >= 15 && barthleInd < 30){
+			range = "rangeBarthel_15_29";
+		}
+		if(barthleInd > 30){
+			range = "rangeBarthel_30_40";
+		}
+		return range;
+
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.dao.PrestazioniDao#calcolaRangeRete(java.lang.String)
+	 */
+	@Override
+	public String calcolaRangeRete(String rangeReteInput) {
+
+		String subRete =rangeReteInput.substring(0,rangeReteInput.indexOf('-'));
+//		System.out.println("Valore numerico  rete" +Integer.parseInt(subRete));
+		
+		int reteInd = Integer.parseInt(subRete);
+		
+		String range = "";
+		
+		if(reteInd>=0 && reteInd<=80 ){
+			range = "rangeRete_0_80";
+		}
+		if(reteInd>=85 && reteInd<=160){
+			range = "rangeRete_85_150";
+		}
+		if(reteInd>=165 && reteInd<=240){
+			range = "rangeRete_165_240";
+		}
+		
+		return range;
+	}
+
+	
+	/**
+	 * Intervalli query.
+	 *
+	 * @param rangeADL the range adl
+	 * @param rangeBarthel the range barthel
+	 * @param rangeRete the range rete
+	 * @return the string[]
+	 */
+	private String[] intervalliQuery(String rangeADL, String rangeBarthel, String rangeRete)
+    {
+		String result[] = new String[3];
+		
+		int adl0_14 = rangeADL.equals("rangeADL_0_14" )?1:0;
+		int adl15_49 = rangeADL.equals("rangeADL_15_49" )?1:0;
+		int adl50_60 = rangeADL.equals("rangeADL_50_60" )?1:0;
+		
+		int barthel0_14 = rangeBarthel.equals("rangeBarthel_0_14" )?1:0;
+		int barthel15_29 = rangeBarthel.equals("rangeBarthel_15_29" )?1:0;
+		int barthel30_40 = rangeBarthel.equals("rangeBarthel_30_40" )?1:0;
+		
+		int rete0_80 = rangeRete.equals("rangeRete_0_80" )?1:0;
+		int rete85_150 = rangeRete.equals("rangeRete_85_150" )?1:0;
+		int rete165_240 = rangeRete.equals("rangeRete_165_240" )?1:0;
+		
+		
+		
+//		System.out.println("adl0_14 "+adl0_14 +" adl15_49 "+adl15_49+" adl50_60 "+adl50_60+
+//				" barthel0_14 "+barthel0_14+ " barthel15_29 "+barthel15_29+ " barthel30_40 "+barthel30_40+
+//				" rete0_80 "+rete0_80+" rete85_150 "+rete85_150+ " rete165_240 "+rete165_240);
+		
+		String adlString ="";
+		if(adl0_14 ==1){
+			adlString="prestazione_range.RangeADL_0_14 ="+adl0_14;
+		}
+		if(adl15_49 ==1){
+			adlString="prestazione_range.RangeADL_15_49 ="+adl15_49;
+		}
+		if(adl50_60 ==1){
+			adlString="prestazione_range.RangeADL_50_60 ="+adl50_60;
+		}
+		
+		String barthelString ="";
+		if(barthel0_14 == 1){
+			barthelString= "prestazione_range.RangeBarthel_0_14 ="+barthel0_14;
+		}
+		if (barthel15_29 == 1) {
+			barthelString="prestazione_range.RangeBarthel_15_29 ="+barthel15_29;
+		}
+		if (barthel30_40 == 1) {
+			barthelString="prestazione_range.RangeBarthel_30_40 ="+barthel30_40;
+		}
+		
+		String reteString="";
+		if(rete0_80 ==1){
+			reteString ="prestazione_range.RangeRete_0_80 = "+rete0_80;
+		}
+		if (rete85_150 ==1) {
+			reteString="prestazione_range.RangeRete_85_150 = "+rete85_150;
+		}
+		if (rete165_240 ==1) {
+			reteString="prestazione_range.RangeRete_165_240 = "+rete165_240;
+		}
+		
+		
+		result[0]= adlString;
+		result [1]=barthelString;
+		result[2]= reteString;
+		
+		return result;
+
+	
+    }
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.dao.PrestazioniDao#selectTutte()
+	 */
+	@Override
+	public List<Prestazioni> selectTutte() {
+		List<Prestazioni> prestazioni = null;
+		Session session = getSession();
+	
+		String sql = "SELECT tipo_prestazione.descrizione FROM prestazione_range"
+				+ " INNER JOIN tipo_prestazione "
+				+ "ON tipo_prestazione.idPrestazione = prestazione_range.idPrestazione_range";
+				
+		
+		SQLQuery query = session.createSQLQuery(sql);
+		query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+		prestazioni = query.list();
+		
+		
+		return prestazioni;
+	}
+
+	
+	
+	
+}

@@ -1,0 +1,126 @@
+package it.cle.project.service.impl;
+
+import it.cle.project.dao.hbn.HbnIndiceSPMSQDao;
+import it.cle.project.model.IndiceSPMSQ;
+import it.cle.project.service.IndiceSPMSQService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndiceSPMSQServiceImpl.
+ * Questa classe implementa i metodi per le operazioni base relative all' indice SPMSQ
+ */
+@Service("indiceSPMSQService")
+@Transactional
+public class IndiceSPMSQServiceImpl implements IndiceSPMSQService {
+	
+	/** The dao. */
+	@Autowired
+	private HbnIndiceSPMSQDao dao;
+
+	/**
+	 * Metodo per il calcolo del punteggio Short Portable Mental Status Questionnaire.
+	 *
+	 * @param indiceSPMSQ the indice spmsq
+	 * @return Integer
+	 */
+	public Integer calcolaSPMSQ(IndiceSPMSQ indiceSPMSQ) {
+		Integer punteggioSPMSQ = 0;
+		
+		if(indiceSPMSQ.getNonSomministrabile() == null){
+			if(indiceSPMSQ.getDomandaAnni()){
+				punteggioSPMSQ = punteggioSPMSQ+1;
+			}
+			if(indiceSPMSQ.getDomandaDataNascita()){
+				punteggioSPMSQ = punteggioSPMSQ+1;
+			}
+			if(indiceSPMSQ.getDomandaGiornoOdierno()){
+				punteggioSPMSQ = punteggioSPMSQ+1;
+			}
+			if(indiceSPMSQ.getDomandaGiornoSettimanale()){
+				punteggioSPMSQ = punteggioSPMSQ+1;
+			}
+			if(indiceSPMSQ.getDomandaIndirizzo()){
+				punteggioSPMSQ = punteggioSPMSQ+1;
+			}
+			if(indiceSPMSQ.getDomandaNomeMadre()){
+				punteggioSPMSQ = punteggioSPMSQ+1;
+			}
+			if(indiceSPMSQ.getDomandaNomePosto()){
+				punteggioSPMSQ = punteggioSPMSQ+1;
+			}
+			if(indiceSPMSQ.getDomandaPrecedentePresRepPapa()){
+				punteggioSPMSQ = punteggioSPMSQ+1;
+			}
+			if(indiceSPMSQ.getDomandaPresRepPapa()){
+				punteggioSPMSQ = punteggioSPMSQ+1;
+			}
+			if(indiceSPMSQ.getDomandaSottrazione()){
+				punteggioSPMSQ = punteggioSPMSQ+1;
+			}
+		}
+		else{
+			if(indiceSPMSQ.getNonSomministrabile()){
+				punteggioSPMSQ = 10;
+			}
+			else{
+				if(indiceSPMSQ.getDomandaAnni()){
+					punteggioSPMSQ = punteggioSPMSQ+1;
+				}
+				if(indiceSPMSQ.getDomandaDataNascita()){
+					punteggioSPMSQ = punteggioSPMSQ+1;
+				}
+				if(indiceSPMSQ.getDomandaGiornoOdierno()){
+					punteggioSPMSQ = punteggioSPMSQ+1;
+				}
+				if(indiceSPMSQ.getDomandaGiornoSettimanale()){
+					punteggioSPMSQ = punteggioSPMSQ+1;
+				}
+				if(indiceSPMSQ.getDomandaIndirizzo()){
+					punteggioSPMSQ = punteggioSPMSQ+1;
+				}
+				if(indiceSPMSQ.getDomandaNomeMadre()){
+					punteggioSPMSQ = punteggioSPMSQ+1;
+				}
+				if(indiceSPMSQ.getDomandaNomePosto()){
+					punteggioSPMSQ = punteggioSPMSQ+1;
+				}
+				if(indiceSPMSQ.getDomandaPrecedentePresRepPapa()){
+					punteggioSPMSQ = punteggioSPMSQ+1;
+				}
+				if(indiceSPMSQ.getDomandaPresRepPapa()){
+					punteggioSPMSQ = punteggioSPMSQ+1;
+				}
+				if(indiceSPMSQ.getDomandaSottrazione()){
+					punteggioSPMSQ = punteggioSPMSQ+1;
+				}
+			}
+		}
+		
+		return punteggioSPMSQ;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.IndiceSPMSQService#insert(it.cle.project.model.IndiceSPMSQ)
+	 */
+	@Override
+	public void insert(IndiceSPMSQ indiceSPMSQ) {
+		dao.create(indiceSPMSQ);
+		
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.IndiceSPMSQService#selectById(java.lang.Integer)
+	 */
+	@Override
+	public IndiceSPMSQ selectById(Integer idIndiceSPMSQ) {
+		
+		return dao.get(idIndiceSPMSQ);
+	}
+
+}

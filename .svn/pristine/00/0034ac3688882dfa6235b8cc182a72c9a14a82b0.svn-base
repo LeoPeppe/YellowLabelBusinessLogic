@@ -1,0 +1,546 @@
+package it.cle.project.model.composti.npi;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Deliri.
+ */
+@Entity
+@Table(name = "deliri")
+@XmlRootElement(name="deliri")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Deliri {
+	
+	/** The id indiceDeliri. */
+	private Integer idDeliri;
+	
+	/**  Questo flag indica se il questionario è applicabile o meno. */
+	private Boolean nonApplicabile;
+	
+	/**  Questo campo indica la motivazione in caso di non applicabilità. */
+	private String motivazione;
+	
+	/** 
+	 *  Questo campo indica la seguente domanda: Il paziente crede cose che non sono vere? Per esempio, 
+	 *  insiste sul fatto che qualcuno sta cercando di fargli del male o di rubargli qualcosa. 
+	 *  Dice che i componenti della famiglia non sono chi dicono di essere, o che la casa non è la sua? 
+	 *  Non mi riferisco a semplice sospettosità; siamo interessati a  sapere se il paziente sia convinto 
+	 *  che queste cose gli stiano realmente accadendo.
+	 *  
+	 *  NO (se no, procedere con la successiva domanda di screening) 
+	 *  SÌ (procedere con le seguenti domande)
+	*/
+	private Boolean domandaPreliminare;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente crede di essere in pericolo o che qualcuno voglia fargli del male ? . */
+	private Integer fDomandaPericolo;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente crede di essere in pericolo o che qualcuno voglia fargli del male ? . */
+	private Integer gDomandaPericolo;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente crede che qualcuno lo stia derubando? . */
+	private Integer fDomandaDerubato;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente crede che qualcuno lo stia derubando? . */
+	private Integer gDomandaDerubato;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente crede che il/la proprio/a marito/moglie lo tradisca?. */
+	private Integer fDomandaTradimento;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente crede che il/la proprio/a marito/moglie lo tradisca?. */
+	private Integer gDomandaTradimento;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente crede che ospiti indesiderati vivano nella sua casa?. */
+	private Integer fDomandaOspitiIndesiderati;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente crede che ospiti indesiderati vivano nella sua casa?. */
+	private Integer gDomandaOspitiIndesiderati;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente crede che il/la proprio/a marito/moglie od altre persone non siano in realtà chi dicono di essere?. */
+	private Integer fDomandaPersoneSconosciute;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente crede che il/la proprio/a marito/moglie od altre persone non siano in realtà chi dicono di essere?. */
+	private Integer gDomandaPersoneSconosciute;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente crede che la propria abitazione non sia casa propria?. */
+	private Integer fDomandaAbitazione;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente crede che la propria abitazione non sia casa propria?. */
+	private Integer gDomandaAbitazione;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente crede che i familiari vogliano abbandonarlo?. */
+	private Integer fDomandaAbbandono;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente crede che i familiari vogliano abbandonarlo?. */
+	private Integer gDomandaAbbandono;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente crede che le immagini della televisione o le fotografie delle riviste siano realmente  presenti in casa? [Cerca di interagire con esse?]. */
+	private Integer fDomandaPresenzeInCasa;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente crede che le immagini della televisione o le fotografie delle riviste siano realmente  presenti in casa? [Cerca di interagire con esse?]. */
+	private Integer gDomandaPresenzeInCasa;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente crede altre cose insolite di cui non le ho chiesto?. */
+	private Integer fDomandaAltreCose;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente crede altre cose insolite di cui non le ho chiesto?. */
+	private Integer gDomandaAltreCose;
+
+	/**
+	 * Gets the non applicabile.
+	 *
+	 * @return the non applicabile
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "non_applicabile")
+	public Boolean getNonApplicabile() {
+		return nonApplicabile;
+	}
+
+	/**
+	 * Sets the non applicabile.
+	 *
+	 * @param nonApplicabile the new non applicabile
+	 */
+	public void setNonApplicabile(Boolean nonApplicabile) {
+		this.nonApplicabile = nonApplicabile;
+	}
+
+	/**
+	 * Gets the motivazione.
+	 *
+	 * @return the motivazione
+	 */
+	@Column(name = "motivazione")
+	public String getMotivazione() {
+		return motivazione;
+	}
+
+	/**
+	 * Sets the motivazione.
+	 *
+	 * @param motivazione the new motivazione
+	 */
+	public void setMotivazione(String motivazione) {
+		this.motivazione = motivazione;
+	}
+
+	/**
+	 * Gets the domanda preliminare.
+	 *
+	 * @return the domanda preliminare
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_preliminare")
+	public Boolean getDomandaPreliminare() {
+		return domandaPreliminare;
+	}
+
+	/**
+	 * Sets the domanda preliminare.
+	 *
+	 * @param domandaPreliminare the new domanda preliminare
+	 */
+	public void setDomandaPreliminare(Boolean domandaPreliminare) {
+		this.domandaPreliminare = domandaPreliminare;
+	}
+
+	
+	/**
+	 * Gets the f domanda pericolo.
+	 *
+	 * @return the f domanda pericolo
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_pericolo")
+	public Integer getfDomandaPericolo() {
+		return fDomandaPericolo;
+	}
+
+	
+	/**
+	 * Sets the f domanda pericolo.
+	 *
+	 * @param fDomandaPericolo the new f domanda pericolo
+	 */
+	public void setfDomandaPericolo(Integer fDomandaPericolo) {
+		this.fDomandaPericolo = fDomandaPericolo;
+	}
+
+	/**
+	 * Gets the g domanda pericolo.
+	 *
+	 * @return the g domanda pericolo
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_pericolo")
+	public Integer getgDomandaPericolo() {
+		return gDomandaPericolo;
+	}
+
+	/**
+	 * Sets the g domanda pericolo.
+	 *
+	 * @param gDomandaPericolo the new g domanda pericolo
+	 */
+	public void setgDomandaPericolo(Integer gDomandaPericolo) {
+		this.gDomandaPericolo = gDomandaPericolo;
+	}
+
+	/**
+	 * Gets the f domanda derubato.
+	 *
+	 * @return the f domanda derubato
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_derubato")
+	public Integer getfDomandaDerubato() {
+		return fDomandaDerubato;
+	}
+
+	/**
+	 * Sets the f domanda derubato.
+	 *
+	 * @param fDomandaDerubato the new f domanda derubato
+	 */
+	public void setfDomandaDerubato(Integer fDomandaDerubato) {
+		this.fDomandaDerubato = fDomandaDerubato;
+	}
+
+	/**
+	 * Gets the g domanda derubato.
+	 *
+	 * @return the g domanda derubato
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_derubato")
+	public Integer getgDomandaDerubato() {
+		return gDomandaDerubato;
+	}
+
+	/**
+	 * Sets the g domanda derubato.
+	 *
+	 * @param gDomandaDerubato the new g domanda derubato
+	 */
+	public void setgDomandaDerubato(Integer gDomandaDerubato) {
+		this.gDomandaDerubato = gDomandaDerubato;
+	}
+
+	/**
+	 * Gets the f domanda tradimento.
+	 *
+	 * @return the f domanda tradimento
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_tradimento")
+	public Integer getfDomandaTradimento() {
+		return fDomandaTradimento;
+	}
+
+	/**
+	 * Sets the f domanda tradimento.
+	 *
+	 * @param fDomandaTradimento the new f domanda tradimento
+	 */
+	public void setfDomandaTradimento(Integer fDomandaTradimento) {
+		this.fDomandaTradimento = fDomandaTradimento;
+	}
+
+	/**
+	 * Gets the g domanda tradimento.
+	 *
+	 * @return the g domanda tradimento
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_tradimento")
+	public Integer getgDomandaTradimento() {
+		return gDomandaTradimento;
+	}
+
+	/**
+	 * Sets the g domanda tradimento.
+	 *
+	 * @param gDomandaTradimento the new g domanda tradimento
+	 */
+	public void setgDomandaTradimento(Integer gDomandaTradimento) {
+		this.gDomandaTradimento = gDomandaTradimento;
+	}
+
+	/**
+	 * Gets the f domanda ospiti indesiderati.
+	 *
+	 * @return the f domanda ospiti indesiderati
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_ospiti_indesiderati")
+	public Integer getfDomandaOspitiIndesiderati() {
+		return fDomandaOspitiIndesiderati;
+	}
+
+	/**
+	 * Sets the f domanda ospiti indesiderati.
+	 *
+	 * @param fDomandaOspitiIndesiderati the new f domanda ospiti indesiderati
+	 */
+	public void setfDomandaOspitiIndesiderati(Integer fDomandaOspitiIndesiderati) {
+		this.fDomandaOspitiIndesiderati = fDomandaOspitiIndesiderati;
+	}
+
+	/**
+	 * Gets the g domanda ospiti indesiderati.
+	 *
+	 * @return the g domanda ospiti indesiderati
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_ospiti_indesiderati")
+	public Integer getgDomandaOspitiIndesiderati() {
+		return gDomandaOspitiIndesiderati;
+	}
+
+	/**
+	 * Sets the g domanda ospiti indesiderati.
+	 *
+	 * @param gDomandaOspitiIndesiderati the new g domanda ospiti indesiderati
+	 */
+	public void setgDomandaOspitiIndesiderati(Integer gDomandaOspitiIndesiderati) {
+		this.gDomandaOspitiIndesiderati = gDomandaOspitiIndesiderati;
+	}
+
+	/**
+	 * Gets the f domanda persone sconosciute.
+	 *
+	 * @return the f domanda persone sconosciute
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_persone_sconosciute")
+	public Integer getfDomandaPersoneSconosciute() {
+		return fDomandaPersoneSconosciute;
+	}
+
+	/**
+	 * Sets the f domanda persone sconosciute.
+	 *
+	 * @param fDomandaPersoneSconosciute the new f domanda persone sconosciute
+	 */
+	public void setfDomandaPersoneSconosciute(Integer fDomandaPersoneSconosciute) {
+		this.fDomandaPersoneSconosciute = fDomandaPersoneSconosciute;
+	}
+
+	/**
+	 * Gets the g domanda persone sconosciute.
+	 *
+	 * @return the g domanda persone sconosciute
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_persone_sconosciute")
+	public Integer getgDomandaPersoneSconosciute() {
+		return gDomandaPersoneSconosciute;
+	}
+
+	/**
+	 * Sets the g domanda persone sconosciute.
+	 *
+	 * @param gDomandaPersoneSconosciute the new g domanda persone sconosciute
+	 */
+	public void setgDomandaPersoneSconosciute(Integer gDomandaPersoneSconosciute) {
+		this.gDomandaPersoneSconosciute = gDomandaPersoneSconosciute;
+	}
+
+	/**
+	 * Gets the f domanda abitazione.
+	 *
+	 * @return the f domanda abitazione
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_abitazione")
+	public Integer getfDomandaAbitazione() {
+		return fDomandaAbitazione;
+	}
+
+	/**
+	 * Sets the f domanda abitazione.
+	 *
+	 * @param fDomandaAbitazione the new f domanda abitazione
+	 */
+	public void setfDomandaAbitazione(Integer fDomandaAbitazione) {
+		this.fDomandaAbitazione = fDomandaAbitazione;
+	}
+
+	/**
+	 * Gets the g domanda abitazione.
+	 *
+	 * @return the g domanda abitazione
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_abitazione")
+	public Integer getgDomandaAbitazione() {
+		return gDomandaAbitazione;
+	}
+
+	/**
+	 * Sets the g domanda abitazione.
+	 *
+	 * @param gDomandaAbitazione the new g domanda abitazione
+	 */
+	public void setgDomandaAbitazione(Integer gDomandaAbitazione) {
+		this.gDomandaAbitazione = gDomandaAbitazione;
+	}
+
+	/**
+	 * Gets the f domanda abbandono.
+	 *
+	 * @return the f domanda abbandono
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_abbandono")
+	public Integer getfDomandaAbbandono() {
+		return fDomandaAbbandono;
+	}
+
+	/**
+	 * Sets the f domanda abbandono.
+	 *
+	 * @param fDomandaAbbandono the new f domanda abbandono
+	 */
+	public void setfDomandaAbbandono(Integer fDomandaAbbandono) {
+		this.fDomandaAbbandono = fDomandaAbbandono;
+	}
+
+	/**
+	 * Gets the g domanda abbandono.
+	 *
+	 * @return the g domanda abbandono
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_abbandono")	
+	public Integer getgDomandaAbbandono() {
+		return gDomandaAbbandono;
+	}
+
+	/**
+	 * Sets the g domanda abbandono.
+	 *
+	 * @param gDomandaAbbandono the new g domanda abbandono
+	 */
+	public void setgDomandaAbbandono(Integer gDomandaAbbandono) {
+		this.gDomandaAbbandono = gDomandaAbbandono;
+	}
+
+	/**
+	 * Gets the f domanda presenze in casa.
+	 *
+	 * @return the f domanda presenze in casa
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_presenze")
+	public Integer getfDomandaPresenzeInCasa() {
+		return fDomandaPresenzeInCasa;
+	}
+
+	/**
+	 * Sets the f domanda presenze in casa.
+	 *
+	 * @param fDomandaPresenzeInCasa the new f domanda presenze in casa
+	 */
+	public void setfDomandaPresenzeInCasa(Integer fDomandaPresenzeInCasa) {
+		this.fDomandaPresenzeInCasa = fDomandaPresenzeInCasa;
+	}
+	
+	/**
+	 * Gets the g domanda presenze in casa.
+	 *
+	 * @return the g domanda presenze in casa
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_presenze")
+	public Integer getgDomandaPresenzeInCasa() {
+		return gDomandaPresenzeInCasa;
+	}
+
+	/**
+	 * Sets the g domanda presenze in casa.
+	 *
+	 * @param gDomandaPresenzeInCasa the new g domanda presenze in casa
+	 */
+	public void setgDomandaPresenzeInCasa(Integer gDomandaPresenzeInCasa) {
+		this.gDomandaPresenzeInCasa = gDomandaPresenzeInCasa;
+	}
+
+	/**
+	 * Gets the f domanda altre cose.
+	 *
+	 * @return the f domanda altre cose
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_altre_cose")
+	public Integer getfDomandaAltreCose() {
+		return fDomandaAltreCose;
+	}
+
+	/**
+	 * Sets the f domanda altre cose.
+	 *
+	 * @param fDomandaAltreCose the new f domanda altre cose
+	 */
+	public void setfDomandaAltreCose(Integer fDomandaAltreCose) {
+		this.fDomandaAltreCose = fDomandaAltreCose;
+	}
+
+	/**
+	 * Gets the g domanda altre cose.
+	 *
+	 * @return the g domanda altre cose
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_altre_cose")
+	public Integer getgDomandaAltreCose() {
+		return gDomandaAltreCose;
+	}
+
+	/**
+	 * Sets the g domanda altre cose.
+	 *
+	 * @param gDomandaAltreCose the new g domanda altre cose
+	 */
+	public void setgDomandaAltreCose(Integer gDomandaAltreCose) {
+		this.gDomandaAltreCose = gDomandaAltreCose;
+	}
+
+	/**
+	 * Gets the id deliri.
+	 *
+	 * @return the id deliri
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdDeliri() {
+		return idDeliri;
+	}
+
+	/**
+	 * Sets the id deliri.
+	 *
+	 * @param idDeliri the new id deliri
+	 */
+	public void setIdDeliri(Integer idDeliri) {
+		this.idDeliri = idDeliri;
+	}
+}

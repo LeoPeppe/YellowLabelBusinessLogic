@@ -1,0 +1,157 @@
+package it.cle.project.model;
+
+
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+
+
+@Entity
+@Table(name = "prestazione_range")
+@XmlRootElement(name = "prestazione_range")  
+//@XmlAccessorType(XmlAccessType.FIELD)
+public class Prestazioni implements Serializable{
+	
+	
+	private static final long serialVersionUID = 1L;
+	
+	private Integer idPrestazione_range;
+	
+	private Integer idPrestazione;
+	
+	private boolean rangeADL_0_14;
+	private boolean rangeADL_15_49;
+	private boolean rangeADL_50_60;
+	
+	private boolean rangeBarthel_0_14;
+	private boolean rangeBarthel_15_29;
+	private boolean rangeBarthel_30_40;
+	
+	private boolean rangeRete_0_80;
+	private boolean rangeRete_85_150;
+	private boolean rangeRete_165_240;
+	
+	
+	
+	
+	
+	@NotNull
+	@Column(name = "idPrestazione")
+	public Integer getIdPrestazione() {
+		return idPrestazione;
+	}
+	@XmlElement(name="idPrestazione")
+	public void setIdPrestazione(Integer idPrestazione) {
+		this.idPrestazione = idPrestazione;
+	}
+	@NotNull
+	@Column(name = "rangeADL_0_14")
+	public boolean isRangeADL_0_14() {
+		return rangeADL_0_14;
+	}
+	@XmlElement(name="rangeADL_15_49")
+	public void setRangeADL_0_14(boolean rangeADL_0_14) {
+		this.rangeADL_0_14 = rangeADL_0_14;
+	}
+	@NotNull
+	@Column(name = "rangeADL_15_49")
+	public boolean isRangeADL_15_49() {
+		return rangeADL_15_49;
+	}
+	@XmlElement(name="rangeADL_15_49")
+	public void setRangeADL_15_49(boolean rangeADL_15_49) {
+		this.rangeADL_15_49 = rangeADL_15_49;
+	}
+	@NotNull
+	@Column(name = "rangeADL_50_60")
+	public boolean isRangeADL_50_60() {
+		return rangeADL_50_60;
+	}
+	@XmlElement(name="rangeADL_50_60")
+	public void setRangeADL_50_60(boolean rangeADL_50_60) {
+		this.rangeADL_50_60 = rangeADL_50_60;
+	}
+	@NotNull
+	@Column(name = "rangeBarthel_0_14")
+	public boolean isRangeBarthel_0_14() {
+		return rangeBarthel_0_14;
+	}
+	@XmlElement(name="rangeBarthel_0_14")
+	public void setRangeBarthel_0_14(boolean rangeBarthel_0_14) {
+		this.rangeBarthel_0_14 = rangeBarthel_0_14;
+	}
+	@NotNull
+	@Column(name = "rangeBarthel_15_29")
+	public boolean isRangeBarthel_15_29() {
+		return rangeBarthel_15_29;
+	}
+	@XmlElement(name="rangeBarthel_15_29")
+	public void setRangeBarthel_15_29(boolean rangeBarthel_15_29) {
+		this.rangeBarthel_15_29 = rangeBarthel_15_29;
+	}
+	@NotNull
+	@Column(name = "rangeBarthel_30_40")
+	public boolean isRangeBarthel_30_40() {
+		return rangeBarthel_30_40;
+	}
+	@XmlElement(name="rangeBarthel_30_40")
+	public void setRangeBarthel_30_40(boolean rangeBarthel_30_40) {
+		this.rangeBarthel_30_40 = rangeBarthel_30_40;
+	}
+	@NotNull
+	@Column(name = "rangeRete_0_80")
+	public boolean isRangeRete_0_80() {
+		return rangeRete_0_80;
+	}
+	@XmlElement(name="rangeRete_0_80")
+	public void setRangeRete_0_80(boolean rangeRete_0_80) {
+		this.rangeRete_0_80 = rangeRete_0_80;
+	}
+	@NotNull
+	@Column(name = "rangeRete_85_150")
+	public boolean isRangeRete_85_150() {
+		return rangeRete_85_150;
+	}
+	@XmlElement(name="rangeRete_85_150")
+	public void setRangeRete_85_150(boolean rangeRete_85_150) {
+		this.rangeRete_85_150 = rangeRete_85_150;
+	}
+	@NotNull
+	@Column(name = "rangeRete_165_240")
+	public boolean isRangeRete_165_240() {
+		return rangeRete_165_240;
+	}
+	@XmlElement(name="rangeRete_165_240")
+	public void setRangeRete_165_240(boolean rangeRete_165_240) {
+		this.rangeRete_165_240 = rangeRete_165_240;
+	}
+	
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdPrestazione_range() {
+		return idPrestazione_range;
+	}
+	@XmlAttribute(name="idPrestazione_range")
+	public void setIdPrestazione_range(Integer idPrestazione_range) {
+		this.idPrestazione_range = idPrestazione_range;
+	}
+	
+	
+	public Prestazioni() {
+    }
+	
+
+}

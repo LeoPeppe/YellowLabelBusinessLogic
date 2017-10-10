@@ -1,0 +1,56 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class ScontoDTO implements Serializable {
+	
+	private String tipo;
+	private Double percentuale;
+	private Double importo;
+	/**
+	 * @return the tipo
+	 */
+	public String getTipo() {
+		return tipo;
+	}
+	/**
+	 * @param tipo the tipo to set
+	 */
+	@XmlElement(name="tipo")
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	/**
+	 * @return the percentuale
+	 */
+	public Double getPercentuale() {
+		return percentuale;
+	}
+	/**
+	 * @param percentuale the percentuale to set
+	 */
+	@XmlElement(name="percentuale")
+	public void setPercentuale(Double percentuale) {
+		this.percentuale = percentuale;
+	}
+	/**
+	 * @return the importo
+	 */
+	public Double getImporto() {
+		return importo;
+	}
+	/**
+	 * @param importo the importo to set
+	 */
+	@XmlElement(name="importo")
+	public void setImporto(Double importo) {
+		this.importo = importo;
+	}
+	
+	
+
+}

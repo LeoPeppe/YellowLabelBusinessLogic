@@ -1,0 +1,40 @@
+package it.cle.project.dao.hbn;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
+
+import it.cle.project.dao.CommittenteDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.Committente;
+import it.cle.project.model.Prestazioni;
+
+@Repository
+public class HbnCommittenteDao extends AbstractHbnDao<Committente>  implements CommittenteDao {
+
+	@Override
+	public Committente getCommittenteByDenominazione(String denominazione) {
+
+		Session session = getSession();
+		Committente committente = new Committente();
+		String sql = "SELECT * FROM committente "
+				+ " where denominazione like ?";
+				
+		try {
+		SQLQuery query = session.createSQLQuery(sql);
+		query.setString(0, denominazione);
+		query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+		 committente = (Committente) query.list();
+		} catch(Exception e) {
+			committente = null;
+			e.printStackTrace();
+		}
+		
+		return committente;
+	}
+	
+
+}

@@ -1,0 +1,122 @@
+package it.cle.project.dto;
+
+
+import java.io.Serializable;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.apache.log4j.Logger;
+
+import it.cle.project.dao.hbn.HbnDatiFatturaDao;
+import it.cle.project.utils.Utils;
+
+
+@XmlRootElement(name = "costo_prestazioni") 
+@XmlAccessorType(XmlAccessType.FIELD)
+public class ReportPrestazioniDTO  implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6382772159122404320L;
+
+	
+	protected Logger logger = Logger.getLogger(ReportPrestazioniDTO.class);
+	
+	
+	
+	@XmlElement(name = "prestazione")
+	private String prestazione;
+	@XmlElement(name = "num_prestazioni")
+	private Integer num_prestazioni;
+	@XmlElement(name = "costo_unitario")
+	private Double costo_unitario;
+	@XmlElement(name = "importo_prestazioni")
+	private Double importo_prestazioni;
+	
+	
+	public String getPrestazione() {
+		try {
+			return URLDecoder.decode(prestazione, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			
+//			e.printStackTrace();
+			logger.error("Errore nella decodifica UTF-8 della prestazione " + this.prestazione);
+			logger.error(Utils.getStackTrace(e));
+			return prestazione;
+		}
+	}
+	
+	public void setPrestazione(String prestazione) {
+		try {
+			this.prestazione = URLEncoder.encode(prestazione, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			
+//			e.printStackTrace();
+			logger.error("Errore nella codifica UTF-8 della prestazione " + prestazione);
+			logger.error(Utils.getStackTrace(e));
+			this.prestazione = prestazione;
+		} 
+		
+		
+	}
+	public Integer getNum_prestazioni() {
+		return num_prestazioni;
+	}
+	
+	public void setNum_prestazioni(Integer num_prestazioni) {
+		this.num_prestazioni = num_prestazioni;
+	}
+	public Double getCosto_unitario() {
+		return costo_unitario;
+	}
+	
+	public void setCosto_unitario(Double costo_unitario) {
+		this.costo_unitario = costo_unitario;
+	}
+	public Double getImporto_prestazioni() {
+		return importo_prestazioni;
+	}
+	
+	
+	public void setImporto_prestazioni(Double importo_prestazioni) {
+		this.importo_prestazioni = importo_prestazioni;
+	}
+
+	@Override
+	public String toString() {
+		return "ReportPrestazioniDTO [prestazione=" + prestazione + ", num_prestazioni=" + num_prestazioni
+				+ ", costo_unitario=" + costo_unitario + ", importo_prestazioni=" + importo_prestazioni + "]";
+	}
+
+	
+	public String toStringXML() {
+		
+		StringWriter out = new StringWriter();
+		
+		try {
+		JAXBContext jc = JAXBContext.newInstance(ReportPrestazioniDTO.class);
+		Marshaller marsh = jc.createMarshaller();
+		
+		marsh.marshal(this, out);
+		
+		} catch(Exception e) {
+			
+			logger.error(Utils.getStackTrace(e));
+			
+//			e.printStackTrace();
+		}
+		return out.toString();
+	}
+	
+
+}

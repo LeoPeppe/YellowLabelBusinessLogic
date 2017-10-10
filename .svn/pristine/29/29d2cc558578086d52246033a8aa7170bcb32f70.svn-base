@@ -1,0 +1,223 @@
+package it.cle.project.model;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndiceExtonSmith.
+ */
+@Entity
+@Table(name = "indice_exton_smith")
+@XmlRootElement(name="indice_exton_smith")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class IndiceExtonSmith {
+
+	/** The id indice barthel. */
+	private Integer idIndiceExtonSmith;
+	
+	/** The p rischio decubiti. */
+	private Boolean pRischioInfettivo;
+	
+	/** The p decubiti cond gen. */
+	private Integer pDecubitiCondGen;
+	
+	/** The p decubiti stato men. */
+	private Integer pDecubitiStatoMen;
+	
+	/** The p decubiti attivita. */
+	private Integer pDecubitiAttivita;
+	
+	/** The p decubiti mobilita. */
+	private Integer pDecubitiMobilita;
+	
+	/** The p decubiti incontinenza. */
+	private Integer pDecubitiIncontinenza;
+	
+	/** The p decubiti incontinenza. */
+	private Integer pPresenzaPiaghe;
+	
+	/**
+	 * Gets the id indice exton smith.
+	 *
+	 * @return the id indice exton smith
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceExtonSmith() {
+		return idIndiceExtonSmith;
+	}
+
+	/**
+	 * Sets the id indice exton smith.
+	 *
+	 * @param idIndiceExtonSmith the new id indice exton smith
+	 */
+	public void setIdIndiceExtonSmith(Integer idIndiceExtonSmith) {
+		this.idIndiceExtonSmith = idIndiceExtonSmith;
+	}
+
+	/**
+	 * Gets the p rischio infettivo.
+	 *
+	 * @return the p rischio infettivo
+	 */
+	@Type(type = "boolean")
+	@Column(name = "p_rischio_infettivo")
+	public Boolean getpRischioInfettivo() {
+		return pRischioInfettivo;
+	}
+
+	/**
+	 * Sets the p rischio infettivo.
+	 *
+	 * @param pRischioInfettivo the new p rischio infettivo
+	 */
+	public void setpRischioInfettivo(Boolean pRischioInfettivo) {
+		this.pRischioInfettivo = pRischioInfettivo;
+	}
+
+	/**
+	 * Gets the p decubiti cond gen.
+	 *
+	 * @return the p decubiti cond gen
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 1,2,3,4 })
+	@Column(name = "p_decubiti_con_gen")
+	public Integer getpDecubitiCondGen() {
+		return pDecubitiCondGen;
+	}
+
+	/**
+	 * Sets the p decubiti cond gen.
+	 *
+	 * @param pDecubitiCondGen the new p decubiti cond gen
+	 */
+	public void setpDecubitiCondGen(Integer pDecubitiCondGen) {
+		this.pDecubitiCondGen = pDecubitiCondGen;
+	}
+
+	/**
+	 * Gets the p decubiti stato men.
+	 *
+	 * @return the p decubiti stato men
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 1,2,3,4 })
+	@Column(name = "p_decubiti_stato_men")
+	public Integer getpDecubitiStatoMen() {
+		return pDecubitiStatoMen;
+	}
+
+	/**
+	 * Sets the p decubiti stato men.
+	 *
+	 * @param pDecubitiStatoMen the new p decubiti stato men
+	 */
+	public void setpDecubitiStatoMen(Integer pDecubitiStatoMen) {
+		this.pDecubitiStatoMen = pDecubitiStatoMen;
+	}
+
+	/**
+	 * Gets the p decubiti attivita.
+	 *
+	 * @return the p decubiti attivita
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 1,2,3,4 })
+	@Column(name = "p_decubiti_attivita")
+	public Integer getpDecubitiAttivita() {
+		return pDecubitiAttivita;
+	}
+
+	/**
+	 * Sets the p decubiti attivita.
+	 *
+	 * @param pDecubitiAttivita the new p decubiti attivita
+	 */
+	public void setpDecubitiAttivita(Integer pDecubitiAttivita) {
+		this.pDecubitiAttivita = pDecubitiAttivita;
+	}
+
+	/**
+	 * Gets the p decubiti mobilita.
+	 *
+	 * @return the p decubiti mobilita
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 1,2,3,4 })
+	@Column(name = "p_decubiti_mobilita")
+	public Integer getpDecubitiMobilita() {
+		return pDecubitiMobilita;
+	}
+
+	/**
+	 * Sets the p decubiti mobilita.
+	 *
+	 * @param pDecubitiMobilita the new p decubiti mobilita
+	 */
+	public void setpDecubitiMobilita(Integer pDecubitiMobilita) {
+		this.pDecubitiMobilita = pDecubitiMobilita;
+	}
+
+	/**
+	 * Gets the p decubiti incontinenza.
+	 *
+	 * @return the p decubiti incontinenza
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 1,2,3,4 })
+	@Column(name = "p_decubiti_incontinenza")
+	public Integer getpDecubitiIncontinenza() {
+		return pDecubitiIncontinenza;
+	}
+
+	/**
+	 * Sets the p decubiti incontinenza.
+	 *
+	 * @param pDecubitiIncontinenza the new p decubiti incontinenza
+	 */
+	public void setpDecubitiIncontinenza(Integer pDecubitiIncontinenza) {
+		this.pDecubitiIncontinenza = pDecubitiIncontinenza;
+	}
+	
+	/**
+	 * Gets the p presenza piaghe.
+	 *
+	 * @return the p presenza piaghe
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,15,25 })
+	@Column(name = "p_presenza_piaghe")
+	public Integer getpPresenzaPiaghe() {
+		return pPresenzaPiaghe;
+	}
+
+	/**
+	 * Sets the p presenza piaghe.
+	 *
+	 * @param pPresenzaPiaghe the new p presenza piaghe
+	 */
+	public void setpPresenzaPiaghe(Integer pPresenzaPiaghe) {
+		this.pPresenzaPiaghe = pPresenzaPiaghe;
+	}
+	
+	/**
+	 * Instantiates a new indice exton smith.
+	 */
+	public IndiceExtonSmith() {
+    }
+}

@@ -1,0 +1,163 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DatiTrasmissioneDTO.
+ */
+@XmlRootElement(name = "DatiTrasmissione") 
+public class DatiTrasmissioneDTO implements Serializable {
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The trasmittente. */
+	private IdentificativoFiscaleDTO trasmittente;
+	
+	/** The progressivo invio. */
+	private String progressivoInvio;
+	
+	/** The formato trasmissione. */
+	private String formatoTrasmissione = "SDI11";
+	
+	/** The codice destinatario. */
+	private String codiceDestinatario;
+	
+	/** The contatti trasmittente. */
+	private ContattiDTO contattiTrasmittente;
+	
+	/** The email destinatario. */
+	private String emailDestinatario;
+	
+	
+	/**
+	 * Instantiates a new dati trasmissione dto.
+	 */
+	public DatiTrasmissioneDTO() {
+		this.formatoTrasmissione = "SDI11";
+	}
+	
+	/**
+	 * Gets the trasmittente.
+	 *
+	 * @return the trasmittente
+	 */
+	public IdentificativoFiscaleDTO getTrasmittente() {
+		return trasmittente;
+	}
+	
+	/**
+	 * Sets the trasmittente.
+	 *
+	 * @param trasmittente the trasmittente to set
+	 */
+	@XmlElement(name="IdTrasmittente")	
+	public void setTrasmittente(IdentificativoFiscaleDTO trasmittente) {
+		this.trasmittente = trasmittente;
+	}
+	
+	/**
+	 * Gets the progressivo invio.
+	 *
+	 * @return the progressivoInvio
+	 */
+	public String getProgressivoInvio() {
+		return progressivoInvio;
+	}
+	
+	/**
+	 * Sets the progressivo invio.
+	 *
+	 * @param progressivoInvio the progressivoInvio to set
+	 */
+	@XmlElement(name="ProgressivoInvio")
+	public void setProgressivoInvio(String progressivoInvio) {
+		this.progressivoInvio = progressivoInvio;
+	}
+	
+	/**
+	 * Gets the formato trasmissione.
+	 *
+	 * @return the formatoTrasmissione
+	 */
+	public String getFormatoTrasmissione() {
+		return formatoTrasmissione;
+	}
+	
+	/**
+	 * Sets the formato trasmissione.
+	 *
+	 * @param formatoTrasmissione the formatoTrasmissione to set
+	 */
+	@XmlElement(name="FormatoTrasmissione")
+	public void setFormatoTrasmissione(String formatoTrasmissione) {
+		this.formatoTrasmissione = formatoTrasmissione;
+	}
+	
+	/**
+	 * Gets the codice destinatario.
+	 *
+	 * @return the codiceDestinatario
+	 */
+	public String getCodiceDestinatario() {
+		return codiceDestinatario;
+	}
+	
+	/**
+	 * Sets the codice destinatario.
+	 *
+	 * @param codiceDestinatario the codiceDestinatario to set
+	 */
+	@XmlElement(name="CodiceDestinatario")	
+	public void setCodiceDestinatario(String codiceDestinatario) {
+		this.codiceDestinatario = codiceDestinatario;
+	}
+	
+	/**
+	 * Gets the contatti trasmittente.
+	 *
+	 * @return the contattiTrasmittente
+	 */
+	public ContattiDTO getContattiTrasmittente() {
+		return contattiTrasmittente;
+	}
+	
+	/**
+	 * Sets the contatti trasmittente.
+	 *
+	 * @param contattiTrasmittente the contattiTrasmittente to set
+	 */
+	@XmlElement(name="ContattiTrasmittente")	
+	public void setContattiTrasmittente(ContattiDTO contattiTrasmittente) {
+		this.contattiTrasmittente = contattiTrasmittente;
+	}
+	
+	/**
+	 * Gets the email destinatario.
+	 *
+	 * @return the email destinatario
+	 */
+	public String getEmailDestinatario() {
+		return emailDestinatario;
+	}
+	
+	/**
+	 * Sets the email destinatario.
+	 *
+	 * @param emailDestinatario the emailDestinatario to set
+	 */
+	@XmlElement(name="EmailDestinatario")	
+	public void setEmailDestinatario(String emailDestinatario) {
+		this.emailDestinatario = emailDestinatario;
+	}
+	
+	
+	
+	
+	
+
+}

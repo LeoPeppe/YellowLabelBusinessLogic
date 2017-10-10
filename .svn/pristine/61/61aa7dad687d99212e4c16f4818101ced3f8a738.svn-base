@@ -1,0 +1,29 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceVIP;
+
+/**
+ * interfaccia IndiceVIPService
+ * @author pierluigi.anaclerio
+ *
+ */
+public interface IndiceVIPService {
+	
+	/**
+	 * Calcola indiceVIP
+	 * @param indiecVIP
+	 * @return
+	 */
+	public Integer calcolaIndiceVIP(IndiceVIP indiceVIP);
+	
+	
+	public IndiceVIP selectById(Integer idIndiceVIP);
+
+
+	void insert(IndiceVIP indiceVIP);
+
+
+//	public String codificaVIP(Integer vip);
+	
+
+}

@@ -1,0 +1,37 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DatiCassaPrevidenzialeDTO.
+ */
+public class DatiCassaPrevidenzialeDTO implements Serializable {
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 3114713964187754296L;
+	
+	/** The tipo cassa. */
+	private String tipoCassa;
+	
+	
+	/**
+	 * Gets the tipo cassa.
+	 *
+	 * @return the tipo cassa
+	 */
+	public String getTipoCassa() {
+		return tipoCassa;
+	}
+	
+	/**
+	 * Sets the tipo cassa.
+	 *
+	 * @param tipoCassa the new tipo cassa
+	 */
+	public void setTipoCassa(String tipoCassa) {
+		this.tipoCassa = tipoCassa;
+	}
+	
+
+}

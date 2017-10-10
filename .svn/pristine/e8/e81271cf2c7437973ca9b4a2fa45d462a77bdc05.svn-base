@@ -1,0 +1,12 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.ProfiloAutonomia;
+
+/**
+ * Interfaccia .
+ *
+ * @author Leo
+ */
+public interface ProfiloAutonomiaDao extends Dao<ProfiloAutonomia> {
+
+}

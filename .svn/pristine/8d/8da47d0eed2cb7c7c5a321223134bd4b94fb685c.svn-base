@@ -1,0 +1,49 @@
+package it.cle.project.dao.hbn;
+
+import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
+
+import it.cle.project.dao.CommittenteDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.Committente;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class HbnCommittenteDao.
+ */
+@Repository
+public class HbnCommittenteDao extends AbstractHbnDao<Committente>  implements CommittenteDao {
+
+	/** The logger. */
+	protected Logger logger = Logger.getLogger(HbnCommittenteDao.class);
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.dao.CommittenteDao#getCommittenteByDenominazione(java.lang.String)
+	 */
+	@Override
+	public Committente getCommittenteByDenominazione(String denominazione) {
+
+		Session session = getSession();
+		Committente committente = new Committente();
+
+		try {
+
+			Criteria cr = session.createCriteria(Committente.class);
+			cr.add(Restrictions.like("denominazione", denominazione));
+			committente = (Committente)cr.uniqueResult();
+			
+			
+		} catch(Exception e) {
+			committente = null;
+//			e.printStackTrace();
+			logger.error(e.getStackTrace());
+		}
+		
+		return committente;
+	}
+	
+
+}

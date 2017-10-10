@@ -1,0 +1,10 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.IndiceEAT;
+
+/**
+ * The Interface IndiceEATDao.
+ */
+public interface IndiceEATDao extends Dao<IndiceEAT> {
+
+}

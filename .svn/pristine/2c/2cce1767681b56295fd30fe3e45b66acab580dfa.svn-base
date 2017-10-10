@@ -1,0 +1,774 @@
+package it.cle.project.model;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndiceEAT26.
+ */
+@Entity
+@Table(name = "indice_eat")
+@XmlRootElement(name= "indice_eat")
+public class IndiceEAT26 {
+	
+	/** The id indice eat. */
+	private Integer idIndiceEAT;
+	
+	/** The peso. */
+	private Double peso;
+	
+	/** The altezza. */
+	private Double altezza;
+	
+	/** The sesso. */
+	private String sesso;
+	
+	
+	/** Ho una terribile paura di ingrassare. 
+	 *  Validazione: //0,1,2,3*/
+	private Integer domandaPauraIngrassare;
+	
+	/**  Evito di mangiare quando ho fame  Validazione: //0,1,2,3. */
+	private Integer domandaEvitareMangiare;
+	
+	/**  Penso al cibo con preoccupazione  Validazione: //0,1,2,3. */
+	private Integer domandaPensareCibo;
+	
+	/**  Mi è capitato di mangiare con enorme voracità e di non riuscire a fermarmi  Validazione: //0,1,2,3. */
+	private Integer domandaMangiareVoracita;
+	
+	/**  Ho l’abitudine di sminuzzare il cibo  Validazione: //0,1,2,3. */
+	private Integer domandaSminuzzareCibo;
+	
+	/**  Presto molta attenzione al contenuto calorico dei cibi che mangio  Validazione: //0,1,2,3. */
+	private Integer domandaContenutoCalorico;
+	
+	/** Tendo ad evitare i cibi con elevato contenuto di carboidrati (Pane, Pasta, Riso, Patate, Dolci)  Validazione: //0,1,2,3. */
+	private Integer domandaEvitareCarboidrati;
+	
+	/** Ho la sensazione che gli altri vorrebbero che mangiassi di più  Validazione: //0,1,2,3. */
+	private Integer domandaSensazioneAltri;
+	
+	/**  Dopo mangiato mi capita di vomitare  Validazione: //0,1,2,3. */
+	private Integer domandaVomito;
+	
+	/**  Mi sento estremamente in colpa dopo che ho mangiato  Validazione: //0,1,2,3. */
+	private Integer domandaSensoColpa;
+	
+	/**  Sento un forte desiderio di essere più magra  Validazione: //0,1,2,3. */
+	private Integer domandaDesiderioDimagrire;
+	
+	/** . Quando faccio ginnastica penso a quante calorie sto bruciando
+	 *  Validazione: //0,1,2,3*/
+	private Integer domandaGinnastica;
+	
+	/**  Gli altri mi vedono troppo magra  Validazione: //0,1,2,3. */
+	private Integer domandaAltriMagra;
+	
+	/**  Sono preoccupata al pensiero di avere del grasso sul mio corpo  Validazione: //0,1,2,3. */
+	private Integer domandaGrassoCorpo;
+	
+	/** Quando mangio impiego più tempo degli altri per finire il pasto  Validazione: //0,1,2,3. */
+	private Integer domandaTempoPasto;
+	
+	/**  Evito i cibi che contengono zuccheri  Validazione: //0,1,2,3. */
+	private Integer domandaCibiZuccheri;
+	
+	/** . Mangio cibi dietetici
+	 *  Validazione: //0,1,2,3*/
+	private Integer domandaCibiDietetici;
+	
+	/**  Sento che il cibo controlla la mia vita  Validazione: //0,1,2,3. */
+	private Integer domandaControlloVita;
+	
+	/** . Mi piace mostrare auto-controllo sul cibo e dominare la fame
+	 *  Validazione: //0,1,2,3*/
+	private Integer domandaAutocontrollo;
+	
+	/** . Dedico al cibo troppo tempo e troppi pensieri
+	 *  Validazione: //0,1,2,3*/
+	private Integer domandaPressioneAltri;
+	
+	/**  Dedico al cibo troppo tempo e troppi pensieri  Validazione: //0,1,2,3. */
+	private Integer domandaCiboPensieri;
+	
+	/**  Mi sento a disagio dopo aver mangiato dei dolci  Validazione: //0,1,2,3. */
+	private Integer domandaDisagioDolci;
+	
+	/**  Tendo a seguire delle diete  Validazione: //0,1,2,3. */
+	private Integer domandaDieta;
+	
+	/**  Mi piace quando sento che il mio stomaco è vuoto  Validazione: //0,1,2,3. */
+	private Integer domandaStomacoVuoto;
+	
+	/**  Provo l’impulso di vomitare dopo avere mangiato  Validazione: //0,1,2,3. */
+	private Integer domandaImpulsoVomitare;
+	
+	/**  Mi piace provare cibi nuovi ed elaborati  Validazione: //0,1,2,3. */
+	private Integer domandaCibiNuovi;
+
+	
+	/** The valore id indice eat. */
+	private Integer valoreIdIndiceEAT;
+	
+	/**
+	 * Gets the id indice eat.
+	 *
+	 * @return the id indice eat
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceEAT() {
+		return idIndiceEAT;
+	}
+
+	/**
+	 * Sets the id indice eat.
+	 *
+	 * @param idIndiceEAT the new id indice eat
+	 */
+	public void setIdIndiceEAT(Integer idIndiceEAT) {
+		this.idIndiceEAT = idIndiceEAT;
+	}
+
+	/**
+	 * Gets the domanda paura ingrassare.
+	 *
+	 * @return the domanda paura ingrassare
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_paura_ingrassare")
+	public Integer getDomandaPauraIngrassare() {
+		return domandaPauraIngrassare;
+	}
+
+	/**
+	 * Sets the domanda paura ingrassare.
+	 *
+	 * @param domandaPauraIngrassare the new domanda paura ingrassare
+	 */
+	public void setDomandaPauraIngrassare(Integer domandaPauraIngrassare) {
+		this.domandaPauraIngrassare = domandaPauraIngrassare;
+	}
+
+	/**
+	 * Gets the domanda evitare mangiare.
+	 *
+	 * @return the domanda evitare mangiare
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_evitare_mangiare")
+	public Integer getDomandaEvitareMangiare() {
+		return domandaEvitareMangiare;
+	}
+
+	/**
+	 * Sets the domanda evitare mangiare.
+	 *
+	 * @param domandaEvitareMangiare the new domanda evitare mangiare
+	 */
+	public void setDomandaEvitareMangiare(Integer domandaEvitareMangiare) {
+		this.domandaEvitareMangiare = domandaEvitareMangiare;
+	}
+
+	/**
+	 * Gets the domanda pensare cibo.
+	 *
+	 * @return the domanda pensare cibo
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_pensare_cibo")
+	public Integer getDomandaPensareCibo() {
+		return domandaPensareCibo;
+	}
+
+	/**
+	 * Sets the domanda pensare cibo.
+	 *
+	 * @param domandaPensareCibo the new domanda pensare cibo
+	 */
+	public void setDomandaPensareCibo(Integer domandaPensareCibo) {
+		this.domandaPensareCibo = domandaPensareCibo;
+	}
+
+	/**
+	 * Gets the domanda mangiare voracita.
+	 *
+	 * @return the domanda mangiare voracita
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_mangiare_voracita")
+	public Integer getDomandaMangiareVoracita() {
+		return domandaMangiareVoracita;
+	}
+
+	/**
+	 * Sets the domanda mangiare voracita.
+	 *
+	 * @param domandaMangiareVoracita the new domanda mangiare voracita
+	 */
+	public void setDomandaMangiareVoracita(Integer domandaMangiareVoracita) {
+		this.domandaMangiareVoracita = domandaMangiareVoracita;
+	}
+
+	/**
+	 * Gets the domanda sminuzzare cibo.
+	 *
+	 * @return the domanda sminuzzare cibo
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_sminuzzare_cibo")
+	public Integer getDomandaSminuzzareCibo() {
+		return domandaSminuzzareCibo;
+	}
+
+	/**
+	 * Sets the domanda sminuzzare cibo.
+	 *
+	 * @param domandaSminuzzareCibo the new domanda sminuzzare cibo
+	 */
+	public void setDomandaSminuzzareCibo(Integer domandaSminuzzareCibo) {
+		this.domandaSminuzzareCibo = domandaSminuzzareCibo;
+	}
+
+	/**
+	 * Gets the domanda contenuto calorico.
+	 *
+	 * @return the domanda contenuto calorico
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_contenuto_calorico")
+	public Integer getDomandaContenutoCalorico() {
+		return domandaContenutoCalorico;
+	}
+
+	/**
+	 * Sets the domanda contenuto calorico.
+	 *
+	 * @param domandaContenutoCalorico the new domanda contenuto calorico
+	 */
+	public void setDomandaContenutoCalorico(Integer domandaContenutoCalorico) {
+		this.domandaContenutoCalorico = domandaContenutoCalorico;
+	}
+
+	/**
+	 * Gets the domanda evitare carboidrati.
+	 *
+	 * @return the domanda evitare carboidrati
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_evitare_carboidrati")
+	public Integer getDomandaEvitareCarboidrati() {
+		return domandaEvitareCarboidrati;
+	}
+
+	/**
+	 * Sets the domanda evitare carboidrati.
+	 *
+	 * @param domandaEvitareCarboidrati the new domanda evitare carboidrati
+	 */
+	public void setDomandaEvitareCarboidrati(Integer domandaEvitareCarboidrati) {
+		this.domandaEvitareCarboidrati = domandaEvitareCarboidrati;
+	}
+
+	/**
+	 * Gets the domanda sensazione altri.
+	 *
+	 * @return the domanda sensazione altri
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_sensazione_altri")
+	public Integer getDomandaSensazioneAltri() {
+		return domandaSensazioneAltri;
+	}
+
+	/**
+	 * Sets the domanda sensazione altri.
+	 *
+	 * @param domandaSensazioneAltri the new domanda sensazione altri
+	 */
+	public void setDomandaSensazioneAltri(Integer domandaSensazioneAltri) {
+		this.domandaSensazioneAltri = domandaSensazioneAltri;
+	}
+
+	/**
+	 * Gets the domanda vomito.
+	 *
+	 * @return the domanda vomito
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_vomito")
+	public Integer getDomandaVomito() {
+		return domandaVomito;
+	}
+
+	/**
+	 * Sets the domanda vomito.
+	 *
+	 * @param domandaVomito the new domanda vomito
+	 */
+	public void setDomandaVomito(Integer domandaVomito) {
+		this.domandaVomito = domandaVomito;
+	}
+
+	/**
+	 * Gets the domanda senso colpa.
+	 *
+	 * @return the domanda senso colpa
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_senso_colpa")
+	public Integer getDomandaSensoColpa() {
+		return domandaSensoColpa;
+	}
+
+	/**
+	 * Sets the domanda senso colpa.
+	 *
+	 * @param domandaSensoColpa the new domanda senso colpa
+	 */
+	public void setDomandaSensoColpa(Integer domandaSensoColpa) {
+		this.domandaSensoColpa = domandaSensoColpa;
+	}
+
+	/**
+	 * Gets the domanda desiderio dimagrire.
+	 *
+	 * @return the domanda desiderio dimagrire
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_desiderio_dimagrire")
+	public Integer getDomandaDesiderioDimagrire() {
+		return domandaDesiderioDimagrire;
+	}
+
+	/**
+	 * Sets the domanda desiderio dimagrire.
+	 *
+	 * @param domandaDesiderioDimagrire the new domanda desiderio dimagrire
+	 */
+	public void setDomandaDesiderioDimagrire(Integer domandaDesiderioDimagrire) {
+		this.domandaDesiderioDimagrire = domandaDesiderioDimagrire;
+	}
+
+	/**
+	 * Gets the domanda ginnastica.
+	 *
+	 * @return the domanda ginnastica
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_ginnastica")
+	public Integer getDomandaGinnastica() {
+		return domandaGinnastica;
+	}
+
+	/**
+	 * Sets the domanda ginnastica.
+	 *
+	 * @param domandaGinnastica the new domanda ginnastica
+	 */
+	public void setDomandaGinnastica(Integer domandaGinnastica) {
+		this.domandaGinnastica = domandaGinnastica;
+	}
+
+	/**
+	 * Gets the domanda altri magra.
+	 *
+	 * @return the domanda altri magra
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_altri_magra")
+	public Integer getDomandaAltriMagra() {
+		return domandaAltriMagra;
+	}
+
+	/**
+	 * Sets the domanda altri magra.
+	 *
+	 * @param domandaAltriMagra the new domanda altri magra
+	 */
+	public void setDomandaAltriMagra(Integer domandaAltriMagra) {
+		this.domandaAltriMagra = domandaAltriMagra;
+	}
+
+	/**
+	 * Gets the domanda grasso corpo.
+	 *
+	 * @return the domanda grasso corpo
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_grasso_corpo")
+	public Integer getDomandaGrassoCorpo() {
+		return domandaGrassoCorpo;
+	}
+
+	/**
+	 * Sets the domanda grasso corpo.
+	 *
+	 * @param domandaGrassoCorpo the new domanda grasso corpo
+	 */
+	public void setDomandaGrassoCorpo(Integer domandaGrassoCorpo) {
+		this.domandaGrassoCorpo = domandaGrassoCorpo;
+	}
+
+	/**
+	 * Gets the domanda tempo pasto.
+	 *
+	 * @return the domanda tempo pasto
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_tempo_pasto")
+	public Integer getDomandaTempoPasto() {
+		return domandaTempoPasto;
+	}
+
+	/**
+	 * Sets the domanda tempo pasto.
+	 *
+	 * @param domandaTempoPasto the new domanda tempo pasto
+	 */
+	public void setDomandaTempoPasto(Integer domandaTempoPasto) {
+		this.domandaTempoPasto = domandaTempoPasto;
+	}
+
+	/**
+	 * Gets the domanda cibi zuccheri.
+	 *
+	 * @return the domanda cibi zuccheri
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_cibi_zuccheri")
+	public Integer getDomandaCibiZuccheri() {
+		return domandaCibiZuccheri;
+	}
+
+	/**
+	 * Sets the domanda cibi zuccheri.
+	 *
+	 * @param domandaCibiZuccheri the new domanda cibi zuccheri
+	 */
+	public void setDomandaCibiZuccheri(Integer domandaCibiZuccheri) {
+		this.domandaCibiZuccheri = domandaCibiZuccheri;
+	}
+
+	/**
+	 * Gets the domanda cibi dietetici.
+	 *
+	 * @return the domanda cibi dietetici
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_cibi_dietetici")
+	public Integer getDomandaCibiDietetici() {
+		return domandaCibiDietetici;
+	}
+
+	/**
+	 * Sets the domanda cibi dietetici.
+	 *
+	 * @param domandaCibiDietetici the new domanda cibi dietetici
+	 */
+	public void setDomandaCibiDietetici(Integer domandaCibiDietetici) {
+		this.domandaCibiDietetici = domandaCibiDietetici;
+	}
+
+	/**
+	 * Gets the domanda controllo vita.
+	 *
+	 * @return the domanda controllo vita
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_controllo_vita")
+	public Integer getDomandaControlloVita() {
+		return domandaControlloVita;
+	}
+
+	/**
+	 * Sets the domanda controllo vita.
+	 *
+	 * @param domandaControlloVita the new domanda controllo vita
+	 */
+	public void setDomandaControlloVita(Integer domandaControlloVita) {
+		this.domandaControlloVita = domandaControlloVita;
+	}
+
+	/**
+	 * Gets the domanda autocontrollo.
+	 *
+	 * @return the domanda autocontrollo
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_autocontrollo")
+	public Integer getDomandaAutocontrollo() {
+		return domandaAutocontrollo;
+	}
+
+	/**
+	 * Sets the domanda autocontrollo.
+	 *
+	 * @param domandaAutocontrollo the new domanda autocontrollo
+	 */
+	public void setDomandaAutocontrollo(Integer domandaAutocontrollo) {
+		this.domandaAutocontrollo = domandaAutocontrollo;
+	}
+
+	/**
+	 * Gets the domanda pressione altri.
+	 *
+	 * @return the domanda pressione altri
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_pressione_altri")
+	public Integer getDomandaPressioneAltri() {
+		return domandaPressioneAltri;
+	}
+
+	/**
+	 * Sets the domanda pressione altri.
+	 *
+	 * @param domandaPressioneAltri the new domanda pressione altri
+	 */
+	public void setDomandaPressioneAltri(Integer domandaPressioneAltri) {
+		this.domandaPressioneAltri = domandaPressioneAltri;
+	}
+
+	/**
+	 * Gets the domanda cibo pensieri.
+	 *
+	 * @return the domanda cibo pensieri
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_cibo_pensieri")
+	public Integer getDomandaCiboPensieri() {
+		return domandaCiboPensieri;
+	}
+
+	/**
+	 * Sets the domanda cibo pensieri.
+	 *
+	 * @param domandaCiboPensieri the new domanda cibo pensieri
+	 */
+	public void setDomandaCiboPensieri(Integer domandaCiboPensieri) {
+		this.domandaCiboPensieri = domandaCiboPensieri;
+	}
+
+	/**
+	 * Gets the domanda disagio dolci.
+	 *
+	 * @return the domanda disagio dolci
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_disagio_dolci")
+	public Integer getDomandaDisagioDolci() {
+		return domandaDisagioDolci;
+	}
+
+	/**
+	 * Sets the domanda disagio dolci.
+	 *
+	 * @param domandaDisagioDolci the new domanda disagio dolci
+	 */
+	public void setDomandaDisagioDolci(Integer domandaDisagioDolci) {
+		this.domandaDisagioDolci = domandaDisagioDolci;
+	}
+
+	/**
+	 * Gets the domanda dieta.
+	 *
+	 * @return the domanda dieta
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_dieta")
+	public Integer getDomandaDieta() {
+		return domandaDieta;
+	}
+
+	/**
+	 * Sets the domanda dieta.
+	 *
+	 * @param domandaDieta the new domanda dieta
+	 */
+	public void setDomandaDieta(Integer domandaDieta) {
+		this.domandaDieta = domandaDieta;
+	}
+
+	/**
+	 * Gets the domanda stomaco vuoto.
+	 *
+	 * @return the domanda stomaco vuoto
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_stomaco_vuoto")
+	public Integer getDomandaStomacoVuoto() {
+		return domandaStomacoVuoto;
+	}
+
+	/**
+	 * Sets the domanda stomaco vuoto.
+	 *
+	 * @param domandaStomacoVuoto the new domanda stomaco vuoto
+	 */
+	public void setDomandaStomacoVuoto(Integer domandaStomacoVuoto) {
+		this.domandaStomacoVuoto = domandaStomacoVuoto;
+	}
+
+	/**
+	 * Gets the domanda impulso vomitare.
+	 *
+	 * @return the domanda impulso vomitare
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_impulso_vomitare")
+	public Integer getDomandaImpulsoVomitare() {
+		return domandaImpulsoVomitare;
+	}
+
+	/**
+	 * Sets the domanda impulso vomitare.
+	 *
+	 * @param domandaImpulsoVomitare the new domanda impulso vomitare
+	 */
+	public void setDomandaImpulsoVomitare(Integer domandaImpulsoVomitare) {
+		this.domandaImpulsoVomitare = domandaImpulsoVomitare;
+	}
+
+	/**
+	 * Gets the domanda cibi nuovi.
+	 *
+	 * @return the domanda cibi nuovi
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3 })
+	@Column(name = "domanda_cibi_nuovi")
+	public Integer getDomandaCibiNuovi() {
+		return domandaCibiNuovi;
+	}
+
+	/**
+	 * Sets the domanda cibi nuovi.
+	 *
+	 * @param domandaCibiNuovi the new domanda cibi nuovi
+	 */
+	public void setDomandaCibiNuovi(Integer domandaCibiNuovi) {
+		this.domandaCibiNuovi = domandaCibiNuovi;
+	}
+	
+	/**
+	 * Gets the valore id indice eat.
+	 *
+	 * @return the valore id indice eat
+	 */
+	@Column(name = "valoreIdIndiceEAT")
+	public Integer getValoreIdIndiceEAT() {
+		return valoreIdIndiceEAT;
+	}
+	
+	/**
+	 * Sets the valore id indice eat.
+	 *
+	 * @param valoreIdIndiceEAT the new valore id indice eat
+	 */
+	@XmlElement(name="valoreIdIndiceEAT")
+	public void setValoreIdIndiceEAT(Integer valoreIdIndiceEAT) {
+		this.valoreIdIndiceEAT = valoreIdIndiceEAT;
+	}
+	
+	/**
+	 * Gets the peso.
+	 *
+	 * @return the peso
+	 */
+	@Column(name = "peso")
+	public Double getPeso() {
+		return peso;
+	}
+
+	/**
+	 * Sets the peso.
+	 *
+	 * @param peso the new peso
+	 */
+	public void setPeso(Double peso) {
+		this.peso = peso;
+	}
+	
+	/**
+	 * Gets the altezza.
+	 *
+	 * @return the altezza
+	 */
+	@Column(name = "altezza")
+	public Double getAltezza() {
+		return altezza;
+	}
+
+	/**
+	 * Sets the altezza.
+	 *
+	 * @param altezza the new altezza
+	 */
+	public void setAltezza(Double altezza) {
+		this.altezza = altezza;
+	}
+	
+	/**
+	 * Gets the sesso.
+	 *
+	 * @return the sesso
+	 */
+	@Column(name = "sesso")
+	public String getSesso() {
+		return sesso;
+	}
+
+	/**
+	 * Sets the sesso.
+	 *
+	 * @param sesso the new sesso
+	 */
+	public void setSesso(String sesso) {
+		this.sesso = sesso;
+	}
+	
+	
+	
+	
+	
+	
+
+}

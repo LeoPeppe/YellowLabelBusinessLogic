@@ -1,0 +1,45 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="CedentePrestatore")
+public class CessionarioCommittenteDTO implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private DatiAnagraficiDTO datiAnagrafici;
+	private SedeDTO sede;
+	
+	/**
+	 * @return the datiAnagrafici
+	 */
+	public DatiAnagraficiDTO getDatiAnagrafici() {
+		return datiAnagrafici;
+	}
+	/**
+	 * @param datiAnagrafici the datiAnagrafici to set
+	 */
+	@XmlElement(name="DatiAnagrafici")
+	public void setDatiAnagrafici(DatiAnagraficiDTO datiAnagrafici) {
+		this.datiAnagrafici = datiAnagrafici;
+	}
+	/**
+	 * @return the sede
+	 */
+	public SedeDTO getSede() {
+		return sede;
+	}
+	/**
+	 * @param sede the sede to set
+	 */
+	@XmlElement(name="Sede")
+	public void setSede(SedeDTO sede) {
+		this.sede = sede;
+	}
+
+}

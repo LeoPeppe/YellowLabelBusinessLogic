@@ -1,0 +1,299 @@
+package it.cle.project.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SituazCognitivaSvama.
+ */
+@Entity
+@Table(name = "situaz_cognitiva_svama")
+@XmlRootElement
+public class SituazCognitivaSvama {
+	
+	/** The id sit cogn. */
+	private Integer idSitCogn;
+	
+	/** The id svama cogn funz. */
+	private Integer idSvamaCognFunz;
+	
+	/** The v1. */
+	private Integer v1;
+	
+	/** The v2. */
+	private Integer v2;
+	
+	/** The v3. */
+	private Integer v3;
+	
+	/** The v4. */
+	private Integer v4;
+	
+	/** The v5. */
+	private Integer v5;
+	
+	/** The v6. */
+	private Integer v6;
+	
+	/** The v7. */
+	private Integer v7;
+	
+	/** The v8. */
+	private Integer v8;
+	
+	/** The v9. */
+	private Integer v9;
+	
+	/** The v10. */
+	private Integer v10;
+	
+	/**
+	 * Gets the id sit cogn.
+	 *
+	 * @return the id sit cogn
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "IDSitCogn")
+	public Integer getIdSitCogn() {
+		return idSitCogn;
+	}
+
+	/**
+	 * Sets the id sit cogn.
+	 *
+	 * @param idSitCogn the new id sit cogn
+	 */
+	public void setIdSitCogn(Integer idSitCogn) {
+		this.idSitCogn = idSitCogn;
+	}
+
+	/**
+	 * Gets the id svama cogn funz.
+	 *
+	 * @return the id svama cogn funz
+	 */
+	@NotNull
+	@Column(name="IDSvama_Cognitiva_Funzionale")
+	public Integer getIdSvamaCognFunz() {
+		return idSvamaCognFunz;
+	}
+
+	/**
+	 * Sets the id svama cogn funz.
+	 *
+	 * @param idSvamaCognFunz the new id svama cogn funz
+	 */
+	public void setIdSvamaCognFunz(Integer idSvamaCognFunz) {
+		this.idSvamaCognFunz = idSvamaCognFunz;
+	}
+
+	/**
+	 * Gets the v1.
+	 *
+	 * @return the v1
+	 */
+	@Column(name="V1")
+	public Integer getV1() {
+		return v1;
+	}
+
+	/**
+	 * Sets the v1.
+	 *
+	 * @param v1 the new v1
+	 */
+	public void setV1(Integer v1) {
+		this.v1 = v1;
+	}
+
+	/**
+	 * Gets the v2.
+	 *
+	 * @return the v2
+	 */
+	@Column(name="V2")
+	public Integer getV2() {
+		return v2;
+	}
+
+	/**
+	 * Sets the v2.
+	 *
+	 * @param v2 the new v2
+	 */
+	public void setV2(Integer v2) {
+		this.v2 = v2;
+	}
+
+	/**
+	 * Gets the v3.
+	 *
+	 * @return the v3
+	 */
+	@Column(name="V3")
+	public Integer getV3() {
+		return v3;
+	}
+
+	/**
+	 * Sets the v3.
+	 *
+	 * @param v3 the new v3
+	 */
+	public void setV3(Integer v3) {
+		this.v3 = v3;
+	}
+
+	/**
+	 * Gets the v4.
+	 *
+	 * @return the v4
+	 */
+	@Column(name="V4")
+	public Integer getV4() {
+		return v4;
+	}
+
+	/**
+	 * Sets the v4.
+	 *
+	 * @param v4 the new v4
+	 */
+	public void setV4(Integer v4) {
+		this.v4 = v4;
+	}
+
+	/**
+	 * Gets the v5.
+	 *
+	 * @return the v5
+	 */
+	@Column(name="V5")
+	public Integer getV5() {
+		return v5;
+	}
+
+	/**
+	 * Sets the v5.
+	 *
+	 * @param v5 the new v5
+	 */
+	public void setV5(Integer v5) {
+		this.v5 = v5;
+	}
+
+	/**
+	 * Gets the v6.
+	 *
+	 * @return the v6
+	 */
+	@Column(name="V6")
+	public Integer getV6() {
+		return v6;
+	}
+
+	/**
+	 * Sets the v6.
+	 *
+	 * @param v6 the new v6
+	 */
+	public void setV6(Integer v6) {
+		this.v6 = v6;
+	}
+
+	/**
+	 * Gets the v7.
+	 *
+	 * @return the v7
+	 */
+	@Column(name="V7")
+	public Integer getV7() {
+		return v7;
+	}
+
+	/**
+	 * Sets the v7.
+	 *
+	 * @param v7 the new v7
+	 */
+	public void setV7(Integer v7) {
+		this.v7 = v7;
+	}
+
+	/**
+	 * Gets the v8.
+	 *
+	 * @return the v8
+	 */
+	@Column(name="V8")
+	public Integer getV8() {
+		return v8;
+	}
+
+	/**
+	 * Sets the v8.
+	 *
+	 * @param v8 the new v8
+	 */
+	public void setV8(Integer v8) {
+		this.v8 = v8;
+	}
+
+	/**
+	 * Gets the v9.
+	 *
+	 * @return the v9
+	 */
+	@Column(name="V9")
+	public Integer getV9() {
+		return v9;
+	}
+
+	/**
+	 * Sets the v9.
+	 *
+	 * @param v9 the new v9
+	 */
+	public void setV9(Integer v9) {
+		this.v9 = v9;
+	}
+
+	/**
+	 * Gets the v10.
+	 *
+	 * @return the v10
+	 */
+	@Column(name="V10")
+	public Integer getV10() {
+		return v10;
+	}
+
+	/**
+	 * Sets the v10.
+	 *
+	 * @param v10 the new v10
+	 */
+	public void setV10(Integer v10) {
+		this.v10 = v10;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

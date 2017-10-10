@@ -1,0 +1,230 @@
+package it.cle.project;
+
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import it.cle.project.config.AppConfig;
+import it.cle.project.dao.hbn.HbnInterventoDao;
+import it.cle.project.dto.ReportPrestazioniDTO;
+import it.cle.project.dto.ReportPrestazioniResponseDTO;
+import it.cle.project.dto.fattura.AnagraficaDTO;
+import it.cle.project.dto.fattura.DatiAnagraficiDTO;
+import it.cle.project.dto.fattura.DatiTrasmissioneDTO;
+import it.cle.project.dto.fattura.FatturaElettronicaHeaderDTO;
+import it.cle.project.model.DatiAssistito;
+import it.cle.project.model.IndiceADL;
+import it.cle.project.model.Intervento;
+import it.cle.project.model.Pai;
+import it.cle.project.model.Pai_Prestazioni;
+import it.cle.project.model.Prestazioni;
+import it.cle.project.model.RisultatiIndici;
+import it.cle.project.service.ComponiFatturaService;
+import it.cle.project.service.DatiAssistitoService;
+import it.cle.project.service.IndiceADLService;
+import it.cle.project.service.InterventoService;
+import it.cle.project.service.PaiService;
+import it.cle.project.service.Pai_PrestazioniService;
+import it.cle.project.service.PrestazioniService;
+import it.cle.project.service.RisultatiIndiciService;
+
+import javax.inject.Inject;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+
+public class App 
+{
+	@Inject
+	static IndiceADLService indiceADLService;
+	 
+	
+	
+    public static void main( String[] args )
+    {
+//    	ApplicationContext ctx = new AnnotationConfigApplicationContext( AppConfig.class );
+    	AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+    	//System.out.println(ctx.getEnvironment().getActiveProfiles().toString());
+//    	 	ctx.getEnvironment().setActiveProfiles("dev");
+//    	System.out.println(calcolateADL(ctx));
+//		selectPrestazioni(ctx);
+    	
+//    	insertDatiAssistito(ctx);
+    	
+//    		selectPrestazione(ctx);
+    		
+//    		insertPaiPrestazioni(ctx);
+    		
+//    		insertPai(ctx);
+    		
+//    		insertRisultatiIndici(ctx);
+    	
+//    	selectInterventi(ctx);
+    	
+ 		
+//		((AbstractApplicationContext)ctx).close();
+    	TestFattura(ctx);
+    }
+    
+    public static void selectPrestazioni(AnnotationConfigApplicationContext ctx){
+    	PrestazioniService prestazioniService = (PrestazioniService) ctx.getBean("prestazioniService");
+       	List<Prestazioni> prestazioniList = prestazioniService.selectTutte();
+       	for (int i=0; i< prestazioniList.size();i++){
+       		System.out.println(prestazioniList.get(i));
+       	}
+      	
+      }
+    public static void insertDatiAssistito(AnnotationConfigApplicationContext ctx)
+    {
+    	DatiAssistito datiAssistito = new DatiAssistito();
+    	datiAssistito.setNome("Leo");
+    	datiAssistito.setCognome("Boh");
+    	datiAssistito.setCodiceFiscale("CFVGBH76JHYDF");
+    	datiAssistito.setDataNascita("1/1/2001");
+    	datiAssistito.setIndirizzo("via vai");
+    	datiAssistito.setPersonaRiferimento("PierService");
+    	datiAssistito.setCittaResidenza("bidone");
+    	DatiAssistitoService datiAssistitoService = (DatiAssistitoService) ctx.getBean("datiAssistitoService");
+    	datiAssistitoService.insert(datiAssistito);
+    	System.out.println(datiAssistitoService.selectById(new Integer(1)).getNome());
+    }
+    
+    public static Integer  calcolateADL(AnnotationConfigApplicationContext ctx){
+    	IndiceADL indiceADL = new IndiceADL();
+    	indiceADL.setfAbbigliamento(1);
+    	indiceADL.setfAlimentazione(2);
+    	indiceADL.setfBagnoDoccia(3);
+    	indiceADL.setfContinenzaIntestinale(4);
+    	indiceADL.setfContinenzaUrinaria(5);
+    	indiceADL.setfIgienePersonale(6);
+    	indiceADL.setfUsoGabinetto(9);
+    	IndiceADLService indiceADLService = (IndiceADLService) ctx.getBean("indiceADLService");
+    	Integer indADL = indiceADLService.calcolaIndiceADL(indiceADL);
+    	return indADL;
+    	
+    }
+    public static void insertRisultatiIndici(AnnotationConfigApplicationContext ctx) {
+    	RisultatiIndici risultatiIndici = new RisultatiIndici();
+    	
+    	risultatiIndici.setRisultatoADL("60- autosufficiente");
+    	risultatiIndici.setRisultatoBarthel("37- Indipendente");
+    	risultatiIndici.setRisultatoReteSociale("210- Assistito");
+//    	risultatiIndici.setIdAssistito(1);
+    	
+    	RisultatiIndiciService risultatiIndiciService = (RisultatiIndiciService) ctx.getBean("risultati_indiciService");
+    	
+		 risultatiIndiciService.insert(risultatiIndici);
+		 System.out.println("risultati indici  ADL"+risultatiIndici.getRisultatoADL());
+		
+	}
+    
+    public static void selectPrestazione(AnnotationConfigApplicationContext ctx){
+    	PrestazioniService prestazioniService =  (PrestazioniService) ctx.getBean("prestazioniService");
+    	List<Prestazioni> prestazioni =  prestazioniService.selectTutte();
+    	for (int i = 0; i < prestazioni.size(); i++) {
+			System.out.println(prestazioni.get(i));
+		}
+    		
+    	
+    }
+    
+    public static void insertPaiPrestazioni(AnnotationConfigApplicationContext ctx) {
+    	Pai_Prestazioni pai_prestazioni = new Pai_Prestazioni();
+    	
+    	pai_prestazioni.setDescrizione("descrizione main");
+    	pai_prestazioni.setDurata("durata main" );
+    	pai_prestazioni.setFrequenza("frequanza main");
+    	
+    	
+		Pai_PrestazioniService  pai_prestazioniService = (Pai_PrestazioniService) ctx.getBean("pai_prestazioniService");
+		pai_prestazioniService.insert(pai_prestazioni);
+		
+	}
+    
+    
+    public static void insertPai(AnnotationConfigApplicationContext ctx) {
+    	Pai pai = new Pai();
+    	
+//    	pai.setIdAssistito(1);
+    	
+    	
+		PaiService  paiService = (PaiService) ctx.getBean("paiService");
+		paiService.insert(pai);
+		
+	}
+    
+    
+    public static void selectInterventi(AnnotationConfigApplicationContext ctx) {
+    	InterventoService service = (InterventoService) ctx.getBean("interventoService");
+    	
+    	DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+    	
+    	Date data_da = null;
+    	Date data_a = null ;
+		try {
+			data_da = format.parse("01/01/2016");
+			data_a = format.parse("31/01/2016");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+    	
+    	ReportPrestazioniResponseDTO report = service.getReportPrestazioni("Bari", data_da, data_a);
+    	System.out.println(report);
+    	System.out.println(report.getTotale());
+    	/*List<Intervento> result = null;
+    	result = service.selectByComune("Bari");
+    	
+    	for (int i=0; i<result.size(); i++){
+    		System.out.println(result.get(i));
+    	}
+    	*/
+    }
+    
+    public static void TestFattura(AnnotationConfigApplicationContext ctx){
+    	FatturaElettronicaHeaderDTO fattura = new FatturaElettronicaHeaderDTO();
+    	DatiTrasmissioneDTO datiTrasmissione = new DatiTrasmissioneDTO();
+    	datiTrasmissione.setProgressivoInvio("1");
+    	datiTrasmissione.setCodiceDestinatario("UF0MPM");
+    	ComponiFatturaService componiFatturaService = (ComponiFatturaService) ctx.getBean("componiFatturaService");
+//    	DatiTrasmissioneDTO datiTrasmissione = new DatiTrasmissioneDTO();
+		datiTrasmissione.setTrasmittente(componiFatturaService.getTrasmittenteDefault());
+    	
+    	
+    	fattura.setDatiTrasmissione(datiTrasmissione);
+    	DatiAnagraficiDTO datiAnagrafici = new DatiAnagraficiDTO();
+    	datiAnagrafici.setCodiceFiscale("800818283");
+    	datiAnagrafici.setRegimeFiscale("RF01");
+    	AnagraficaDTO anagrafica= new AnagraficaDTO();
+    	anagrafica.setDenominazione("Cle S.r.l.");
+    	datiAnagrafici.setAnagrafica(anagrafica);
+    	fattura.setDatiTrasmissione(datiTrasmissione);
+    	
+		StringWriter out = new StringWriter();
+		String result = "";
+		try {
+		JAXBContext jc = JAXBContext.newInstance(FatturaElettronicaHeaderDTO.class);
+		Marshaller marsh = jc.createMarshaller();
+		
+		marsh.marshal(fattura, out);
+		
+		} catch(Exception e) {
+			
+			e.printStackTrace();
+		}
+		result =  out.toString();
+		
+		System.out.println(result);
+    }
+    
+    
+}

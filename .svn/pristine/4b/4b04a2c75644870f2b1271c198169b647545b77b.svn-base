@@ -1,0 +1,56 @@
+package it.cle.project.dao;
+
+import java.util.List;
+
+import it.cle.project.model.Prestazioni;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface IndiceADLDao.
+ */
+public interface PrestazioniDao  {
+	
+	/**
+	 * Select.
+	 *
+	 * @param rangeADL the range adl
+	 * @param rangeBarthel the range barthel
+	 * @param rangeRete the range rete
+	 * @return the list
+	 */
+	public List<Prestazioni> select(String rangeADL,String rangeBarthel, String rangeRete) ;
+	
+	/**
+	 * Calcola range adl.
+	 *
+	 * @param rangeADLInput the range adl input
+	 * @return the string
+	 */
+	public String calcolaRangeADL(String rangeADLInput);
+	
+	/**
+	 * Calcola range barthel.
+	 *
+	 * @param rangeBarthelInput the range barthel input
+	 * @return the string
+	 */
+	public String calcolaRangeBarthel(String rangeBarthelInput);
+	
+	/**
+	 * Calcola range rete.
+	 *
+	 * @param rangeReteInput the range rete input
+	 * @return the string
+	 */
+	public String calcolaRangeRete(String rangeReteInput);
+	
+	/**
+	 * Select tutte.
+	 *
+	 * @return the list
+	 */
+	public List<Prestazioni> selectTutte();
+		
+	
+
+}

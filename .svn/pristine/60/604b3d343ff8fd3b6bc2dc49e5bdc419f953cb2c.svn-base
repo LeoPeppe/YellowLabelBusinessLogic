@@ -1,0 +1,28 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceBesBulimia;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface IndiceBesBulimiaService.
+ */
+public interface IndiceBesBulimiaService {
+	
+	/**
+	 * Calcola la situazione p .
+	 *
+	 * @param indiceBesBulimia the indice bes bulimia
+	 * @return the integer
+	 */
+	public Integer calcolaBulimia(IndiceBesBulimia indiceBesBulimia);
+	
+	
+	/**
+	 * Codifica la situazione funzionale in base al punteggio.
+	 *
+	 * @param punteggio the punteggio
+	 * @return the string
+	 */
+	public String codificaSituazione(Integer punteggio);
+
+}

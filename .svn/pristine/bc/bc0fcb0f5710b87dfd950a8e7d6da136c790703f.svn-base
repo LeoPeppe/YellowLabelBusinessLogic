@@ -1,0 +1,39 @@
+package it.cle.project.service;
+
+
+import it.cle.project.model.IndiceEAT26;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * Interfaccia IndiceEATService.
+ *
+ */
+public interface IndiceEAT26Service {
+	
+	/**
+	 * Calcola l' indice di EAT26.
+	 *
+	 * @param indiceEAT26 the indice ea t26
+	 * @return the string
+	 */
+	public String calcolaIndiceEAT26(IndiceEAT26 indiceEAT26);
+
+	/**
+	 * Insert.
+	 *
+	 * @param indiceEAT the indice eat
+	 */
+	public void insert(IndiceEAT26 indiceEAT);
+
+	/**
+	 * Calcola indice bmi.
+	 *
+	 * @param indiceEAT26 the indice ea t26
+	 * @return the integer
+	 */
+	public Integer calcolaIndiceBMI(IndiceEAT26 indiceEAT26);
+	
+	
+
+}

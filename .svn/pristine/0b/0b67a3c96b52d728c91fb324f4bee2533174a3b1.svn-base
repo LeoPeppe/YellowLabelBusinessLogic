@@ -1,0 +1,308 @@
+package it.cle.project.model.composti.npi;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+@Entity
+@Table(name = "ansia")
+@XmlRootElement(name="ansia")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Ansia {
+	
+	/** The id Ansia */
+	private Integer idAnsia;
+	
+	/** Questo flag indica se il questionario è applicabile o meno */
+	private Boolean nonApplicabile;
+	
+	/** Questo campo indica la motivazione in caso di non applicabilità */
+	private String motivazione;
+	
+	/** 
+	 * Questo campo indica la seguente domanda: 
+	 * Il paziente è molto nervoso, allarmato, spaventato senza veri motivi? Sembra molto teso o agitato? 
+	 * È impaurito dal rimanere lontano da voi?
+	 *  
+	 * NO (se no, procedere con la successiva domanda di screening) 
+	 * SÌ (procedere con le seguenti domande)
+	*/
+	private Boolean domandaPreliminare;
+
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente dice di essere allarmato per le cose che succederanno nel futuro?
+	 * */
+	private Integer fDomandaFuturo;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente dice di essere allarmato per le cose che succederanno nel futuro?
+	 * */
+	private Integer gDomandaFuturo;
+
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente ha dei momenti in cui si sente debole, incapace di rilassarsi oppure si sente eccessivamente teso?
+	 * */
+	private Integer fDomandaEccessivamenteTeso;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente ha dei momenti in cui si sente debole, incapace di rilassarsi oppure si sente eccessivamente teso?
+	 * */
+	private Integer gDomandaEccessivamenteTeso;
+
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente ha momenti (o si lamenta) di respiro corto, è ansimante, sospirante senza apparente ragione se non nervosismo?
+	 * */
+	private Integer fDomandaRespiroCorto;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente ha momenti (o si lamenta) di respiro corto, è ansimante, sospirante senza apparente ragione se non nervosismo?
+	 * */
+	private Integer gDomandaRespiroCorto;
+
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente si lamenta di avere le "rane" nello stomaco, di batticuore quando è nervoso (Sintomi non spiegabili da malattie)?
+	 * */
+	private Integer fDomandaRane;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente si lamenta di avere le "rane" nello stomaco, di batticuore quando è nervoso (Sintomi non spiegabili da malattie)?
+	 * */
+	private Integer gDomandaRane;	
+
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente evita certi posti o situazioni che lo rendono più nervoso, quali viaggiare in automobile, incontrare amici oppure stare tra la folla? 
+	 * */
+	private Integer fDomandaEvitaLuoghi;
+	
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente evita certi posti o situazioni che lo rendono più nervoso, quali viaggiare in automobile, incontrare amici oppure stare tra la folla?
+	 * */
+	private Integer gDomandaEvitaLuoghi;
+
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente diventa nervoso e disturbato se viene separato da voi (o da chi lo assiste)? [Vi sta accanto per evitare la separazione?]
+	 * */
+	private Integer fDomandaDiventaNervoso;
+	
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente diventa nervoso e disturbato se viene separato da voi (o da chi lo assiste)? [Vi sta accanto per evitare la separazione?]
+	 * */
+	private Integer gDomandaDiventaNervoso;
+
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente manifesta altri segni di ansia?
+	 * */
+	private Integer fDomandaManifestaAnsia;
+	
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente manifesta altri segni di ansia?
+	 * */
+	private Integer gDomandaManifestaAnsia;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdAnsia() {
+		return idAnsia;
+	}
+
+	public void setIdAnsia(Integer idAnsia) {
+		this.idAnsia = idAnsia;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "non_applicabile")
+	public Boolean getNonApplicabile() {
+		return nonApplicabile;
+	}
+
+	public void setNonApplicabile(Boolean nonApplicabile) {
+		this.nonApplicabile = nonApplicabile;
+	}
+
+	@Column(name = "motivazione")
+	public String getMotivazione() {
+		return motivazione;
+	}
+
+	public void setMotivazione(String motivazione) {
+		this.motivazione = motivazione;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_preliminare")
+	public Boolean getDomandaPreliminare() {
+		return domandaPreliminare;
+	}
+
+	public void setDomandaPreliminare(Boolean domandaPreliminare) {
+		this.domandaPreliminare = domandaPreliminare;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_futuro")
+	public Integer getfDomandaFuturo() {
+		return fDomandaFuturo;
+	}
+
+	public void setfDomandaFuturo(Integer fDomandaFuturo) {
+		this.fDomandaFuturo = fDomandaFuturo;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_futuro")
+	public Integer getgDomandaFuturo() {
+		return gDomandaFuturo;
+	}
+
+	public void setgDomandaFuturo(Integer gDomandaFuturo) {
+		this.gDomandaFuturo = gDomandaFuturo;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_eccessivamente_teso")
+	public Integer getfDomandaEccessivamenteTeso() {
+		return fDomandaEccessivamenteTeso;
+	}
+
+	public void setfDomandaEccessivamenteTeso(Integer fDomandaEccessivamenteTeso) {
+		this.fDomandaEccessivamenteTeso = fDomandaEccessivamenteTeso;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_eccessivamente_teso")
+	public Integer getgDomandaEccessivamenteTeso() {
+		return gDomandaEccessivamenteTeso;
+	}
+
+	public void setgDomandaEccessivamenteTeso(Integer gDomandaEccessivamenteTeso) {
+		this.gDomandaEccessivamenteTeso = gDomandaEccessivamenteTeso;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_respiro_corto")
+	public Integer getfDomandaRespiroCorto() {
+		return fDomandaRespiroCorto;
+	}
+
+	public void setfDomandaRespiroCorto(Integer fDomandaRespiroCorto) {
+		this.fDomandaRespiroCorto = fDomandaRespiroCorto;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_respiro_corto")
+	public Integer getgDomandaRespiroCorto() {
+		return gDomandaRespiroCorto;
+	}
+
+	public void setgDomandaRespiroCorto(Integer gDomandaRespiroCorto) {
+		this.gDomandaRespiroCorto = gDomandaRespiroCorto;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_rane")
+	public Integer getfDomandaRane() {
+		return fDomandaRane;
+	}
+
+	public void setfDomandaRane(Integer fDomandaRane) {
+		this.fDomandaRane = fDomandaRane;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_rane")
+	public Integer getgDomandaRane() {
+		return gDomandaRane;
+	}
+
+	public void setgDomandaRane(Integer gDomandaRane) {
+		this.gDomandaRane = gDomandaRane;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_evita_luighi")
+	public Integer getfDomandaEvitaLuoghi() {
+		return fDomandaEvitaLuoghi;
+	}
+
+	public void setfDomandaEvitaLuoghi(Integer fDomandaEvitaLuoghi) {
+		this.fDomandaEvitaLuoghi = fDomandaEvitaLuoghi;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_evita_luighi")
+	public Integer getgDomandaEvitaLuoghi() {
+		return gDomandaEvitaLuoghi;
+	}
+
+	public void setgDomandaEvitaLuoghi(Integer gDomandaEvitaLuoghi) {
+		this.gDomandaEvitaLuoghi = gDomandaEvitaLuoghi;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_diventa_nervoso")
+	public Integer getfDomandaDiventaNervoso() {
+		return fDomandaDiventaNervoso;
+	}
+
+	public void setfDomandaDiventaNervoso(Integer fDomandaDiventaNervoso) {
+		this.fDomandaDiventaNervoso = fDomandaDiventaNervoso;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_diventa_nervoso")
+	public Integer getgDomandaDiventaNervoso() {
+		return gDomandaDiventaNervoso;
+	}
+
+	public void setgDomandaDiventaNervoso(Integer gDomandaDiventaNervoso) {
+		this.gDomandaDiventaNervoso = gDomandaDiventaNervoso;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_manifesta_ansia")
+	public Integer getfDomandaManifestaAnsia() {
+		return fDomandaManifestaAnsia;
+	}
+
+	public void setfDomandaManifestaAnsia(Integer fDomandaManifestaAnsia) {
+		this.fDomandaManifestaAnsia = fDomandaManifestaAnsia;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_manifesta_ansia")
+	public Integer getgDomandaManifestaAnsia() {
+		return gDomandaManifestaAnsia;
+	}
+
+	public void setgDomandaManifestaAnsia(Integer gDomandaManifestaAnsia) {
+		this.gDomandaManifestaAnsia = gDomandaManifestaAnsia;
+	}	
+}

@@ -1,0 +1,125 @@
+package it.cle.project.dto.fattura;
+
+
+import it.cle.project.dto.ReportPrestazioniDTO;
+import it.cle.project.utils.Utils;
+
+import java.io.Serializable;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.List;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.apache.log4j.Logger;
+
+
+@XmlRootElement(name = "componi_fattura") 
+@XmlAccessorType(XmlAccessType.FIELD)
+public class DatiInputFatturaDTO  implements Serializable{
+	
+//	<componi_fattura>
+//	  <costo_prestazioni>
+//	    <prestazione></prestazione>
+//	    <num_prestazioni></num_prestazioni>
+//	    <costo_unitario></costo_unitario>
+//	    <importo_prestazioni></importo_prestazioni>  
+//	  </costo_prestazioni>
+//	  <totaleFattura></totaleFattura>
+//	  <comuneFattura></comuneFattura>
+//	  <dataDaFattura></dataDaFattura>
+//	  <dataAFattura>/</dataAFattura>
+//
+//	</componi_fattura>
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected Logger logger = Logger.getLogger(DatiInputFatturaDTO.class);
+	
+	@XmlElement(name = "costo_prestazioni")
+	@XmlElementWrapper(name="dati_input_fattura")
+	private List<ReportPrestazioniDTO> listaPrestazioni;
+	@XmlElement(name = "totaleFattura")
+	private String  totaleFattura;
+	@XmlElement(name = "comuneFattura")
+	private String comuneFattura;
+	@XmlElement(name = "dataDaFattura")
+	private String dataDaFattura;
+	@XmlElement(name = "dataAFattura")
+	private String dataAFattura;
+	
+	
+
+	public List<ReportPrestazioniDTO> getListaPrestazioni() {
+		return listaPrestazioni;
+	}
+	
+	public void setListaPrestazioni(List<ReportPrestazioniDTO> listaPrestazioni) {
+		this.listaPrestazioni = listaPrestazioni;
+	}
+
+	public String getTotaleFattura() {
+		return totaleFattura;
+	}
+
+	public void setTotaleFattura(String totaleFattura) {
+		this.totaleFattura = totaleFattura;
+	}
+
+	public String getComuneFattura() {
+		return comuneFattura;
+	}
+
+	public void setComuneFattura(String comuneFattura) {
+		this.comuneFattura = comuneFattura;
+	}
+
+	public String getDataDaFattura() {
+		return dataDaFattura;
+	}
+
+	public void setDataDaFattura(String dataDaFattura) {
+		this.dataDaFattura = dataDaFattura;
+	}
+
+	public String getDataAFattura() {
+		return dataAFattura;
+	}
+
+	public void setDataAFattura(String dataAFattura) {
+		this.dataAFattura = dataAFattura;
+	}
+	
+	
+	public String toStringXML() {
+		
+		StringWriter out = new StringWriter();
+		
+		try {
+		JAXBContext jc = JAXBContext.newInstance(DatiInputFatturaDTO.class);
+		Marshaller marsh = jc.createMarshaller();
+		marsh.setProperty("com.sun.xml.bind.xmlDeclaration", Boolean.FALSE);
+		marsh.marshal(this, out);
+		
+		} catch(Exception e) {
+			
+			logger.error("Errore in DatiInputFatturaDTO.toStringXML()");
+			logger.error(Utils.getStackTrace(e));
+//			e.printStackTrace();
+		}
+		return out.toString();
+	}
+	
+
+}

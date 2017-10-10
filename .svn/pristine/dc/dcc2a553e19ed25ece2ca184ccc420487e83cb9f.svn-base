@@ -1,0 +1,15 @@
+package it.cle.project.dao.hbn;
+
+import it.cle.project.dao.IndiceVPOTDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.IndiceVPOT;
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * The Class HbnIndiceVPOTDao.
+ */
+@Repository
+public class HbnIndiceVPOTDao extends AbstractHbnDao<IndiceVPOT> implements IndiceVPOTDao {
+	
+}

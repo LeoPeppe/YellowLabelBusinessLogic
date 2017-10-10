@@ -1,0 +1,592 @@
+package it.cle.project.service.impl;
+
+import it.cle.project.dao.hbn.HbnIndiceNPIDao;
+import it.cle.project.model.IndiceNPI;
+import it.cle.project.model.composti.npi.AgitazioneAggressivita;
+import it.cle.project.model.composti.npi.Allucinazioni;
+import it.cle.project.model.composti.npi.Ansia;
+import it.cle.project.model.composti.npi.ApatiaIndifferenza;
+import it.cle.project.model.composti.npi.AttivitaMotoriaAberrante;
+import it.cle.project.model.composti.npi.Deliri;
+import it.cle.project.model.composti.npi.DepressioneDisforia;
+import it.cle.project.model.composti.npi.Disinibizione;
+import it.cle.project.model.composti.npi.DisturbiAlimentazione;
+import it.cle.project.model.composti.npi.DisturbiSonno;
+import it.cle.project.model.composti.npi.EuforiaEsaltazione;
+import it.cle.project.model.composti.npi.IrritabilitaLabilita;
+import it.cle.project.service.IndiceNPIService;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * The Class IndiceNPIServiceServiceImpl.
+ * Questa classe implementa contiene la Business Logic e 
+ * i metodi per le operazioni base relative all' indice NPI
+ */
+@Service("indiceNPIService")
+@Transactional
+public class IndiceNPIServiceImpl implements IndiceNPIService {
+	
+	@Autowired
+	private HbnIndiceNPIDao dao;
+
+	/**
+	 * Metodo per il calcolo dell' indice NPI,
+	 * 
+	 * @param IndiceNPI indiceNPI
+	 * @return Integer
+	 * @see
+	 */
+	@Override
+	public Integer calcolaIndiceNPI(IndiceNPI indiceNPI) {
+		Integer indice = null;
+		
+		indice = calcolaAgitazioneAggressivita(indiceNPI.getAgitazioneAggressivita())+
+				calcolaAllucinazioni(indiceNPI.getAllucinazioni())+
+				calcolaAnsia(indiceNPI.getAnsia())+
+				calcolaApatiaIndifferenza(indiceNPI.getApatiaIndifferenza())+
+				calcolaAttivitaMotoriaAberrante(indiceNPI.getAttivitaMotoriaAberrante())+
+				calcolaDeliri(indiceNPI.getDeliri())+
+				calcolaDepressioneDisforia(indiceNPI.getDepressioneDisforia())+
+				calcolaDisinibizione(indiceNPI.getDisinibizione())+
+				calcolaDisturbiAlimentazione(indiceNPI.getDisturbiAlimentazione())+
+				calcolaDisturbiSonno(indiceNPI.getDisturbiSonno())+
+				calcolaEuforiaEsaltazione(indiceNPI.getEuforiaEsaltazione())+
+				calcolaIrritabilitaLabilita(indiceNPI.getIrritabilitaLabilita());
+		
+		return indice;
+	}
+
+	
+	
+	private Integer calcolaAgitazioneAggressivita(AgitazioneAggressivita agitazioneAggressivita) {
+		Integer valoreAgitazioneAggressivita = 0;
+		
+		if(!agitazioneAggressivita.getNonApplicabile()){
+			if(agitazioneAggressivita.getDomandaPreliminare()){
+				ArrayList<Integer> arrayList = new ArrayList<Integer>();
+				if(agitazioneAggressivita.getfDomandaAltriComportamenti() != null && agitazioneAggressivita.getgDomandaAltriComportamenti() != null){
+					arrayList.add(agitazioneAggressivita.getfDomandaAltriComportamenti()*agitazioneAggressivita.getgDomandaAltriComportamenti());
+				}
+				if(agitazioneAggressivita.getfDomandaAltriComportamentiAggressivi() != null && agitazioneAggressivita.getgDomandaAltriComportamentiAggressivi() != null){
+					arrayList.add(agitazioneAggressivita.getfDomandaAltriComportamentiAggressivi()*agitazioneAggressivita.getgDomandaAltriComportamentiAggressivi());
+				}
+				if(agitazioneAggressivita.getfDomandaBestemmie() != null && agitazioneAggressivita.getgDomandaBestemmie() != null){
+					arrayList.add(agitazioneAggressivita.getfDomandaBestemmie()*agitazioneAggressivita.getgDomandaBestemmie());
+				}				
+				if(agitazioneAggressivita.getfDomandaColpireAltri() != null && agitazioneAggressivita.getgDomandaColpireAltri() != null){
+					arrayList.add(agitazioneAggressivita.getfDomandaColpireAltri()*agitazioneAggressivita.getgDomandaColpireAltri());
+				}					
+				if(agitazioneAggressivita.getfDomandaIrritabile() != null && agitazioneAggressivita.getgDomandaIrritabile() != null){
+					arrayList.add(agitazioneAggressivita.getfDomandaIrritabile()*agitazioneAggressivita.getgDomandaIrritabile());
+				}				
+				if(agitazioneAggressivita.getfDomandaLanciaOggetti() != null && agitazioneAggressivita.getgDomandaLanciaOggetti() != null){
+					arrayList.add(agitazioneAggressivita.getfDomandaLanciaOggetti()*agitazioneAggressivita.getgDomandaLanciaOggetti());
+				}				
+				if(agitazioneAggressivita.getfDomandaNonCollabora() != null && agitazioneAggressivita.getgDomandaNonCollabora() != null){
+					arrayList.add(agitazioneAggressivita.getfDomandaNonCollabora()*agitazioneAggressivita.getgDomandaNonCollabora());
+				}				
+				if(agitazioneAggressivita.getfDomandaOstinato() != null && agitazioneAggressivita.getgDomandaOstinato() != null){
+					arrayList.add(agitazioneAggressivita.getfDomandaOstinato()*agitazioneAggressivita.getgDomandaOstinato());
+				}				
+				valoreAgitazioneAggressivita = Collections.max(arrayList);
+			}
+			else{
+				valoreAgitazioneAggressivita = 0;
+			}
+		}
+		else{
+			valoreAgitazioneAggressivita = 0;
+			
+		}
+		return valoreAgitazioneAggressivita;
+	}
+	
+	
+	private Integer calcolaAllucinazioni(Allucinazioni allucinazioni) {
+		Integer valoreAllucinazioni = 0;
+		
+		if(!allucinazioni.getNonApplicabile()){
+			if(allucinazioni.getDomandaPreliminare()){
+				ArrayList<Integer> arrayList = new ArrayList<Integer>();
+				if(allucinazioni.getfDomandaEsperienzeSensoriali() != null && allucinazioni.getgDomandaEsperienzeSensoriali() != null){
+					arrayList.add(allucinazioni.getfDomandaEsperienzeSensoriali()*allucinazioni.getgDomandaEsperienzeSensoriali());
+				}
+				if(allucinazioni.getfDomandaOdori() != null && allucinazioni.getgDomandaOdori() != null){
+					arrayList.add(allucinazioni.getfDomandaOdori()*allucinazioni.getgDomandaOdori());
+				}				
+				if(allucinazioni.getfDomandaPersoneNonPresenti() != null && allucinazioni.getgDomandaPersoneNonPresenti() != null){
+					arrayList.add(allucinazioni.getfDomandaPersoneNonPresenti()*allucinazioni.getgDomandaPersoneNonPresenti());
+				}				
+				if(allucinazioni.getfDomandaSapori() != null && allucinazioni.getgDomandaSapori() != null){
+					arrayList.add(allucinazioni.getfDomandaSapori()*allucinazioni.getgDomandaSapori());
+				}					
+				if(allucinazioni.getfDomandaToccoPelle() != null && allucinazioni.getgDomandaToccoPelle() != null){
+					arrayList.add(allucinazioni.getfDomandaToccoPelle()*allucinazioni.getgDomandaToccoPelle());
+				}				
+				if(allucinazioni.getfDomandaVisioneCose() != null && allucinazioni.getgDomandaVisioneCose() != null){
+					arrayList.add(allucinazioni.getfDomandaVisioneCose()*allucinazioni.getgDomandaVisioneCose());
+				}					
+				if(allucinazioni.getfDomandaVoci() != null && allucinazioni.getgDomandaVoci() != null){
+					arrayList.add(allucinazioni.getfDomandaVoci()*allucinazioni.getgDomandaVoci());
+				}				
+				valoreAllucinazioni = Collections.max(arrayList);
+			}
+			else{
+				valoreAllucinazioni = 0;
+			}
+		}
+		else{
+			valoreAllucinazioni = 0;
+			
+		}
+		return valoreAllucinazioni;
+	}
+	
+	
+	private Integer calcolaAnsia(Ansia ansia) {
+		Integer valoreAnsia = 0;
+		
+		if(!ansia.getNonApplicabile()){
+			if(ansia.getDomandaPreliminare()){
+				ArrayList<Integer> arrayList = new ArrayList<Integer>();
+				if(ansia.getfDomandaDiventaNervoso() != null && ansia.getgDomandaDiventaNervoso() != null){
+					arrayList.add(ansia.getfDomandaDiventaNervoso()*ansia.getgDomandaDiventaNervoso());
+				}	
+				if(ansia.getfDomandaEccessivamenteTeso() != null && ansia.getgDomandaEccessivamenteTeso() != null){
+					arrayList.add(ansia.getfDomandaEccessivamenteTeso()*ansia.getgDomandaEccessivamenteTeso());
+				}	
+				if(ansia.getfDomandaEvitaLuoghi() != null && ansia.getgDomandaEvitaLuoghi() != null){
+					arrayList.add(ansia.getfDomandaEvitaLuoghi()*ansia.getgDomandaEvitaLuoghi());
+				}
+				if(ansia.getfDomandaFuturo() != null && ansia.getgDomandaFuturo() != null){
+					arrayList.add(ansia.getfDomandaFuturo()*ansia.getgDomandaFuturo());
+				}				
+				if(ansia.getfDomandaManifestaAnsia() != null && ansia.getgDomandaManifestaAnsia() != null){
+					arrayList.add(ansia.getfDomandaManifestaAnsia()*ansia.getgDomandaManifestaAnsia());
+				}					
+				if(ansia.getfDomandaRane() != null && ansia.getgDomandaRane() != null){
+					arrayList.add(ansia.getfDomandaRane()*ansia.getgDomandaRane());
+				}					
+				if(ansia.getfDomandaRespiroCorto() != null && ansia.getgDomandaRespiroCorto() != null){
+					arrayList.add(ansia.getfDomandaRespiroCorto()*ansia.getgDomandaRespiroCorto());
+				}				
+				valoreAnsia = Collections.max(arrayList);
+			}
+			else{
+				valoreAnsia = 0;
+			}
+		}
+		else{
+			valoreAnsia = 0;
+			
+		}
+		return valoreAnsia;
+	}
+
+
+
+	private Integer calcolaApatiaIndifferenza(ApatiaIndifferenza apatiaIndifferenza) {
+		Integer valoreApatiaIndifferenza = 0;
+		
+		if(!apatiaIndifferenza.getNonApplicabile()){
+			if(apatiaIndifferenza.getDomandaPreliminare()){
+				ArrayList<Integer> arrayList = new ArrayList<Integer>();
+				if(apatiaIndifferenza.getfDomandaAltriSegni() != null && apatiaIndifferenza.getgDomandaAltriSegni() != null){
+					arrayList.add(apatiaIndifferenza.getfDomandaAltriSegni()*apatiaIndifferenza.getgDomandaAltriSegni());
+				}	
+				if(apatiaIndifferenza.getfDomandaContribuisceMeno() != null && apatiaIndifferenza.getgDomandaContribuisceMeno() != null){
+					arrayList.add(apatiaIndifferenza.getfDomandaContribuisceMeno()*apatiaIndifferenza.getgDomandaContribuisceMeno());
+				}	
+				if(apatiaIndifferenza.getfDomandaMenoAffettuoso() != null && apatiaIndifferenza.getgDomandaMenoAffettuoso() != null){
+					arrayList.add(apatiaIndifferenza.getfDomandaMenoAffettuoso()*apatiaIndifferenza.getgDomandaMenoAffettuoso());
+				}
+				if(apatiaIndifferenza.getfDomandaMenoDisponibile() != null && apatiaIndifferenza.getfDomandaMenoDisponibile() != null){
+					arrayList.add(apatiaIndifferenza.getfDomandaMenoDisponibile()*apatiaIndifferenza.getfDomandaMenoDisponibile());
+				}				
+				if(apatiaIndifferenza.getfDomandaMenoEntusiasta() != null && apatiaIndifferenza.getgDomandaMenoEntusiasta() != null){
+					arrayList.add(apatiaIndifferenza.getfDomandaMenoEntusiasta()*apatiaIndifferenza.getgDomandaMenoEntusiasta());
+				}					
+				if(apatiaIndifferenza.getfDomandaMenoInteressato() != null && apatiaIndifferenza.getgDomandaMenoInteressato() != null){
+					arrayList.add(apatiaIndifferenza.getfDomandaMenoInteressato()*apatiaIndifferenza.getgDomandaMenoInteressato());
+				}					
+				if(apatiaIndifferenza.getfDomandaMenoInteresseAmici() != null && apatiaIndifferenza.getgDomandaMenoInteresseAmici() != null){
+					arrayList.add(apatiaIndifferenza.getfDomandaMenoInteresseAmici()*apatiaIndifferenza.getgDomandaMenoInteresseAmici());
+				}	
+				if(apatiaIndifferenza.getfDomandaMenoSpontaneo() != null && apatiaIndifferenza.getgDomandaMenoSpontaneo() != null){
+					arrayList.add(apatiaIndifferenza.getfDomandaMenoSpontaneo()*apatiaIndifferenza.getgDomandaMenoSpontaneo());
+				}	
+				valoreApatiaIndifferenza = Collections.max(arrayList);
+			}
+			else{
+				valoreApatiaIndifferenza = 0;
+			}
+		}
+		else{
+			valoreApatiaIndifferenza = 0;
+			
+		}
+		return valoreApatiaIndifferenza;
+	}
+
+
+
+	private Integer calcolaAttivitaMotoriaAberrante(AttivitaMotoriaAberrante attivitaMotoriaAberrante) {
+		Integer valoreAttivitaMotoriaAberrante = 0;
+		
+		if(!attivitaMotoriaAberrante.getNonApplicabile()){
+			if(attivitaMotoriaAberrante.getDomandaPreliminare()){
+				ArrayList<Integer> arrayList = new ArrayList<Integer>();
+				if(attivitaMotoriaAberrante.getfDomandaAzioniRipetute() != null && attivitaMotoriaAberrante.getgDomandaAzioniRipetute() != null){
+					arrayList.add(attivitaMotoriaAberrante.getfDomandaAzioniRipetute()*attivitaMotoriaAberrante.getgDomandaAzioniRipetute());
+				}	
+				if(attivitaMotoriaAberrante.getfDomandaAzioniRipetuteContinuamente() != null && attivitaMotoriaAberrante.getgDomandaAzioniRipetuteContinuamente() != null){
+					arrayList.add(attivitaMotoriaAberrante.getfDomandaAzioniRipetuteContinuamente()*attivitaMotoriaAberrante.getgDomandaAzioniRipetuteContinuamente());
+				}	
+				if(attivitaMotoriaAberrante.getfDomandaCammina() != null && attivitaMotoriaAberrante.getgDomandaCammina() != null){
+					arrayList.add(attivitaMotoriaAberrante.getfDomandaCammina()*attivitaMotoriaAberrante.getgDomandaCammina());
+				}
+				if(attivitaMotoriaAberrante.getfDomandaRovistaCassetti() != null && attivitaMotoriaAberrante.getgDomandaRovistaCassetti() != null){
+					arrayList.add(attivitaMotoriaAberrante.getfDomandaRovistaCassetti()*attivitaMotoriaAberrante.getgDomandaRovistaCassetti());
+				}				
+				if(attivitaMotoriaAberrante.getfDomandaVestiti() != null && attivitaMotoriaAberrante.getgDomandaVestiti() != null){
+					arrayList.add(attivitaMotoriaAberrante.getfDomandaVestiti()*attivitaMotoriaAberrante.getgDomandaVestiti());
+				}					
+				valoreAttivitaMotoriaAberrante = Collections.max(arrayList);
+			}
+			else{
+				valoreAttivitaMotoriaAberrante = 0;
+			}
+		}
+		else{
+			valoreAttivitaMotoriaAberrante = 0;
+		}
+		return valoreAttivitaMotoriaAberrante;
+	}
+
+
+
+	private Integer calcolaDeliri(Deliri deliri) {
+		Integer valoreDeliri = 0;
+		
+		if(!deliri.getNonApplicabile()){
+			if(deliri.getDomandaPreliminare()){
+				ArrayList<Integer> arrayList = new ArrayList<Integer>();
+				if(deliri.getfDomandaAbbandono() != null && deliri.getgDomandaAbbandono() != null){
+					arrayList.add(deliri.getfDomandaAbbandono()*deliri.getgDomandaAbbandono());
+				}	
+				if(deliri.getfDomandaAbitazione() != null && deliri.getgDomandaAbitazione() != null){
+					arrayList.add(deliri.getfDomandaAbitazione()*deliri.getgDomandaAbitazione());
+				}	
+				if(deliri.getfDomandaAltreCose() != null && deliri.getgDomandaAltreCose() != null){
+					arrayList.add(deliri.getfDomandaAltreCose()*deliri.getgDomandaAltreCose());
+				}
+				if(deliri.getfDomandaDerubato() != null && deliri.getgDomandaDerubato() != null){
+					arrayList.add(deliri.getfDomandaDerubato()*deliri.getgDomandaDerubato());
+				}				
+				if(deliri.getfDomandaOspitiIndesiderati() != null && deliri.getgDomandaOspitiIndesiderati() != null){
+					arrayList.add(deliri.getfDomandaOspitiIndesiderati()*deliri.getgDomandaOspitiIndesiderati());
+				}	
+				if(deliri.getfDomandaPericolo() != null && deliri.getgDomandaPericolo() != null){
+					arrayList.add(deliri.getfDomandaPericolo()*deliri.getgDomandaPericolo());
+				}
+				if(deliri.getfDomandaPersoneSconosciute() != null && deliri.getgDomandaPersoneSconosciute() != null){
+					arrayList.add(deliri.getfDomandaPersoneSconosciute()*deliri.getgDomandaPersoneSconosciute());
+				}
+				if(deliri.getfDomandaPresenzeInCasa() != null && deliri.getgDomandaPresenzeInCasa() != null){
+					arrayList.add(deliri.getfDomandaPresenzeInCasa()*deliri.getgDomandaPresenzeInCasa());
+				}		
+				if(deliri.getfDomandaTradimento() != null && deliri.getgDomandaTradimento() != null){
+					arrayList.add(deliri.getfDomandaTradimento()*deliri.getgDomandaTradimento());
+				}
+				valoreDeliri = Collections.max(arrayList);
+			}
+			else{
+				valoreDeliri = 0;
+			}
+		}
+		else{
+			valoreDeliri = 0;
+		}
+		return valoreDeliri;
+	}
+
+
+
+	private Integer calcolaDepressioneDisforia(DepressioneDisforia depressioneDisforia) {
+		Integer valoreDepressioneDisforia = 0;
+		
+		if(!depressioneDisforia.getNonApplicabile()){
+			if(depressioneDisforia.getDomandaPreliminare()){
+				ArrayList<Integer> arrayList = new ArrayList<Integer>();
+				if(depressioneDisforia.getfDomandaAltriSegni() != null && depressioneDisforia.getgDomandaAltriSegni() != null){
+					arrayList.add(depressioneDisforia.getfDomandaAltriSegni()*depressioneDisforia.getgDomandaAltriSegni());
+				}	
+				if(depressioneDisforia.getfDomandaFallito() != null && depressioneDisforia.getgDomandaFallito() != null){
+					arrayList.add(depressioneDisforia.getfDomandaFallito()*depressioneDisforia.getgDomandaFallito());
+				}	
+				if(depressioneDisforia.getfDomandaMalinconia() != null && depressioneDisforia.getgDomandaMalinconia() != null){
+					arrayList.add(depressioneDisforia.getfDomandaMalinconia()*depressioneDisforia.getgDomandaMalinconia());
+				}
+				if(depressioneDisforia.getfDomandaPersonaCattiva() != null && depressioneDisforia.getgDomandaPersonaCattiva() != null){
+					arrayList.add(depressioneDisforia.getfDomandaPersonaCattiva()*depressioneDisforia.getgDomandaPersonaCattiva());
+				}				
+				if(depressioneDisforia.getfDomandaPeso() != null && depressioneDisforia.getgDomandaPeso() != null){
+					arrayList.add(depressioneDisforia.getfDomandaPeso()*depressioneDisforia.getgDomandaPeso());
+				}	
+				if(depressioneDisforia.getfDomandaScoraggiato() != null && depressioneDisforia.getgDomandaScoraggiato() != null){
+					arrayList.add(depressioneDisforia.getfDomandaScoraggiato()*depressioneDisforia.getgDomandaScoraggiato());
+				}
+				if(depressioneDisforia.getfDomandaSuicidio() != null && depressioneDisforia.getgDomandaSuicidio() != null){
+					arrayList.add(depressioneDisforia.getfDomandaSuicidio()*depressioneDisforia.getgDomandaSuicidio());
+				}
+				if(depressioneDisforia.getfDomandaTristezza() != null && depressioneDisforia.getgDomandaTristezza() != null){
+					arrayList.add(depressioneDisforia.getfDomandaTristezza()*depressioneDisforia.getgDomandaTristezza());
+				}		
+				valoreDepressioneDisforia = Collections.max(arrayList);
+			}
+			else{
+				valoreDepressioneDisforia = 0;
+			}
+		}
+		else{
+			valoreDepressioneDisforia = 0;
+		}
+		return valoreDepressioneDisforia;
+	}
+
+
+
+	private Integer calcolaDisinibizione(Disinibizione disinibizione) {
+		Integer valoreDisinibizione = 0;
+		
+		if(!disinibizione.getNonApplicabile()){
+			if(disinibizione.getDomandaPreliminare()){
+				ArrayList<Integer> arrayList = new ArrayList<Integer>();
+				if(disinibizione.getfDomandaAltriSegni() != null && disinibizione.getfDomandaAltriSegni() != null){
+					arrayList.add(disinibizione.getfDomandaAltriSegni()*disinibizione.getfDomandaAltriSegni());
+				}	
+				if(disinibizione.getfDomandaCosePrivate() != null && disinibizione.getgDomandaCosePrivate() != null){
+					arrayList.add(disinibizione.getfDomandaCosePrivate()*disinibizione.getgDomandaCosePrivate());
+				}	
+				if(disinibizione.getfDomandaCoseVolgari() != null && disinibizione.getgDomandaCoseVolgari() != null){
+					arrayList.add(disinibizione.getfDomandaCoseVolgari()*disinibizione.getgDomandaCoseVolgari());
+				}
+				if(disinibizione.getfDomandaEstranei() != null && disinibizione.getgDomandaEstranei() != null){
+					arrayList.add(disinibizione.getfDomandaEstranei()*disinibizione.getgDomandaEstranei());
+				}				
+				if(disinibizione.getfDomandaImpulsivo() != null && disinibizione.getgDomandaImpulsivo() != null){
+					arrayList.add(disinibizione.getfDomandaImpulsivo()*disinibizione.getgDomandaImpulsivo());
+				}	
+				if(disinibizione.getfDomandaLiberta() != null && disinibizione.getgDomandaLiberta() != null){
+					arrayList.add(disinibizione.getfDomandaLiberta()*disinibizione.getgDomandaLiberta());
+				}
+				if(disinibizione.getfDomandaOffensive() != null && disinibizione.getgDomandaOffensive() != null){
+					arrayList.add(disinibizione.getfDomandaOffensive()*disinibizione.getgDomandaOffensive());
+				}
+				valoreDisinibizione = Collections.max(arrayList);
+			}
+			else{
+				valoreDisinibizione = 0;
+			}
+		}
+		else{
+			valoreDisinibizione = 0;
+		}
+		return valoreDisinibizione;
+	}
+
+
+
+	private Integer calcolaDisturbiAlimentazione(DisturbiAlimentazione disturbiAlimentazione) {
+		Integer valoreDisturbiAlimentazione = 0;
+		
+		if(!disturbiAlimentazione.getNonApplicabile()){
+			if(disturbiAlimentazione.getDomandaPreliminare()){
+				ArrayList<Integer> arrayList = new ArrayList<Integer>();
+				if(disturbiAlimentazione.getfDomandaAltriDisturbi() != null && disturbiAlimentazione.getgDomandaAltriDisturbi() != null){
+					arrayList.add(disturbiAlimentazione.getfDomandaAltriDisturbi()*disturbiAlimentazione.getgDomandaAltriDisturbi());
+				}	
+				if(disturbiAlimentazione.getfDomandaAumentoAppetito() != null && disturbiAlimentazione.getgDomandaAumentoAppetito() != null){
+					arrayList.add(disturbiAlimentazione.getfDomandaAumentoAppetito()*disturbiAlimentazione.getgDomandaAumentoAppetito());
+				}	
+				if(disturbiAlimentazione.getfDomandaAumentoPeso() != null && disturbiAlimentazione.getgDomandaAumentoPeso() != null){
+					arrayList.add(disturbiAlimentazione.getfDomandaAumentoPeso()*disturbiAlimentazione.getgDomandaAumentoPeso());
+				}
+				if(disturbiAlimentazione.getfDomandaCambioAbitudiniAlimentari() != null && disturbiAlimentazione.getgDomandaCambioAbitudiniAlimentari() != null){
+					arrayList.add(disturbiAlimentazione.getfDomandaCambioAbitudiniAlimentari()*disturbiAlimentazione.getgDomandaCambioAbitudiniAlimentari());
+				}				
+				if(disturbiAlimentazione.getfDomandaCambioGustiAlimentari() != null && disturbiAlimentazione.getgDomandaCambioGustiAlimentari() != null){
+					arrayList.add(disturbiAlimentazione.getfDomandaCambioGustiAlimentari()*disturbiAlimentazione.getgDomandaCambioGustiAlimentari());
+				}	
+				if(disturbiAlimentazione.getfDomandaPerditaAppetito() != null && disturbiAlimentazione.getgDomandaPerditaAppetito() != null){
+					arrayList.add(disturbiAlimentazione.getfDomandaPerditaAppetito()*disturbiAlimentazione.getgDomandaPerditaAppetito());
+				}
+				if(disturbiAlimentazione.getfDomandaPerditaPeso() != null && disturbiAlimentazione.getgDomandaPerditaPeso() != null){
+					arrayList.add(disturbiAlimentazione.getfDomandaPerditaPeso()*disturbiAlimentazione.getgDomandaPerditaPeso());
+				}
+				if(disturbiAlimentazione.getfDomandaSpecificheAbitudini() != null && disturbiAlimentazione.getgDomandaSpecificheAbitudini() != null){
+					arrayList.add(disturbiAlimentazione.getfDomandaSpecificheAbitudini()*disturbiAlimentazione.getgDomandaSpecificheAbitudini());
+				}
+				valoreDisturbiAlimentazione = Collections.max(arrayList);
+			}
+			else{
+				valoreDisturbiAlimentazione = 0;
+			}
+		}
+		else{
+			valoreDisturbiAlimentazione = 0;
+		}
+		return valoreDisturbiAlimentazione;
+	}
+
+
+
+	private Integer calcolaDisturbiSonno(DisturbiSonno disturbiSonno) {
+		Integer valoreDisturbiSonno = 0;
+		
+		if(!disturbiSonno.getNonApplicabile()){
+			if(disturbiSonno.getDomandaPreliminare()){
+				ArrayList<Integer> arrayList = new ArrayList<Integer>();
+				if(disturbiSonno.getfDomandaAddormentarsi() != null && disturbiSonno.getgDomandaAddormentarsi() != null){
+					arrayList.add(disturbiSonno.getfDomandaAddormentarsi()*disturbiSonno.getgDomandaAddormentarsi());
+				}	
+				if(disturbiSonno.getfDomandaAltriDisturbi() != null && disturbiSonno.getgDomandaAltriDisturbi() != null){
+					arrayList.add(disturbiSonno.getfDomandaAltriDisturbi()*disturbiSonno.getgDomandaAltriDisturbi());
+				}	
+				if(disturbiSonno.getfDomandaAlzaDuranteNotte() != null && disturbiSonno.getgDomandaAlzaDuranteNotte() != null){
+					arrayList.add(disturbiSonno.getfDomandaAlzaDuranteNotte()*disturbiSonno.getgDomandaAlzaDuranteNotte());
+				}
+				if(disturbiSonno.getfDomandaDisturba() != null && disturbiSonno.getgDomandaDisturba() != null){
+					arrayList.add(disturbiSonno.getfDomandaDisturba()*disturbiSonno.getgDomandaDisturba());
+				}				
+				if(disturbiSonno.getfDomandaDormeEccessivamente() != null && disturbiSonno.getgDomandaDormeEccessivamente() != null){
+					arrayList.add(disturbiSonno.getfDomandaDormeEccessivamente()*disturbiSonno.getgDomandaDormeEccessivamente());
+				}	
+				if(disturbiSonno.getfDomandaEsceDiCasa() != null && disturbiSonno.getgDomandaEsceDiCasa() != null){
+					arrayList.add(disturbiSonno.getfDomandaEsceDiCasa()*disturbiSonno.getgDomandaEsceDiCasa());
+				}
+				if(disturbiSonno.getfDomandaSiSvegliaPresto() != null && disturbiSonno.getgDomandaSiSvegliaPresto() != null){
+					arrayList.add(disturbiSonno.getfDomandaSiSvegliaPresto()*disturbiSonno.getgDomandaSiSvegliaPresto());
+				}
+				if(disturbiSonno.getfDomandaVaga() != null && disturbiSonno.getgDomandaVaga() != null){
+					arrayList.add(disturbiSonno.getfDomandaVaga()*disturbiSonno.getgDomandaVaga());
+				}
+				valoreDisturbiSonno = Collections.max(arrayList);
+			}
+			else{
+				valoreDisturbiSonno = 0;
+			}
+		}
+		else{
+			valoreDisturbiSonno = 0;
+		}
+		return valoreDisturbiSonno;
+	}
+
+
+
+	private Integer calcolaEuforiaEsaltazione(EuforiaEsaltazione euforiaEsaltazione) {
+		Integer valoreEuforiaEsaltazione = 0;
+		
+		if(!euforiaEsaltazione.getNonApplicabile()){
+			if(euforiaEsaltazione.getDomandaPreliminare()){
+				ArrayList<Integer> arrayList = new ArrayList<Integer>();
+				if(euforiaEsaltazione.getfDomandaAltriSegni() != null && euforiaEsaltazione.getgDomandaAltriSegni() != null){
+					arrayList.add(euforiaEsaltazione.getfDomandaAltriSegni()*euforiaEsaltazione.getgDomandaAltriSegni());
+				}	
+				if(euforiaEsaltazione.getfDomandaBravoRicco() != null && euforiaEsaltazione.getgDomandaBravoRicco() != null){
+					arrayList.add(euforiaEsaltazione.getfDomandaBravoRicco()*euforiaEsaltazione.getgDomandaBravoRicco());
+				}	
+				if(euforiaEsaltazione.getfDomandaCoseRidicole() != null && euforiaEsaltazione.getgDomandaCoseRidicole() != null){
+					arrayList.add(euforiaEsaltazione.getfDomandaCoseRidicole()*euforiaEsaltazione.getgDomandaCoseRidicole());
+				}
+				if(euforiaEsaltazione.getfDomandaDifferenteDalSolito() != null && euforiaEsaltazione.getgDomandaDifferenteDalSolito() != null){
+					arrayList.add(euforiaEsaltazione.getfDomandaDifferenteDalSolito()*euforiaEsaltazione.getgDomandaDifferenteDalSolito());
+				}				
+				if(euforiaEsaltazione.getfDomandaOsservazioni() != null && euforiaEsaltazione.getgDomandaOsservazioni() != null){
+					arrayList.add(euforiaEsaltazione.getfDomandaOsservazioni()*euforiaEsaltazione.getgDomandaOsservazioni());
+				}	
+				if(euforiaEsaltazione.getfDomandaScherzi() != null && euforiaEsaltazione.getgDomandaScherzi() != null){
+					arrayList.add(euforiaEsaltazione.getfDomandaScherzi()*euforiaEsaltazione.getgDomandaScherzi());
+				}
+				if(euforiaEsaltazione.getfDomandaSensoUmorismo() != null && euforiaEsaltazione.getgDomandaSensoUmorismo() != null){
+					arrayList.add(euforiaEsaltazione.getfDomandaSensoUmorismo()*euforiaEsaltazione.getgDomandaSensoUmorismo());
+				}
+				valoreEuforiaEsaltazione = Collections.max(arrayList);
+			}
+			else{
+				valoreEuforiaEsaltazione = 0;
+			}
+		}
+		else{
+			valoreEuforiaEsaltazione = 0;
+		}
+		return valoreEuforiaEsaltazione;
+	}
+
+
+
+	private Integer calcolaIrritabilitaLabilita(IrritabilitaLabilita irritabilitaLabilita) {
+		Integer valoreIrritabilitaLabilita = 0;
+		
+		if(!irritabilitaLabilita.getNonApplicabile()){
+			if(irritabilitaLabilita.getDomandaPreliminare()){
+				ArrayList<Integer> arrayList = new ArrayList<Integer>();
+				if(irritabilitaLabilita.getfDomandaAltriSegni() != null && irritabilitaLabilita.getgDomandaAltriSegni() != null){
+					arrayList.add(irritabilitaLabilita.getfDomandaAltriSegni()*irritabilitaLabilita.getgDomandaAltriSegni());
+				}	
+				if(irritabilitaLabilita.getfDomandaBorbotta() != null && irritabilitaLabilita.getgDomandaBorbotta() != null){
+					arrayList.add(irritabilitaLabilita.getfDomandaBorbotta()*irritabilitaLabilita.getgDomandaBorbotta());
+				}	
+				if(irritabilitaLabilita.getfDomandaBruttoCarattere() != null && irritabilitaLabilita.getgDomandaBruttoCarattere() != null){
+					arrayList.add(irritabilitaLabilita.getfDomandaBruttoCarattere()*irritabilitaLabilita.getgDomandaBruttoCarattere());
+				}
+				if(irritabilitaLabilita.getfDomandaCambiamentiUmore() != null && irritabilitaLabilita.getgDomandaCambiamentiUmore() != null){
+					arrayList.add(irritabilitaLabilita.getfDomandaCambiamentiUmore()*irritabilitaLabilita.getgDomandaCambiamentiUmore());
+				}				
+				if(irritabilitaLabilita.getfDomandaInsofferente() != null && irritabilitaLabilita.getgDomandaInsofferente() != null){
+					arrayList.add(irritabilitaLabilita.getfDomandaInsofferente()*irritabilitaLabilita.getgDomandaInsofferente());
+				}	
+				if(irritabilitaLabilita.getfDomandaNervoso() != null && irritabilitaLabilita.getgDomandaNervoso() != null){
+					arrayList.add(irritabilitaLabilita.getfDomandaNervoso()*irritabilitaLabilita.getgDomandaNervoso());
+				}
+				if(irritabilitaLabilita.getfDomandaRabbia() != null && irritabilitaLabilita.getgDomandaRabbia() != null){
+					arrayList.add(irritabilitaLabilita.getfDomandaRabbia()*irritabilitaLabilita.getgDomandaRabbia());
+				}
+				valoreIrritabilitaLabilita = Collections.max(arrayList);
+			}
+			else{
+				valoreIrritabilitaLabilita = 0;
+			}
+		}
+		else{
+			valoreIrritabilitaLabilita = 0;
+		}
+		return valoreIrritabilitaLabilita;
+	}
+
+
+
+	@Override
+	public void insert(IndiceNPI indiceNPI) {
+		dao.create(indiceNPI);
+		
+		
+	}
+
+
+
+	@Override
+	public IndiceNPI selectById(Integer idIndiceNPI) {
+		
+		return dao.get(idIndiceNPI);
+	}
+
+	
+}

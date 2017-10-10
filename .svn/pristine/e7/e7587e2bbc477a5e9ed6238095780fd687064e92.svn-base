@@ -1,0 +1,10 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.IndiceVIP;
+
+/**
+ * The Interface IndiceVIPDao.
+ */
+public interface IndiceVIPDao extends Dao<IndiceVIP> {
+
+}

@@ -1,0 +1,111 @@
+package it.cle.project.service.impl;
+
+import it.cle.project.dao.ProfiloAutonomiaDao;
+import it.cle.project.model.IndiceADL;
+import it.cle.project.model.IndiceBarthelMobilita;
+import it.cle.project.model.IndiceSPMSQ;
+import it.cle.project.model.IndiceSupportoReteSociale;
+import it.cle.project.model.ProfiloAutonomia;
+import it.cle.project.model.Psan;
+import it.cle.project.service.ProfiloAutonomiaService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProfiloAutonomiaServiceImpl.
+ */
+@Service("profiloAutonomiaService")
+@Transactional
+public class ProfiloAutonomiaServiceImpl implements ProfiloAutonomiaService {
+	
+	
+
+	
+	/** The dao. */
+	@Autowired
+	private ProfiloAutonomiaDao dao;
+
+
+	
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ProfiloAutonomiaService#calcolaProf(it.cle.project.model.IndiceADL, it.cle.project.model.IndiceSPMSQ, it.cle.project.model.IndiceBarthelMobilita, it.cle.project.model.Psan, it.cle.project.model.IndiceSupportoReteSociale)
+	 */
+	@Override
+	public Integer calcolaProf(IndiceADL indiceADL,IndiceSPMSQ indiceSPMSQ,IndiceBarthelMobilita indiceBarthelMobilita,Psan psan,IndiceSupportoReteSociale indiceSupportoReteSociale) {
+		
+		IndiceSPMSQServiceImpl  indiceSPMSQServiceImpl= new IndiceSPMSQServiceImpl();
+		IndiceBarthelMobilitaServiceImpl  indiceBarthelMobilitaServiceImpl= new IndiceBarthelMobilitaServiceImpl();
+		IndiceADLServiceImpl indiceADLServiceImpl= new IndiceADLServiceImpl();
+		PsanServiceImpl psanServiceImpl = new PsanServiceImpl();
+		
+		Integer prof=0;
+		Integer pcog = indiceSPMSQServiceImpl.calcolaSPMSQ(indiceSPMSQ);
+		Integer pmob = indiceBarthelMobilitaServiceImpl.calcolaMobilita(indiceBarthelMobilita);
+		Integer padl= indiceADLServiceImpl.calcolaIndiceADL(indiceADL);
+		Integer psan_= psanServiceImpl.calcolaPsan(psan);
+		
+		prof=pcog+pmob+padl+psan_;
+		
+		
+		return prof;
+	}
+
+
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ProfiloAutonomiaService#calcolaPsoc(it.cle.project.model.IndiceSupportoReteSociale)
+	 */
+	@Override
+	public Integer calcolaPsoc(IndiceSupportoReteSociale indiceSupportoReteSociale) {
+		
+		IndiceSupportoReteSocialeServiceImpl indiceSupportoReteSocialeServiceImpl= new IndiceSupportoReteSocialeServiceImpl();
+		
+		Integer psoc = indiceSupportoReteSocialeServiceImpl.calcolaIndiceSupportoReteSociale(indiceSupportoReteSociale);
+		
+		
+		return psoc;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ProfiloAutonomiaService#insert(it.cle.project.model.ProfiloAutonomia)
+	 */
+	@Override
+	public void insert(ProfiloAutonomia profiloAutonomia) {
+		dao.create(profiloAutonomia);
+		
+	}
+
+
+
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ProfiloAutonomiaService#selectById(java.lang.Integer)
+	 */
+	@Override
+	public ProfiloAutonomia selectById(Integer idProfiloAutonomia) {
+		return dao.get(idProfiloAutonomia);
+	}
+	
+	
+	
+
+
+	
+	
+
+
+
+
+
+	
+
+	
+	
+
+}

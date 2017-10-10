@@ -1,0 +1,31 @@
+package it.cle.project.service.impl;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import it.cle.project.dao.hbn.HbnPaiDao;
+import it.cle.project.model.Pai;
+import it.cle.project.service.PaiService;
+
+/**
+
+ */
+@Service("paiService")
+@Transactional
+public class PaiServiceImpl implements PaiService {
+	
+	
+	@Autowired
+	private HbnPaiDao dao;
+	
+		
+
+
+	@Override
+	public void insert(Pai pai) {
+		dao.create(pai);
+		
+	}
+}

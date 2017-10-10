@@ -1,0 +1,12 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.IndiceVPIA;
+
+/**
+ * Interfaccia IndiceBarthelDao.
+ *
+ * @author Leo
+ */
+public interface IndiceVPIADao extends Dao<IndiceVPIA> {
+
+}

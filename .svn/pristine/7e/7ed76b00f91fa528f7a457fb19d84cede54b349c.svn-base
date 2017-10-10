@@ -1,0 +1,12 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.Psan;
+
+/**
+ * Interfaccia IndiceBarthelDao.
+ *
+ * @author Leo
+ */
+public interface PsanDao extends Dao<Psan> {
+
+}

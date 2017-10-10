@@ -1,0 +1,131 @@
+package it.cle.project.model;
+
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+
+
+@Entity
+@Table(name = "dati_assistito")
+@XmlRootElement(name = "dati_assistito")  
+//@XmlAccessorType(XmlAccessType.FIELD)
+public class DatiAssistito implements Serializable{
+	
+	
+	private static final long serialVersionUID = 1L;
+	
+	private Integer idDatiAssistito;
+
+	private String cognome;
+	
+	private String nome;
+	
+	private String dataNascita;
+	
+	private String indirizzo;
+	
+	private String cittaResidenza;
+	
+	private String codiceFiscale;
+	
+	private String personaRiferimento;
+	
+	
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdDatiAssistito() {
+		return idDatiAssistito;
+	}
+	@XmlAttribute(name="idDatiAssistito")
+	public void setIdDatiAssistito(Integer idDatiAssistito) {
+		this.idDatiAssistito = idDatiAssistito;
+	}
+	
+	@NotNull
+	@Column(name = "cognome")
+	public String getCognome() {
+		return cognome;
+	}
+	@XmlElement(name="cognome")
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+	@NotNull
+	@Column(name = "nome")
+	public String getNome() {
+		return nome;
+	}
+	@XmlElement(name="nome")
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	@NotNull
+	@Column(name = "dataNascita")
+	public String getDataNascita() {
+		return dataNascita;
+	}
+	@XmlElement(name="dataNascita")
+	public void setDataNascita(String dataNascita) {
+		this.dataNascita = dataNascita;
+	}
+	@NotNull
+	@Column(name = "indirizzo")
+	public String getIndirizzo() {
+		return indirizzo;
+	}
+	@XmlElement(name="indirizzo")
+	public void setIndirizzo(String indirizzo) {
+		this.indirizzo = indirizzo;
+	}
+	@NotNull
+	@Column(name = "cittaResidenza")
+	public String getCittaResidenza() {
+		return cittaResidenza;
+	}
+	@XmlElement(name="cittaResidenza")
+	public void setCittaResidenza(String cittaResidenza) {
+		this.cittaResidenza = cittaResidenza;
+	}
+	@NotNull
+	@Column(name = "codiceFiscale")
+	public String getCodiceFiscale() {
+		return codiceFiscale;
+	}
+	@XmlElement(name="codiceFiscale")
+	public void setCodiceFiscale(String codiceFiscale) {
+		this.codiceFiscale = codiceFiscale;
+	}
+	@NotNull
+	@Column(name = "personaRiferimento")
+	public String getPersonaRiferimento() {
+		return personaRiferimento;
+	}
+	@XmlElement(name="personaRiferimento")
+	public void setPersonaRiferimento(String personaRiferimento) {
+		this.personaRiferimento = personaRiferimento;
+	}
+
+	
+	public DatiAssistito() {
+    }
+	
+	
+
+}

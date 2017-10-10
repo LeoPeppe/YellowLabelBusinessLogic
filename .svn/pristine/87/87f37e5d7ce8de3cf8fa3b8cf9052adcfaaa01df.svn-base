@@ -1,0 +1,79 @@
+package it.cle.project.service;
+
+import it.cle.project.model.composti.but.IndiceBUTa;
+import it.cle.project.model.composti.but.IndiceBUTb;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface IndiceBUTService.
+ */
+public interface IndiceBUTService {
+	
+	/**
+	 * Calcola l' indice globale di gravità.
+	 *
+	 * @param indiceBUTa the indice bu ta
+	 * @return the float
+	 */
+	public Float calcolaGSI(IndiceBUTa indiceBUTa);
+	
+	/**
+	 * Calcola il weight phobia, paura morbosa di aumento di peso.
+	 *
+	 * @param indiceBUTa the indice bu ta
+	 * @return the float
+	 */
+	public Float calcolaWP(IndiceBUTa indiceBUTa);
+	
+	/**
+	 * Calcola il body image concerns, preoccupazioni eccessive per il proprio aspetto fisico.
+	 *
+	 * @param indiceBUTa the indice bu ta
+	 * @return the float
+	 */
+	public Float calcolaBIC(IndiceBUTa indiceBUTa);
+	
+	/**
+	 * Calcola l' Avoidance, comportamenti di evitamento collegati all’immagine del corpo.
+	 *
+	 * @param indiceBUTa the indice bu ta
+	 * @return the float
+	 */
+	public Float calcolaA(IndiceBUTa indiceBUTa);
+	
+	/**
+	 * Calcola il Compulsive Self Monitoring, controllo compulsivo dell’aspetto fisico.
+	 *
+	 * @param indiceBUTa the indice bu ta
+	 * @return the float
+	 */
+	public Float calcolaCSM(IndiceBUTa indiceBUTa);
+	
+	/**
+	 * Calcola Depersonalization, depersonalizzazione, vissuti di distacco ed estraneità rispetto al proprio corpo.
+	 *
+	 * @param indiceBUTa the indice bu ta
+	 * @return the float
+	 */
+	public Float calcolaD(IndiceBUTa indiceBUTa);
+	
+	/**
+	 * Calcola l' indice PST , Positive Symptom Total .
+	 *
+	 * @param indiceBUTb the indice bu tb
+	 * @return the integer
+	 */
+	public Integer calcolaPST(IndiceBUTb indiceBUTb);
+	
+	/**
+	 * Calcola l' indice PSDI Positive Symptom Distress Index .
+	 *
+	 * @param indiceBUTb the indice bu tb
+	 * @return the float
+	 */
+	public Float calcolaPSDI(IndiceBUTb indiceBUTb);
+
+	
+
+
+}

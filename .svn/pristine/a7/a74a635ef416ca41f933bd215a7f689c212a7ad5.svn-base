@@ -1,0 +1,43 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceADL;
+
+// TODO: Auto-generated Javadoc
+/**
+ * Interfaccia IndiceADLService.
+ *
+ * @author dfronza
+ */
+public interface IndiceADLService {
+	
+	/**
+	 * Calcola l' indice di ADL.
+	 *
+	 * @param indiceADL the indice adl
+	 * @return the integer
+	 */
+	public Integer calcolaIndiceADL(IndiceADL indiceADL);
+	
+	/**
+	 * Codifica l'indice ADL in base al punteggio.
+	 *
+	 * @param adl the adl
+	 * @return the string
+	 */
+	public String codificaADL(Integer adl);
+	
+	/**
+	 * inserisce i valori per il calcolo dell' indice di ADL.
+	 *
+	 * @param indiceADL the indice adl
+	 */
+	public void insert(IndiceADL indiceADL);
+	
+	/**
+	 * Recupera i valori per il calcolo dell'indice di ADL.
+	 *
+	 * @param idIndiceADL the id indice adl
+	 * @return the indice adl
+	 */
+	public IndiceADL selectById(Integer idIndiceADL);
+}

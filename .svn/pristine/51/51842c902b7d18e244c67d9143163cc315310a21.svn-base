@@ -1,0 +1,23 @@
+package it.cle.project.service;
+
+
+import it.cle.project.model.Pai_Prestazioni;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface Pai_PrestazioniService.
+ */
+public interface Pai_PrestazioniService {
+	
+	
+	/**
+	 * Insert.
+	 *
+	 * @param pai the pai
+	 */
+	public void insert(Pai_Prestazioni pai);
+	
+	
+	
+}

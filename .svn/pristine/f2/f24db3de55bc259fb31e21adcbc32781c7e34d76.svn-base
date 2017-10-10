@@ -1,0 +1,74 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceVIP;
+import it.cle.project.model.IndiceVPIA;
+import it.cle.project.model.IndiceVPOT;
+import it.cle.project.model.Psan;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface PsanService.
+ */
+public interface PsanService {
+	
+	
+	/**
+	 * Calcola psan.
+	 *
+	 * @param psan the psan
+	 * @return the integer
+	 */
+	public Integer calcolaPsan(Psan psan);
+	
+	/**
+	 * Calcola vpot.
+	 *
+	 * @param indiceVpot the indice vpot
+	 * @return the integer
+	 */
+	public Integer calcolaVpot(IndiceVPOT indiceVpot);
+	
+	/**
+	 * Calcola vpia.
+	 *
+	 * @param indiceVpia the indice vpia
+	 * @return the integer
+	 */
+	public Integer calcolaVpia(IndiceVPIA indiceVpia);
+	
+	/**
+	 * Calcola vip.
+	 *
+	 * @param indiceVip the indice vip
+	 * @return the integer
+	 */
+	public Integer calcolaVip(IndiceVIP indiceVip);
+	
+	
+	
+	/**
+	 * Codifica psan.
+	 *
+	 * @param vsan the vsan
+	 * @return the string
+	 */
+	public String codificaPsan(Integer vsan);
+	
+	/**
+	 * Insert.
+	 *
+	 * @param psan the psan
+	 */
+	public void insert(Psan psan);
+	
+	/**
+	 * Select by id.
+	 *
+	 * @param idPsan the id psan
+	 * @return the psan
+	 */
+	public Psan selectById(Integer idPsan);
+	
+	
+}

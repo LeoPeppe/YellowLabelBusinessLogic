@@ -1,0 +1,266 @@
+package it.cle.project.model;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * Questa classe definisce l'entità Indice ADL, una scala ordinale utilizzata
+ * per misurare le prestazioni di un soggetto nelle attività della vita quotidiana
+ * (ADL, activities of daily living).
+ *
+ * @author Fronza
+ * @version 1.0
+ * @see <a href="http://it.wikipedia.org/wiki/Indice_di_Barthel" target="_blank">La scala di Barthel o Indice di Barthel ADL</a>
+ */
+@Entity
+@Table(name = "indice_adl")
+@XmlRootElement(name = "indice_adl")  
+//@XmlAccessorType(XmlAccessType.FIELD)
+public class IndiceADL implements Serializable{
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+	/** The id indice ADL. */
+	private Integer idIndiceADL;
+	
+	/** The alimentazione. 
+	 *  Validazione: //0,2,5,8,10 */
+	private Integer fAlimentazione;
+	
+	/** The bagno doccia. 
+	 *  Validazione: //0,1,2,3,4,5*/
+	private Integer fBagnoDoccia;
+	
+	/** The igiene personale. 
+	*  Validazione: //0,1,2,3,4,5*/
+	private Integer fIgienePersonale;
+	
+	/** The abbigliamento. 
+	 *  Validazione: //0,2,5,8,10 */
+	private Integer fAbbigliamento;
+	
+	/** The continenza intestinale. 
+	 *  Validazione: //0,2,5,8,10 */
+	@JsonProperty(required = true)
+	private Integer fContinenzaIntestinale;
+	
+	/** The continenza urinaria. 
+	 *  Validazione: //0,2,5,8,10 */
+	private Integer fContinenzaUrinaria;
+	
+	/** The uso gabinetto. 
+	 *  Validazione: //0,2,5,8,10 */
+	private Integer fUsoGabinetto;
+	
+	/** The valore indice adl. */
+	private Integer valoreIndiceADL;
+
+	
+	/**
+	 * Gets the id indice adl.
+	 *
+	 * @return the id indice adl
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceADL() {
+		return idIndiceADL;
+	}
+	
+	/**
+	 * Sets the id indice adl.
+	 *
+	 * @param idIndiceADL the new id indice adl
+	 */
+	@XmlAttribute(name="idIndiceADL")
+	public void setIdIndiceADL(Integer idIndiceADL) {
+		this.idIndiceADL = idIndiceADL;
+	}
+
+	/**
+	 * Gets the f alimentazione.
+	 * @return the f alimentazione
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,2,5,8,10 })
+	@Column(name = "f_alimentazione")
+	public Integer getfAlimentazione() {
+		return fAlimentazione;
+	}
+	
+	/**
+	 * Sets the f alimentazione.
+	 * @param fAlimentazione the new f alimentazione
+	 */
+	@XmlElement(name="fAlimentazione")
+	public void setfAlimentazione(Integer fAlimentazione) {
+		this.fAlimentazione = fAlimentazione;
+	}
+
+	/**
+	 * Gets the f bagno doccia.
+	 * @return the f bagno doccia
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,4,5 })
+	@Column(name = "f_bagno_doccia")
+	public Integer getfBagnoDoccia() {
+		return fBagnoDoccia;
+	}
+
+	/**
+	 * Sets the f bagno doccia.
+	 * @param fBagnoDoccia the new f bagno doccia
+	 */
+	@XmlElement(name="fBagnoDoccia")
+	public void setfBagnoDoccia(Integer fBagnoDoccia) {
+		this.fBagnoDoccia = fBagnoDoccia;
+	}
+
+	/**
+	 * Gets the f igiene personale.
+	 * @return the f igiene personale
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,4,5 })
+	@Column(name = "f_igiene_personale")
+	public Integer getfIgienePersonale() {
+		return fIgienePersonale;
+	}
+
+	/**
+	 * Sets the f igiene personale.
+	 * @param fIgienePersonale the new f igiene personale
+	 */
+	
+	@XmlElement(name="fIgienePersonale")
+	public void setfIgienePersonale(Integer fIgienePersonale) {
+		this.fIgienePersonale = fIgienePersonale;
+	}
+
+	/**
+	 * Gets the f abbigliamento.
+	 * @return the f abbigliamento
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,2,5,8,10 })
+	@Column(name = "f_abbigliamento")
+	public Integer getfAbbigliamento() {
+		return fAbbigliamento;
+	}
+
+	/**
+	 * Sets the f abbigliamento.
+	 * @param fAbbigliamento the new f abbigliamento
+	 */
+	@XmlElement(name="fAbbigliamento")
+	public void setfAbbigliamento(Integer fAbbigliamento) {
+		this.fAbbigliamento = fAbbigliamento;
+	}
+
+	/**
+	 * Gets the f continenza intestinale.
+	 * @return the f continenza intestinale
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,2,5,8,10 })
+	@Column(name = "f_continenza_intestinale")
+	public Integer getfContinenzaIntestinale() {
+		return fContinenzaIntestinale;
+	}
+
+	/**
+	 * Sets the f continenza intestinale.
+	 * @param fContinenzaIntestinale the new f continenza intestinale
+	 */
+	@XmlElement(name="fContinenzaIntestinale")
+	public void setfContinenzaIntestinale(Integer fContinenzaIntestinale) {
+		this.fContinenzaIntestinale = fContinenzaIntestinale;
+	}
+
+	/**
+	 * Gets the f continenza urinaria.
+	 * @return the f continenza urinaria
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,2,5,8,10 })
+	@Column(name = "f_continenza_urinaria")
+	public Integer getfContinenzaUrinaria() {
+		return fContinenzaUrinaria;
+	}
+
+	/**
+	 * Sets the f continenza urinaria.
+	 * @param fContinenzaUrinaria the new f continenza urinaria
+	 */
+	@XmlElement(name="fContinenzaUrinaria")
+	public void setfContinenzaUrinaria(Integer fContinenzaUrinaria) {
+		this.fContinenzaUrinaria = fContinenzaUrinaria;
+	}
+
+	/**
+	 * Gets the f uso gabinetto.
+	 * @return the f uso gabinetto
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,2,5,8,10 })
+	@Column(name = "f_uso_gabinetto")
+	public Integer getfUsoGabinetto() {
+		return fUsoGabinetto;
+	}
+
+	/**
+	 * Sets the f uso gabinetto.
+	 * @param fUsoGabinetto the new f uso gabinetto
+	 */
+	@XmlElement(name="fUsoGabinetto")
+	public void setfUsoGabinetto(Integer fUsoGabinetto) {
+		this.fUsoGabinetto = fUsoGabinetto;
+	}
+
+	
+	/**
+	 * Gets the valore indice adl.
+	 *
+	 * @return the valore indice adl
+	 */
+	@Column(name = "valoreIndiceADL")
+	public Integer getValoreIndiceADL() {
+		return valoreIndiceADL;
+	}
+	
+	/**
+	 * Sets the valore indice adl.
+	 *
+	 * @param valoreIndiceADL the new valore indice adl
+	 */
+	@XmlElement(name="valoreIndiceADL")
+	public void setValoreIndiceADL(Integer valoreIndiceADL) {
+		this.valoreIndiceADL = valoreIndiceADL;
+	}
+	
+	/**
+	 * Instantiates a new indice barthel.
+	 */
+	public IndiceADL() {
+    }
+
+}

@@ -1,0 +1,96 @@
+package it.cle.project.service.impl;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import it.cle.project.dao.PrestazioniDao;
+import it.cle.project.model.Prestazioni;
+import it.cle.project.service.PrestazioniService;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PrestazioniServiceImpl.
+ */
+@Service("prestazioniService")
+@Transactional
+public class PrestazioniServiceImpl  implements PrestazioniService  {
+	 
+
+
+	/** The dao. */
+	@Autowired
+	private PrestazioniDao dao;
+	
+	
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.PrestazioniService#select(java.lang.String, java.lang.String, java.lang.String)
+	 */
+	public List<Prestazioni> select(String rangeADL,String rangeBarthel, String rangeRete) {
+		
+		List<Prestazioni> prestazioni = null;
+
+		prestazioni = dao.select(rangeADL, rangeBarthel, rangeRete);
+		return prestazioni;
+	}
+
+
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.PrestazioniService#calcolaRangeADL(java.lang.String)
+	 */
+	@Override
+	public String calcolaRangeADL(String rangeADLInput) {
+		return 	dao.calcolaRangeADL(rangeADLInput);
+	}
+
+
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.PrestazioniService#calcolaRangeBarthel(java.lang.String)
+	 */
+	@Override
+	public String calcolaRangeBarthel(String rangeBarthelInput) {
+		return dao.calcolaRangeBarthel(rangeBarthelInput);
+	}
+
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.PrestazioniService#calcolaRangeRete(java.lang.String)
+	 */
+	@Override
+	public String calcolaRangeRete(String rangeReteInput) {
+		return dao.calcolaRangeRete(rangeReteInput);
+	}
+
+
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.PrestazioniService#selectTutte()
+	 */
+	@Override
+	public List<Prestazioni> selectTutte() {
+		return dao.selectTutte();
+	}
+
+
+
+	
+
+
+
+
+	
+		
+	
+
+//	}
+	
+	
+	
+}

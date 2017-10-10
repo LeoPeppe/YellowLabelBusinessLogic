@@ -1,0 +1,87 @@
+package it.cle.project.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import it.cle.project.dao.IndiceVPIADao;
+import it.cle.project.model.IndiceVPIA;
+import it.cle.project.service.IndiceVPIAService;
+
+
+@Service("indiceVPIAService")
+@Transactional
+public class IndiceVPIAServiceImpl implements IndiceVPIAService {
+	
+	private static final String vpia1="Rischio non elevato di lesioni da decubito";
+	private static final String vpia2="Rischio elevato (*Exton Smith <= 10) o arrossamento o abrasione superficiale (gradi I-II)";
+	private static final String vpia3="presenza di 1 piaga (con interessamento del tessuto sottocutaneo - gradi III-IV)";
+	private static final String vpia4="Presenza di 2 o più piaghe (almeno 2 con interessamento del sottocutaneo - gradi III- IV)";
+	
+
+	
+	@Autowired
+	private IndiceVPIADao dao;
+
+	
+	@Override
+	public Integer calcolaVPIA(IndiceVPIA indiceVPIA) {
+		Integer totaleExton= null;
+		Integer prevDecub= 0;
+		Integer totPrevDecub= 0;
+		Integer piaghe=0;
+		
+		
+		
+		totaleExton = indiceVPIA.getAttivita()+
+			   indiceVPIA.getCondizioniGenerali()+
+			   indiceVPIA.getIncontinenza()+
+			   indiceVPIA.getMobilita()+
+			   indiceVPIA.getStatoMentale();
+		
+		if(totaleExton>4 &&totaleExton<=10){
+			prevDecub=10;
+			if(indiceVPIA.getPiaghe() != null){
+				piaghe= indiceVPIA.getPiaghe();
+				}
+			
+			
+		}
+		else{ prevDecub=0;
+		if(indiceVPIA.getPiaghe() != null){
+		piaghe= indiceVPIA.getPiaghe();
+		}
+		}
+		
+		totPrevDecub= prevDecub+piaghe;
+		
+		
+		return totPrevDecub;
+	}
+	
+
+	@Override
+	public void insert(IndiceVPIA indiceVPIA) {
+		dao.create(indiceVPIA);
+		
+	}
+
+
+	@Override
+	public IndiceVPIA selectById(Integer idIndiceVPIA) {
+		return dao.get(idIndiceVPIA);
+	}
+
+	
+	
+
+
+
+
+
+	
+
+	
+	
+
+}

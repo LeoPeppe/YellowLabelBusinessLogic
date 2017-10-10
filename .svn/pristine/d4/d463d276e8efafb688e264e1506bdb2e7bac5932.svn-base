@@ -1,0 +1,26 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "DatiGenerali") 
+public class DatiGeneraliDTO implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private DatiGeneraliDocumentoDTO datiGeneraliDocumento;
+	private DatiDocumentoDTO datiOrdineAcquisto;
+	private DatiDocumentoDTO datiContratto;
+	private DatiDocumentoDTO datiConvenzione;
+	private DatiDocumentoDTO datiRicezione;
+	/**
+	 * mancano altri
+	 */
+	
+	
+
+}

@@ -1,0 +1,13 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.IndiceNPI;
+
+
+/**
+ * Interfaccia IndiceBarthelDao.
+ * @author Germano
+ */
+
+public interface IndiceNPIDao extends Dao<IndiceNPI> {
+
+}

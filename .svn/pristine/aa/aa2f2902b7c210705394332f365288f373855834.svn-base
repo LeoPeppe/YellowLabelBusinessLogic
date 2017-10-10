@@ -1,0 +1,130 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+/**
+ * The Class AnagraficaDTO.
+ */
+@XmlRootElement
+public class AnagraficaDTO implements Serializable {
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The denominazione. */
+	private String denominazione;
+	
+	/** The nome. */
+	private String nome;
+	
+	/** The cognome. */
+	private String cognome;
+	
+	/** The titolo. */
+	private String titolo;
+	
+	/** The cod eori. */
+	private String codEORI ;
+	
+	/**
+	 * Gets the denominazione.
+	 *
+	 * @return the denominazione
+	 */
+	public String getDenominazione() {
+		return denominazione;
+	}
+	
+	/**
+	 * Sets the denominazione.
+	 *
+	 * @param denominazione the denominazione to set
+	 */
+	@XmlElement(name="denominazione")
+	public void setDenominazione(String denominazione) {
+		this.denominazione = denominazione;
+	}
+	
+	/**
+	 * Gets the nome.
+	 *
+	 * @return the nome
+	 */
+	public String getNome() {
+		return nome;
+	}
+	
+	/**
+	 * Sets the nome.
+	 *
+	 * @param nome the nome to set
+	 */
+	@XmlElement(name="nome")
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	/**
+	 * Gets the cognome.
+	 *
+	 * @return the cognome
+	 */
+	
+	public String getCognome() {
+		return cognome;
+	}
+	
+	/**
+	 * Sets the cognome.
+	 *
+	 * @param cognome the cognome to set
+	 */
+	@XmlElement(name="cognome")
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+	
+	/**
+	 * Gets the titolo.
+	 *
+	 * @return the titolo
+	 */
+	public String getTitolo() {
+		return titolo;
+	}
+	
+	/**
+	 * Sets the titolo.
+	 *
+	 * @param titolo the titolo to set
+	 */
+	@XmlElement(name="titolo")
+	public void setTitolo(String titolo) {
+		this.titolo = titolo;
+	}
+	
+	/**
+	 * Gets the cod eori.
+	 *
+	 * @return the codEORI
+	 */
+	public String getCodEORI() {
+		return codEORI;
+	}
+	
+	/**
+	 * Sets the cod eori.
+	 *
+	 * @param codEORI the codEORI to set
+	 */
+	@XmlElement(name="codEORI")
+	public void setCodEORI(String codEORI) {
+		this.codEORI = codEORI;
+	}
+	
+	
+
+}

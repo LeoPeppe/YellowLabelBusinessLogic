@@ -1,0 +1,66 @@
+package it.cle.project.service.impl;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import it.cle.project.model.IndiceBesBulimia;
+import it.cle.project.service.IndiceBesBulimiaService;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndiceBesServiceImpl.
+ */
+@Service("indiceBesBulimiaService")
+@Transactional
+public class IndiceBesServiceImpl implements IndiceBesBulimiaService {
+
+	
+	/** The Constant punteggio1. */
+	private static final String punteggio1 = "IMPROBABILE"; 
+	
+	/** The Constant punteggio2. */
+	private static final String punteggio2= "POSSIBILE";  
+	
+	/** The Constant punteggio3. */
+	private static final String punteggio3 = "PROBABILE";  
+	
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.IndiceBesBulimiaService#calcolaBulimia(it.cle.project.model.IndiceBesBulimia)
+	 */
+	@Override
+	public Integer calcolaBulimia(IndiceBesBulimia indiceBesBulimia) {
+		Integer punteggio= null;
+			punteggio= indiceBesBulimia.getDomanda1()+indiceBesBulimia.getDomanda2()+
+					indiceBesBulimia.getDomanda3()+indiceBesBulimia.getDomanda4()+
+					indiceBesBulimia.getDomanda5()+indiceBesBulimia.getDomanda6()+
+					indiceBesBulimia.getDomanda7()+indiceBesBulimia.getDomanda8()+
+					indiceBesBulimia.getDomanda9()+indiceBesBulimia.getDomanda10()+
+					indiceBesBulimia.getDomanda11()+indiceBesBulimia.getDomanda12()+
+					indiceBesBulimia.getDomanda13()+indiceBesBulimia.getDomanda14()+
+					indiceBesBulimia.getDomanda15()+indiceBesBulimia.getDomanda16();
+					
+		return punteggio;
+	}
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.IndiceBesBulimiaService#codificaSituazione(java.lang.Integer)
+	 */
+	@Override
+	public String codificaSituazione(Integer punteggio) {
+		String punteggioCodificato = "";
+		if(punteggio < 17){
+			punteggioCodificato = punteggio1;
+		}
+		if(punteggio >= 17 && punteggio < 27){
+			punteggioCodificato = punteggio2;
+		}
+		if(punteggio > 27){
+			punteggioCodificato = punteggio3;
+		}
+		return punteggioCodificato;
+	}
+
+	
+}

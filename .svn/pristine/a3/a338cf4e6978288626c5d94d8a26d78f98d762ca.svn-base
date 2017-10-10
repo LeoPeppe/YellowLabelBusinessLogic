@@ -1,0 +1,12 @@
+package it.cle.project.dao.hbn;
+
+import org.springframework.stereotype.Repository;
+
+import it.cle.project.dao.IndiceEAT26Dao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.IndiceEAT26;
+
+@Repository
+public class HbnIndiceEAT26Dao extends AbstractHbnDao<IndiceEAT26> implements IndiceEAT26Dao {
+
+}

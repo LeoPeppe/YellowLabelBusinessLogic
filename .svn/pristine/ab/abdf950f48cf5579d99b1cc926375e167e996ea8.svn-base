@@ -1,0 +1,36 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
+public class DatiBeniServiziDTO implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private List<DettaglioLineeDTO> dettaglioLinee;
+	private DatiRiepilogoDTO datiRiepilogo;
+	
+	
+	public List<DettaglioLineeDTO> getDettaglioLinee() {
+		return dettaglioLinee;
+	}
+	@XmlElement(name="DettaglioLinee")
+	public void setDettaglioLinee(List<DettaglioLineeDTO> dettaglioLinee) {
+		this.dettaglioLinee = dettaglioLinee;
+	}
+	public DatiRiepilogoDTO getDatiRiepilogo() {
+		return datiRiepilogo;
+	}
+	@XmlElement(name="DatiRiepilogo")
+	public void setDatiRiepilogo(DatiRiepilogoDTO datiRiepilogo) {
+		this.datiRiepilogo = datiRiepilogo;
+	}
+	
+	
+
+}

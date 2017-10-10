@@ -1,0 +1,7 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+public class AllegatiDTO implements Serializable {
+
+}

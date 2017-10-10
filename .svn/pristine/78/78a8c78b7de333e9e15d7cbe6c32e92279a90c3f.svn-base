@@ -1,0 +1,27 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceVIP;
+import it.cle.project.model.IndiceVPIA;
+import it.cle.project.model.IndiceVPOT;
+import it.cle.project.model.Psan;
+
+
+public interface PsanService {
+	
+	
+	public Integer calcolaPsan(Psan psan);
+	
+	public Integer calcolaVpot(IndiceVPOT indiceVpot);
+	public Integer calcolaVpia(IndiceVPIA indiceVpia);
+	public Integer calcolaVip(IndiceVIP indiceVip);
+	
+	
+	
+	public String codificaPsan(Integer vsan);
+	
+	public void insert(Psan psan);
+	
+	public Psan selectById(Integer idPsan);
+	
+	
+}

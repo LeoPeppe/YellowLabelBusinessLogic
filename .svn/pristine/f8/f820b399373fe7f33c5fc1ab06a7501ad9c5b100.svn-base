@@ -1,0 +1,13 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.IndiceBesBulimia;
+
+/**
+ * Interfaccia IndiceBesDao.
+ *
+ * @author Convertini
+ */
+
+public interface IndiceBesDao extends Dao <IndiceBesBulimia> {
+
+}

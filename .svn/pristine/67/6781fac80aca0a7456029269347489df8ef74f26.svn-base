@@ -1,0 +1,114 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+import java.io.StringReader;
+import java.io.StringWriter;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "GeneraFatturaResult") 
+public class FatturaResponseDTO implements Serializable{
+	
+
+	private static final long serialVersionUID = 1L;
+	private String fileNameErrori;
+	private String fileNameFattura;
+	private String flussoFattura;
+	private String fileNameFatturaHtml;
+	private String flussoFatturaHtml;
+	private String stato;
+	private String messaggioErrore;
+	
+	
+	
+	public String getFileNameErrori() {
+		return fileNameErrori;
+	}
+	@XmlElement(name="FileNameErrori")
+	public void setFileNameErrori(String fileNameErrori) {
+		this.fileNameErrori = fileNameErrori;
+	}
+	public String getFileNameFattura() {
+		return fileNameFattura;
+	}
+	@XmlElement(name="FileNameFattura")
+	public void setFileNameFattura(String fileNameFattura) {
+		this.fileNameFattura = fileNameFattura;
+	}
+	public String getFlussoFattura() {
+		return flussoFattura;
+	}
+	@XmlElement(name="FlussoFattura")
+	public void setFlussoFattura(String flussoFattura) {
+		this.flussoFattura = flussoFattura;
+	}
+	public String getFileNameFatturaHtml() {
+		return fileNameFatturaHtml;
+	}
+	@XmlElement(name="FileNameFatturaHtml")
+	public void setFileNameFatturaHtml(String fileNameFatturaHtml) {
+		this.fileNameFatturaHtml = fileNameFatturaHtml;
+	}
+	public String getFlussoFatturaHtml() {
+		return flussoFatturaHtml;
+	}
+	@XmlElement(name="FlussoFatturaHtml")
+	public void setFlussoFatturaHtml(String flussoFatturaHtml) {
+		this.flussoFatturaHtml = flussoFatturaHtml;
+	}
+	public String getStato() {
+		return stato;
+	}
+	@XmlElement(name="Stato")
+	public void setStato(String stato) {
+		this.stato = stato;
+	}
+	public String getMessaggioErrore() {
+		return messaggioErrore;
+	}
+	@XmlElement(name="MessaggioErrore")
+	public void setMessaggioErrore(String messaggioErrore) {
+		this.messaggioErrore = messaggioErrore;
+	}
+	
+	
+	
+public String toStringXML() {
+		
+		StringWriter out = new StringWriter();
+		
+		try {
+		JAXBContext jc = JAXBContext.newInstance(FatturaResponseDTO.class);
+		Marshaller marsh = jc.createMarshaller();
+		
+		marsh.marshal(this, out);
+		
+		} catch(Exception e) {
+			
+			e.printStackTrace();
+		}
+		return out.toString();
+}
+
+public FatturaResponseDTO unmarshallReportPrestDTO(String xml) {
+	FatturaResponseDTO dto = new FatturaResponseDTO();
+	try{
+	JAXBContext jc = JAXBContext.newInstance(FatturaResponseDTO.class);
+	Unmarshaller unmarshaller = jc.createUnmarshaller();
+	dto = (FatturaResponseDTO) unmarshaller.unmarshal(new StringReader(xml));
+	} catch(Exception e){
+		dto = null;
+		System.out.println("Errore nel recupero del FatturaResponseDTO: ***" + xml + "***"+e.getMessage());
+	}
+	
+	return dto;
+}
+
+
+
+
+}

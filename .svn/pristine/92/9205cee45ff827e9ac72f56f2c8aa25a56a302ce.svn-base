@@ -1,0 +1,550 @@
+package it.cle.project.model.composti.but;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@Entity
+@Table(name="indice_but_a")
+@XmlRootElement(name="indice_but_a")
+public class IndiceBUTa {
+	
+	/** id indice BUTa */
+	private Integer idIndiceBUTa;
+	
+	/** domanda Trascorro molto tempo davanti allo specchio
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaTempoAlloSpecchio;
+	
+	/** domanda Non mi fido del mio aspetto: temo che cambi, all'improvviso
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaCambioAspetto;
+	
+	/** domanda Mi piacciono gli abiti che nascondono le forme del mio corpo
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaAbiti;
+	
+	/** domanda Passo molto tempo pensando a certi difetti della mia immagine fisica
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaDifettiImmagine;
+	
+	/** domanda Quando mi spoglio evito di guardarmi
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaGuardarsiNudo;
+	
+	/** domanda Penso che la mia vita cambierebbe profondamente se potessi correggere alcuni miei difetti estetici
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaDifettiEstetici;
+	
+	/** domanda Mangiare in presenza di altri mi provoca ansia
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaAnsiaMangiare;
+	
+	/** domanda Il pensiero di alcuni difetti del mio corpo mi tormenta tanto da impedirmi di stare con gli altri
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaDifettiCorpo;
+	
+	/** domanda Ho il terrore di ingrassare
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaTerroreIngrassare;
+	
+	/** domanda Faccio lunghi confronti fra il mio aspetto e quello degli altri
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaConfrontoAspetto;
+	
+	/** domanda Se comincio a guardarmi mi è difficile smettere
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaSmettereGuardarsi;
+	
+	/** domanda Farei qualsiasi cosa per modificare certe parti del mio corpo
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaModificaCorpo;
+	
+	/** domanda Resto in casa ed evito di farmi vedere dagli altri
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaRestareACasa;
+	
+	/** domanda Mi vergogno dei bisogni fisici del mio corpo
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaVergognaBisogniFisici;
+	
+	/** domanda Mi sento derisa/o per il mio aspetto
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaDerisaAspettoFisico;
+	
+	/** domanda Il pensiero di alcuni difetti del mio corpo mi tormenta tanto da impedirmi di studiare o di lavorare
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaDifettiCorpoStudiareLavorare;
+	
+	/** domanda Cerco nello specchio un'immagine di me che mi soddisfi e continuo a scrutarmi finché sono sicura/o di
+		averla trovata
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaRicercaImmagineSpecchio;
+	
+	/** domanda Mi sento più grassa/o di quello che dicono gli altri
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaGrassa;
+	
+	/** domanda Evito gli specchi
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaEvitoSpecchio;
+	
+	/** domanda Ho l'impressione che la mia immagine cambi continuamente
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaCambiamentoImmagine;
+	
+	/** domanda Vorrei avere un corpo secco e duro
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaCorpoSecco;
+	
+	/** domanda Sono insoddisfatta/o del mio aspetto
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaInsoddisfattoAspetto;
+	
+	/** domanda Il mio aspetto fisico è deludente rispetto alla mia immagine ideale
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaFisicoDeludente;
+	
+	/** domanda Vorrei sottopormi a qualche intervento di chirurgia estetica
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaInterventoChirurgia;
+	
+	/** domanda L'idea di vivere con l'aspetto che ho mi è insopportabile
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaAspettoInsopportabile;
+	
+	/** domanda Mi guardo allo specchio e provo un senso di inquietudine e di estraneità
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaInquietudineSpecchio;
+	
+	/** domanda Temo che il mio corpo cambi contro la mia volontà in modi che non mi piacciono
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaCambioControVolonta;
+	
+	/** domanda Mi sento scollata/o dal mio corpo
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaScollatoCorpo;
+	
+	/** domanda Ho la sensazione che il mio corpo non mi appartenga
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaAppartenenzaCorpo;
+	
+	/** domanda Il pensiero di alcuni difetti del mio corpo mi tormenta tanto da impedirmi di avere una vita sessuale
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaVitaSessuale;
+	
+	/** domanda Mi osservo in quello che faccio e mi chiedo come appaio agli altri
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaApparireAltri;
+	
+	/** domanda Vorrei decidere io che aspetto avere
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaDecidereAspetto;
+	
+	/** domanda Mi sento diversa/o da come mi vedono gli altri
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaDiversoAltri;
+	
+	/** domanda Mi vergogno del mio corpo
+	 *  Validazione: //0,1,2,3,4,5 */
+	private Integer domandaVergognoCorpo;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceBUTa() {
+		return idIndiceBUTa;
+	}
+
+	public void setIdIndiceBUTa(Integer idIndiceBUTa) {
+		this.idIndiceBUTa = idIndiceBUTa;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_tempo_allo_specchio")
+	public Integer getDomandaTempoAlloSpecchio() {
+		return domandaTempoAlloSpecchio;
+	}
+
+	public void setDomandaTempoAlloSpecchio(Integer domandaTempoAlloSpecchio) {
+		this.domandaTempoAlloSpecchio = domandaTempoAlloSpecchio;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_cambio_aspetto")
+	public Integer getDomandaCambioAspetto() {
+		return domandaCambioAspetto;
+	}
+
+	public void setDomandaCambioAspetto(Integer domandaCambioAspetto) {
+		this.domandaCambioAspetto = domandaCambioAspetto;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_abiti")
+	public Integer getDomandaAbiti() {
+		return domandaAbiti;
+	}
+
+	public void setDomandaAbiti(Integer domandaAbiti) {
+		this.domandaAbiti = domandaAbiti;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_difetti_immagine")
+	public Integer getDomandaDifettiImmagine() {
+		return domandaDifettiImmagine;
+	}
+
+	public void setDomandaDifettiImmagine(Integer domandaDifettiImmagine) {
+		this.domandaDifettiImmagine = domandaDifettiImmagine;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_guardarsi_nudo")
+	public Integer getDomandaGuardarsiNudo() {
+		return domandaGuardarsiNudo;
+	}
+
+	public void setDomandaGuardarsiNudo(Integer domandaGuardarsiNudo) {
+		this.domandaGuardarsiNudo = domandaGuardarsiNudo;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_difetti_estetici")
+	public Integer getDomandaDifettiEstetici() {
+		return domandaDifettiEstetici;
+	}
+
+	public void setDomandaDifettiEstetici(Integer domandaDifettiEstetici) {
+		this.domandaDifettiEstetici = domandaDifettiEstetici;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_ansia_mangiare")
+	public Integer getDomandaAnsiaMangiare() {
+		return domandaAnsiaMangiare;
+	}
+
+	public void setDomandaAnsiaMangiare(Integer domandaAnsiaMangiare) {
+		this.domandaAnsiaMangiare = domandaAnsiaMangiare;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_difetti_corpo")
+	public Integer getDomandaDifettiCorpo() {
+		return domandaDifettiCorpo;
+	}
+
+	public void setDomandaDifettiCorpo(Integer domandaDifettiCorpo) {
+		this.domandaDifettiCorpo = domandaDifettiCorpo;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_terrore_ingrassare")
+	public Integer getDomandaTerroreIngrassare() {
+		return domandaTerroreIngrassare;
+	}
+
+	public void setDomandaTerroreIngrassare(Integer domandaTerroreIngrassare) {
+		this.domandaTerroreIngrassare = domandaTerroreIngrassare;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_confronto_aspetto")
+	public Integer getDomandaConfrontoAspetto() {
+		return domandaConfrontoAspetto;
+	}
+
+	public void setDomandaConfrontoAspetto(Integer domandaConfrontoAspetto) {
+		this.domandaConfrontoAspetto = domandaConfrontoAspetto;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_smettere_guardarsi")
+	public Integer getDomandaSmettereGuardarsi() {
+		return domandaSmettereGuardarsi;
+	}
+
+	public void setDomandaSmettereGuardarsi(Integer domandaSmettereGuardarsi) {
+		this.domandaSmettereGuardarsi = domandaSmettereGuardarsi;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_modifica_corpo")
+	public Integer getDomandaModificaCorpo() {
+		return domandaModificaCorpo;
+	}
+
+	public void setDomandaModificaCorpo(Integer domandaModificaCorpo) {
+		this.domandaModificaCorpo = domandaModificaCorpo;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_restare_a_casa")
+	public Integer getDomandaRestareACasa() {
+		return domandaRestareACasa;
+	}
+
+	public void setDomandaRestareACasa(Integer domandaRestareACasa) {
+		this.domandaRestareACasa = domandaRestareACasa;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_vergogna_bisogni_fisici")
+	public Integer getDomandaVergognaBisogniFisici() {
+		return domandaVergognaBisogniFisici;
+	}
+
+	public void setDomandaVergognaBisogniFisici(Integer domandaVergognaBisogniFisici) {
+		this.domandaVergognaBisogniFisici = domandaVergognaBisogniFisici;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_derisa_aspetto_fisico")
+	public Integer getDomandaDerisaAspettoFisico() {
+		return domandaDerisaAspettoFisico;
+	}
+
+	public void setDomandaDerisaAspettoFisico(Integer domandaDerisaAspettoFisico) {
+		this.domandaDerisaAspettoFisico = domandaDerisaAspettoFisico;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_difetti_corpo_studiare_lavorare")
+	public Integer getDomandaDifettiCorpoStudiareLavorare() {
+		return domandaDifettiCorpoStudiareLavorare;
+	}
+
+	public void setDomandaDifettiCorpoStudiareLavorare(
+			Integer domandaDifettiCorpoStudiareLavorare) {
+		this.domandaDifettiCorpoStudiareLavorare = domandaDifettiCorpoStudiareLavorare;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_ricerca_immagine_specchio")
+	public Integer getDomandaRicercaImmagineSpecchio() {
+		return domandaRicercaImmagineSpecchio;
+	}
+
+	
+	public void setDomandaRicercaImmagineSpecchio(
+			Integer domandaRicercaImmagineSpecchio) {
+		this.domandaRicercaImmagineSpecchio = domandaRicercaImmagineSpecchio;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_grassa")
+	public Integer getDomandaGrassa() {
+		return domandaGrassa;
+	}
+
+	public void setDomandaGrassa(Integer domandaGrassa) {
+		this.domandaGrassa = domandaGrassa;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_evito_specchio")
+	public Integer getDomandaEvitoSpecchio() {
+		return domandaEvitoSpecchio;
+	}
+
+	public void setDomandaEvitoSpecchio(Integer domandaEvitoSpecchio) {
+		this.domandaEvitoSpecchio = domandaEvitoSpecchio;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_cambiamento_immagine")
+	public Integer getDomandaCambiamentoImmagine() {
+		return domandaCambiamentoImmagine;
+	}
+
+	public void setDomandaCambiamentoImmagine(Integer domandaCambiamentoImmagine) {
+		this.domandaCambiamentoImmagine = domandaCambiamentoImmagine;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_corpo_secco")
+	public Integer getDomandaCorpoSecco() {
+		return domandaCorpoSecco;
+	}
+
+	public void setDomandaCorpoSecco(Integer domandaCorpoSecco) {
+		this.domandaCorpoSecco = domandaCorpoSecco;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_insoddisfatto_aspetto")
+	public Integer getDomandaInsoddisfattoAspetto() {
+		return domandaInsoddisfattoAspetto;
+	}
+
+	public void setDomandaInsoddisfattoAspetto(Integer domandaInsoddisfattoAspetto) {
+		this.domandaInsoddisfattoAspetto = domandaInsoddisfattoAspetto;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_fisico_deludente")
+	public Integer getDomandaFisicoDeludente() {
+		return domandaFisicoDeludente;
+	}
+
+	public void setDomandaFisicoDeludente(Integer domandaFisicoDeludente) {
+		this.domandaFisicoDeludente = domandaFisicoDeludente;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_intervento_chirurgia")
+	public Integer getDomandaInterventoChirurgia() {
+		return domandaInterventoChirurgia;
+	}
+
+	public void setDomandaInterventoChirurgia(Integer domandaInterventoChirurgia) {
+		this.domandaInterventoChirurgia = domandaInterventoChirurgia;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_aspetto_insopportabile")
+	public Integer getDomandaAspettoInsopportabile() {
+		return domandaAspettoInsopportabile;
+	}
+
+	public void setDomandaAspettoInsopportabile(Integer domandaAspettoInsopportabile) {
+		this.domandaAspettoInsopportabile = domandaAspettoInsopportabile;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_inquietudine_specchio")
+	public Integer getDomandaInquietudineSpecchio() {
+		return domandaInquietudineSpecchio;
+	}
+
+	public void setDomandaInquietudineSpecchio(Integer domandaInquietudineSpecchio) {
+		this.domandaInquietudineSpecchio = domandaInquietudineSpecchio;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_contro_volonta")
+	public Integer getDomandaCambioControVolonta() {
+		return domandaCambioControVolonta;
+	}
+
+	public void setDomandaCambioControVolonta(Integer domandaCambioControVolonta) {
+		this.domandaCambioControVolonta = domandaCambioControVolonta;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_scollato_corpo")
+	public Integer getDomandaScollatoCorpo() {
+		return domandaScollatoCorpo;
+	}
+
+	public void setDomandaScollatoCorpo(Integer domandaScollatoCorpo) {
+		this.domandaScollatoCorpo = domandaScollatoCorpo;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_appartenenza_corpo")
+	public Integer getDomandaAppartenenzaCorpo() {
+		return domandaAppartenenzaCorpo;
+	}
+
+	public void setDomandaAppartenenzaCorpo(Integer domandaAppartenenzaCorpo) {
+		this.domandaAppartenenzaCorpo = domandaAppartenenzaCorpo;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_vita_sessuale")
+	public Integer getDomandaVitaSessuale() {
+		return domandaVitaSessuale;
+	}
+
+	public void setDomandaVitaSessuale(Integer domandaVitaSessuale) {
+		this.domandaVitaSessuale = domandaVitaSessuale;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_apparire_altri")
+	public Integer getDomandaApparireAltri() {
+		return domandaApparireAltri;
+	}
+
+	public void setDomandaApparireAltri(Integer domandaApparireAltri) {
+		this.domandaApparireAltri = domandaApparireAltri;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_decidere_aspetto")
+	public Integer getDomandaDecidereAspetto() {
+		return domandaDecidereAspetto;
+	}
+
+	public void setDomandaDecidereAspetto(Integer domandaDecidereAspetto) {
+		this.domandaDecidereAspetto = domandaDecidereAspetto;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_diverso_altri")
+	public Integer getDomandaDiversoAltri() {
+		return domandaDiversoAltri;
+	}
+
+	public void setDomandaDiversoAltri(Integer domandaDiversoAltri) {
+		this.domandaDiversoAltri = domandaDiversoAltri;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4,5 })
+	@Column(name="domanda_vergogno_corpo")
+	public Integer getDomandaVergognoCorpo() {
+		return domandaVergognoCorpo;
+	}
+
+	public void setDomandaVergognoCorpo(Integer domandaVergognoCorpo) {
+		this.domandaVergognoCorpo = domandaVergognoCorpo;
+	}
+	
+	
+	
+
+}

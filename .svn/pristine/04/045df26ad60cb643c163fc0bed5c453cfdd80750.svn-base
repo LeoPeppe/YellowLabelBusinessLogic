@@ -1,0 +1,66 @@
+package it.cle.project.service.impl;
+
+import it.cle.project.dao.IndiceVIPDao;
+import it.cle.project.dao.IndiceVPOTDao;
+import it.cle.project.model.IndiceADL;
+import it.cle.project.model.IndiceVIP;
+import it.cle.project.model.IndiceVPIA;
+import it.cle.project.service.IndiceVIPService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service("indiceVIPService")
+@Transactional
+public class IndiceVIPImpl implements IndiceVIPService{
+	
+	
+
+	@Autowired
+	private IndiceVIPDao dao;
+	
+	public Integer calcolaIndiceVIP(IndiceVIP indiceVIP)
+	{
+		Integer res = 0;
+		if(indiceVIP.getAnoArtificiale())
+			res+=5;
+		if(indiceVIP.getCatetereVenoso())
+			res+=10;
+		if(indiceVIP.getCatetereVescicale())
+			res+=5;
+		if (indiceVIP.getCirrosiScompensata())
+			res+=10;
+		if(indiceVIP.getDiabeteInsulinoIndipendente())
+			res+=5;
+		if(indiceVIP.getGastrostomia())
+			res+=10;
+		if(indiceVIP.getNefrostomia())
+			res+=10;
+		if(indiceVIP.getOssigenoterapia())
+			res+=5;
+		if(indiceVIP.getScompensoCardiaco())
+			res+=10;
+		if(indiceVIP.getTracheostomia())
+			res+=5;
+		if(indiceVIP.getUlcereDistrofiche())
+			res+=5;
+		return res;
+		
+	}
+
+	
+	@Override
+	public void insert(IndiceVIP indiceVIP) {
+		dao.create(indiceVIP);
+		
+	}
+	
+	
+	@Override
+	public IndiceVIP selectById(Integer idIndiceVIP) {
+		return dao.get(idIndiceVIP);
+	}
+	
+
+}

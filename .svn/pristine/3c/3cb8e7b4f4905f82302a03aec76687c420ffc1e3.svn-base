@@ -1,0 +1,311 @@
+package it.cle.project.model.composti.npi;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+@Entity
+@Table(name = "disinibizione")
+@XmlRootElement(name="disinibizione")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Disinibizione {
+	
+	/** The id Disinibizione */
+	private Integer idDisinibizione;
+	
+	/** Questo flag indica se il questionario è applicabile o meno */
+	private Boolean nonApplicabile;
+	
+	/** Questo campo indica la motivazione in caso di non applicabilità */
+	private String motivazione;
+	
+	/** 
+	 * Questo campo indica la seguente domanda: 
+	 * Il paziente sembra agire impulsivamente senza pensarci? Fa o dice cose che di solito non dice o non 
+	 * fa in pubblico? Fa cose imbarazzanti per voi o per altri?
+	 *  
+	 * NO (se no, procedere con la successiva domanda di screening) 
+	 * SÌ (procedere con le seguenti domande)
+	*/
+	private Boolean domandaPreliminare;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente agisce impulsivamente senza apparentemente considerare le conseguenze?
+	 * */
+	private Integer fDomandaImpulsivo;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente agisce impulsivamente senza apparentemente considerare le conseguenze?
+	 * */
+	private Integer gDomandaImpulsivo;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente parla ad estranei come se li conoscesse?
+	 * */
+	private Integer fDomandaEstranei;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente parla ad estranei come se li conoscesse?
+	 * */
+	private Integer gDomandaEstranei;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente dice delle cose offensive od irrispettose?
+	 * */
+	private Integer fDomandaOffensive;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente dice delle cose offensive od irrispettose?
+	 * */
+	private Integer gDomandaOffensive;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente dice cose volgari o fa apprezzamenti sessuali che di solito non faceva?
+	 * */
+	private Integer fDomandaCoseVolgari;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente dice cose volgari o fa apprezzamenti sessuali che di solito non faceva?
+	 * */
+	private Integer gDomandaCoseVolgari;	
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente parla apertamente di cose private che di solito non discuteva in pubblico?
+	 * */
+	private Integer fDomandaCosePrivate;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente parla apertamente di cose private che di solito non discuteva in pubblico?
+	 * */
+	private Integer gDomandaCosePrivate;	
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente si prende delle libertà o tocca oppure abbraccia altre persone in modo diverso dal solito comportamento?
+	 * */
+	private Integer fDomandaLiberta;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente si prende delle libertà o tocca oppure abbraccia altre persone in modo diverso dal solito comportamento?
+	 * */
+	private Integer gDomandaLiberta;		
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente mostra altri segni di disinibizione?	
+	 * */
+	private Integer fDomandaAltriSegni;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente mostra altri segni di disinibizione?	
+	 * */
+	private Integer gDomandaAltriSegni;
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdDisinibizione() {
+		return idDisinibizione;
+	}
+
+	public void setIdDisinibizione(Integer idDisinibizione) {
+		this.idDisinibizione = idDisinibizione;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "non_applicabile")
+	public Boolean getNonApplicabile() {
+		return nonApplicabile;
+	}
+
+	public void setNonApplicabile(Boolean nonApplicabile) {
+		this.nonApplicabile = nonApplicabile;
+	}
+
+	@Column(name = "motivazione")
+	public String getMotivazione() {
+		return motivazione;
+	}
+
+	public void setMotivazione(String motivazione) {
+		this.motivazione = motivazione;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_preliminare")
+	public Boolean getDomandaPreliminare() {
+		return domandaPreliminare;
+	}
+
+	public void setDomandaPreliminare(Boolean domandaPreliminare) {
+		this.domandaPreliminare = domandaPreliminare;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_impulsivo")
+	public Integer getfDomandaImpulsivo() {
+		return fDomandaImpulsivo;
+	}
+
+	public void setfDomandaImpulsivo(Integer fDomandaImpulsivo) {
+		this.fDomandaImpulsivo = fDomandaImpulsivo;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_impulsivo")
+	public Integer getgDomandaImpulsivo() {
+		return gDomandaImpulsivo;
+	}
+
+	public void setgDomandaImpulsivo(Integer gDomandaImpulsivo) {
+		this.gDomandaImpulsivo = gDomandaImpulsivo;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_estranei")
+	public Integer getfDomandaEstranei() {
+		return fDomandaEstranei;
+	}
+
+	public void setfDomandaEstranei(Integer fDomandaEstranei) {
+		this.fDomandaEstranei = fDomandaEstranei;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_estranei")
+	public Integer getgDomandaEstranei() {
+		return gDomandaEstranei;
+	}
+
+	public void setgDomandaEstranei(Integer gDomandaEstranei) {
+		this.gDomandaEstranei = gDomandaEstranei;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_offensive")
+	public Integer getfDomandaOffensive() {
+		return fDomandaOffensive;
+	}
+
+	public void setfDomandaOffensive(Integer fDomandaOffensive) {
+		this.fDomandaOffensive = fDomandaOffensive;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_offensive")
+	public Integer getgDomandaOffensive() {
+		return gDomandaOffensive;
+	}
+
+	public void setgDomandaOffensive(Integer gDomandaOffensive) {
+		this.gDomandaOffensive = gDomandaOffensive;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_cose_volgari")
+	public Integer getfDomandaCoseVolgari() {
+		return fDomandaCoseVolgari;
+	}
+
+	public void setfDomandaCoseVolgari(Integer fDomandaCoseVolgari) {
+		this.fDomandaCoseVolgari = fDomandaCoseVolgari;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_cose_volgari")
+	public Integer getgDomandaCoseVolgari() {
+		return gDomandaCoseVolgari;
+	}
+
+	public void setgDomandaCoseVolgari(Integer gDomandaCoseVolgari) {
+		this.gDomandaCoseVolgari = gDomandaCoseVolgari;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_cose_private")
+	public Integer getfDomandaCosePrivate() {
+		return fDomandaCosePrivate;
+	}
+
+	public void setfDomandaCosePrivate(Integer fDomandaCosePrivate) {
+		this.fDomandaCosePrivate = fDomandaCosePrivate;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_cose_private")
+	public Integer getgDomandaCosePrivate() {
+		return gDomandaCosePrivate;
+	}
+
+	public void setgDomandaCosePrivate(Integer gDomandaCosePrivate) {
+		this.gDomandaCosePrivate = gDomandaCosePrivate;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_liberta")
+	public Integer getfDomandaLiberta() {
+		return fDomandaLiberta;
+	}
+
+	public void setfDomandaLiberta(Integer fDomandaLiberta) {
+		this.fDomandaLiberta = fDomandaLiberta;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_liberta")
+	public Integer getgDomandaLiberta() {
+		return gDomandaLiberta;
+	}
+
+	public void setgDomandaLiberta(Integer gDomandaLiberta) {
+		this.gDomandaLiberta = gDomandaLiberta;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_altri_segni")
+	public Integer getfDomandaAltriSegni() {
+		return fDomandaAltriSegni;
+	}
+
+	public void setfDomandaAltriSegni(Integer fDomandaAltriSegni) {
+		this.fDomandaAltriSegni = fDomandaAltriSegni;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_altri_segni")
+	public Integer getgDomandaAltriSegni() {
+		return gDomandaAltriSegni;
+	}
+
+	public void setgDomandaAltriSegni(Integer gDomandaAltriSegni) {
+		this.gDomandaAltriSegni = gDomandaAltriSegni;
+	}	
+	
+	
+}

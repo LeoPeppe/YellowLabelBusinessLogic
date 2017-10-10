@@ -1,0 +1,24 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceVPIA;
+import it.cle.project.model.IndiceVPOT;
+
+// TODO: Auto-generated Javadoc
+/**
+ * Interfaccia IndiceVPOTService.
+ *
+ * @author Fronza
+ */
+public interface IndiceVPOTService {
+	
+	
+	public Integer calcolaVPOT(IndiceVPOT indiceVPOT);
+	
+	public String codificaVPOT(Integer vpot);
+	
+	public void insert(IndiceVPOT indiceVPOT);
+	
+	public IndiceVPOT selectById(Integer idIndiceVPOT);
+	
+	
+}

@@ -1,0 +1,128 @@
+package it.cle.project.model;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndiceBarthelMobilita.
+ */
+@Entity
+@Table(name = "indice_barthel_mobilita")
+@XmlRootElement(name="indice_barthel_mobilita")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class IndiceBarthelMobilita{
+	
+	/** The id indice barthel. */
+	private Integer idIndiceBarthelMobilita;
+		
+	/** The m trasferimento ls. */
+	private Integer mTrasferimentoLS;
+	
+	/** The m deambulazione. */
+	private Integer mDeambulazione;
+	
+	/** The m scale. */
+	private Integer mScale;
+
+	/**
+	 * Gets the id indice barthel mobilita.
+	 *
+	 * @return the id indice barthel mobilita
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceBarthelMobilita() {
+		return idIndiceBarthelMobilita;
+	}
+
+	/**
+	 * Sets the id indice barthel mobilita.
+	 *
+	 * @param idIndiceBarthelMobilita the new id indice barthel mobilita
+	 */
+	public void setIdIndiceBarthelMobilita(Integer idIndiceBarthelMobilita) {
+		this.idIndiceBarthelMobilita = idIndiceBarthelMobilita;
+	}
+
+	/**
+	 * Gets the m trasferimento ls.
+	 *
+	 * @return the m trasferimento ls
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,3,7,12,15 })
+	@Column(name = "m_traferimento_ls")
+	public Integer getmTrasferimentoLS() {
+		return mTrasferimentoLS;
+	}
+
+	/**
+	 * Sets the m trasferimento ls.
+	 *
+	 * @param mTrasferimentoLS the new m trasferimento ls
+	 */
+	public void setmTrasferimentoLS(Integer mTrasferimentoLS) {
+		this.mTrasferimentoLS = mTrasferimentoLS;
+	}
+
+	/**
+	 * Gets the m deambulazione.
+	 *
+	 * @return the m deambulazione
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,3,7,10,11,12,14,15 })
+	@Column(name = "m_deambulazione")
+	public Integer getmDeambulazione() {
+		return mDeambulazione;
+	}
+
+	/**
+	 * Sets the m deambulazione.
+	 *
+	 * @param mDeambulazione the new m deambulazione
+	 */
+	public void setmDeambulazione(Integer mDeambulazione) {
+		this.mDeambulazione = mDeambulazione;
+	}
+
+	/**
+	 * Gets the m scale.
+	 *
+	 * @return the m scale
+	 */
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,2,5,8,10 })
+	@Column(name = "m_scale")
+	public Integer getmScale() {
+		return mScale;
+	}
+
+	/**
+	 * Sets the m scale.
+	 *
+	 * @param mScale the new m scale
+	 */
+	public void setmScale(Integer mScale) {
+		this.mScale = mScale;
+	}
+
+	/**
+	 * Instantiates a new indice barthel.
+	 */
+	public IndiceBarthelMobilita() {
+    }
+}

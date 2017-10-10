@@ -1,0 +1,442 @@
+package it.cle.project.model.composti.npi;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+/**
+ * The Class Ansia.
+ */
+@Entity
+@Table(name = "ansia")
+@XmlRootElement(name="ansia")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Ansia {
+	
+	/**  The id Ansia. */
+	private Integer idAnsia;
+	
+	/**  Questo flag indica se il questionario è applicabile o meno. */
+	private Boolean nonApplicabile;
+	
+	/**  Questo campo indica la motivazione in caso di non applicabilità. */
+	private String motivazione;
+	
+	/**   Questo campo indica la seguente domanda:  Il paziente è molto nervoso, allarmato, spaventato senza veri motivi? Sembra molto teso o agitato?  È impaurito dal rimanere lontano da voi?   NO (se no, procedere con la successiva domanda di screening)  SÌ (procedere con le seguenti domande). */
+	private Boolean domandaPreliminare;
+
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente dice di essere allarmato per le cose che succederanno nel futuro?. */
+	private Integer fDomandaFuturo;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente dice di essere allarmato per le cose che succederanno nel futuro?. */
+	private Integer gDomandaFuturo;
+
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente ha dei momenti in cui si sente debole, incapace di rilassarsi oppure si sente eccessivamente teso?. */
+	private Integer fDomandaEccessivamenteTeso;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente ha dei momenti in cui si sente debole, incapace di rilassarsi oppure si sente eccessivamente teso?. */
+	private Integer gDomandaEccessivamenteTeso;
+
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente ha momenti (o si lamenta) di respiro corto, è ansimante, sospirante senza apparente ragione se non nervosismo?. */
+	private Integer fDomandaRespiroCorto;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente ha momenti (o si lamenta) di respiro corto, è ansimante, sospirante senza apparente ragione se non nervosismo?. */
+	private Integer gDomandaRespiroCorto;
+
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente si lamenta di avere le "rane" nello stomaco, di batticuore quando è nervoso (Sintomi non spiegabili da malattie)?. */
+	private Integer fDomandaRane;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente si lamenta di avere le "rane" nello stomaco, di batticuore quando è nervoso (Sintomi non spiegabili da malattie)?. */
+	private Integer gDomandaRane;	
+
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente evita certi posti o situazioni che lo rendono più nervoso, quali viaggiare in automobile, incontrare amici oppure stare tra la folla? . */
+	private Integer fDomandaEvitaLuoghi;
+	
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente evita certi posti o situazioni che lo rendono più nervoso, quali viaggiare in automobile, incontrare amici oppure stare tra la folla?. */
+	private Integer gDomandaEvitaLuoghi;
+
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente diventa nervoso e disturbato se viene separato da voi (o da chi lo assiste)? [Vi sta accanto per evitare la separazione?]. */
+	private Integer fDomandaDiventaNervoso;
+	
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente diventa nervoso e disturbato se viene separato da voi (o da chi lo assiste)? [Vi sta accanto per evitare la separazione?]. */
+	private Integer gDomandaDiventaNervoso;
+
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente manifesta altri segni di ansia?. */
+	private Integer fDomandaManifestaAnsia;
+	
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente manifesta altri segni di ansia?. */
+	private Integer gDomandaManifestaAnsia;
+	
+	/**
+	 * Gets the id ansia.
+	 *
+	 * @return the id ansia
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdAnsia() {
+		return idAnsia;
+	}
+
+	/**
+	 * Sets the id ansia.
+	 *
+	 * @param idAnsia the new id ansia
+	 */
+	public void setIdAnsia(Integer idAnsia) {
+		this.idAnsia = idAnsia;
+	}
+
+	/**
+	 * Gets the non applicabile.
+	 *
+	 * @return the non applicabile
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "non_applicabile")
+	public Boolean getNonApplicabile() {
+		return nonApplicabile;
+	}
+
+	/**
+	 * Sets the non applicabile.
+	 *
+	 * @param nonApplicabile the new non applicabile
+	 */
+	public void setNonApplicabile(Boolean nonApplicabile) {
+		this.nonApplicabile = nonApplicabile;
+	}
+
+	/**
+	 * Gets the motivazione.
+	 *
+	 * @return the motivazione
+	 */
+	@Column(name = "motivazione")
+	public String getMotivazione() {
+		return motivazione;
+	}
+
+	/**
+	 * Sets the motivazione.
+	 *
+	 * @param motivazione the new motivazione
+	 */
+	public void setMotivazione(String motivazione) {
+		this.motivazione = motivazione;
+	}
+
+	/**
+	 * Gets the domanda preliminare.
+	 *
+	 * @return the domanda preliminare
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_preliminare")
+	public Boolean getDomandaPreliminare() {
+		return domandaPreliminare;
+	}
+
+	/**
+	 * Sets the domanda preliminare.
+	 *
+	 * @param domandaPreliminare the new domanda preliminare
+	 */
+	public void setDomandaPreliminare(Boolean domandaPreliminare) {
+		this.domandaPreliminare = domandaPreliminare;
+	}
+
+	/**
+	 * Gets the f domanda futuro.
+	 *
+	 * @return the f domanda futuro
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_futuro")
+	public Integer getfDomandaFuturo() {
+		return fDomandaFuturo;
+	}
+
+	/**
+	 * Sets the f domanda futuro.
+	 *
+	 * @param fDomandaFuturo the new f domanda futuro
+	 */
+	public void setfDomandaFuturo(Integer fDomandaFuturo) {
+		this.fDomandaFuturo = fDomandaFuturo;
+	}
+
+	/**
+	 * Gets the g domanda futuro.
+	 *
+	 * @return the g domanda futuro
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_futuro")
+	public Integer getgDomandaFuturo() {
+		return gDomandaFuturo;
+	}
+
+	/**
+	 * Sets the g domanda futuro.
+	 *
+	 * @param gDomandaFuturo the new g domanda futuro
+	 */
+	public void setgDomandaFuturo(Integer gDomandaFuturo) {
+		this.gDomandaFuturo = gDomandaFuturo;
+	}
+
+	/**
+	 * Gets the f domanda eccessivamente teso.
+	 *
+	 * @return the f domanda eccessivamente teso
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_eccessivamente_teso")
+	public Integer getfDomandaEccessivamenteTeso() {
+		return fDomandaEccessivamenteTeso;
+	}
+
+	/**
+	 * Sets the f domanda eccessivamente teso.
+	 *
+	 * @param fDomandaEccessivamenteTeso the new f domanda eccessivamente teso
+	 */
+	public void setfDomandaEccessivamenteTeso(Integer fDomandaEccessivamenteTeso) {
+		this.fDomandaEccessivamenteTeso = fDomandaEccessivamenteTeso;
+	}
+
+	/**
+	 * Gets the g domanda eccessivamente teso.
+	 *
+	 * @return the g domanda eccessivamente teso
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_eccessivamente_teso")
+	public Integer getgDomandaEccessivamenteTeso() {
+		return gDomandaEccessivamenteTeso;
+	}
+
+	/**
+	 * Sets the g domanda eccessivamente teso.
+	 *
+	 * @param gDomandaEccessivamenteTeso the new g domanda eccessivamente teso
+	 */
+	public void setgDomandaEccessivamenteTeso(Integer gDomandaEccessivamenteTeso) {
+		this.gDomandaEccessivamenteTeso = gDomandaEccessivamenteTeso;
+	}
+
+	/**
+	 * Gets the f domanda respiro corto.
+	 *
+	 * @return the f domanda respiro corto
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_respiro_corto")
+	public Integer getfDomandaRespiroCorto() {
+		return fDomandaRespiroCorto;
+	}
+
+	/**
+	 * Sets the f domanda respiro corto.
+	 *
+	 * @param fDomandaRespiroCorto the new f domanda respiro corto
+	 */
+	public void setfDomandaRespiroCorto(Integer fDomandaRespiroCorto) {
+		this.fDomandaRespiroCorto = fDomandaRespiroCorto;
+	}
+
+	/**
+	 * Gets the g domanda respiro corto.
+	 *
+	 * @return the g domanda respiro corto
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_respiro_corto")
+	public Integer getgDomandaRespiroCorto() {
+		return gDomandaRespiroCorto;
+	}
+
+	/**
+	 * Sets the g domanda respiro corto.
+	 *
+	 * @param gDomandaRespiroCorto the new g domanda respiro corto
+	 */
+	public void setgDomandaRespiroCorto(Integer gDomandaRespiroCorto) {
+		this.gDomandaRespiroCorto = gDomandaRespiroCorto;
+	}
+
+	/**
+	 * Gets the f domanda rane.
+	 *
+	 * @return the f domanda rane
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_rane")
+	public Integer getfDomandaRane() {
+		return fDomandaRane;
+	}
+
+	/**
+	 * Sets the f domanda rane.
+	 *
+	 * @param fDomandaRane the new f domanda rane
+	 */
+	public void setfDomandaRane(Integer fDomandaRane) {
+		this.fDomandaRane = fDomandaRane;
+	}
+
+	/**
+	 * Gets the g domanda rane.
+	 *
+	 * @return the g domanda rane
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_rane")
+	public Integer getgDomandaRane() {
+		return gDomandaRane;
+	}
+
+	/**
+	 * Sets the g domanda rane.
+	 *
+	 * @param gDomandaRane the new g domanda rane
+	 */
+	public void setgDomandaRane(Integer gDomandaRane) {
+		this.gDomandaRane = gDomandaRane;
+	}
+
+	/**
+	 * Gets the f domanda evita luoghi.
+	 *
+	 * @return the f domanda evita luoghi
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_evita_luighi")
+	public Integer getfDomandaEvitaLuoghi() {
+		return fDomandaEvitaLuoghi;
+	}
+
+	/**
+	 * Sets the f domanda evita luoghi.
+	 *
+	 * @param fDomandaEvitaLuoghi the new f domanda evita luoghi
+	 */
+	public void setfDomandaEvitaLuoghi(Integer fDomandaEvitaLuoghi) {
+		this.fDomandaEvitaLuoghi = fDomandaEvitaLuoghi;
+	}
+
+	/**
+	 * Gets the g domanda evita luoghi.
+	 *
+	 * @return the g domanda evita luoghi
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_evita_luighi")
+	public Integer getgDomandaEvitaLuoghi() {
+		return gDomandaEvitaLuoghi;
+	}
+
+	/**
+	 * Sets the g domanda evita luoghi.
+	 *
+	 * @param gDomandaEvitaLuoghi the new g domanda evita luoghi
+	 */
+	public void setgDomandaEvitaLuoghi(Integer gDomandaEvitaLuoghi) {
+		this.gDomandaEvitaLuoghi = gDomandaEvitaLuoghi;
+	}
+
+	/**
+	 * Gets the f domanda diventa nervoso.
+	 *
+	 * @return the f domanda diventa nervoso
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_diventa_nervoso")
+	public Integer getfDomandaDiventaNervoso() {
+		return fDomandaDiventaNervoso;
+	}
+
+	/**
+	 * Sets the f domanda diventa nervoso.
+	 *
+	 * @param fDomandaDiventaNervoso the new f domanda diventa nervoso
+	 */
+	public void setfDomandaDiventaNervoso(Integer fDomandaDiventaNervoso) {
+		this.fDomandaDiventaNervoso = fDomandaDiventaNervoso;
+	}
+
+	/**
+	 * Gets the g domanda diventa nervoso.
+	 *
+	 * @return the g domanda diventa nervoso
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_diventa_nervoso")
+	public Integer getgDomandaDiventaNervoso() {
+		return gDomandaDiventaNervoso;
+	}
+
+	/**
+	 * Sets the g domanda diventa nervoso.
+	 *
+	 * @param gDomandaDiventaNervoso the new g domanda diventa nervoso
+	 */
+	public void setgDomandaDiventaNervoso(Integer gDomandaDiventaNervoso) {
+		this.gDomandaDiventaNervoso = gDomandaDiventaNervoso;
+	}
+
+	/**
+	 * Gets the f domanda manifesta ansia.
+	 *
+	 * @return the f domanda manifesta ansia
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_manifesta_ansia")
+	public Integer getfDomandaManifestaAnsia() {
+		return fDomandaManifestaAnsia;
+	}
+
+	/**
+	 * Sets the f domanda manifesta ansia.
+	 *
+	 * @param fDomandaManifestaAnsia the new f domanda manifesta ansia
+	 */
+	public void setfDomandaManifestaAnsia(Integer fDomandaManifestaAnsia) {
+		this.fDomandaManifestaAnsia = fDomandaManifestaAnsia;
+	}
+
+	/**
+	 * Gets the g domanda manifesta ansia.
+	 *
+	 * @return the g domanda manifesta ansia
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_manifesta_ansia")
+	public Integer getgDomandaManifestaAnsia() {
+		return gDomandaManifestaAnsia;
+	}
+
+	/**
+	 * Sets the g domanda manifesta ansia.
+	 *
+	 * @param gDomandaManifestaAnsia the new g domanda manifesta ansia
+	 */
+	public void setgDomandaManifestaAnsia(Integer gDomandaManifestaAnsia) {
+		this.gDomandaManifestaAnsia = gDomandaManifestaAnsia;
+	}	
+}

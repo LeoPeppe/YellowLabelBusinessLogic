@@ -1,0 +1,70 @@
+package it.cle.project.service.impl;
+
+
+import it.cle.project.dao.hbn.HbnIndiceADLDao;
+import it.cle.project.model.IndiceADL;
+import it.cle.project.service.IndiceADLService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * The Class IndiceADLServiceImpl.
+ * Questa classe implementa contiene la Business Logic e 
+ * i metodi per le operazioni base relative all' indice ADL
+ */
+@Service("indiceADLService")
+@Transactional
+public class IndiceADLServiceImpl implements IndiceADLService {
+	
+	private static final String adl1 = "Autonomo o quasi"; 
+	private static final String adl2 = "Dipendente";  
+	private static final String adl3 = "Totalmente dipendente";  
+	
+	@Autowired
+	private HbnIndiceADLDao dao;
+	
+	/**
+	 * Metodo per il calcolo dell' indice ADL, somma i valori
+	 * passati in input
+	 * 
+	 * @param IndiceADL indiceADL
+	 * @return Integer
+	 * @see it.cle.project.service.IndiceADLService#updateIndiceADL(it.cle.project.model.IndiceADL)
+	 */
+	public Integer calcolaIndiceADL(IndiceADL indiceADL) {
+		Integer vadl = null;
+		vadl = indiceADL.getfAbbigliamento() 
+				+ indiceADL.getfAlimentazione() 
+				+ indiceADL.getfBagnoDoccia()
+				+ indiceADL.getfContinenzaIntestinale() 
+				+ indiceADL.getfContinenzaUrinaria()
+				+ indiceADL.getfIgienePersonale() 
+				+ indiceADL.getfUsoGabinetto();
+		return vadl;
+	}
+
+	public String codificaADL(Integer adl){
+		String adlCodificato = "";
+		if(adl < 15){
+			adlCodificato = adl1;
+		}
+		if(adl >= 15 && adl < 50){
+			adlCodificato = adl2;
+		}
+		if(adl >= 50 && adl < 61){
+			adlCodificato = adl3;
+		}
+		return adlCodificato;
+	}
+	
+	@Override
+	public void insert(IndiceADL indiceADL) {
+		dao.create(indiceADL);
+	}
+	
+	public IndiceADL selectById(Integer idIndiceADL){
+		return dao.get(idIndiceADL);
+	}
+}

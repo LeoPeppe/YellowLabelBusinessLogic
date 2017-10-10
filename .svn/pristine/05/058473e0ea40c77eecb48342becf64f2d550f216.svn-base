@@ -1,0 +1,61 @@
+package it.cle.project.dao;
+
+import java.util.Date;
+import java.util.List;
+
+import it.cle.project.dto.ReportPrestazioniDTO;
+import it.cle.project.model.Intervento;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface InterventoDao.
+ */
+public interface InterventoDao extends Dao<Intervento>{
+
+	/**
+	 * Insert.
+	 *
+	 * @param intervento the intervento
+	 */
+	void insert(Intervento intervento);
+
+	/**
+	 * Select by id.
+	 *
+	 * @param idintervento the idintervento
+	 * @return the intervento
+	 */
+	Intervento selectById(Integer idintervento);
+
+	/**
+	 * Select by comune.
+	 *
+	 * @param comune the comune
+	 * @return the list
+	 */
+	public List<Intervento> selectByComune(String comune);
+	
+	/**
+	 * Select by comune data.
+	 *
+	 * @param comune the comune
+	 * @param data_da the data_da
+	 * @param data_a the data_a
+	 * @return the list
+	 */
+	public List<Intervento> selectByComuneData(String comune, Date data_da, Date data_a);
+	
+	
+	/**
+	 * Select report prestazioni.
+	 *
+	 * @param comune the comune
+	 * @param data_da the data_da
+	 * @param data_a the data_a
+	 * @return the list
+	 */
+	public List<ReportPrestazioniDTO> selectReportPrestazioni(String comune, Date data_da, Date data_a);
+	
+	
+
+}

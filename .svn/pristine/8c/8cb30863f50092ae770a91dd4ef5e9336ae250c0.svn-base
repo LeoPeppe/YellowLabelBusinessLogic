@@ -1,0 +1,21 @@
+package it.cle.project.dao;
+
+import java.util.List;
+
+import it.cle.project.model.Prestazioni;
+
+/**
+ * The Interface IndiceADLDao.
+ */
+public interface PrestazioniDao  {
+	
+	public List<Prestazioni> select(String rangeADL,String rangeBarthel, String rangeRete) ;
+	public String calcolaRangeADL(String rangeADLInput);
+	
+	public String calcolaRangeBarthel(String rangeBarthelInput);
+	public String calcolaRangeRete(String rangeReteInput);
+	public List<Prestazioni> selectTutte();
+		
+	
+
+}

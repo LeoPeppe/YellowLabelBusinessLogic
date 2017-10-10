@@ -1,0 +1,490 @@
+package it.cle.project.model.composti.npi;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+
+/**
+ * The Class AgitazioneAggressivita.
+ */
+@Entity
+@Table(name = "agitazione_aggressivita")
+@XmlRootElement(name="agitazione_aggressivita")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class AgitazioneAggressivita {
+	
+	/**  The id AgitazioneAggressivita. */
+	private Integer idAgitazioneAggressivita;
+	
+	/**  Questo flag indica se il questionario è applicabile o meno. */
+	private Boolean nonApplicabile;
+	
+	/**  Questo campo indica la motivazione in caso di non applicabilità. */
+	private String motivazione;
+	
+	/**   Questo campo indica la seguente domanda:   Il paziente ha periodi durante i quali rifiuta di collaborare o durante i quali non si lascia aiutare dagli  altri? È difficile da gestire?   NO (se no, procedere con la successiva domanda di screening)  SÌ (procedere con le seguenti domande). */
+	private Boolean domandaPreliminare;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente diviene irritato con chi cerca di assisterlo o resiste ad attività come il bagno od il cambio dei vestiti?. */
+	private Integer fDomandaIrritabile;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente diviene irritato con chi cerca di assisterlo o resiste ad attività come il bagno od il cambio dei vestiti? . */
+	private Integer gDomandaIrritabile;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente è ostinato, volendo le cose fatte a modo suo?	 . */
+	private Integer fDomandaOstinato;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente è ostinato, volendo le cose fatte a modo suo?	 . */
+	private Integer gDomandaOstinato;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente non collabora, resiste se aiutato da altri?	 . */
+	private Integer fDomandaNonCollabora;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente non collabora, resiste se aiutato da altri?	 . */
+	private Integer gDomandaNonCollabora;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente presenta altri comportamenti che rendono difficoltosa la sua gestione?	 . */
+	private Integer fDomandaAltriComportamenti;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente presenta altri comportamenti che rendono difficoltosa la sua gestione?	 . */
+	private Integer gDomandaAltriComportamenti;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente grida o bestemmia in modo arrabbiato?	 . */
+	private Integer fDomandaBestemmie;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente grida o bestemmia in modo arrabbiato?	 . */
+	private Integer gDomandaBestemmie;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente sbatte le porte, da calci ai mobili, lancia gli oggetti?	 . */
+	private Integer fDomandaLanciaOggetti;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente sbatte le porte, da calci ai mobili, lancia gli oggetti? . */
+	private Integer gDomandaLanciaOggetti;	
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente tenta di far male o di colpire gli altri? . */
+	private Integer fDomandaColpireAltri;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente tenta di far male o di colpire gli altri? . */
+	private Integer gDomandaColpireAltri;	
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente presenta altri comportamenti aggressivi o altre forme di agitazione?. */
+	private Integer fDomandaAltriComportamentiAggressivi;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente presenta altri comportamenti aggressivi o altre forme di agitazione? . */
+	private Integer gDomandaAltriComportamentiAggressivi;
+	
+	/**
+	 * Gets the id agitazione aggressivita.
+	 *
+	 * @return the id agitazione aggressivita
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdAgitazioneAggressivita() {
+		return idAgitazioneAggressivita;
+	}
+
+	/**
+	 * Sets the id agitazione aggressivita.
+	 *
+	 * @param idAgitazioneAggressivita the new id agitazione aggressivita
+	 */
+	public void setIdAgitazioneAggressivita(Integer idAgitazioneAggressivita) {
+		this.idAgitazioneAggressivita = idAgitazioneAggressivita;
+	}
+
+	/**
+	 * Gets the non applicabile.
+	 *
+	 * @return the non applicabile
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "non_applicabile")
+	public Boolean getNonApplicabile() {
+		return nonApplicabile;
+	}
+
+	/**
+	 * Sets the non applicabile.
+	 *
+	 * @param nonApplicabile the new non applicabile
+	 */
+	public void setNonApplicabile(Boolean nonApplicabile) {
+		this.nonApplicabile = nonApplicabile;
+	}
+
+	/**
+	 * Gets the motivazione.
+	 *
+	 * @return the motivazione
+	 */
+	@Column(name = "motivazione")
+	public String getMotivazione() {
+		return motivazione;
+	}
+
+	/**
+	 * Sets the motivazione.
+	 *
+	 * @param motivazione the new motivazione
+	 */
+	public void setMotivazione(String motivazione) {
+		this.motivazione = motivazione;
+	}
+
+	/**
+	 * Gets the domanda preliminare.
+	 *
+	 * @return the domanda preliminare
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_preliminare")
+	public Boolean getDomandaPreliminare() {
+		return domandaPreliminare;
+	}
+
+	/**
+	 * Sets the domanda preliminare.
+	 *
+	 * @param domandaPreliminare the new domanda preliminare
+	 */
+	public void setDomandaPreliminare(Boolean domandaPreliminare) {
+		this.domandaPreliminare = domandaPreliminare;
+	}
+
+	/**
+	 * Gets the f domanda irritabile.
+	 *
+	 * @return the f domanda irritabile
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_irritabile")
+	public Integer getfDomandaIrritabile() {
+		return fDomandaIrritabile;
+	}
+
+	/**
+	 * Sets the f domanda irritabile.
+	 *
+	 * @param fDomandaIrritabile the new f domanda irritabile
+	 */
+	public void setfDomandaIrritabile(Integer fDomandaIrritabile) {
+		this.fDomandaIrritabile = fDomandaIrritabile;
+	}
+
+	/**
+	 * Gets the g domanda irritabile.
+	 *
+	 * @return the g domanda irritabile
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_irritabile")
+	public Integer getgDomandaIrritabile() {
+		return gDomandaIrritabile;
+	}
+
+	/**
+	 * Sets the g domanda irritabile.
+	 *
+	 * @param gDomandaIrritabile the new g domanda irritabile
+	 */
+	public void setgDomandaIrritabile(Integer gDomandaIrritabile) {
+		this.gDomandaIrritabile = gDomandaIrritabile;
+	}
+
+	/**
+	 * Gets the f domanda ostinato.
+	 *
+	 * @return the f domanda ostinato
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_ostinato")
+	public Integer getfDomandaOstinato() {
+		return fDomandaOstinato;
+	}
+
+	/**
+	 * Sets the f domanda ostinato.
+	 *
+	 * @param fDomandaOstinato the new f domanda ostinato
+	 */
+	public void setfDomandaOstinato(Integer fDomandaOstinato) {
+		this.fDomandaOstinato = fDomandaOstinato;
+	}
+
+	/**
+	 * Gets the g domanda ostinato.
+	 *
+	 * @return the g domanda ostinato
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_ostinato")
+	public Integer getgDomandaOstinato() {
+		return gDomandaOstinato;
+	}
+
+	/**
+	 * Sets the g domanda ostinato.
+	 *
+	 * @param gDomandaOstinato the new g domanda ostinato
+	 */
+	public void setgDomandaOstinato(Integer gDomandaOstinato) {
+		this.gDomandaOstinato = gDomandaOstinato;
+	}
+
+	/**
+	 * Gets the f domanda non collabora.
+	 *
+	 * @return the f domanda non collabora
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_non_collabora")	
+	public Integer getfDomandaNonCollabora() {
+		return fDomandaNonCollabora;
+	}
+
+	/**
+	 * Sets the f domanda non collabora.
+	 *
+	 * @param fDomandaNonCollabora the new f domanda non collabora
+	 */
+	public void setfDomandaNonCollabora(Integer fDomandaNonCollabora) {
+		this.fDomandaNonCollabora = fDomandaNonCollabora;
+	}
+
+	/**
+	 * Gets the g domanda non collabora.
+	 *
+	 * @return the g domanda non collabora
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_non_collabora")
+	public Integer getgDomandaNonCollabora() {
+		return gDomandaNonCollabora;
+	}
+
+	/**
+	 * Sets the g domanda non collabora.
+	 *
+	 * @param gDomandaNonCollabora the new g domanda non collabora
+	 */
+	public void setgDomandaNonCollabora(Integer gDomandaNonCollabora) {
+		this.gDomandaNonCollabora = gDomandaNonCollabora;
+	}
+
+	/**
+	 * Gets the f domanda altri comportamenti.
+	 *
+	 * @return the f domanda altri comportamenti
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_altri_comportamenti")
+	public Integer getfDomandaAltriComportamenti() {
+		return fDomandaAltriComportamenti;
+	}
+
+	/**
+	 * Sets the f domanda altri comportamenti.
+	 *
+	 * @param fDomandaAltriComportamenti the new f domanda altri comportamenti
+	 */
+	public void setfDomandaAltriComportamenti(Integer fDomandaAltriComportamenti) {
+		this.fDomandaAltriComportamenti = fDomandaAltriComportamenti;
+	}
+
+	/**
+	 * Gets the g domanda altri comportamenti.
+	 *
+	 * @return the g domanda altri comportamenti
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_altri_comportamenti")
+	public Integer getgDomandaAltriComportamenti() {
+		return gDomandaAltriComportamenti;
+	}
+
+	/**
+	 * Sets the g domanda altri comportamenti.
+	 *
+	 * @param gDomandaAltriComportamenti the new g domanda altri comportamenti
+	 */
+	public void setgDomandaAltriComportamenti(Integer gDomandaAltriComportamenti) {
+		this.gDomandaAltriComportamenti = gDomandaAltriComportamenti;
+	}
+
+	/**
+	 * Gets the f domanda bestemmie.
+	 *
+	 * @return the f domanda bestemmie
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_bestemmie")
+	public Integer getfDomandaBestemmie() {
+		return fDomandaBestemmie;
+	}
+
+	/**
+	 * Sets the f domanda bestemmie.
+	 *
+	 * @param fDomandaBestemmie the new f domanda bestemmie
+	 */
+	public void setfDomandaBestemmie(Integer fDomandaBestemmie) {
+		this.fDomandaBestemmie = fDomandaBestemmie;
+	}
+
+	/**
+	 * Gets the g domanda bestemmie.
+	 *
+	 * @return the g domanda bestemmie
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_bestemmie")
+	public Integer getgDomandaBestemmie() {
+		return gDomandaBestemmie;
+	}
+
+	/**
+	 * Sets the g domanda bestemmie.
+	 *
+	 * @param gDomandaBestemmie the new g domanda bestemmie
+	 */
+	public void setgDomandaBestemmie(Integer gDomandaBestemmie) {
+		this.gDomandaBestemmie = gDomandaBestemmie;
+	}
+
+	/**
+	 * Gets the f domanda lancia oggetti.
+	 *
+	 * @return the f domanda lancia oggetti
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_lancia_oggetti")
+	public Integer getfDomandaLanciaOggetti() {
+		return fDomandaLanciaOggetti;
+	}
+
+	/**
+	 * Sets the f domanda lancia oggetti.
+	 *
+	 * @param fDomandaLanciaOggetti the new f domanda lancia oggetti
+	 */
+	public void setfDomandaLanciaOggetti(Integer fDomandaLanciaOggetti) {
+		this.fDomandaLanciaOggetti = fDomandaLanciaOggetti;
+	}
+
+	/**
+	 * Gets the g domanda lancia oggetti.
+	 *
+	 * @return the g domanda lancia oggetti
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_lancia_oggetti")
+	public Integer getgDomandaLanciaOggetti() {
+		return gDomandaLanciaOggetti;
+	}
+
+	/**
+	 * Sets the g domanda lancia oggetti.
+	 *
+	 * @param gDomandaLanciaOggetti the new g domanda lancia oggetti
+	 */
+	public void setgDomandaLanciaOggetti(Integer gDomandaLanciaOggetti) {
+		this.gDomandaLanciaOggetti = gDomandaLanciaOggetti;
+	}
+
+	/**
+	 * Gets the f domanda colpire altri.
+	 *
+	 * @return the f domanda colpire altri
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_colpire_altri")
+	public Integer getfDomandaColpireAltri() {
+		return fDomandaColpireAltri;
+	}
+
+	/**
+	 * Sets the f domanda colpire altri.
+	 *
+	 * @param fDomandaColpireAltri the new f domanda colpire altri
+	 */
+	public void setfDomandaColpireAltri(Integer fDomandaColpireAltri) {
+		this.fDomandaColpireAltri = fDomandaColpireAltri;
+	}
+
+	/**
+	 * Gets the g domanda colpire altri.
+	 *
+	 * @return the g domanda colpire altri
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_colpire_altri")
+	public Integer getgDomandaColpireAltri() {
+		return gDomandaColpireAltri;
+	}
+
+	/**
+	 * Sets the g domanda colpire altri.
+	 *
+	 * @param gDomandaColpireAltri the new g domanda colpire altri
+	 */
+	public void setgDomandaColpireAltri(Integer gDomandaColpireAltri) {
+		this.gDomandaColpireAltri = gDomandaColpireAltri;
+	}
+
+	/**
+	 * Gets the f domanda altri comportamenti aggressivi.
+	 *
+	 * @return the f domanda altri comportamenti aggressivi
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_altri_comportamenti_aggressivi")
+	public Integer getfDomandaAltriComportamentiAggressivi() {
+		return fDomandaAltriComportamentiAggressivi;
+	}
+
+	/**
+	 * Sets the f domanda altri comportamenti aggressivi.
+	 *
+	 * @param fDomandaAltriComportamentiAggressivi the new f domanda altri comportamenti aggressivi
+	 */
+	public void setfDomandaAltriComportamentiAggressivi(Integer fDomandaAltriComportamentiAggressivi) {
+		this.fDomandaAltriComportamentiAggressivi = fDomandaAltriComportamentiAggressivi;
+	}
+
+	/**
+	 * Gets the g domanda altri comportamenti aggressivi.
+	 *
+	 * @return the g domanda altri comportamenti aggressivi
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_altri_comportamenti_aggressivi")
+	public Integer getgDomandaAltriComportamentiAggressivi() {
+		return gDomandaAltriComportamentiAggressivi;
+	}
+
+	/**
+	 * Sets the g domanda altri comportamenti aggressivi.
+	 *
+	 * @param gDomandaAltriComportamentiAggressivi the new g domanda altri comportamenti aggressivi
+	 */
+	public void setgDomandaAltriComportamentiAggressivi(Integer gDomandaAltriComportamentiAggressivi) {
+		this.gDomandaAltriComportamentiAggressivi = gDomandaAltriComportamentiAggressivi;
+	}
+
+}

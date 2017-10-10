@@ -1,0 +1,321 @@
+package it.cle.project.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+// TODO: Auto-generated Javadoc
+/**
+ * Questa classe definisce l'entità Indice SPMSQ (Short Portable Mental Status Questionnaire), 
+ * una lista di domande poste al soggetto le cui risposte esatte sommate attribuendo un punteggio
+ * pari ad uno per ogni risposta esatta, danno un indicatore sulla sua situazione cognitiva.
+ *
+ * @author Germano
+ * @version 1.0
+ */
+
+
+@Entity
+@Table(name = "indice_spmsq")
+@XmlRootElement(name="indice_spmsq")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class IndiceSPMSQ {
+	
+	/** The id indice SPMSQ. */
+	private Integer idIndiceSPMSQ;
+
+	/**  Questo campo indica la risposta alla domanda: Che giorno oggi?. */
+	private Boolean domandaGiornoOdierno;
+	
+	/**  Questo campo indica la risposta alla domanda: Che giorno è della settimana?. */
+	private Boolean domandaGiornoSettimanale;
+	
+	/**  Questo campo indica la risposta alla domanda: Come si chiama questo posto?. */
+	private Boolean domandaNomePosto;
+	
+	/**  Questo campo indica la risposta alla domanda: Qual è il suo indirizzo?. */
+	private Boolean domandaIndirizzo;	
+	
+	/**  Questo campo indica la risposta alla domanda: Quanti anni ha?. */
+	private Boolean domandaAnni;	
+	
+	/**  Questo campo indica la risposta alla domanda: Quando è nato?. */
+	private Boolean domandaDataNascita;	
+	
+	/**  Questo campo indica la risposta alla domanda: Chi è il Presidente della Repubblica ? (o il Papa?). */
+	private Boolean domandaPresRepPapa;	
+	
+	/**  Questo campo indica la risposta alla domanda: Chi era il Presidente precedente? (o il Papa?). */
+	private Boolean domandaPrecedentePresRepPapa;	
+	
+	/**  Questo campo indica la risposta alla domanda: Qual è il cognome da ragazza di sua madre?. */
+	private Boolean domandaNomeMadre;
+	
+	/**  Questo campo indica la risposta alla domanda: Sottragga da 20 tre e poi ancora fino in fondo. */
+	private Boolean domandaSottrazione;
+	
+	/**  Questo campo indica che il questionario non è somministrabile. */
+	private Boolean nonSomministrabile;	
+	
+	/**
+	 * Gets the domanda giorno odierno.
+	 *
+	 * @return the domanda giorno odierno
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_giorno_odierno")
+	public Boolean getDomandaGiornoOdierno() {
+		return domandaGiornoOdierno;
+	}
+
+	/**
+	 * Sets the domanda giorno odierno.
+	 *
+	 * @param domandaGiornoOdierno the new domanda giorno odierno
+	 */
+	public void setDomandaGiornoOdierno(Boolean domandaGiornoOdierno) {
+		this.domandaGiornoOdierno = domandaGiornoOdierno;
+	}
+
+	/**
+	 * Gets the domanda giorno settimanale.
+	 *
+	 * @return the domanda giorno settimanale
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_giorno_settimanale")
+	public Boolean getDomandaGiornoSettimanale() {
+		return domandaGiornoSettimanale;
+	}
+
+	/**
+	 * Sets the domanda giorno settimanale.
+	 *
+	 * @param domandaGiornoSettimanale the new domanda giorno settimanale
+	 */
+	public void setDomandaGiornoSettimanale(Boolean domandaGiornoSettimanale) {
+		this.domandaGiornoSettimanale = domandaGiornoSettimanale;
+	}
+
+	/**
+	 * Gets the domanda nome posto.
+	 *
+	 * @return the domanda nome posto
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_nome_posto")
+	public Boolean getDomandaNomePosto() {
+		return domandaNomePosto;
+	}
+
+	/**
+	 * Sets the domanda nome posto.
+	 *
+	 * @param domandaNomePosto the new domanda nome posto
+	 */
+	public void setDomandaNomePosto(Boolean domandaNomePosto) {
+		this.domandaNomePosto = domandaNomePosto;
+	}
+	
+	/**
+	 * Gets the domanda indirizzo.
+	 *
+	 * @return the domanda indirizzo
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_indirizzo")
+	public Boolean getDomandaIndirizzo() {
+		return domandaIndirizzo;
+	}
+
+	/**
+	 * Sets the domanda indirizzo.
+	 *
+	 * @param domandaIndirizzo the new domanda indirizzo
+	 */
+	public void setDomandaIndirizzo(Boolean domandaIndirizzo) {
+		this.domandaIndirizzo = domandaIndirizzo;
+	}
+
+	/**
+	 * Gets the domanda anni.
+	 *
+	 * @return the domanda anni
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_anni")
+	public Boolean getDomandaAnni() {
+		return domandaAnni;
+	}
+
+	/**
+	 * Sets the domanda anni.
+	 *
+	 * @param domandaAnni the new domanda anni
+	 */
+	public void setDomandaAnni(Boolean domandaAnni) {
+		this.domandaAnni = domandaAnni;
+	}
+
+	/**
+	 * Gets the domanda data nascita.
+	 *
+	 * @return the domanda data nascita
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_data_nascita")
+	public Boolean getDomandaDataNascita() {
+		return domandaDataNascita;
+	}
+
+	/**
+	 * Sets the domanda data nascita.
+	 *
+	 * @param domandaDataNascita the new domanda data nascita
+	 */
+	public void setDomandaDataNascita(Boolean domandaDataNascita) {
+		this.domandaDataNascita = domandaDataNascita;
+	}
+
+	/**
+	 * Gets the domanda pres rep papa.
+	 *
+	 * @return the domanda pres rep papa
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_pres_rep_papa")
+	public Boolean getDomandaPresRepPapa() {
+		return domandaPresRepPapa;
+	}
+
+	/**
+	 * Sets the domanda pres rep papa.
+	 *
+	 * @param domandaPresRepPapa the new domanda pres rep papa
+	 */
+	public void setDomandaPresRepPapa(Boolean domandaPresRepPapa) {
+		this.domandaPresRepPapa = domandaPresRepPapa;
+	}
+
+	/**
+	 * Gets the domanda precedente pres rep papa.
+	 *
+	 * @return the domanda precedente pres rep papa
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_prec_pres_rep_papa")
+	public Boolean getDomandaPrecedentePresRepPapa() {
+		return domandaPrecedentePresRepPapa;
+	}
+
+	/**
+	 * Sets the domanda precedente pres rep papa.
+	 *
+	 * @param domandaPrecedentePresRepPapa the new domanda precedente pres rep papa
+	 */
+	public void setDomandaPrecedentePresRepPapa(Boolean domandaPrecedentePresRepPapa) {
+		this.domandaPrecedentePresRepPapa = domandaPrecedentePresRepPapa;
+	}
+
+	/**
+	 * Gets the domanda nome madre.
+	 *
+	 * @return the domanda nome madre
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_nome_madre")
+	public Boolean getDomandaNomeMadre() {
+		return domandaNomeMadre;
+	}
+
+	/**
+	 * Sets the domanda nome madre.
+	 *
+	 * @param domandaNomeMadre the new domanda nome madre
+	 */
+	public void setDomandaNomeMadre(Boolean domandaNomeMadre) {
+		this.domandaNomeMadre = domandaNomeMadre;
+	}
+
+	/**
+	 * Gets the domanda sottrazione.
+	 *
+	 * @return the domanda sottrazione
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_sottrazione")
+	public Boolean getDomandaSottrazione() {
+		return domandaSottrazione;
+	}
+
+	/**
+	 * Sets the domanda sottrazione.
+	 *
+	 * @param domandaSottrazione the new domanda sottrazione
+	 */
+	public void setDomandaSottrazione(Boolean domandaSottrazione) {
+		this.domandaSottrazione = domandaSottrazione;
+	}
+
+	/**
+	 * Gets the non somministrabile.
+	 *
+	 * @return the non somministrabile
+	 */
+	@Type(type = "boolean")
+	@Column(name = "domanda_non_somministrabile")
+	public Boolean getNonSomministrabile() {
+		return nonSomministrabile;
+	}
+
+	/**
+	 * Sets the non somministrabile.
+	 *
+	 * @param nonSomministrabile the new non somministrabile
+	 */
+	public void setNonSomministrabile(Boolean nonSomministrabile) {
+		this.nonSomministrabile = nonSomministrabile;
+	}
+
+	/**
+	 * Gets the id indice spmsq.
+	 *
+	 * @return the id indice spmsq
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceSPMSQ() {
+		return idIndiceSPMSQ;
+	}
+
+	/**
+	 * Sets the id indice spmsq.
+	 *
+	 * @param idIndiceSPMSQ the new id indice spmsq
+	 */
+	public void setIdIndiceSPMSQ(Integer idIndiceSPMSQ) {
+		this.idIndiceSPMSQ = idIndiceSPMSQ;
+	}
+
+
+}

@@ -1,0 +1,36 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceSPMSQ;
+
+// TODO: Auto-generated Javadoc
+/**
+* Interfaccia IndiceBarthelService.
+* @author Germano
+*/
+public interface IndiceSPMSQService {
+	
+	/**
+	 * Calcola la situazione prevenzione Decubiti.
+	 *
+	 * @param indiceSPMSQ the indice spmsq
+	 * @return the integer
+	 */
+	public Integer calcolaSPMSQ(IndiceSPMSQ indiceSPMSQ);
+	
+
+	/**
+	 * inserisce i valori per il calcolo dell' indice SPMSQ.
+	 *
+	 * @param indiceSPMSQ the indice spmsq
+	 */
+	public void insert(IndiceSPMSQ indiceSPMSQ);
+	
+	/**
+	 * Recupera i valori per il calcolo dell'indice SPMSQ.
+	 *
+	 * @param idIndiceSPMSQ the id indice spmsq
+	 * @return the indice spmsq
+	 */
+	public IndiceSPMSQ selectById(Integer idIndiceSPMSQ);
+
+}

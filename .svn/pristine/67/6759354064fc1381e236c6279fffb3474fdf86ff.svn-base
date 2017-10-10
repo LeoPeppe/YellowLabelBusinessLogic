@@ -1,0 +1,52 @@
+package it.cle.project.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import it.cle.project.dao.IndiceEATDao;
+import it.cle.project.model.IndiceEAT;
+import it.cle.project.service.IndiceEATService;
+
+@Service("indiceEATService")
+@Transactional
+public class IndiceEATServiceImpl implements IndiceEATService {
+
+	@Autowired 
+	private IndiceEATDao dao;
+	
+	@Override
+	public Integer calcolaIndiceEAT(IndiceEAT indiceEAT) {
+		Integer result = 0;
+		result = indiceEAT.getDomandaAltriMagra()+
+				 indiceEAT.getDomandaAutocontrollo()+
+				 indiceEAT.getDomandaCibiDietetici()+
+				 indiceEAT.getDomandaCibiNuovi()+
+				 indiceEAT.getDomandaCibiZuccheri()+
+				 indiceEAT.getDomandaCiboPensieri()+
+				 indiceEAT.getDomandaContenutoCalorico()+
+				 indiceEAT.getDomandaControlloVita()+
+				 indiceEAT.getDomandaDesiderioDimagrire()+
+				 indiceEAT.getDomandaDieta()+
+				 indiceEAT.getDomandaDisagioDolci()+
+				 indiceEAT.getDomandaEvitareCarboidrati()+
+				 indiceEAT.getDomandaEvitareMangiare()+
+				 indiceEAT.getDomandaGinnastica()+
+				 indiceEAT.getDomandaGrassoCorpo()+
+				 indiceEAT.getDomandaImpulsoVomitare()+
+				 indiceEAT.getDomandaMangiareVoracita()+
+				 indiceEAT.getDomandaPauraIngrassare()+
+				 indiceEAT.getDomandaPensareCibo()+
+				 indiceEAT.getDomandaPressioneAltri()+
+				 indiceEAT.getDomandaSensazioneAltri()+
+				 indiceEAT.getDomandaSensoColpa()+
+				 indiceEAT.getDomandaSminuzzareCibo()+
+				 indiceEAT.getDomandaStomacoVuoto()+
+				 indiceEAT.getDomandaTempoPasto()+
+				 indiceEAT.getDomandaVomito();
+
+
+		return result;
+	}
+
+}

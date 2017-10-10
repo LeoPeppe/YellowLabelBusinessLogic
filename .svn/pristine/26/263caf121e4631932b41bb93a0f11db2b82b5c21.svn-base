@@ -1,0 +1,321 @@
+package it.cle.project.model;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+/**
+ * Questa classe indica il grado di autosufficienza e interazione con la sua Rete Sociale 
+ * 
+ * @author Germano
+ * @version 1.0
+ */
+
+
+
+
+@Entity
+@Table(name = "indice_supporto_rete_sociale")
+@XmlRootElement(name="indiceSupportoReteSociale")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class IndiceSupportoReteSociale {
+	
+	
+	private Integer idIndiceSupportoReteSociale;
+	
+	
+	/** 
+	 * Punteggio per preparazione dei pasti
+	 * */
+	private Integer preparazionePasti;
+	
+	/** 
+	 * Punteggio per pulizia della casa
+	 * */
+	private Integer puliziaCasa;
+	
+	/** 
+	 * Punteggio per lavanderia
+	 * */
+	private Integer lavanderia;
+	
+	/** 
+	 * Punteggio per effettuazione degli acquisti
+	 * */
+	private Integer effettuazioneAcquisti;
+	
+	/** 
+	 * Punteggio per alimentazione
+	 * */
+	private Integer alimentazione;
+	
+	/** 
+	 * Punteggio per bagno
+	 * */
+	private Integer bagno;
+	
+	/** 
+	 * Punteggio per toeletta personale
+	 * */
+	private Integer toelettaPersonale;
+	
+	/** 
+	 * Punteggio per abbigliamento
+	 * */
+	private Integer abbigliamento;
+	
+	/** 
+	 * Punteggio per uso del WC
+	 * */
+	private Integer usoWC;
+	
+	/** 
+	 * Punteggio per assunzione dei medicinali
+	 * */
+	private Integer assunzioneMedicinali;
+	
+	/** 
+	 * Punteggio per trasferimenti
+	 * */
+	private Integer trasferimenti;
+	
+	/** 
+	 * Punteggio per deambulazione
+	 * */
+	private Integer deambulazione;
+	
+	/** 
+	 * Punteggio per deambulazione
+	 * */
+	private Integer sostegnoPsicoAffettivo;
+	
+	/** 
+	 * Punteggio per gestione del denaro
+	 * */
+	private Integer gestioneDenaro;
+	
+	/** 
+	 * Punteggio per supervisione diurna
+	 * */
+	private Integer supervisioneDiurna;
+	
+	/** 
+	 * Punteggio per supervisione notturna
+	 * */
+	private Integer supervisioneNotturna;
+	
+	private Integer valoreSupportoReteSociale;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceSupportoReteSociale() {
+		return idIndiceSupportoReteSociale;
+	}
+
+	public void setIdIndiceSupportoReteSociale(Integer idIndiceSupportoReteSociale) {
+		this.idIndiceSupportoReteSociale = idIndiceSupportoReteSociale;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,10 })
+	@Column(name = "preparazione_pasti")
+	public Integer getPreparazionePasti() {
+		return preparazionePasti;
+	}
+
+	public void setPreparazionePasti(Integer preparazionePasti) {
+		this.preparazionePasti = preparazionePasti;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,10 })
+	@Column(name = "pulizia_casa")
+	public Integer getPuliziaCasa() {
+		return puliziaCasa;
+	}
+
+	public void setPuliziaCasa(Integer puliziaCasa) {
+		this.puliziaCasa = puliziaCasa;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,10 })
+	@Column(name = "lavanderia")
+	public Integer getLavanderia() {
+		return lavanderia;
+	}
+
+	public void setLavanderia(Integer lavanderia) {
+		this.lavanderia = lavanderia;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,10 })
+	@Column(name = "effettuazione_acquisti")
+	public Integer getEffettuazioneAcquisti() {
+		return effettuazioneAcquisti;
+	}
+
+	public void setEffettuazioneAcquisti(Integer effettuazioneAcquisti) {
+		this.effettuazioneAcquisti = effettuazioneAcquisti;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,10,20 })
+	@Column(name = "alimentazione")
+	public Integer getAlimentazione() {
+		return alimentazione;
+	}
+
+	public void setAlimentazione(Integer alimentazione) {
+		this.alimentazione = alimentazione;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,10 })
+	@Column(name = "bagno")
+	public Integer getBagno() {
+		return bagno;
+	}
+
+	public void setBagno(Integer bagno) {
+		this.bagno = bagno;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,10,15 })
+	@Column(name = "toeletta_personale")
+	public Integer getToelettaPersonale() {
+		return toelettaPersonale;
+	}
+
+	public void setToelettaPersonale(Integer toelettaPersonale) {
+		this.toelettaPersonale = toelettaPersonale;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,10,15 })
+	@Column(name = "abbigliamento")
+	public Integer getAbbigliamento() {
+		return abbigliamento;
+	}
+
+	public void setAbbigliamento(Integer abbigliamento) {
+		this.abbigliamento = abbigliamento;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,15,25 })
+	@Column(name = "uso_wc")
+	public Integer getUsoWC() {
+		return usoWC;
+	}
+
+	public void setUsoWC(Integer usoWC) {
+		this.usoWC = usoWC;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,10 })
+	@Column(name = "assunzione_medicinali")
+	public Integer getAssunzioneMedicinali() {
+		return assunzioneMedicinali;
+	}
+
+	public void setAssunzioneMedicinali(Integer assunzioneMedicinali) {
+		this.assunzioneMedicinali = assunzioneMedicinali;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,15,20 })
+	@Column(name = "trasferimenti")
+	public Integer getTrasferimenti() {
+		return trasferimenti;
+	}
+
+	public void setTrasferimenti(Integer trasferimenti) {
+		this.trasferimenti = trasferimenti;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,10,15 })
+	@Column(name = "deambulazione")
+	public Integer getDeambulazione() {
+		return deambulazione;
+	}
+
+	public void setDeambulazione(Integer deambulazione) {
+		this.deambulazione = deambulazione;
+	}
+	
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,10 })
+	@Column(name = "gestione_denaro")
+	public Integer getGestioneDenaro() {
+		return gestioneDenaro;
+	}
+
+	public void setGestioneDenaro(Integer gestioneDenaro) {
+		this.gestioneDenaro = gestioneDenaro;
+	}
+	
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,10 })
+	@Column(name = "sostegno_psico_affettivo")
+	public Integer getSostegnoPsicoAffettivo() {
+		return sostegnoPsicoAffettivo;
+	}
+
+	public void setSostegnoPsicoAffettivo(Integer sostegnoPsicoAffettivo) {
+		this.sostegnoPsicoAffettivo = sostegnoPsicoAffettivo;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,15,25 })
+	@Column(name = "supervisione_diurna")
+	public Integer getSupervisioneDiurna() {
+		return supervisioneDiurna;
+	}
+
+	public void setSupervisioneDiurna(Integer supervisioneDiurna) {
+		this.supervisioneDiurna = supervisioneDiurna;
+	}
+
+	@NotNull
+	@ValidateIntegerSet(acceptedValues = { 0,5,15,25 })
+	@Column(name = "supervisione_notturna")
+	public Integer getSupervisioneNotturna() {
+		return supervisioneNotturna;
+	}
+
+	public void setSupervisioneNotturna(Integer supervisioneNotturna) {
+		this.supervisioneNotturna = supervisioneNotturna;
+	}
+	@Column(name = "valoreSupportoReteSociale")
+	public Integer getValoreSupportoReteSociale() {
+		return valoreSupportoReteSociale;
+	}
+
+	public void setValoreSupportoReteSociale(Integer valoreSupportoReteSociale) {
+		this.valoreSupportoReteSociale = valoreSupportoReteSociale;
+	}
+
+	
+
+
+	
+	
+	
+
+}

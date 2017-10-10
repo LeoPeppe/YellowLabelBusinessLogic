@@ -1,0 +1,25 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceADL;
+import it.cle.project.model.IndiceBarthelMobilita;
+import it.cle.project.model.IndiceSPMSQ;
+import it.cle.project.model.IndiceSupportoReteSociale;
+import it.cle.project.model.ProfiloAutonomia;
+import it.cle.project.model.Psan;
+
+
+public interface ProfiloAutonomiaService {
+
+	
+	public Integer calcolaProf(IndiceADL indiceADL,IndiceSPMSQ indiceSPMSQ,IndiceBarthelMobilita indiceBarthelMobilita,Psan psan,IndiceSupportoReteSociale indiceSupportoReteSociale);
+	
+	
+	public void insert(ProfiloAutonomia profiloAutonomia);
+	
+	public ProfiloAutonomia selectById(Integer idProfiloAutonomia);
+
+
+	public Integer calcolaPsoc(IndiceSupportoReteSociale indiceSupportoReteSociale);
+
+	
+}

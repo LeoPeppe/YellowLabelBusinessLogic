@@ -1,0 +1,44 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
+public class CodiceArticoloDTO implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String codiceTipo;
+	private String codiceValore;
+	/**
+	 * @return the codiceTipo
+	 */
+	public String getCodiceTipo() {
+		return codiceTipo;
+	}
+	/**
+	 * @param codiceTipo the codiceTipo to set
+	 */
+	@XmlElement(name="CodiceTipo")
+	public void setCodiceTipo(String codiceTipo) {
+		this.codiceTipo = codiceTipo;
+	}
+	/**
+	 * @return the codiceValore
+	 */
+	public String getCodiceValore() {
+		return codiceValore;
+	}
+	/**
+	 * @param codiceValore the codiceValore to set
+	 */
+	@XmlElement(name="CodiceValore")
+	public void setCodiceValore(String codiceValore) {
+		this.codiceValore = codiceValore;
+	}
+	
+
+}

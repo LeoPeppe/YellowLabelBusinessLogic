@@ -1,0 +1,10 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.IndiceBUT;
+
+/**
+ * The Interface IndiceBUTDao.
+ */
+public interface IndiceBUTDao extends Dao<IndiceBUT> {
+
+}

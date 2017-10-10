@@ -1,0 +1,11 @@
+package it.cle.project.service;
+
+/**
+ * Interfaccia OperatoreService.
+ *
+ * 
+ */
+public interface OperatoreService {
+	
+
+}

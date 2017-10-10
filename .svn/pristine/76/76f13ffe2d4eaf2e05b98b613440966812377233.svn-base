@@ -1,0 +1,24 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceVIP;
+import it.cle.project.model.IndiceVPIA;
+import it.cle.project.model.IndiceVPOT;
+
+// TODO: Auto-generated Javadoc
+/**
+ * Interfaccia IndiceVPIAService.
+ *
+ * @author Fronza
+ */
+public interface IndiceVPIAService {
+	
+	
+	public Integer calcolaVPIA(IndiceVPIA indiceVPIA);
+	
+	
+	
+	public void insert(IndiceVPIA indiceVPIA);
+	
+	public IndiceVPIA selectById(Integer idIndiceVPIA);
+	
+}

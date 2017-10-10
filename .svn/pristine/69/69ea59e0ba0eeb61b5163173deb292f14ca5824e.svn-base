@@ -1,0 +1,39 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceVPIA;
+
+// TODO: Auto-generated Javadoc
+/**
+ * Interfaccia IndiceVPIAService.
+ *
+ * @author Fronza
+ */
+public interface IndiceVPIAService {
+	
+	
+	/**
+	 * Calcola vpia.
+	 *
+	 * @param indiceVPIA the indice vpia
+	 * @return the integer
+	 */
+	public Integer calcolaVPIA(IndiceVPIA indiceVPIA);
+	
+	
+	
+	/**
+	 * Insert.
+	 *
+	 * @param indiceVPIA the indice vpia
+	 */
+	public void insert(IndiceVPIA indiceVPIA);
+	
+	/**
+	 * Select by id.
+	 *
+	 * @param idIndiceVPIA the id indice vpia
+	 * @return the indice vpia
+	 */
+	public IndiceVPIA selectById(Integer idIndiceVPIA);
+	
+}

@@ -1,0 +1,27 @@
+package it.cle.project.service;
+
+import it.cle.project.model.DatiAssistito;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface DatiAssistitoService.
+ */
+public interface DatiAssistitoService {
+	
+	
+	/**
+	 * Insert.
+	 *
+	 * @param datiAssistito the dati assistito
+	 */
+	public void insert(DatiAssistito datiAssistito);
+	
+	
+	/**
+	 * Select by id.
+	 *
+	 * @param idDatiAssistito the id dati assistito
+	 * @return the dati assistito
+	 */
+	public DatiAssistito selectById(Integer idDatiAssistito);
+}

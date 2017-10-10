@@ -1,0 +1,199 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+// TODO: Auto-generated Javadoc
+
+/**
+ * The Class DatiRiepilogoDTO.
+ */
+@XmlRootElement
+public class DatiRiepilogoDTO implements Serializable {
+
+	
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The aliquota iva. */
+	private Double aliquotaIva;
+	
+	/** The natura. */
+	private String natura;
+	
+	/** The spese accessorie. */
+	private Double speseAccessorie;
+	
+	/** The arrotondamento. */
+	private Double arrotondamento;
+	
+	/** The imponibile importo. */
+	private Double imponibileImporto;
+	
+	/** The imposta. */
+	private Double imposta;
+	
+	/** The esigibilita iva. */
+	private String esigibilitaIva;
+	
+	/** The riferimento normativo. */
+	private String riferimentoNormativo;
+	
+	
+	/**
+	 * Gets the aliquota iva.
+	 *
+	 * @return the aliquota iva
+	 */
+	public Double getAliquotaIva() {
+		return aliquotaIva;
+	}
+	
+	/**
+	 * Sets the aliquota iva.
+	 *
+	 * @param aliquotaIva the new aliquota iva
+	 */
+	@XmlElement(name="AliquotaIVA")
+	public void setAliquotaIva(Double aliquotaIva) {
+		this.aliquotaIva = aliquotaIva;
+	}
+	
+	/**
+	 * Gets the natura.
+	 *
+	 * @return the natura
+	 */
+	public String getNatura() {
+		return natura;
+	}
+	
+	/**
+	 * Sets the natura.
+	 *
+	 * @param natura the new natura
+	 */
+	@XmlElement(name="Natura")
+	public void setNatura(String natura) {
+		this.natura = natura;
+	}
+	
+	/**
+	 * Gets the spese accessorie.
+	 *
+	 * @return the spese accessorie
+	 */
+	public Double getSpeseAccessorie() {
+		return speseAccessorie;
+	}
+	
+	/**
+	 * Sets the spese accessorie.
+	 *
+	 * @param speseAccessorie the new spese accessorie
+	 */
+	@XmlElement(name="SpeseAccessorie")
+	public void setSpeseAccessorie(Double speseAccessorie) {
+		this.speseAccessorie = speseAccessorie;
+	}
+	
+	/**
+	 * Gets the arrotondamento.
+	 *
+	 * @return the arrotondamento
+	 */
+	public Double getArrotondamento() {
+		return arrotondamento;
+	}
+	
+	/**
+	 * Sets the arrotondamento.
+	 *
+	 * @param arrotondamento the new arrotondamento
+	 */
+	@XmlElement(name="Arrotondamento")
+	public void setArrotondamento(Double arrotondamento) {
+		this.arrotondamento = arrotondamento;
+	}
+	
+	/**
+	 * Gets the imponibile importo.
+	 *
+	 * @return the imponibile importo
+	 */
+	public Double getImponibileImporto() {
+		return imponibileImporto;
+	}
+	
+	/**
+	 * Sets the imponibile importo.
+	 *
+	 * @param imponibileImporto the new imponibile importo
+	 */
+	@XmlElement(name="ImponibileImporto")
+	public void setImponibileImporto(Double imponibileImporto) {
+		this.imponibileImporto = imponibileImporto;
+	}
+	
+	/**
+	 * Gets the imposta.
+	 *
+	 * @return the imposta
+	 */
+	public Double getImposta() {
+		return imposta;
+	}
+	
+	/**
+	 * Sets the imposta.
+	 *
+	 * @param imposta the new imposta
+	 */
+	@XmlElement(name="Imposta")
+	public void setImposta(Double imposta) {
+		this.imposta = imposta;
+	}
+	
+	/**
+	 * Gets the esigibilita iva.
+	 *
+	 * @return the esigibilita iva
+	 */
+	public String getEsigibilitaIva() {
+		return esigibilitaIva;
+	}
+	
+	/**
+	 * Sets the esigibilita iva.
+	 *
+	 * @param esigibilitaIva the new esigibilita iva
+	 */
+	@XmlElement(name="EsigibilitaIVA")
+	public void setEsigibilitaIva(String esigibilitaIva) {
+		this.esigibilitaIva = esigibilitaIva;
+	}
+	
+	/**
+	 * Gets the riferimento normativo.
+	 *
+	 * @return the riferimento normativo
+	 */
+	public String getRiferimentoNormativo() {
+		return riferimentoNormativo;
+	}
+	
+	/**
+	 * Sets the riferimento normativo.
+	 *
+	 * @param riferimentoNormativo the new riferimento normativo
+	 */
+	@XmlElement(name="RiferimentoNormativo")
+	public void setRiferimentoNormativo(String riferimentoNormativo) {
+		this.riferimentoNormativo = riferimentoNormativo;
+	}
+	
+	
+	
+}

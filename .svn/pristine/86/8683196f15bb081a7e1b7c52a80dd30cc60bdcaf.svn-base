@@ -1,0 +1,31 @@
+package it.cle.project.service.impl;
+
+
+import it.cle.project.dao.hbn.HbnRisultatiIndiciDao;
+import it.cle.project.model.RisultatiIndici;
+import it.cle.project.service.RisultatiIndiciService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+
+ */
+@Service("risultati_indiciService")
+@Transactional
+public class RisultatiIndiciServiceImpl implements RisultatiIndiciService {
+	
+	
+	@Autowired
+	private HbnRisultatiIndiciDao dao;
+	
+		
+
+
+	@Override
+	public void insert(RisultatiIndici risultatiIndici) {
+		dao.create(risultatiIndici);
+		
+	}
+}

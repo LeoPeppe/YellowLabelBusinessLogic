@@ -1,0 +1,305 @@
+package it.cle.project.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndiceVIP.
+ */
+@Entity
+@Table(name="indice_vip")
+@XmlRootElement(name="indice_vip")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class IndiceVIP {
+	
+	/** The id indice vip. */
+	private Integer idIndiceVIP;
+	
+	/** The diabete insulino indipendente. */
+	private Boolean diabeteInsulinoIndipendente;
+	
+	/** The scompenso cardiaco. */
+	private Boolean scompensoCardiaco;
+	
+	/** The cirrosi scompensata. */
+	private Boolean cirrosiScompensata;
+	
+	/** The tracheostomia. */
+	private Boolean tracheostomia;
+	
+	/** The ossigenoterapia. */
+	private Boolean ossigenoterapia;
+	
+	/** The gastrostomia. */
+	private Boolean gastrostomia;
+	
+	/** The catetere venoso. */
+	private Boolean catetereVenoso;
+	
+	/** The catetere vescicale. */
+	private Boolean catetereVescicale;
+	
+	/** The ano artificiale. */
+	private Boolean anoArtificiale;
+	
+	/** The nefrostomia. */
+	private Boolean nefrostomia;
+	
+	/** The ulcere distrofiche. */
+	private Boolean ulcereDistrofiche;
+	
+	/**
+	 * Gets the id indice vip.
+	 *
+	 * @return the id indice vip
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceVIP() {
+		return idIndiceVIP;
+	}
+	
+	/**
+	 * Sets the id indice vip.
+	 *
+	 * @param idIndiceVIP the new id indice vip
+	 */
+	public void setIdIndiceVIP(Integer idIndiceVIP) {
+		this.idIndiceVIP = idIndiceVIP;
+	}
+	
+	/**
+	 * Gets the diabete insulino indipendente.
+	 *
+	 * @return the diabete insulino indipendente
+	 */
+	@NotNull
+	@Column(name="diabete_insulino_dipendente")
+	public Boolean getDiabeteInsulinoIndipendente() {
+		return diabeteInsulinoIndipendente;
+	}
+	
+	/**
+	 * Sets the diabete insulino indipendente.
+	 *
+	 * @param diabeteInsulinoIndipendente the new diabete insulino indipendente
+	 */
+	public void setDiabeteInsulinoIndipendente(Boolean diabeteInsulinoIndipendente) {
+		this.diabeteInsulinoIndipendente = diabeteInsulinoIndipendente;
+	}
+	
+	/**
+	 * Gets the scompenso cardiaco.
+	 *
+	 * @return the scompenso cardiaco
+	 */
+	@NotNull
+	@Column(name="scompenso_cardiaco")
+	public Boolean getScompensoCardiaco() {
+		return scompensoCardiaco;
+	}
+	
+	/**
+	 * Sets the scompenso cardiaco.
+	 *
+	 * @param scompensoCardiaco the new scompenso cardiaco
+	 */
+	public void setScompensoCardiaco(Boolean scompensoCardiaco) {
+		this.scompensoCardiaco = scompensoCardiaco;
+	}
+	
+	/**
+	 * Gets the cirrosi scompensata.
+	 *
+	 * @return the cirrosi scompensata
+	 */
+	@NotNull
+	@Column(name="cirrosi_scompensata")
+	public Boolean getCirrosiScompensata() {
+		return cirrosiScompensata;
+	}
+	
+	/**
+	 * Sets the cirrosi scompensata.
+	 *
+	 * @param cirrosiScompensata the new cirrosi scompensata
+	 */
+	public void setCirrosiScompensata(Boolean cirrosiScompensata) {
+		this.cirrosiScompensata = cirrosiScompensata;
+	}
+	
+	/**
+	 * Gets the tracheostomia.
+	 *
+	 * @return the tracheostomia
+	 */
+	@NotNull
+	@Column(name="tracheostomia")
+	public Boolean getTracheostomia() {
+		return tracheostomia;
+	}
+	
+	/**
+	 * Sets the tracheostomia.
+	 *
+	 * @param tracheostomia the new tracheostomia
+	 */
+	public void setTracheostomia(Boolean tracheostomia) {
+		this.tracheostomia = tracheostomia;
+	}
+	
+	/**
+	 * Gets the ossigenoterapia.
+	 *
+	 * @return the ossigenoterapia
+	 */
+	@NotNull
+	@Column(name="ossigenoterapia")
+	public Boolean getOssigenoterapia() {
+		return ossigenoterapia;
+	}
+	
+	/**
+	 * Sets the ossigenoterapia.
+	 *
+	 * @param ossigenoterapia the new ossigenoterapia
+	 */
+	public void setOssigenoterapia(Boolean ossigenoterapia) {
+		this.ossigenoterapia = ossigenoterapia;
+	}
+	
+	/**
+	 * Gets the gastrostomia.
+	 *
+	 * @return the gastrostomia
+	 */
+	@NotNull
+	@Column(name="gastrostomia")
+	public Boolean getGastrostomia() {
+		return gastrostomia;
+	}
+	
+	/**
+	 * Sets the gastrostomia.
+	 *
+	 * @param gastrostomia the new gastrostomia
+	 */
+	public void setGastrostomia(Boolean gastrostomia) {
+		this.gastrostomia = gastrostomia;
+	}
+	
+	/**
+	 * Gets the catetere venoso.
+	 *
+	 * @return the catetere venoso
+	 */
+	@NotNull
+	@Column(name="catetere_venoso")
+	public Boolean getCatetereVenoso() {
+		return catetereVenoso;
+	}
+	
+	/**
+	 * Sets the catetere venoso.
+	 *
+	 * @param catetereVenoso the new catetere venoso
+	 */
+	public void setCatetereVenoso(Boolean catetereVenoso) {
+		this.catetereVenoso = catetereVenoso;
+	}
+	
+	/**
+	 * Gets the catetere vescicale.
+	 *
+	 * @return the catetere vescicale
+	 */
+	@NotNull
+	@Column(name="catetere_vescicale")
+	public Boolean getCatetereVescicale() {
+		return catetereVescicale;
+	}
+	
+	/**
+	 * Sets the catetere vescicale.
+	 *
+	 * @param catetereVescicale the new catetere vescicale
+	 */
+	public void setCatetereVescicale(Boolean catetereVescicale) {
+		this.catetereVescicale = catetereVescicale;
+	}
+	
+	/**
+	 * Gets the ano artificiale.
+	 *
+	 * @return the ano artificiale
+	 */
+	@NotNull
+	@Column(name="ano_artificiale")
+	public Boolean getAnoArtificiale() {
+		return anoArtificiale;
+	}
+	
+	/**
+	 * Sets the ano artificiale.
+	 *
+	 * @param anoArtificiale the new ano artificiale
+	 */
+	public void setAnoArtificiale(Boolean anoArtificiale) {
+		this.anoArtificiale = anoArtificiale;
+	}
+	
+	/**
+	 * Gets the nefrostomia.
+	 *
+	 * @return the nefrostomia
+	 */
+	@NotNull
+	@Column(name="nefrostomia")
+	public Boolean getNefrostomia() {
+		return nefrostomia;
+	}
+	
+	/**
+	 * Sets the nefrostomia.
+	 *
+	 * @param nefrostomia the new nefrostomia
+	 */
+	public void setNefrostomia(Boolean nefrostomia) {
+		this.nefrostomia = nefrostomia;
+	}
+	
+	/**
+	 * Gets the ulcere distrofiche.
+	 *
+	 * @return the ulcere distrofiche
+	 */
+	@NotNull
+	@Column(name="ulcere_distrofiche")
+	public Boolean getUlcereDistrofiche() {
+		return ulcereDistrofiche;
+	}
+	
+	/**
+	 * Sets the ulcere distrofiche.
+	 *
+	 * @param ulcereDistrofiche the new ulcere distrofiche
+	 */
+	public void setUlcereDistrofiche(Boolean ulcereDistrofiche) {
+		this.ulcereDistrofiche = ulcereDistrofiche;
+	}
+	
+	
+	
+	
+
+}

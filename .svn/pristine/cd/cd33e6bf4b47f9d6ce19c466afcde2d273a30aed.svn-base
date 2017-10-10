@@ -1,0 +1,13 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+/**
+ * The Class AllegatiDTO.
+ */
+public class AllegatiDTO implements Serializable {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = -8220182712890751672L;
+
+}

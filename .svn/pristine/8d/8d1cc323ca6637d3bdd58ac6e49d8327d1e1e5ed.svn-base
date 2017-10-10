@@ -1,0 +1,15 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.Operatore;
+
+/**
+ * The Interface OperatoreDao.
+ */
+public interface OperatoreDao extends Dao<Operatore> {
+	
+	
+	
+		
+	
+
+}

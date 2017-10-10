@@ -1,0 +1,18 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceEAT;
+
+
+/**
+ * Interfaccia IndiceEATService.
+ *
+ */
+public interface IndiceEATService {
+	
+	/**
+	 * Calcola l' indice di EAT
+	 * @param IndiceEAT indiceEAT
+	 */
+	public Integer calcolaIndiceEAT(IndiceEAT indiceEAT);
+
+}

@@ -1,0 +1,36 @@
+package it.cle.project.service.impl;
+
+
+import it.cle.project.dao.hbn.HbnRisultatiIndiciDao;
+import it.cle.project.model.RisultatiIndici;
+import it.cle.project.service.RisultatiIndiciService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class RisultatiIndiciServiceImpl.
+ */
+@Service("risultati_indiciService")
+@Transactional
+public class RisultatiIndiciServiceImpl implements RisultatiIndiciService {
+	
+	
+	/** The dao. */
+	@Autowired
+	private HbnRisultatiIndiciDao dao;
+	
+		
+
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.RisultatiIndiciService#insert(it.cle.project.model.RisultatiIndici)
+	 */
+	@Override
+	public void insert(RisultatiIndici risultatiIndici) {
+		dao.create(risultatiIndici);
+		
+	}
+}

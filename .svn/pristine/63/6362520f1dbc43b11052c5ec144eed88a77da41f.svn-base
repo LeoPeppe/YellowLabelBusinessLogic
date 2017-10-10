@@ -1,0 +1,66 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+// TODO: Auto-generated Javadoc
+/**
+ * DTO utilizzato per veicolare informazioni relative al trasmittente (IdTrasmittente) e al prestatore (IdFiscaleIva).
+ *
+ * @author milena.brunetti
+ */
+@XmlRootElement
+public class IdentificativoFiscaleDTO implements Serializable {
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The id paese. */
+	private String idPaese;
+	
+	/** The id codice. */
+	private String idCodice;
+	
+	/**
+	 * Gets the id paese.
+	 *
+	 * @return the idPaese
+	 */
+	public String getIdPaese() {
+		return idPaese;
+	}
+	
+	/**
+	 * Sets the id paese.
+	 *
+	 * @param idPaese the idPaese to set
+	 */
+	@XmlElement(name="idPaese")
+	public void setIdPaese(String idPaese) {
+		this.idPaese = idPaese;
+	}
+	
+	/**
+	 * Gets the id codice.
+	 *
+	 * @return the idCodice
+	 */
+	public String getIdCodice() {
+		return idCodice;
+	}
+	
+	/**
+	 * Sets the id codice.
+	 *
+	 * @param idCodice the idCodice to set
+	 */
+	@XmlElement(name="idCodice")
+	public void setIdCodice(String idCodice) {
+		this.idCodice = idCodice;
+	}
+	
+	
+
+}

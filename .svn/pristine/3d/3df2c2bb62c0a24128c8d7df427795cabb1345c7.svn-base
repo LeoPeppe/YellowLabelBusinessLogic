@@ -1,0 +1,378 @@
+package it.cle.project.model.composti.npi;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+@Entity
+@Table(name = "deliri")
+@XmlRootElement(name="deliri")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Deliri {
+	
+	/** The id indiceDeliri. */
+	private Integer idDeliri;
+	
+	/** Questo flag indica se il questionario è applicabile o meno */
+	private Boolean nonApplicabile;
+	
+	/** Questo campo indica la motivazione in caso di non applicabilità */
+	private String motivazione;
+	
+	/** 
+	 *  Questo campo indica la seguente domanda: Il paziente crede cose che non sono vere? Per esempio, 
+	 *  insiste sul fatto che qualcuno sta cercando di fargli del male o di rubargli qualcosa. 
+	 *  Dice che i componenti della famiglia non sono chi dicono di essere, o che la casa non è la sua? 
+	 *  Non mi riferisco a semplice sospettosità; siamo interessati a  sapere se il paziente sia convinto 
+	 *  che queste cose gli stiano realmente accadendo.
+	 *  
+	 *  NO (se no, procedere con la successiva domanda di screening) 
+	 *  SÌ (procedere con le seguenti domande)
+	*/
+	private Boolean domandaPreliminare;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente crede di essere in pericolo o che qualcuno voglia fargli del male ? 
+	 * */
+	private Integer fDomandaPericolo;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente crede di essere in pericolo o che qualcuno voglia fargli del male ? 
+	 * */
+	private Integer gDomandaPericolo;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente crede che qualcuno lo stia derubando? 
+	 * */
+	private Integer fDomandaDerubato;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente crede che qualcuno lo stia derubando? 
+	 * */
+	private Integer gDomandaDerubato;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente crede che il/la proprio/a marito/moglie lo tradisca?
+	 * */
+	private Integer fDomandaTradimento;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente crede che il/la proprio/a marito/moglie lo tradisca?
+	 * */
+	private Integer gDomandaTradimento;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente crede che ospiti indesiderati vivano nella sua casa?
+	 * */
+	private Integer fDomandaOspitiIndesiderati;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente crede che ospiti indesiderati vivano nella sua casa?
+	 * */
+	private Integer gDomandaOspitiIndesiderati;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente crede che il/la proprio/a marito/moglie od altre persone non siano in realtà chi dicono di essere?
+	 * */
+	private Integer fDomandaPersoneSconosciute;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente crede che il/la proprio/a marito/moglie od altre persone non siano in realtà chi dicono di essere?
+	 * */
+	private Integer gDomandaPersoneSconosciute;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente crede che la propria abitazione non sia casa propria?
+	 * */
+	private Integer fDomandaAbitazione;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente crede che la propria abitazione non sia casa propria?
+	 * */
+	private Integer gDomandaAbitazione;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente crede che i familiari vogliano abbandonarlo?
+	 * */
+	private Integer fDomandaAbbandono;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente crede che i familiari vogliano abbandonarlo?
+	 * */
+	private Integer gDomandaAbbandono;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente crede che le immagini della televisione o le fotografie delle riviste siano realmente 
+	 * presenti in casa? [Cerca di interagire con esse?]
+	 * */
+	private Integer fDomandaPresenzeInCasa;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente crede che le immagini della televisione o le fotografie delle riviste siano realmente 
+	 * presenti in casa? [Cerca di interagire con esse?]
+	 * */
+	private Integer gDomandaPresenzeInCasa;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente crede altre cose insolite di cui non le ho chiesto?
+	 * */
+	private Integer fDomandaAltreCose;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente crede altre cose insolite di cui non le ho chiesto?
+	 * */
+	private Integer gDomandaAltreCose;
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "non_applicabile")
+	public Boolean getNonApplicabile() {
+		return nonApplicabile;
+	}
+
+	public void setNonApplicabile(Boolean nonApplicabile) {
+		this.nonApplicabile = nonApplicabile;
+	}
+
+	@Column(name = "motivazione")
+	public String getMotivazione() {
+		return motivazione;
+	}
+
+	public void setMotivazione(String motivazione) {
+		this.motivazione = motivazione;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_preliminare")
+	public Boolean getDomandaPreliminare() {
+		return domandaPreliminare;
+	}
+
+	public void setDomandaPreliminare(Boolean domandaPreliminare) {
+		this.domandaPreliminare = domandaPreliminare;
+	}
+
+	
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_pericolo")
+	public Integer getfDomandaPericolo() {
+		return fDomandaPericolo;
+	}
+
+	
+	public void setfDomandaPericolo(Integer fDomandaPericolo) {
+		this.fDomandaPericolo = fDomandaPericolo;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_pericolo")
+	public Integer getgDomandaPericolo() {
+		return gDomandaPericolo;
+	}
+
+	public void setgDomandaPericolo(Integer gDomandaPericolo) {
+		this.gDomandaPericolo = gDomandaPericolo;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_derubato")
+	public Integer getfDomandaDerubato() {
+		return fDomandaDerubato;
+	}
+
+	public void setfDomandaDerubato(Integer fDomandaDerubato) {
+		this.fDomandaDerubato = fDomandaDerubato;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_derubato")
+	public Integer getgDomandaDerubato() {
+		return gDomandaDerubato;
+	}
+
+	public void setgDomandaDerubato(Integer gDomandaDerubato) {
+		this.gDomandaDerubato = gDomandaDerubato;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_tradimento")
+	public Integer getfDomandaTradimento() {
+		return fDomandaTradimento;
+	}
+
+	public void setfDomandaTradimento(Integer fDomandaTradimento) {
+		this.fDomandaTradimento = fDomandaTradimento;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_tradimento")
+	public Integer getgDomandaTradimento() {
+		return gDomandaTradimento;
+	}
+
+	public void setgDomandaTradimento(Integer gDomandaTradimento) {
+		this.gDomandaTradimento = gDomandaTradimento;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_ospiti_indesiderati")
+	public Integer getfDomandaOspitiIndesiderati() {
+		return fDomandaOspitiIndesiderati;
+	}
+
+	public void setfDomandaOspitiIndesiderati(Integer fDomandaOspitiIndesiderati) {
+		this.fDomandaOspitiIndesiderati = fDomandaOspitiIndesiderati;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_ospiti_indesiderati")
+	public Integer getgDomandaOspitiIndesiderati() {
+		return gDomandaOspitiIndesiderati;
+	}
+
+	public void setgDomandaOspitiIndesiderati(Integer gDomandaOspitiIndesiderati) {
+		this.gDomandaOspitiIndesiderati = gDomandaOspitiIndesiderati;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_persone_sconosciute")
+	public Integer getfDomandaPersoneSconosciute() {
+		return fDomandaPersoneSconosciute;
+	}
+
+	public void setfDomandaPersoneSconosciute(Integer fDomandaPersoneSconosciute) {
+		this.fDomandaPersoneSconosciute = fDomandaPersoneSconosciute;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_persone_sconosciute")
+	public Integer getgDomandaPersoneSconosciute() {
+		return gDomandaPersoneSconosciute;
+	}
+
+	public void setgDomandaPersoneSconosciute(Integer gDomandaPersoneSconosciute) {
+		this.gDomandaPersoneSconosciute = gDomandaPersoneSconosciute;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_abitazione")
+	public Integer getfDomandaAbitazione() {
+		return fDomandaAbitazione;
+	}
+
+	public void setfDomandaAbitazione(Integer fDomandaAbitazione) {
+		this.fDomandaAbitazione = fDomandaAbitazione;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_abitazione")
+	public Integer getgDomandaAbitazione() {
+		return gDomandaAbitazione;
+	}
+
+	public void setgDomandaAbitazione(Integer gDomandaAbitazione) {
+		this.gDomandaAbitazione = gDomandaAbitazione;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_abbandono")
+	public Integer getfDomandaAbbandono() {
+		return fDomandaAbbandono;
+	}
+
+	public void setfDomandaAbbandono(Integer fDomandaAbbandono) {
+		this.fDomandaAbbandono = fDomandaAbbandono;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_abbandono")	
+	public Integer getgDomandaAbbandono() {
+		return gDomandaAbbandono;
+	}
+
+	public void setgDomandaAbbandono(Integer gDomandaAbbandono) {
+		this.gDomandaAbbandono = gDomandaAbbandono;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_presenze")
+	public Integer getfDomandaPresenzeInCasa() {
+		return fDomandaPresenzeInCasa;
+	}
+
+	public void setfDomandaPresenzeInCasa(Integer fDomandaPresenzeInCasa) {
+		this.fDomandaPresenzeInCasa = fDomandaPresenzeInCasa;
+	}
+	
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_presenze")
+	public Integer getgDomandaPresenzeInCasa() {
+		return gDomandaPresenzeInCasa;
+	}
+
+	public void setgDomandaPresenzeInCasa(Integer gDomandaPresenzeInCasa) {
+		this.gDomandaPresenzeInCasa = gDomandaPresenzeInCasa;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_altre_cose")
+	public Integer getfDomandaAltreCose() {
+		return fDomandaAltreCose;
+	}
+
+	public void setfDomandaAltreCose(Integer fDomandaAltreCose) {
+		this.fDomandaAltreCose = fDomandaAltreCose;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_altre_cose")
+	public Integer getgDomandaAltreCose() {
+		return gDomandaAltreCose;
+	}
+
+	public void setgDomandaAltreCose(Integer gDomandaAltreCose) {
+		this.gDomandaAltreCose = gDomandaAltreCose;
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdDeliri() {
+		return idDeliri;
+	}
+
+	public void setIdDeliri(Integer idDeliri) {
+		this.idDeliri = idDeliri;
+	}
+}

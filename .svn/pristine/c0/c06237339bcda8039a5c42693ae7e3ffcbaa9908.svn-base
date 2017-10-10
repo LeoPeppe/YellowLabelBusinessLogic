@@ -1,0 +1,342 @@
+package it.cle.project.model.composti.npi;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+@Entity
+@Table(name = "depressione_disforia")
+@XmlRootElement(name="depressione_disforia")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class DepressioneDisforia {
+
+	/** The id DepressioneDisforia */
+	private Integer idDepressioneDisforia;
+	
+	/** Questo flag indica se il questionario è applicabile o meno */
+	private Boolean nonApplicabile;
+	
+	/** Questo campo indica la motivazione in caso di non applicabilità */
+	private String motivazione;
+	
+	/** 
+	 * Questo campo indica la seguente domanda: 
+	 * Il paziente ha periodi durante i quali rifiuta di collaborare o durante i quali non si lascia aiutare dagli 
+	 * altri? È difficile da gestire?
+	 *  
+	 * NO (se no, procedere con la successiva domanda di screening) 
+	 * SÌ (procedere con le seguenti domande)
+	*/
+	private Boolean domandaPreliminare;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente ha dei periodi di malinconia o di pianto che sembrano indicare tristezza?
+	 * */
+	private Integer fDomandaMalinconia;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente ha dei periodi di malinconia o di pianto che sembrano indicare tristezza? 
+	 * */
+	private Integer gDomandaMalinconia;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente parla o si comporta come se fosse triste o giù di corda?
+	 * */
+	private Integer fDomandaTristezza;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente parla o si comporta come se fosse triste o giù di corda?
+	 * */
+	private Integer gDomandaTristezza;	
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente si abbatte o dice di sentirsi un fallito?
+	 * */
+	private Integer fDomandaFallito;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente si abbatte o dice di sentirsi un fallito?
+	 * */
+	private Integer gDomandaFallito;		
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente dice di essere una persona cattiva o si aspetta di essere punito?
+	 * */
+	private Integer fDomandaPersonaCattiva;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente dice di essere una persona cattiva o si aspetta di essere punito?
+	 * */
+	private Integer gDomandaPersonaCattiva;	
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente sembra molto scoraggiato o dice di non avere speranze per il futuro?
+	 * */
+	private Integer fDomandaScoraggiato;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente sembra molto scoraggiato o dice di non avere speranze per il futuro?
+	 * */
+	private Integer gDomandaScoraggiato;		
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente dice di essere un peso per la propria famiglia o che la propria famiglia starebbe meglio senza di lui?
+	 * */
+	private Integer fDomandaPeso;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente dice di essere un peso per la propria famiglia o che la propria famiglia starebbe meglio senza di lui?
+	 * */
+	private Integer gDomandaPeso;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente dice di desiderare la morte o dice di volersi uccidere?
+	 * */
+	private Integer fDomandaSuicidio;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente dice di desiderare la morte o dice di volersi uccidere?
+	 * */
+	private Integer gDomandaSuicidio;	
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il paziente presenta altri segni di depressione o di tristezza?
+	 * */
+	private Integer fDomandaAltriSegni;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il paziente presenta altri segni di depressione o di tristezza?
+	 * */
+	private Integer gDomandaAltriSegni;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdDepressioneDisforia() {
+		return idDepressioneDisforia;
+	}
+
+	public void setIdDepressioneDisforia(Integer idDepressioneDisforia) {
+		this.idDepressioneDisforia = idDepressioneDisforia;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "non_applicabile")
+	public Boolean getNonApplicabile() {
+		return nonApplicabile;
+	}
+
+	public void setNonApplicabile(Boolean nonApplicabile) {
+		this.nonApplicabile = nonApplicabile;
+	}
+
+	@Column(name = "motivazione")
+	public String getMotivazione() {
+		return motivazione;
+	}
+
+	public void setMotivazione(String motivazione) {
+		this.motivazione = motivazione;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_preliminare")
+	public Boolean getDomandaPreliminare() {
+		return domandaPreliminare;
+	}
+
+	public void setDomandaPreliminare(Boolean domandaPreliminare) {
+		this.domandaPreliminare = domandaPreliminare;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_malinconia")
+	public Integer getfDomandaMalinconia() {
+		return fDomandaMalinconia;
+	}
+
+	public void setfDomandaMalinconia(Integer fDomandaMalinconia) {
+		this.fDomandaMalinconia = fDomandaMalinconia;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_malinconia")
+	public Integer getgDomandaMalinconia() {
+		return gDomandaMalinconia;
+	}
+
+	public void setgDomandaMalinconia(Integer gDomandaMalinconia) {
+		this.gDomandaMalinconia = gDomandaMalinconia;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_tristezza")	
+	public Integer getfDomandaTristezza() {
+		return fDomandaTristezza;
+	}
+
+	public void setfDomandaTristezza(Integer fDomandaTristezza) {
+		this.fDomandaTristezza = fDomandaTristezza;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_tristezza")
+	public Integer getgDomandaTristezza() {
+		return gDomandaTristezza;
+	}
+
+	public void setgDomandaTristezza(Integer gDomandaTristezza) {
+		this.gDomandaTristezza = gDomandaTristezza;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_fallito")	
+	public Integer getfDomandaFallito() {
+		return fDomandaFallito;
+	}
+
+	public void setfDomandaFallito(Integer fDomandaFallito) {
+		this.fDomandaFallito = fDomandaFallito;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_fallito")
+	public Integer getgDomandaFallito() {
+		return gDomandaFallito;
+	}
+
+	public void setgDomandaFallito(Integer gDomandaFallito) {
+		this.gDomandaFallito = gDomandaFallito;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_persona_cattiva")	
+	public Integer getfDomandaPersonaCattiva() {
+		return fDomandaPersonaCattiva;
+	}
+
+	public void setfDomandaPersonaCattiva(Integer fDomandaPersonaCattiva) {
+		this.fDomandaPersonaCattiva = fDomandaPersonaCattiva;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_persona_cattiva")
+	public Integer getgDomandaPersonaCattiva() {
+		return gDomandaPersonaCattiva;
+	}
+
+	public void setgDomandaPersonaCattiva(Integer gDomandaPersonaCattiva) {
+		this.gDomandaPersonaCattiva = gDomandaPersonaCattiva;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_scoraggiato")	
+	public Integer getfDomandaScoraggiato() {
+		return fDomandaScoraggiato;
+	}
+
+	public void setfDomandaScoraggiato(Integer fDomandaScoraggiato) {
+		this.fDomandaScoraggiato = fDomandaScoraggiato;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_scoraggiato")
+	public Integer getgDomandaScoraggiato() {
+		return gDomandaScoraggiato;
+	}
+
+	public void setgDomandaScoraggiato(Integer gDomandaScoraggiato) {
+		this.gDomandaScoraggiato = gDomandaScoraggiato;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_peso")	
+	public Integer getfDomandaPeso() {
+		return fDomandaPeso;
+	}
+
+	public void setfDomandaPeso(Integer fDomandaPeso) {
+		this.fDomandaPeso = fDomandaPeso;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_peso")
+	public Integer getgDomandaPeso() {
+		return gDomandaPeso;
+	}
+
+	public void setgDomandaPeso(Integer gDomandaPeso) {
+		this.gDomandaPeso = gDomandaPeso;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_suicidio")
+	public Integer getfDomandaSuicidio() {
+		return fDomandaSuicidio;
+	}
+
+	public void setfDomandaSuicidio(Integer fDomandaSuicidio) {
+		this.fDomandaSuicidio = fDomandaSuicidio;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_suicidio")
+	public Integer getgDomandaSuicidio() {
+		return gDomandaSuicidio;
+	}
+
+	public void setgDomandaSuicidio(Integer gDomandaSuicidio) {
+		this.gDomandaSuicidio = gDomandaSuicidio;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_altri_segni")
+	public Integer getfDomandaAltriSegni() {
+		return fDomandaAltriSegni;
+	}
+
+	public void setfDomandaAltriSegni(Integer fDomandaAltriSegni) {
+		this.fDomandaAltriSegni = fDomandaAltriSegni;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_altri_segni")
+	public Integer getgDomandaAltriSegni() {
+		return gDomandaAltriSegni;
+	}
+
+	public void setgDomandaAltriSegni(Integer gDomandaAltriSegni) {
+		this.gDomandaAltriSegni = gDomandaAltriSegni;
+	}	
+	
+	
+}

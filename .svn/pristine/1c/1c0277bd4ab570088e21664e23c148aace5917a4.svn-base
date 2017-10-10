@@ -1,0 +1,81 @@
+package it.cle.project.service.impl;
+
+import it.cle.project.dao.IndiceVPOTDao;
+import it.cle.project.model.IndiceVPOT;
+import it.cle.project.service.IndiceVPOTService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+
+@Service("indiceVPOTService")
+@Transactional
+public class IndiceVPOTServiceImpl implements IndiceVPOTService {
+	
+	private static final String vpot1="Poco probabili significativi recuperi in autonomia";
+	private static final String vpot2="Vi è la possibilità di recuperare l'autonomia fino a punteggio <= 3"
+			+ "in almeno 1 item del Barthel ADL o MOBILITA'";
+	private static final String vpot3="Buon potenziale residuo (anche in patologia cronico-degenerativa,se presente"
+			+ "sindrome ipocinetica da assistenza inadeguata)";
+	private static final String vpot4="Elevato potenziale residuo dopo evento acuto, con scarsa probabilità di recupero spontaneo";
+	
+
+	
+	@Autowired
+	private IndiceVPOTDao dao;
+
+	@Override
+	public Integer calcolaVPOT(IndiceVPOT indiceVPOT) {
+		Integer vpot= null;
+		
+		vpot= indiceVPOT.getVpot();
+		
+		return vpot;
+	}
+	
+	@Override
+	public String codificaVPOT(Integer vpot) {
+		String vpotCodificato = "";
+		
+		if(vpot == 0){
+			vpotCodificato = vpot1;
+		}
+		if(vpot == 5){
+			vpotCodificato = vpot2;
+		}
+		if(vpot == 20){
+			vpotCodificato = vpot3;
+		}
+		if(vpot == 25){
+			vpotCodificato = vpot4;
+		}
+		
+		return vpotCodificato;
+	}
+	
+	
+	@Override
+	public void insert(IndiceVPOT indiceVPOT) {
+		dao.create(indiceVPOT);
+		
+	}
+
+	@Override
+	public IndiceVPOT selectById(Integer idIndiceVPOT) {
+		return dao.get(idIndiceVPOT);
+	}
+
+	
+	
+
+
+
+
+
+	
+
+	
+	
+
+}

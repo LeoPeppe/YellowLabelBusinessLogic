@@ -1,0 +1,375 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DettaglioLineeDTO.
+ */
+@XmlRootElement
+public class DettaglioLineeDTO implements Serializable {
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The numero linea. */
+	private Integer numeroLinea;
+	
+	/** The tipo cessione prestazione. */
+	private String tipoCessionePrestazione;
+	
+	/** The codice articolo. */
+	private CodiceArticoloDTO codiceArticolo;
+	
+	/** The descrizione. */
+	private String descrizione;
+	
+	/** The quantita. */
+	private Double quantita;
+	
+	/** The unita misura. */
+	private String unitaMisura;
+	
+	/** The data inizio periodo. */
+	private Date dataInizioPeriodo;
+	
+	/** The data fine periodo. */
+	private Date dataFinePeriodo;
+	
+	/** The prezzo unitario. */
+	private Double prezzoUnitario;
+	
+	/** The sconto maggiorazione. */
+	private ScontoDTO scontoMaggiorazione;
+	
+	/** The prezzo totale. */
+	private Double prezzoTotale;
+	
+	/** The aliquota iva. */
+	private Double aliquotaIva;
+	
+	/** The ritenuta. */
+	private String ritenuta;
+	
+	/** The natura. */
+	private String natura;
+	
+	/** The riferimento amministrazione. */
+	private String riferimentoAmministrazione;
+	
+	/** The altri dati gestionali. */
+	private DatiGestionaliDTO altriDatiGestionali;
+	
+	
+	/**
+	 * Gets the numero linea.
+	 *
+	 * @return the numero linea
+	 */
+	public Integer getNumeroLinea() {
+		return numeroLinea;
+	}
+	
+	/**
+	 * Sets the numero linea.
+	 *
+	 * @param numeroLinea the new numero linea
+	 */
+	@XmlElement(name="NumeroLinea")
+	public void setNumeroLinea(Integer numeroLinea) {
+		this.numeroLinea = numeroLinea;
+	}
+	
+	/**
+	 * Gets the tipo cessione prestazione.
+	 *
+	 * @return the tipo cessione prestazione
+	 */
+	public String getTipoCessionePrestazione() {
+		return tipoCessionePrestazione;
+	}
+	
+	/**
+	 * Sets the tipo cessione prestazione.
+	 *
+	 * @param tipoCessionePrestazione the new tipo cessione prestazione
+	 */
+	@XmlElement(name="TipoCessionePrestazione")
+	public void setTipoCessionePrestazione(String tipoCessionePrestazione) {
+		this.tipoCessionePrestazione = tipoCessionePrestazione;
+	}
+	
+	/**
+	 * Gets the codice articolo.
+	 *
+	 * @return the codice articolo
+	 */
+	public CodiceArticoloDTO getCodiceArticolo() {
+		return codiceArticolo;
+	}
+	
+	/**
+	 * Sets the codice articolo.
+	 *
+	 * @param codiceArticolo the new codice articolo
+	 */
+	@XmlElement(name="CodiceArticolo")
+	public void setCodiceArticolo(CodiceArticoloDTO codiceArticolo) {
+		this.codiceArticolo = codiceArticolo;
+	}
+	
+	/**
+	 * Gets the descrizione.
+	 *
+	 * @return the descrizione
+	 */
+	public String getDescrizione() {
+		return descrizione;
+	}
+	
+	/**
+	 * Sets the descrizione.
+	 *
+	 * @param descrizione the new descrizione
+	 */
+	@XmlElement(name="Descrizione")
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+	
+	/**
+	 * Gets the quantita.
+	 *
+	 * @return the quantita
+	 */
+	public Double getQuantita() {
+		return quantita;
+	}
+	
+	/**
+	 * Sets the quantita.
+	 *
+	 * @param quantita the new quantita
+	 */
+	@XmlElement(name="Quantita")
+	public void setQuantita(Double quantita) {
+		this.quantita = quantita;
+	}
+	
+	/**
+	 * Gets the unita misura.
+	 *
+	 * @return the unita misura
+	 */
+	public String getUnitaMisura() {
+		return unitaMisura;
+	}
+	
+	/**
+	 * Sets the unita misura.
+	 *
+	 * @param unitaMisura the new unita misura
+	 */
+	@XmlElement(name="UnitaMisura")
+	public void setUnitaMisura(String unitaMisura) {
+		this.unitaMisura = unitaMisura;
+	}
+	
+	/**
+	 * Gets the data inizio periodo.
+	 *
+	 * @return the data inizio periodo
+	 */
+	public Date getDataInizioPeriodo() {
+		return dataInizioPeriodo;
+	}
+	
+	/**
+	 * Sets the data inizio periodo.
+	 *
+	 * @param dataInizioPeriodo the new data inizio periodo
+	 */
+	@XmlElement(name="DataInizioPeriodo")
+	public void setDataInizioPeriodo(Date dataInizioPeriodo) {
+		this.dataInizioPeriodo = dataInizioPeriodo;
+	}
+	
+	/**
+	 * Gets the data fine periodo.
+	 *
+	 * @return the data fine periodo
+	 */
+	public Date getDataFinePeriodo() {
+		return dataFinePeriodo;
+	}
+	
+	/**
+	 * Sets the data fine periodo.
+	 *
+	 * @param dataFinePeriodo the new data fine periodo
+	 */
+	@XmlElement(name="DataFinePeriodo")
+	public void setDataFinePeriodo(Date dataFinePeriodo) {
+		this.dataFinePeriodo = dataFinePeriodo;
+	}
+	
+	/**
+	 * Gets the prezzo unitario.
+	 *
+	 * @return the prezzo unitario
+	 */
+	public Double getPrezzoUnitario() {
+		return prezzoUnitario;
+	}
+	
+	/**
+	 * Sets the prezzo unitario.
+	 *
+	 * @param prezzoUnitario the new prezzo unitario
+	 */
+	@XmlElement(name="PrezzoUnitario")
+	public void setPrezzoUnitario(Double prezzoUnitario) {
+		this.prezzoUnitario = prezzoUnitario;
+	}
+	
+	/**
+	 * Gets the sconto maggiorazione.
+	 *
+	 * @return the sconto maggiorazione
+	 */
+	public ScontoDTO getScontoMaggiorazione() {
+		return scontoMaggiorazione;
+	}
+	
+	/**
+	 * Sets the sconto maggiorazione.
+	 *
+	 * @param scontoMaggiorazione the new sconto maggiorazione
+	 */
+	@XmlElement(name="ScontoMaggiorazione")
+	public void setScontoMaggiorazione(ScontoDTO scontoMaggiorazione) {
+		this.scontoMaggiorazione = scontoMaggiorazione;
+	}
+	
+	/**
+	 * Gets the prezzo totale.
+	 *
+	 * @return the prezzo totale
+	 */
+	public Double getPrezzoTotale() {
+		return prezzoTotale;
+	}
+	
+	/**
+	 * Sets the prezzo totale.
+	 *
+	 * @param prezzoTotale the new prezzo totale
+	 */
+	@XmlElement(name="PrezzoTotale")
+	public void setPrezzoTotale(Double prezzoTotale) {
+		this.prezzoTotale = prezzoTotale;
+	}
+	
+	/**
+	 * Gets the aliquota iva.
+	 *
+	 * @return the aliquota iva
+	 */
+	public Double getAliquotaIva() {
+		return aliquotaIva;
+	}
+	
+	/**
+	 * Sets the aliquota iva.
+	 *
+	 * @param aliquotaIva the new aliquota iva
+	 */
+	@XmlElement(name="AliquotaIVA")
+	public void setAliquotaIva(Double aliquotaIva) {
+		this.aliquotaIva = aliquotaIva;
+	}
+	
+	/**
+	 * Gets the ritenuta.
+	 *
+	 * @return the ritenuta
+	 */
+	public String getRitenuta() {
+		return ritenuta;
+	}
+	
+	/**
+	 * Sets the ritenuta.
+	 *
+	 * @param ritenuta the new ritenuta
+	 */
+	@XmlElement(name="Ritenuta")
+	public void setRitenuta(String ritenuta) {
+		this.ritenuta = ritenuta;
+	}
+	
+	/**
+	 * Gets the natura.
+	 *
+	 * @return the natura
+	 */
+	public String getNatura() {
+		return natura;
+	}
+	
+	/**
+	 * Sets the natura.
+	 *
+	 * @param natura the new natura
+	 */
+	@XmlElement(name="Natura")
+	public void setNatura(String natura) {
+		this.natura = natura;
+	}
+	
+	/**
+	 * Gets the riferimento amministrazione.
+	 *
+	 * @return the riferimento amministrazione
+	 */
+	public String getRiferimentoAmministrazione() {
+		return riferimentoAmministrazione;
+	}
+	
+	/**
+	 * Sets the riferimento amministrazione.
+	 *
+	 * @param riferimentoAmministrazione the new riferimento amministrazione
+	 */
+	@XmlElement(name="RiferimentoAmministrazione")
+	public void setRiferimentoAmministrazione(String riferimentoAmministrazione) {
+		this.riferimentoAmministrazione = riferimentoAmministrazione;
+	}
+	
+	/**
+	 * Gets the altri dati gestionali.
+	 *
+	 * @return the altri dati gestionali
+	 */
+	public DatiGestionaliDTO getAltriDatiGestionali() {
+		return altriDatiGestionali;
+	}
+	
+	/**
+	 * Sets the altri dati gestionali.
+	 *
+	 * @param altriDatiGestionali the new altri dati gestionali
+	 */
+	@XmlElement(name="AltriDatiGestionali")
+	public void setAltriDatiGestionali(DatiGestionaliDTO altriDatiGestionali) {
+		this.altriDatiGestionali = altriDatiGestionali;
+	}
+	
+	
+	
+
+}

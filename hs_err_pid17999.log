@@ -1,0 +1,576 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f598598fc0e, pid=17999, tid=140022270748416
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_80-b15) (build 1.7.0_80-b15)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.80-b11 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# V  [libjvm.so+0x6a9c0e]  JNIHandles::checked_resolve_jmethod_id(_jmethodID*)+0xe
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f59800a3800):  JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_vm, id=18017, stack(0x00007f5979a56000,0x00007f5979b57000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=128 (), si_addr=0x0000000000000000
+
+Registers:
+RAX=0x0000000000000001, RBX=0x00007f59800060b0, RCX=0x00007f5986b5b2c0, RDX=0x00007f5986135de0
+RSP=0x00007f5979b556d0, RBP=0x00007f5979b556e0, RSI=0x00007f59800a3800, RDI=0x003b636e79532400
+R8 =0x00007f5950008dc0, R9 =0x0000000000000000, R10=0x0000000000000040, R11=0x00007f59862f6350
+R12=0x0000000000000017, R13=0x003b636e79532400, R14=0x00007f59800a3800, R15=0x00007f5979b557e7
+RIP=0x00007f598598fc0e, EFLAGS=0x0000000000010206, CSGSFS=0xffff000000000033, ERR=0x0000000000000000
+  TRAPNO=0x000000000000000d
+
+Top of Stack: (sp=0x00007f5979b556d0)
+0x00007f5979b556d0:   0000000000000074 00007f59800060b0
+0x00007f5979b556e0:   00007f5979b55750 00007f598598103e
+0x00007f5979b556f0:   0000000000000073 00007f5979b55700
+0x00007f5979b55700:   00007f59800a3800 0000000000000000
+0x00007f5979b55710:   00007f5900000000 0000000000000000
+0x00007f5979b55720:   00007f5979b55740 00007f598499b120
+0x00007f5979b55730:   003b636e79532400 00007f5979b557e7
+0x00007f5979b55740:   0000000000000005 00007f5979b557e7
+0x00007f5979b55750:   00007f5979b55780 00007f5984786472
+0x00007f5979b55760:   00007f5979b55780 003b636e79532400
+0x00007f5979b55770:   00007f5979b55850 0000000000000028
+0x00007f5979b55780:   00007f5979b55810 00007f5984767a60
+0x00007f5979b55790:   00007f5979b557c8 00007f5979b557c0
+0x00007f5979b557a0:   00007f5979b557b8 00007f5979b557dc
+0x00007f5979b557b0:   0000000150008870 0000000000000000
+0x00007f5979b557c0:   0000000000000000 0000000000000000
+0x00007f5979b557d0:   00007f5950008630 0000000a79b55850
+0x00007f5979b557e0:   0000000000000006 0000000000000002
+0x00007f5979b557f0:   000000000000000f 0000000000000002
+0x00007f5979b55800:   00000000000f0200 000000000000000f
+0x00007f5979b55810:   00007f5979b55a60 00007f5984772976
+0x00007f5979b55820:   0000729b00000013 00007f59850f0200
+0x00007f5979b55830:   00007f5948000fb0 00007f59800a3800
+0x00007f5979b55840:   00007f5979b55850 00007f5979b559e0
+0x00007f5979b55850:   00007f595000908b 00007f590000018d
+0x00007f5979b55860:   00007f595000c090 000000000000012c
+0x00007f5979b55870:   00007f5979b558a0 00007f595000c090
+0x00007f5979b55880:   0000000000000000 0000729b0000001c
+0x00007f5979b55890:   00007f5900005980 00007f5979b558a0
+0x00007f5979b558a0:   597f000006000000 0d000000580c0050
+0x00007f5979b558b0:   6c417463656c6573 000000726573556c
+0x00007f5979b558c0:   732f67726f4c284e 617266676e697270 
+
+Instructions: (pc=0x00007f598598fc0e)
+0x00007f598598fbee:   20 00 e9 52 ff ff ff 90 90 90 90 90 90 90 90 90
+0x00007f598598fbfe:   90 90 55 48 89 e5 53 48 83 ec 08 48 85 ff 74 3c
+0x00007f598598fc0e:   48 8b 1f 48 85 db 74 34 48 b8 fe fe fe fe fe fe
+0x00007f598598fc1e:   fe fe 48 39 c3 74 25 48 8b 05 6c 27 76 00 80 38 
+
+Register to memory mapping:
+
+RAX=0x0000000000000001 is an unknown value
+RBX=0x00007f59800060b0 is an unknown value
+RCX=0x00007f5986b5b2c0: <offset 0x2182c0> in /lib/x86_64-linux-gnu/libpthread.so.0 at 0x00007f5986943000
+RDX=0x00007f5986135de0: <offset 0xe4fde0> in /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/server/libjvm.so at 0x00007f59852e6000
+RSP=0x00007f5979b556d0 is pointing into the stack for thread: 0x00007f59800a3800
+RBP=0x00007f5979b556e0 is pointing into the stack for thread: 0x00007f59800a3800
+RSI=0x00007f59800a3800 is a thread
+RDI=0x003b636e79532400 is an unknown value
+R8 =0x00007f5950008dc0 is an unknown value
+R9 =0x0000000000000000 is an unknown value
+R10=0x0000000000000040 is an unknown value
+R11=0x00007f59862f6350: <offset 0x196350> in /lib/x86_64-linux-gnu/libc.so.6 at 0x00007f5986160000
+R12=0x0000000000000017 is an unknown value
+R13=0x003b636e79532400 is an unknown value
+R14=0x00007f59800a3800 is a thread
+R15=0x00007f5979b557e7 is pointing into the stack for thread: 0x00007f59800a3800
+
+
+Stack: [0x00007f5979a56000,0x00007f5979b57000],  sp=0x00007f5979b556d0,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x6a9c0e]  JNIHandles::checked_resolve_jmethod_id(_jmethodID*)+0xe
+V  [libjvm.so+0x69b03e]  jvmti_IsMethodSynthetic+0x23e
+C  [libjdwp.so+0x25472]  isMethodSynthetic+0x42
+C  [libjdwp.so+0x6a60]  methods1+0x1b0
+C  [libjdwp.so+0x11976]  debugLoop_run+0x2b6
+C  [libjdwp.so+0x243af]  attachThread+0x2f
+V  [libjvm.so+0x6ffad7]  JvmtiAgentThread::call_start_function()+0x97
+V  [libjvm.so+0x95bfff]  JavaThread::thread_main_inner()+0xdf
+V  [libjvm.so+0x95c105]  JavaThread::run()+0xf5
+V  [libjvm.so+0x8238c8]  java_start(Thread*)+0x108
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f59800ae800 JavaThread "Service Thread" daemon [_thread_blocked, id=18026, stack(0x00007f5979551000,0x00007f5979652000)]
+  0x00007f59800ac800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=18025, stack(0x00007f5979652000,0x00007f5979753000)]
+  0x00007f59800a9800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=18024, stack(0x00007f5979753000,0x00007f5979854000)]
+  0x00007f5950001000 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=18021, stack(0x00007f5979854000,0x00007f5979955000)]
+  0x00007f59800a7000 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=18018, stack(0x00007f5979955000,0x00007f5979a56000)]
+=>0x00007f59800a3800 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_vm, id=18017, stack(0x00007f5979a56000,0x00007f5979b57000)]
+  0x00007f5980095000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=18015, stack(0x00007f5979d5b000,0x00007f5979e5c000)]
+  0x00007f5980075000 JavaThread "Finalizer" daemon [_thread_blocked, id=18013, stack(0x00007f5979e5c000,0x00007f5979f5d000)]
+  0x00007f5980073000 JavaThread "Reference Handler" daemon [_thread_blocked, id=18012, stack(0x00007f5979f5d000,0x00007f597a05e000)]
+  0x00007f598000f000 JavaThread "main" [_thread_blocked, id=18005, stack(0x00007f5986c54000,0x00007f5986d55000)]
+
+Other Threads:
+  0x00007f598006e800 VMThread [stack: 0x00007f597a05e000,0x00007f597a15f000] [id=18011]
+  0x00007f59800b9800 WatcherThread [stack: 0x00007f5979450000,0x00007f5979551000] [id=18027]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 54784K, used 2826K [0x00000007c2f00000, 0x00000007c6c00000, 0x0000000800000000)
+  eden space 47104K, 6% used [0x00000007c2f00000,0x00000007c31c2a00,0x00000007c5d00000)
+  from space 7680K, 0% used [0x00000007c6480000,0x00000007c6480000,0x00000007c6c00000)
+  to   space 7680K, 0% used [0x00000007c5d00000,0x00000007c5d00000,0x00000007c6480000)
+ ParOldGen       total 124928K, used 0K [0x0000000748e00000, 0x0000000750800000, 0x00000007c2f00000)
+  object space 124928K, 0% used [0x0000000748e00000,0x0000000748e00000,0x0000000750800000)
+ PSPermGen       total 21504K, used 2647K [0x0000000743c00000, 0x0000000745100000, 0x0000000748e00000)
+  object space 21504K, 12% used [0x0000000743c00000,0x0000000743e95d78,0x0000000745100000)
+
+Card table byte_map: [0x00007f597c1ce000,0x00007f597c7b1000] byte_map_base: 0x00007f59787b0000
+
+Polling page: 0x00007f5986d82000
+
+Code Cache  [0x00007f597c7b1000, 0x00007f597ca21000, 0x00007f597f7b1000)
+ total_blobs=180 nmethods=6 adapters=136 free_code_cache=48762Kb largest_free_block=49918528
+
+Compilation events (10 events):
+Event: 0,156 Thread 0x00007f59800ac800 nmethod 2 0x00007f597c80e990 code [0x00007f597c80eae0, 0x00007f597c80ec98]
+Event: 0,158 Thread 0x00007f59800a9800 nmethod 1 0x00007f597c812590 code [0x00007f597c8126e0, 0x00007f597c812938]
+Event: 0,159 Thread 0x00007f59800ac800    3             java.lang.String::charAt (29 bytes)
+Event: 0,160 Thread 0x00007f59800ac800 nmethod 3 0x00007f597c812210 code [0x00007f597c812360, 0x00007f597c812478]
+Event: 0,160 Thread 0x00007f59800ac800    4 %           sun.nio.cs.UTF_8$Encoder::encode @ 20 (361 bytes)
+Event: 0,169 Thread 0x00007f59800a9800    5             java.io.UnixFileSystem::normalize (75 bytes)
+Event: 0,175 Thread 0x00007f59800a9800 nmethod 5 0x00007f597c811990 code [0x00007f597c811ae0, 0x00007f597c811db8]
+Event: 0,175 Thread 0x00007f59800a9800    6             java.lang.String::lastIndexOf (52 bytes)
+Event: 0,179 Thread 0x00007f59800ac800 nmethod 4% 0x00007f597c812c90 code [0x00007f597c812e40, 0x00007f597c813748]
+Event: 0,179 Thread 0x00007f59800a9800 nmethod 6 0x00007f597c814110 code [0x00007f597c814260, 0x00007f597c8143f8]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (2 events):
+Event: 0,168 Thread 0x00007f598000f000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f597c812860 method=java.lang.String.indexOf(II)I @ 49
+Event: 0,174 Thread 0x00007f598000f000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f597c80ec4c method=java.lang.String.hashCode()I @ 14
+
+Internal exceptions (2 events):
+Event: 0,023 Thread 0x00007f598000f000 Threw 0x00000007c2f0f0c0 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u80/2329/hotspot/src/share/vm/prims/jni.cpp:3991
+Event: 0,147 Thread 0x00007f598000f000 Threw 0x00000007c2f77990 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u80/2329/hotspot/src/share/vm/prims/jvm.cpp:1319
+
+Events (10 events):
+Event: 1408,616 Executing VM operation: ChangeBreakpoints
+Event: 1408,616 Executing VM operation: ChangeBreakpoints done
+Event: 1408,625 Executing VM operation: ChangeBreakpoints
+Event: 1408,626 Executing VM operation: ChangeBreakpoints done
+Event: 1408,634 Executing VM operation: ChangeBreakpoints
+Event: 1408,634 Executing VM operation: ChangeBreakpoints done
+Event: 1408,642 Executing VM operation: ChangeBreakpoints
+Event: 1408,642 Executing VM operation: ChangeBreakpoints done
+Event: 1436,201 Executing VM operation: RedefineClasses
+Event: 1436,201 Executing VM operation: RedefineClasses done
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:05 6953890                            /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/bin/java
+00600000-00601000 rw-p 00000000 08:05 6953890                            /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/bin/java
+00e5d000-00e7e000 rw-p 00000000 00:00 0                                  [heap]
+743c00000-745100000 rw-p 00000000 00:00 0 
+745100000-748e00000 rw-p 00000000 00:00 0 
+748e00000-750800000 rw-p 00000000 00:00 0 
+750800000-7c2f00000 rw-p 00000000 00:00 0 
+7c2f00000-7c6c00000 rw-p 00000000 00:00 0 
+7c6c00000-800000000 rw-p 00000000 00:00 0 
+7f5934000000-7f5934021000 rw-p 00000000 00:00 0 
+7f5934021000-7f5938000000 ---p 00000000 00:00 0 
+7f5938000000-7f5938021000 rw-p 00000000 00:00 0 
+7f5938021000-7f593c000000 ---p 00000000 00:00 0 
+7f593c000000-7f593c096000 rw-p 00000000 00:00 0 
+7f593c096000-7f5940000000 ---p 00000000 00:00 0 
+7f5940000000-7f59400c3000 rw-p 00000000 00:00 0 
+7f59400c3000-7f5944000000 ---p 00000000 00:00 0 
+7f5944000000-7f5944021000 rw-p 00000000 00:00 0 
+7f5944021000-7f5948000000 ---p 00000000 00:00 0 
+7f5948000000-7f5948021000 rw-p 00000000 00:00 0 
+7f5948021000-7f594c000000 ---p 00000000 00:00 0 
+7f594c000000-7f594c021000 rw-p 00000000 00:00 0 
+7f594c021000-7f5950000000 ---p 00000000 00:00 0 
+7f5950000000-7f5950026000 rw-p 00000000 00:00 0 
+7f5950026000-7f5954000000 ---p 00000000 00:00 0 
+7f5954000000-7f5954021000 rw-p 00000000 00:00 0 
+7f5954021000-7f5958000000 ---p 00000000 00:00 0 
+7f5958000000-7f5958021000 rw-p 00000000 00:00 0 
+7f5958021000-7f595c000000 ---p 00000000 00:00 0 
+7f595c000000-7f595c021000 rw-p 00000000 00:00 0 
+7f595c021000-7f5960000000 ---p 00000000 00:00 0 
+7f59621e0000-7f5968000000 rw-p 00000000 00:00 0 
+7f5968000000-7f5968021000 rw-p 00000000 00:00 0 
+7f5968021000-7f596c000000 ---p 00000000 00:00 0 
+7f596c000000-7f596c021000 rw-p 00000000 00:00 0 
+7f596c021000-7f5970000000 ---p 00000000 00:00 0 
+7f5970000000-7f5970021000 rw-p 00000000 00:00 0 
+7f5970021000-7f5974000000 ---p 00000000 00:00 0 
+7f5974000000-7f5974021000 rw-p 00000000 00:00 0 
+7f5974021000-7f5978000000 ---p 00000000 00:00 0 
+7f59791e8000-7f5979431000 rw-p 00000000 00:00 0 
+7f5979431000-7f5979433000 r--s 0000c000 08:05 15210987                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/catalina-ant.jar
+7f5979433000-7f5979437000 r--s 00036000 08:05 15210999                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/tomcat-dbcp.jar
+7f5979437000-7f597943e000 r--s 0008c000 08:05 15210994                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/jasper.jar
+7f597943e000-7f5979441000 r--s 0001e000 08:05 15210988                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/catalina-ha.jar
+7f5979441000-7f5979444000 r--s 0001c000 08:05 15210993                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/jasper-el.jar
+7f5979444000-7f5979450000 r--s 000b9000 08:05 15210998                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/tomcat-coyote.jar
+7f5979450000-7f5979451000 ---p 00000000 00:00 0 
+7f5979451000-7f5979551000 rw-p 00000000 00:00 0 
+7f5979551000-7f5979554000 ---p 00000000 00:00 0 
+7f5979554000-7f5979652000 rw-p 00000000 00:00 0 
+7f5979652000-7f5979655000 ---p 00000000 00:00 0 
+7f5979655000-7f5979753000 rw-p 00000000 00:00 0 
+7f5979753000-7f5979756000 ---p 00000000 00:00 0 
+7f5979756000-7f5979854000 rw-p 00000000 00:00 0 
+7f5979854000-7f5979857000 ---p 00000000 00:00 0 
+7f5979857000-7f5979955000 rw-p 00000000 00:00 0 
+7f5979955000-7f5979958000 ---p 00000000 00:00 0 
+7f5979958000-7f5979a56000 rw-p 00000000 00:00 0 
+7f5979a56000-7f5979a59000 ---p 00000000 00:00 0 
+7f5979a59000-7f5979b57000 rw-p 00000000 00:00 0 
+7f5979b57000-7f5979b5b000 r-xp 00000000 08:05 8007261                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libdt_socket.so
+7f5979b5b000-7f5979d5a000 ---p 00004000 08:05 8007261                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libdt_socket.so
+7f5979d5a000-7f5979d5b000 rw-p 00003000 08:05 8007261                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libdt_socket.so
+7f5979d5b000-7f5979d5e000 ---p 00000000 00:00 0 
+7f5979d5e000-7f5979e5c000 rw-p 00000000 00:00 0 
+7f5979e5c000-7f5979e5f000 ---p 00000000 00:00 0 
+7f5979e5f000-7f5979f5d000 rw-p 00000000 00:00 0 
+7f5979f5d000-7f5979f60000 ---p 00000000 00:00 0 
+7f5979f60000-7f597a05e000 rw-p 00000000 00:00 0 
+7f597a05e000-7f597a05f000 ---p 00000000 00:00 0 
+7f597a05f000-7f597b15e000 rw-p 00000000 00:00 0 
+7f597b15e000-7f597b31e000 r--s 039fb000 08:05 8019490                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/rt.jar
+7f597b31e000-7f597b9f9000 rw-p 00000000 00:00 0 
+7f597b9f9000-7f597b9fa000 ---p 00000000 00:00 0 
+7f597b9fa000-7f597bafa000 rw-p 00000000 00:00 0 
+7f597bafa000-7f597bafb000 ---p 00000000 00:00 0 
+7f597bafb000-7f597bbfb000 rw-p 00000000 00:00 0 
+7f597bbfb000-7f597bbfc000 ---p 00000000 00:00 0 
+7f597bbfc000-7f597bcfc000 rw-p 00000000 00:00 0 
+7f597bcfc000-7f597bcfd000 ---p 00000000 00:00 0 
+7f597bcfd000-7f597be3a000 rw-p 00000000 00:00 0 
+7f597be3a000-7f597c1ce000 rw-p 00000000 00:00 0 
+7f597c1ce000-7f597c1d9000 rw-p 00000000 00:00 0 
+7f597c1d9000-7f597c1f7000 rw-p 00000000 00:00 0 
+7f597c1f7000-7f597c234000 rw-p 00000000 00:00 0 
+7f597c234000-7f597c5c7000 rw-p 00000000 00:00 0 
+7f597c5c7000-7f597c5e6000 rw-p 00000000 00:00 0 
+7f597c5e6000-7f597c7b0000 rw-p 00000000 00:00 0 
+7f597c7b0000-7f597c7b1000 rw-p 00000000 00:00 0 
+7f597c7b1000-7f597ca21000 rwxp 00000000 00:00 0 
+7f597ca21000-7f597f7b1000 rw-p 00000000 00:00 0 
+7f597f7b1000-7f597f7c8000 r-xp 00000000 08:05 8007244                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libzip.so
+7f597f7c8000-7f597f9c8000 ---p 00017000 08:05 8007244                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libzip.so
+7f597f9c8000-7f597f9c9000 rw-p 00017000 08:05 8007244                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libzip.so
+7f597f9c9000-7f597f9d4000 r-xp 00000000 08:05 18354657                   /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f597f9d4000-7f597fbd3000 ---p 0000b000 08:05 18354657                   /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f597fbd3000-7f597fbd4000 r--p 0000a000 08:05 18354657                   /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f597fbd4000-7f597fbd5000 rw-p 0000b000 08:05 18354657                   /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f597fbd5000-7f597fbdb000 rw-p 00000000 00:00 0 
+7f597fbdb000-7f597fbe6000 r-xp 00000000 08:05 18354728                   /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f597fbe6000-7f597fde5000 ---p 0000b000 08:05 18354728                   /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f597fde5000-7f597fde6000 r--p 0000a000 08:05 18354728                   /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f597fde6000-7f597fde7000 rw-p 0000b000 08:05 18354728                   /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f597fde7000-7f597fdfd000 r-xp 00000000 08:05 18354605                   /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f597fdfd000-7f597fffc000 ---p 00016000 08:05 18354605                   /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f597fffc000-7f597fffd000 r--p 00015000 08:05 18354605                   /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f597fffd000-7f597fffe000 rw-p 00016000 08:05 18354605                   /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f597fffe000-7f5980000000 rw-p 00000000 00:00 0 
+7f5980000000-7f598021b000 rw-p 00000000 00:00 0 
+7f598021b000-7f5984000000 ---p 00000000 00:00 0 
+7f5984000000-7f5984002000 r--s 00010000 08:05 15211000                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/tomcat-i18n-es.jar
+7f5984002000-7f5984015000 r--s 00186000 08:05 15210990                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/catalina.jar
+7f5984015000-7f5984017000 r--s 0000a000 08:05 15211002                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/tomcat-i18n-ja.jar
+7f5984017000-7f598405d000 rw-p 00000000 00:00 0 
+7f598405d000-7f598407b000 rw-p 00000000 00:00 0 
+7f598407b000-7f5984083000 r-xp 00000000 08:05 18354744                   /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f5984083000-7f5984282000 ---p 00008000 08:05 18354744                   /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f5984282000-7f5984283000 r--p 00007000 08:05 18354744                   /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f5984283000-7f5984284000 rw-p 00008000 08:05 18354744                   /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f5984284000-7f598455e000 r--p 00000000 08:05 8126599                    /usr/lib/locale/locale-archive
+7f598455e000-7f5984560000 r-xp 00000000 08:05 8007266                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libnpt.so
+7f5984560000-7f5984760000 ---p 00002000 08:05 8007266                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libnpt.so
+7f5984760000-7f5984761000 rw-p 00002000 08:05 8007266                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libnpt.so
+7f5984761000-7f598479a000 r-xp 00000000 08:05 8007217                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libjdwp.so
+7f598479a000-7f598499a000 ---p 00039000 08:05 8007217                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libjdwp.so
+7f598499a000-7f598499b000 rw-p 00039000 08:05 8007217                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libjdwp.so
+7f598499b000-7f598499c000 rw-p 00000000 00:00 0 
+7f598499c000-7f59849c5000 r-xp 00000000 08:05 8007210                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libjava.so
+7f59849c5000-7f5984bc5000 ---p 00029000 08:05 8007210                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libjava.so
+7f5984bc5000-7f5984bc7000 rw-p 00029000 08:05 8007210                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libjava.so
+7f5984bc7000-7f5984bd4000 r-xp 00000000 08:05 8007237                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libverify.so
+7f5984bd4000-7f5984dd3000 ---p 0000d000 08:05 8007237                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libverify.so
+7f5984dd3000-7f5984dd5000 rw-p 0000c000 08:05 8007237                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/libverify.so
+7f5984dd5000-7f5984ddc000 r-xp 00000000 08:05 18354733                   /lib/x86_64-linux-gnu/librt-2.23.so
+7f5984ddc000-7f5984fdb000 ---p 00007000 08:05 18354733                   /lib/x86_64-linux-gnu/librt-2.23.so
+7f5984fdb000-7f5984fdc000 r--p 00006000 08:05 18354733                   /lib/x86_64-linux-gnu/librt-2.23.so
+7f5984fdc000-7f5984fdd000 rw-p 00007000 08:05 18354733                   /lib/x86_64-linux-gnu/librt-2.23.so
+7f5984fdd000-7f59850e5000 r-xp 00000000 08:05 18354958                   /lib/x86_64-linux-gnu/libm-2.23.so
+7f59850e5000-7f59852e4000 ---p 00108000 08:05 18354958                   /lib/x86_64-linux-gnu/libm-2.23.so
+7f59852e4000-7f59852e5000 r--p 00107000 08:05 18354958                   /lib/x86_64-linux-gnu/libm-2.23.so
+7f59852e5000-7f59852e6000 rw-p 00108000 08:05 18354958                   /lib/x86_64-linux-gnu/libm-2.23.so
+7f59852e6000-7f5985e5c000 r-xp 00000000 08:05 8007264                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/server/libjvm.so
+7f5985e5c000-7f598605b000 ---p 00b76000 08:05 8007264                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/server/libjvm.so
+7f598605b000-7f598611f000 rw-p 00b75000 08:05 8007264                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/jre/lib/amd64/server/libjvm.so
+7f598611f000-7f5986160000 rw-p 00000000 00:00 0 
+7f5986160000-7f5986320000 r-xp 00000000 08:05 18354978                   /lib/x86_64-linux-gnu/libc-2.23.so
+7f5986320000-7f5986520000 ---p 001c0000 08:05 18354978                   /lib/x86_64-linux-gnu/libc-2.23.so
+7f5986520000-7f5986524000 r--p 001c0000 08:05 18354978                   /lib/x86_64-linux-gnu/libc-2.23.so
+7f5986524000-7f5986526000 rw-p 001c4000 08:05 18354978                   /lib/x86_64-linux-gnu/libc-2.23.so
+7f5986526000-7f598652a000 rw-p 00000000 00:00 0 
+7f598652a000-7f598652d000 r-xp 00000000 08:05 18354743                   /lib/x86_64-linux-gnu/libdl-2.23.so
+7f598652d000-7f598672c000 ---p 00003000 08:05 18354743                   /lib/x86_64-linux-gnu/libdl-2.23.so
+7f598672c000-7f598672d000 r--p 00002000 08:05 18354743                   /lib/x86_64-linux-gnu/libdl-2.23.so
+7f598672d000-7f598672e000 rw-p 00003000 08:05 18354743                   /lib/x86_64-linux-gnu/libdl-2.23.so
+7f598672e000-7f5986743000 r-xp 00000000 08:05 8020483                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/lib/amd64/jli/libjli.so
+7f5986743000-7f5986942000 ---p 00015000 08:05 8020483                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/lib/amd64/jli/libjli.so
+7f5986942000-7f5986943000 rw-p 00014000 08:05 8020483                    /home/leo/Scrivania/Lavoro/TOOLS/jdk1.7.0_80/lib/amd64/jli/libjli.so
+7f5986943000-7f598695b000 r-xp 00000000 08:05 18354726                   /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f598695b000-7f5986b5a000 ---p 00018000 08:05 18354726                   /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f5986b5a000-7f5986b5b000 r--p 00017000 08:05 18354726                   /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f5986b5b000-7f5986b5c000 rw-p 00018000 08:05 18354726                   /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f5986b5c000-7f5986b60000 rw-p 00000000 00:00 0 
+7f5986b60000-7f5986b86000 r-xp 00000000 08:05 18354606                   /lib/x86_64-linux-gnu/ld-2.23.so
+7f5986b86000-7f5986b87000 r--s 00003000 08:05 15210986                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/annotations-api.jar
+7f5986b87000-7f5986b89000 r--s 00007000 08:05 15211006                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/websocket-api.jar
+7f5986b89000-7f5986b8c000 r--s 0001f000 08:05 15211003                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/tomcat-jdbc.jar
+7f5986b8c000-7f5986b91000 r--s 00031000 08:05 15211005                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/tomcat7-websocket.jar
+7f5986b91000-7f5986b94000 r--s 00013000 08:05 15210995                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/jsp-api.jar
+7f5986b94000-7f5986b9e000 rw-p 00000000 00:00 0 
+7f5986b9e000-7f5986c54000 rw-p 00000000 00:00 0 
+7f5986c54000-7f5986c57000 ---p 00000000 00:00 0 
+7f5986c57000-7f5986d59000 rw-p 00000000 00:00 0 
+7f5986d59000-7f5986d5b000 r--s 00007000 08:05 15211004                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/tomcat-util.jar
+7f5986d5b000-7f5986d60000 r--s 0003d000 08:05 15210989                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/catalina-tribes.jar
+7f5986d60000-7f5986d63000 r--s 0002e000 08:05 15210996                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/servlet-api.jar
+7f5986d63000-7f5986d65000 r--s 0000c000 08:05 15210992                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/el-api.jar
+7f5986d65000-7f5986d66000 r--s 00001000 08:05 15210997                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/tomcat-api.jar
+7f5986d66000-7f5986d67000 r--s 0000a000 08:05 15211001                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/tomcat-i18n-fr.jar
+7f5986d67000-7f5986d79000 r--s 00223000 08:05 15210991                   /home/leo/Scrivania/Lavoro/TOOLS/apache-tomcat-7.0.79/lib/ecj-4.4.2.jar
+7f5986d79000-7f5986d81000 rw-s 00000000 08:05 15729044                   /tmp/hsperfdata_leo/17999
+7f5986d81000-7f5986d82000 rw-p 00000000 00:00 0 
+7f5986d82000-7f5986d83000 r--p 00000000 00:00 0 
+7f5986d83000-7f5986d85000 rw-p 00000000 00:00 0 
+7f5986d85000-7f5986d86000 r--p 00025000 08:05 18354606                   /lib/x86_64-linux-gnu/ld-2.23.so
+7f5986d86000-7f5986d87000 rw-p 00026000 08:05 18354606                   /lib/x86_64-linux-gnu/ld-2.23.so
+7f5986d87000-7f5986d88000 rw-p 00000000 00:00 0 
+7ffe970b7000-7ffe970d9000 rw-p 00000000 00:00 0                          [stack]
+7ffe97171000-7ffe97173000 r--p 00000000 00:00 0                          [vvar]
+7ffe97173000-7ffe97175000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:39455 -Dfile.encoding=UTF-8 
+java_command: it.cle.project.App
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+PATH=/home/leo/bin:/home/leo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/leo/jpm/bin
+USERNAME=leo
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x9a3b20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x9a3b20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x81e740], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x81e740], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x81e740], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x81e740], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x81ffb0], sa_mask[0]=0x00000004, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x8210d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x8210d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x8210d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x8210d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:stretch/sid
+
+uname:Linux 4.4.0-89-generic #112-Ubuntu SMP Mon Jul 31 19:38:41 UTC 2017 x86_64
+libc:glibc 2.23 NPTL 2.23 
+rlimit: STACK 8192k, CORE 0k, NPROC 46687, NOFILE 65536, AS infinity
+load average:0,55 0,60 0,73
+
+/proc/meminfo:
+MemTotal:       11994488 kB
+MemFree:         1971532 kB
+MemAvailable:    5397532 kB
+Buffers:          831972 kB
+Cached:          2614528 kB
+SwapCached:            0 kB
+Active:          7038276 kB
+Inactive:        2189788 kB
+Active(anon):    5193088 kB
+Inactive(anon):   786372 kB
+Active(file):    1845188 kB
+Inactive(file):  1403416 kB
+Unevictable:         440 kB
+Mlocked:             440 kB
+SwapTotal:      12266492 kB
+SwapFree:       12261340 kB
+Dirty:              1156 kB
+Writeback:            44 kB
+AnonPages:       5773588 kB
+Mapped:           875344 kB
+Shmem:            197900 kB
+Slab:             547896 kB
+SReclaimable:     498500 kB
+SUnreclaim:        49396 kB
+KernelStack:       14704 kB
+PageTables:        62192 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    18263736 kB
+Committed_AS:   12968784 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:   1986560 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      366552 kB
+DirectMap2M:    11902976 kB
+
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, erms, ht, tsc, tscinvbit, tscinv
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i3-3120M CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x1c
+cpu MHz		: 2499.902
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer xsave avx f16c lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm arat pln pts
+bugs		:
+bogomips	: 4988.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i3-3120M CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x1c
+cpu MHz		: 2500.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer xsave avx f16c lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm arat pln pts
+bugs		:
+bogomips	: 4988.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i3-3120M CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x1c
+cpu MHz		: 2499.902
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer xsave avx f16c lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm arat pln pts
+bugs		:
+bogomips	: 4988.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i3-3120M CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x1c
+cpu MHz		: 2500.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer xsave avx f16c lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm arat pln pts
+bugs		:
+bogomips	: 4988.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 11994488k(1971532k free), swap 12266492k(12261340k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (24.80-b11) for linux-amd64 JRE (1.7.0_80-b15), built on Apr 10 2015 19:53:14 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Thu Oct  5 15:50:54 2017
+elapsed time: 1436 seconds
+

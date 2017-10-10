@@ -1,0 +1,21 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceEAT;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * Interfaccia IndiceEATService.
+ *
+ */
+public interface IndiceEATService {
+	
+	/**
+	 * Calcola l' indice di EAT.
+	 *
+	 * @param indiceEAT the indice eat
+	 * @return the integer
+	 */
+	public Integer calcolaIndiceEAT(IndiceEAT indiceEAT);
+
+}

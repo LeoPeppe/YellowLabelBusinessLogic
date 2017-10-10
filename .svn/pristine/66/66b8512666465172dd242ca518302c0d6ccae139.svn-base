@@ -1,0 +1,74 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
+public class DatiRitenutaDTO implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String tipoRitenuta;
+	private Double importoRitenuta;
+	private Double aliquotaRitenuta;
+	private String causalePagamento;
+	/**
+	 * @return the tipoRitenuta
+	 */
+	public String getTipoRitenuta() {
+		return tipoRitenuta;
+	}
+	/**
+	 * @param tipoRitenuta the tipoRitenuta to set
+	 */
+	@XmlElement(name="TipoRitenuta")
+	public void setTipoRitenuta(String tipoRitenuta) {
+		this.tipoRitenuta = tipoRitenuta;
+	}
+	/**
+	 * @return the importoRitenuta
+	 */
+	public Double getImportoRitenuta() {
+		return importoRitenuta;
+	}
+	/**
+	 * @param importoRitenuta the importoRitenuta to set
+	 */
+	@XmlElement(name="ImportoRitenuta")
+	public void setImportoRitenuta(Double importoRitenuta) {
+		this.importoRitenuta = importoRitenuta;
+	}
+	/**
+	 * @return the aliquotaRitenuta
+	 */
+	public Double getAliquotaRitenuta() {
+		return aliquotaRitenuta;
+	}
+	/**
+	 * @param aliquotaRitenuta the aliquotaRitenuta to set
+	 */
+	@XmlElement(name="AliquotaRitenuta")
+	public void setAliquotaRitenuta(Double aliquotaRitenuta) {
+		this.aliquotaRitenuta = aliquotaRitenuta;
+	}
+	/**
+	 * @return the causalePagamento
+	 */
+	public String getCausalePagamento() {
+		return causalePagamento;
+	}
+	/**
+	 * @param causalePagamento the causalePagamento to set
+	 */
+	@XmlElement(name="CausalePagamento")
+	public void setCausalePagamento(String causalePagamento) {
+		this.causalePagamento = causalePagamento;
+	}
+	
+	
+	
+
+}

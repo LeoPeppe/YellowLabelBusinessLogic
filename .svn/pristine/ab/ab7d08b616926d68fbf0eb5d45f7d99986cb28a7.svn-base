@@ -1,0 +1,229 @@
+package it.cle.project.model;
+
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProfiloAutonomia.
+ */
+@Entity
+@Table(name = "profilo_autonomia")
+@XmlRootElement(name = "profilo_autonomia")  
+@XmlAccessorType(XmlAccessType.FIELD)
+public class ProfiloAutonomia implements Serializable{
+	
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+	/**  The id ProfiloAutonomia. */
+	private Integer idProfiloAutonomia;
+	
+	
+	/** The indice adl. */
+	@Valid
+	private IndiceADL indiceADL;
+	
+	/** The indice spmsq. */
+	@Valid
+	private IndiceSPMSQ indiceSPMSQ;
+	
+	/** The indice barthel mobilita. */
+	@Valid
+	private IndiceBarthelMobilita indiceBarthelMobilita;
+	
+	/** The psan. */
+	@Valid
+	private Psan psan;
+	
+	/** The indice supporto rete sociale. */
+	@Valid
+	private IndiceSupportoReteSociale indiceSupportoReteSociale;
+	
+	/** The valore psoc. */
+	private Integer valorePSOC;
+	
+	/** The valore prof. */
+	private Integer valorePROF;
+	
+	
+	
+
+	/**
+	 * Gets the id profilo autonomia.
+	 *
+	 * @return the id profilo autonomia
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdProfiloAutonomia() {
+		return idProfiloAutonomia;
+	}
+
+	/**
+	 * Sets the id profilo autonomia.
+	 *
+	 * @param idProfiloAutonomia the new id profilo autonomia
+	 */
+	public void setIdProfiloAutonomia(Integer idProfiloAutonomia) {
+		this.idProfiloAutonomia = idProfiloAutonomia;
+	}
+
+	
+	
+	
+	
+	/**
+	 * Gets the indice adl.
+	 *
+	 * @return the indice adl
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceADL getIndiceADL() {
+		return indiceADL;
+	}
+
+	/**
+	 * Sets the indice adl.
+	 *
+	 * @param indiceADL the new indice adl
+	 */
+	public void setIndiceADL(IndiceADL indiceADL) {
+		this.indiceADL = indiceADL;
+	}
+	
+	/**
+	 * Gets the indice spmsq.
+	 *
+	 * @return the indice spmsq
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceSPMSQ getIndiceSPMSQ() {
+		return indiceSPMSQ;
+	}
+
+	/**
+	 * Sets the indice spmsq.
+	 *
+	 * @param indiceSPMSQ the new indice spmsq
+	 */
+	public void setIndiceSPMSQ(IndiceSPMSQ indiceSPMSQ) {
+		this.indiceSPMSQ = indiceSPMSQ;
+	}
+	
+	/**
+	 * Gets the indice barthel mobilita.
+	 *
+	 * @return the indice barthel mobilita
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceBarthelMobilita getIndiceBarthelMobilita() {
+		return indiceBarthelMobilita;
+	}
+
+	/**
+	 * Sets the indice barthel mobilita.
+	 *
+	 * @param indiceBarthelMobilita the new indice barthel mobilita
+	 */
+	public void setIndiceBarthelMobilita(IndiceBarthelMobilita indiceBarthelMobilita) {
+		this.indiceBarthelMobilita = indiceBarthelMobilita;
+	}
+	
+	/**
+	 * Gets the psan.
+	 *
+	 * @return the psan
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public Psan getPsan() {
+		return psan;
+	}
+
+	/**
+	 * Sets the psan.
+	 *
+	 * @param psan the new psan
+	 */
+	public void setPsan(Psan psan) {
+		this.psan = psan;
+	}
+	
+	
+	/**
+	 * Gets the indice supporto rete sociale.
+	 *
+	 * @return the indice supporto rete sociale
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceSupportoReteSociale getIndiceSupportoReteSociale() {
+		return indiceSupportoReteSociale;
+	}
+
+	/**
+	 * Sets the indice supporto rete sociale.
+	 *
+	 * @param indiceSupportoReteSociale the new indice supporto rete sociale
+	 */
+	public void setIndiceSupportoReteSociale(IndiceSupportoReteSociale indiceSupportoReteSociale) {
+		this.indiceSupportoReteSociale = indiceSupportoReteSociale;
+	}
+
+	/**
+	 * Instantiates a new profilo autonomia.
+	 */
+	public ProfiloAutonomia() {
+	}
+
+	/**
+	 * Gets the valore psoc.
+	 *
+	 * @return the valore psoc
+	 */
+	public Integer getValorePSOC() {
+		return valorePSOC;
+	}
+
+	/**
+	 * Sets the valore psoc.
+	 *
+	 * @param valorePSOC the new valore psoc
+	 */
+	public void setValorePSOC(Integer valorePSOC) {
+		this.valorePSOC = valorePSOC;
+	}
+
+	/**
+	 * Gets the valore prof.
+	 *
+	 * @return the valore prof
+	 */
+	public Integer getValorePROF() {
+		return valorePROF;
+	}
+
+	/**
+	 * Sets the valore prof.
+	 *
+	 * @param valorePROF the new valore prof
+	 */
+	public void setValorePROF(Integer valorePROF) {
+		this.valorePROF = valorePROF;
+	}
+}

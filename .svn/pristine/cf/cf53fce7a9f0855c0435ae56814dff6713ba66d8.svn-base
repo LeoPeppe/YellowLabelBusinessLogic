@@ -1,0 +1,105 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ContattiDTO.
+ */
+@XmlRootElement
+public class ContattiDTO implements Serializable {
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The telefono. */
+	private String telefono;
+	
+	/** The fax. */
+	private String fax;
+	
+	/** The email. */
+	private String email;
+	
+	
+	/**
+	 * Instantiates a new contatti dto.
+	 */
+	public ContattiDTO() {}
+	
+	/**
+	 * Instantiates a new contatti dto.
+	 *
+	 * @param email the email
+	 * @param telefono the telefono
+	 */
+	public ContattiDTO(String email, String telefono) {
+		setEmail(email);
+		setTelefono(telefono);
+		setFax("");
+	}
+	
+	/**
+	 * Gets the telefono.
+	 *
+	 * @return the telefono
+	 */
+	public String getTelefono() {
+		return telefono;
+	}
+	
+	/**
+	 * Sets the telefono.
+	 *
+	 * @param telefono the telefono to set
+	 */
+	@XmlElement(name="telefono")
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	
+	/**
+	 * Gets the fax.
+	 *
+	 * @return the fax
+	 */
+	public String getFax() {
+		return fax;
+	}
+	
+	/**
+	 * Sets the fax.
+	 *
+	 * @param fax the fax to set
+	 */
+	@XmlElement(name="fax", nillable=true)
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
+	
+	/**
+	 * Gets the email.
+	 *
+	 * @return the email
+	 */
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	/**
+	 * Sets the email.
+	 *
+	 * @param email the email to set
+	 */
+	@XmlElement(name="email")
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
+
+}

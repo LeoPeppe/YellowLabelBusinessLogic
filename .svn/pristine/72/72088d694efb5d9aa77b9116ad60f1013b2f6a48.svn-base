@@ -1,0 +1,21 @@
+package it.cle.project.service;
+
+import it.cle.project.model.RisultatiIndici;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface RisultatiIndiciService.
+ */
+public interface RisultatiIndiciService {
+	
+	
+	/**
+	 * Insert.
+	 *
+	 * @param risultatiIndici the risultati indici
+	 */
+	public void insert(RisultatiIndici risultatiIndici);
+	
+	
+	
+}

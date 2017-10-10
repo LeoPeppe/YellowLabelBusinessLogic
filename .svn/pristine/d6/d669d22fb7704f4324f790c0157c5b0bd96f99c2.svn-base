@@ -1,0 +1,7 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.Erogatore;
+
+public interface ErogatoreDao extends Dao<Erogatore> {
+
+}

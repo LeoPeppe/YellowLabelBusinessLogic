@@ -1,0 +1,75 @@
+package it.cle.project.service;
+
+import java.util.List;
+
+import it.cle.project.dto.ReportPrestazioniDTO;
+import it.cle.project.dto.fattura.CedentePrestatoreDTO;
+import it.cle.project.dto.fattura.CessionarioCommittenteDTO;
+import it.cle.project.dto.fattura.ContattiDTO;
+import it.cle.project.dto.fattura.DatiBeniServiziDTO;
+import it.cle.project.dto.fattura.DatiGeneraliDocumentoDTO;
+import it.cle.project.dto.fattura.DatiInputFatturaDTO;
+import it.cle.project.dto.fattura.DatiRiepilogoDTO;
+import it.cle.project.dto.fattura.DatiTrasmissioneDTO;
+import it.cle.project.dto.fattura.DettaglioLineeDTO;
+import it.cle.project.dto.fattura.FatturaElettronicaBodyDTO;
+import it.cle.project.dto.fattura.FatturaElettronicaDTO;
+import it.cle.project.dto.fattura.FatturaElettronicaHeaderDTO;
+import it.cle.project.dto.fattura.IdentificativoFiscaleDTO;
+import it.cle.project.dto.fattura.SedeDTO;
+import it.cle.project.model.DatiFattura;
+
+/**
+ * Interfaccia ComponiFatturaService.
+ *
+ * @author mbrunetti
+ */
+public interface ComponiFatturaService {
+	
+/*	public Intervento selectById(Integer idintervento) ;
+	
+	public List<Intervento> selectByComune(String comune);
+	
+	public List<Intervento> selectByComuneData(String comune, Date data_da, Date data_a);
+	
+	public ReportPrestazioniResponseDTO getReportPrestazioni(String comune, Date data_da, Date data_a);
+	
+	public Double calcolaTotale(List<ReportPrestazioniDTO> elenco);*/
+	
+	public FatturaElettronicaBodyDTO componiFatturaBody(DatiGeneraliDocumentoDTO datiGeneraliDoc, DatiBeniServiziDTO datiBeniServizi);
+	
+	public FatturaElettronicaHeaderDTO componiFatturaHeader(DatiTrasmissioneDTO datiTrasmissione, CedentePrestatoreDTO cedentePrestatore, CessionarioCommittenteDTO cessionarioCommittente);
+		
+	public CedentePrestatoreDTO componiCedentePrestatore();
+	
+	public CessionarioCommittenteDTO componiCessionarioCommittente();
+	
+	public DatiGeneraliDocumentoDTO compilaDatiGeneraliDocumento(String numeroFattura, Double importo, Double aliquotaIVA) ;
+	
+	public SedeDTO compilaSede();
+	
+	public List<DettaglioLineeDTO> compilaDettaglioLinee(List<ReportPrestazioniDTO> dettagli);
+	
+	public DatiRiepilogoDTO compilaDatiRiepilogo(Double imponibile);
+	
+	public DatiBeniServiziDTO compilaDatiBeniServizi(List<DettaglioLineeDTO> dettagli, DatiRiepilogoDTO datiRiepilogo);
+	
+	public DatiBeniServiziDTO compilaDatiBeniServizi(List<DettaglioLineeDTO> dettagli, Double imponibile);
+
+	public DatiTrasmissioneDTO componiDatiTrasmissione(String codiceDestinatario, String formatoTrasmissione,
+			String progressivoInvio, IdentificativoFiscaleDTO trasmittente, ContattiDTO contattiTrasmittente,String emailDestinatario);
+	
+	public String fatturaToXML(FatturaElettronicaHeaderDTO header, FatturaElettronicaBodyDTO body);
+	
+	public IdentificativoFiscaleDTO getTrasmittenteDefault();
+	
+	public String componiFatturaXML(DatiInputFatturaDTO datiInputFatturaDTO);
+	
+	public DatiFattura getFatturaGenerata();
+	
+	public void setFatturaGenerata(DatiFattura fatturaGenerata);
+	
+	public String salvaFatturaGenerata();
+	
+	public FatturaElettronicaDTO getFatturaElettronica();
+}

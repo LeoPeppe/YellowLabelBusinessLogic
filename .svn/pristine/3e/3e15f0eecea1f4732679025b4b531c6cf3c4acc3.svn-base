@@ -1,0 +1,137 @@
+package it.cle.project.model;
+
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Psan.
+ */
+@Entity
+@Table(name ="psan")
+@XmlRootElement(name ="psan")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Psan implements Serializable {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+	
+	/** The id psan. */
+	private Integer idPSAN;
+	
+	/** The indice vip. */
+	@Valid
+	private IndiceVIP indiceVip;
+	
+	/** The indice vpia. */
+	@Valid
+	private IndiceVPIA indiceVpia;
+	
+	/** The indice vpot. */
+	@Valid
+	private IndiceVPOT indiceVpot;
+	
+	/**
+	 * Instantiates a new psan.
+	 */
+	public Psan() {
+	}
+
+	/**
+	 * Gets the id psan.
+	 *
+	 * @return the id psan
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdPSAN() {
+		return idPSAN;
+	}
+
+	/**
+	 * Sets the id psan.
+	 *
+	 * @param idPSAN the new id psan
+	 */
+	public void setIdPSAN(Integer idPSAN) {
+		this.idPSAN = idPSAN;
+	}
+
+	/**
+	 * Gets the indice vip.
+	 *
+	 * @return the indice vip
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceVIP getIndiceVip() {
+		return indiceVip;
+	}
+
+	/**
+	 * Sets the indice vip.
+	 *
+	 * @param indiceVip the new indice vip
+	 */
+	public void setIndiceVip(IndiceVIP indiceVip) {
+		this.indiceVip = indiceVip;
+	}
+	
+	/**
+	 * Gets the indice vpia.
+	 *
+	 * @return the indice vpia
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceVPIA getIndiceVpia() {
+		return indiceVpia;
+	}
+
+	/**
+	 * Sets the indice vpia.
+	 *
+	 * @param indiceVpia the new indice vpia
+	 */
+	public void setIndiceVpia(IndiceVPIA indiceVpia) {
+		this.indiceVpia = indiceVpia;
+	}
+	
+	/**
+	 * Gets the indice vpot.
+	 *
+	 * @return the indice vpot
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceVPOT getIndiceVpot() {
+		return indiceVpot;
+	}
+
+	/**
+	 * Sets the indice vpot.
+	 *
+	 * @param indiceVpot the new indice vpot
+	 */
+	public void setIndiceVpot(IndiceVPOT indiceVpot) {
+		this.indiceVpot = indiceVpot;
+	}
+
+
+
+	
+
+
+}

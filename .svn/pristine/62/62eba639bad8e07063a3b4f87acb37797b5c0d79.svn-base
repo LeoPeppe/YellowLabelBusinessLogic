@@ -1,0 +1,254 @@
+package it.cle.project.service.impl;
+
+import it.cle.project.dao.IndiceBUTDao;
+import it.cle.project.model.IndiceBUT;
+import it.cle.project.model.composti.but.IndiceBUTa;
+import it.cle.project.model.composti.but.IndiceBUTb;
+import it.cle.project.service.IndiceBUTService;
+import it.cle.project.utils.Utils;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service("indiceBUTService")
+@Transactional
+public class IndiceBUTServiceImpl implements IndiceBUTService {
+	
+	@Autowired 
+	private IndiceBUTDao dao;
+	
+	@Override
+	public Float calcolaGSI(IndiceBUTa indiceBUTa) {
+		Float result = null;
+		result = (float) ((indiceBUTa.getDomandaAbiti() +
+							indiceBUTa.getDomandaAnsiaMangiare() +
+							indiceBUTa.getDomandaApparireAltri() +
+							indiceBUTa.getDomandaAppartenenzaCorpo() +
+							indiceBUTa.getDomandaAspettoInsopportabile() +
+							indiceBUTa.getDomandaCambiamentoImmagine() +
+							indiceBUTa.getDomandaCambioAspetto() +
+							indiceBUTa.getDomandaCambioControVolonta() +
+							indiceBUTa.getDomandaConfrontoAspetto() +
+							indiceBUTa.getDomandaCorpoSecco() +
+							indiceBUTa.getDomandaDecidereAspetto() +
+							indiceBUTa.getDomandaDerisaAspettoFisico() +
+							indiceBUTa.getDomandaDifettiCorpo() +
+							indiceBUTa.getDomandaDifettiCorpoStudiareLavorare() +
+							indiceBUTa.getDomandaDifettiEstetici() +
+							indiceBUTa.getDomandaDifettiImmagine() +
+							indiceBUTa.getDomandaDiversoAltri() +
+							indiceBUTa.getDomandaEvitoSpecchio() +
+							indiceBUTa.getDomandaFisicoDeludente() +
+							indiceBUTa.getDomandaGrassa() +
+							indiceBUTa.getDomandaGuardarsiNudo() +
+							indiceBUTa.getDomandaInquietudineSpecchio() +
+							indiceBUTa.getDomandaInsoddisfattoAspetto() +
+							indiceBUTa.getDomandaInterventoChirurgia() +
+							indiceBUTa.getDomandaModificaCorpo() +
+							indiceBUTa.getDomandaRestareACasa() +
+							indiceBUTa.getDomandaRicercaImmagineSpecchio() +
+							indiceBUTa.getDomandaScollatoCorpo() +
+							indiceBUTa.getDomandaSmettereGuardarsi() +
+							indiceBUTa.getDomandaTempoAlloSpecchio() +
+							indiceBUTa.getDomandaTerroreIngrassare() +
+							indiceBUTa.getDomandaVergognaBisogniFisici() +
+							indiceBUTa.getDomandaVergognoCorpo() +
+							indiceBUTa.getDomandaVitaSessuale())/34);
+		return Utils.Round(result,2);
+	}
+
+	@Override
+	public Float calcolaWP(IndiceBUTa indiceBUTa) {
+		Float result = null;
+		result = (float)(indiceBUTa.getDomandaConfrontoAspetto() +
+						indiceBUTa.getDomandaCorpoSecco() +
+						indiceBUTa.getDomandaEvitoSpecchio() +
+						indiceBUTa.getDomandaGuardarsiNudo() +
+						indiceBUTa.getDomandaInterventoChirurgia() +
+						indiceBUTa.getDomandaTerroreIngrassare() +
+						indiceBUTa.getDomandaVergognaBisogniFisici() +
+						indiceBUTa.getDomandaVergognoCorpo())/8;
+		return Utils.Round(result,2);
+	}
+
+	@Override
+	public Float calcolaBIC(IndiceBUTa indiceBUTa) {
+		Float result = null;
+		result = (float)(indiceBUTa.getDomandaApparireAltri() +
+						indiceBUTa.getDomandaAppartenenzaCorpo() +
+						indiceBUTa.getDomandaCambiamentoImmagine() +
+						indiceBUTa.getDomandaDerisaAspettoFisico() +
+						indiceBUTa.getDomandaDifettiEstetici() +
+						indiceBUTa.getDomandaInquietudineSpecchio()+
+						indiceBUTa.getDomandaInsoddisfattoAspetto()+
+						indiceBUTa.getDomandaModificaCorpo()+
+						indiceBUTa.getDomandaVitaSessuale())/9;
+		return Utils.Round(result,2);
+	}
+
+	@Override
+	public Float calcolaA(IndiceBUTa indiceBUTa) {
+		Float result = null;
+		result = (float)(indiceBUTa.getDomandaAspettoInsopportabile()+
+						indiceBUTa.getDomandaCambioControVolonta()+
+						indiceBUTa.getDomandaDifettiCorpo()+
+						indiceBUTa.getDomandaDifettiImmagine()+
+						indiceBUTa.getDomandaFisicoDeludente()+
+						indiceBUTa.getDomandaTempoAlloSpecchio())/6;
+		return Utils.Round(result, 2);
+	}
+
+	@Override
+	public Float calcolaCSM(IndiceBUTa indiceBUTa) {
+		Float result = null;
+		result = (float)(indiceBUTa.getDomandaAbiti()+
+						indiceBUTa.getDomandaDecidereAspetto()+
+						indiceBUTa.getDomandaDiversoAltri()+
+						indiceBUTa.getDomandaGrassa()+
+						indiceBUTa.getDomandaRicercaImmagineSpecchio())/5;
+		return Utils.Round(result, 2);
+	}
+
+	@Override
+	public Float calcolaD(IndiceBUTa indiceBUTa) {
+		Float result = null;
+		result = (float)(indiceBUTa.getDomandaAnsiaMangiare()+
+						indiceBUTa.getDomandaCambioAspetto()+
+						indiceBUTa.getDomandaDifettiCorpoStudiareLavorare()+
+						indiceBUTa.getDomandaRestareACasa()+
+						indiceBUTa.getDomandaScollatoCorpo()+
+						indiceBUTa.getDomandaSmettereGuardarsi())/6;
+		return Utils.Round(result,2);
+	}
+	
+	@Override
+	public Integer calcolaPST(IndiceBUTb indiceBUTb) {
+		Integer result = 0;
+		if (indiceBUTb.getAnche()>=1)
+			result++;
+		if (indiceBUTb.getArrossire()>=1)
+			result++;
+		if (indiceBUTb.getBaffi()>=1)
+			result++;
+		if (indiceBUTb.getBarba()>=1)
+			result++;
+		if (indiceBUTb.getBocca()>=1)
+			result++;
+		if (indiceBUTb.getBraccia()>=1)
+			result++;
+		if (indiceBUTb.getCapelli()>=1)
+			result++;
+		if (indiceBUTb.getCaviglie()>=1)
+			result++;
+		if (indiceBUTb.getCollo()>=1)
+			result++;
+		if (indiceBUTb.getCosce()>=1)
+			result++;
+		if (indiceBUTb.getDenti()>=1)
+			result++;
+		if (indiceBUTb.getFormaTesta()>=1)
+			result++;
+		if (indiceBUTb.getFronte()>=1)
+			result++;
+		if (indiceBUTb.getGambe()>=1)
+			result++;
+		if (indiceBUTb.getGenitali()>=1)
+			result++;
+		if (indiceBUTb.getGinocchia()>=1)
+			result++;
+		if (indiceBUTb.getLabbra()>=1)
+			result++;
+		if (indiceBUTb.getMammelle()>=1)
+			result++;
+		if (indiceBUTb.getMani()>=1)
+			result++;
+		if (indiceBUTb.getMento()>=1)
+			result++;
+		if (indiceBUTb.getNaso()>=1)
+			result++;
+		if (indiceBUTb.getNatiche()>=1)
+			result++;
+		if (indiceBUTb.getOcchi()>=1)
+			result++;
+		if (indiceBUTb.getOdore()>=1)
+			result++;
+		if (indiceBUTb.getOrecchie()>=1)
+			result++;
+		if (indiceBUTb.getPeli()>=1)
+			result++;
+		if (indiceBUTb.getPelle()>=1)
+			result++;
+		if (indiceBUTb.getPiedi()>=1)
+			result++;
+		if (indiceBUTb.getRumori()>=1)
+			result++;
+		if (indiceBUTb.getSopracciglia()>=1)
+			result++;
+		if (indiceBUTb.getSpalle()>=1)
+			result++;
+		if (indiceBUTb.getStatura()>=1)
+			result++;
+		if (indiceBUTb.getStomaco()>=1)
+			result++;
+		if (indiceBUTb.getSudare()>=1)
+			result++;
+		if (indiceBUTb.getTorace()>=1)
+			result++;
+		if (indiceBUTb.getVentre()>=1)
+			result++;
+		if (indiceBUTb.getFormaViso()>=1)
+			result++;
+		return result;
+			
+		
+	}
+
+	@Override
+	public Float calcolaPSDI(IndiceBUTb indiceBUTb) {
+		Float result = null;
+		result = (float)(indiceBUTb.getAnche()+
+			
+		indiceBUTb.getArrossire()+
+			indiceBUTb.getBaffi()+
+			indiceBUTb.getBarba()+
+			indiceBUTb.getBocca()+
+			indiceBUTb.getBraccia()+
+			indiceBUTb.getCapelli()+
+			indiceBUTb.getCaviglie()+
+			indiceBUTb.getCollo()+
+			indiceBUTb.getCosce()+
+			indiceBUTb.getDenti()+
+			indiceBUTb.getFormaTesta()+
+			indiceBUTb.getFronte()+
+			indiceBUTb.getGambe()+
+			indiceBUTb.getGenitali()+
+			indiceBUTb.getGinocchia()+
+			indiceBUTb.getLabbra()+
+			indiceBUTb.getMammelle()+
+			indiceBUTb.getMani()+
+			indiceBUTb.getMento()+
+			indiceBUTb.getNaso()+
+			indiceBUTb.getNatiche()+
+			indiceBUTb.getOcchi()+
+			indiceBUTb.getOdore()+
+			indiceBUTb.getOrecchie()+
+			indiceBUTb.getPeli()+
+			indiceBUTb.getPelle()+
+			indiceBUTb.getPiedi()+
+			indiceBUTb.getRumori()+
+			indiceBUTb.getSopracciglia()+
+			indiceBUTb.getSpalle()+
+			indiceBUTb.getStatura()+
+			indiceBUTb.getStomaco()+
+			indiceBUTb.getSudare()+
+			indiceBUTb.getTorace()+
+			indiceBUTb.getVentre())/calcolaPST(indiceBUTb);
+		return Utils.Round(result,2);
+	}
+
+	
+	
+
+}

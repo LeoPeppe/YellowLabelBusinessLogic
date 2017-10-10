@@ -1,0 +1,10 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+public class DatiCassaPrevidenzialeDTO implements Serializable {
+	
+	private String tipoCassa;
+	
+
+}

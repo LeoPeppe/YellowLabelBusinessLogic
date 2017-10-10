@@ -1,0 +1,239 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+import java.io.StringReader;
+import java.io.StringWriter;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.apache.log4j.Logger;
+
+import it.cle.project.utils.Utils;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FatturaResponseDTO.
+ */
+@XmlRootElement(name = "GeneraFatturaResult") 
+public class FatturaResponseDTO implements Serializable{
+	
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The file name errori. */
+	private String fileNameErrori;
+	
+	/** The file name fattura. */
+	private String fileNameFattura;
+	
+	/** The flusso fattura. */
+	private String flussoFattura;
+	
+	/** The file name fattura html. */
+	private String fileNameFatturaHtml;
+	
+	/** The flusso fattura html. */
+	private String flussoFatturaHtml;
+	
+	/** The stato. */
+	private String stato;
+	
+	/** The messaggio errore. */
+	private String messaggioErrore;
+	
+	
+	/** The logger. */
+	protected Logger logger = Logger.getLogger(FatturaResponseDTO.class);
+	
+	/**
+	 * Gets the file name errori.
+	 *
+	 * @return the file name errori
+	 */
+	public String getFileNameErrori() {
+		return fileNameErrori;
+	}
+	
+	/**
+	 * Sets the file name errori.
+	 *
+	 * @param fileNameErrori the new file name errori
+	 */
+	@XmlElement(name="FileNameErrori")
+	public void setFileNameErrori(String fileNameErrori) {
+		this.fileNameErrori = fileNameErrori;
+	}
+	
+	/**
+	 * Gets the file name fattura.
+	 *
+	 * @return the file name fattura
+	 */
+	public String getFileNameFattura() {
+		return fileNameFattura;
+	}
+	
+	/**
+	 * Sets the file name fattura.
+	 *
+	 * @param fileNameFattura the new file name fattura
+	 */
+	@XmlElement(name="FileNameFattura")
+	public void setFileNameFattura(String fileNameFattura) {
+		this.fileNameFattura = fileNameFattura;
+	}
+	
+	/**
+	 * Gets the flusso fattura.
+	 *
+	 * @return the flusso fattura
+	 */
+	public String getFlussoFattura() {
+		return flussoFattura;
+	}
+	
+	/**
+	 * Sets the flusso fattura.
+	 *
+	 * @param flussoFattura the new flusso fattura
+	 */
+	@XmlElement(name="FlussoFattura")
+	public void setFlussoFattura(String flussoFattura) {
+		this.flussoFattura = flussoFattura;
+	}
+	
+	/**
+	 * Gets the file name fattura html.
+	 *
+	 * @return the file name fattura html
+	 */
+	public String getFileNameFatturaHtml() {
+		return fileNameFatturaHtml;
+	}
+	
+	/**
+	 * Sets the file name fattura html.
+	 *
+	 * @param fileNameFatturaHtml the new file name fattura html
+	 */
+	@XmlElement(name="FileNameFatturaHtml")
+	public void setFileNameFatturaHtml(String fileNameFatturaHtml) {
+		this.fileNameFatturaHtml = fileNameFatturaHtml;
+	}
+	
+	/**
+	 * Gets the flusso fattura html.
+	 *
+	 * @return the flusso fattura html
+	 */
+	public String getFlussoFatturaHtml() {
+		return flussoFatturaHtml;
+	}
+	
+	/**
+	 * Sets the flusso fattura html.
+	 *
+	 * @param flussoFatturaHtml the new flusso fattura html
+	 */
+	@XmlElement(name="FlussoFatturaHtml")
+	public void setFlussoFatturaHtml(String flussoFatturaHtml) {
+		this.flussoFatturaHtml = flussoFatturaHtml;
+	}
+	
+	/**
+	 * Gets the stato.
+	 *
+	 * @return the stato
+	 */
+	public String getStato() {
+		return stato;
+	}
+	
+	/**
+	 * Sets the stato.
+	 *
+	 * @param stato the new stato
+	 */
+	@XmlElement(name="Stato")
+	public void setStato(String stato) {
+		this.stato = stato;
+	}
+	
+	/**
+	 * Gets the messaggio errore.
+	 *
+	 * @return the messaggio errore
+	 */
+	public String getMessaggioErrore() {
+		return messaggioErrore;
+	}
+	
+	/**
+	 * Sets the messaggio errore.
+	 *
+	 * @param messaggioErrore the new messaggio errore
+	 */
+	@XmlElement(name="MessaggioErrore")
+	public void setMessaggioErrore(String messaggioErrore) {
+		this.messaggioErrore = messaggioErrore;
+	}
+	
+	
+	
+/**
+ * To string xml.
+ *
+ * @return the string
+ */
+public String toStringXML() {
+		
+		StringWriter out = new StringWriter();
+		
+		try {
+		JAXBContext jc = JAXBContext.newInstance(FatturaResponseDTO.class);
+		Marshaller marsh = jc.createMarshaller();
+		
+		marsh.marshal(this, out);
+		
+		} catch(Exception e) {
+			
+			logger.error(Utils.getStackTrace(e));
+//			e.printStackTrace();
+		}
+		return out.toString();
+}
+
+/**
+ * Unmarshall report prest dto.
+ *
+ * @param xml the xml
+ * @return the fattura response dto
+ */
+public static FatturaResponseDTO unmarshallReportPrestDTO(String xml) {
+	FatturaResponseDTO dto = new FatturaResponseDTO();
+	try{
+	JAXBContext jc = JAXBContext.newInstance(FatturaResponseDTO.class);
+	Unmarshaller unmarshaller = jc.createUnmarshaller();
+	dto = (FatturaResponseDTO) unmarshaller.unmarshal(new StringReader(xml));
+	
+	} catch(Exception e){
+		
+//		System.out.println("Errore nel recupero del FatturaResponseDTO: ***" + xml + "***"+e.getMessage());
+		Logger logger = Logger.getLogger(FatturaResponseDTO.class);
+		logger.error("Errore nel recupero del FatturaResponseDTO: ***" + xml + "***");
+		logger.error(Utils.getStackTrace(e));
+		dto = null;
+	}
+	
+	return dto;
+}
+
+
+
+
+}

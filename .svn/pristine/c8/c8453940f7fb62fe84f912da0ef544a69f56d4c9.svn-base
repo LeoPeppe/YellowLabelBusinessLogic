@@ -1,0 +1,23 @@
+package it.cle.project.dao.hbn;
+
+import it.cle.project.dao.Pai_PrestazioniDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+
+
+
+import it.cle.project.model.Pai_Prestazioni;
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * The Class HbnPAIDao.
+ */
+//@Component //aggiunto da me
+@Repository
+public class HbnPai_PrestazioniDao extends AbstractHbnDao<Pai_Prestazioni> implements Pai_PrestazioniDao {
+	
+	
+	
+	
+
+}

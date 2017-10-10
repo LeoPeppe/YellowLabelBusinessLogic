@@ -1,0 +1,154 @@
+package it.cle.project.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+/**
+ * 
+ * @author 
+ * @version 1.0
+ * @see <a href="http://it.wikipedia.org/wiki/Indice_di_Barthel" target="_blank">La scala di Barthel o Indice di Barthel ADL</a>
+ */
+@Entity
+@Table(name = "intervento")
+@XmlRootElement(name = "intervento")  
+//@XmlAccessorType(XmlAccessType.FIELD)
+public class Intervento implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5453759458671343269L;
+
+	
+
+	/** The id intervento. */
+	private Integer idintervento;
+	
+	private String comune;
+	
+	//private Integer idAssistito;
+	
+//	private Integer idOperatore;
+	
+	private Date data_ora_da;
+	
+	private Date data_ora_a;
+	
+	private Integer id_prestazione;
+	
+	private Boolean flag_confermato;
+	
+	
+//	@ManyToOne
+//	@JoinColumn(name = "idDatiAssistito")
+	private DatiAssistito assistito ;
+	
+
+	private Operatore operatore;
+	
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdintervento() {
+		return idintervento;
+	}
+	@XmlAttribute(name="idintervento")
+	public void setIdintervento(Integer idintervento) {
+		this.idintervento = idintervento;
+	}
+
+	
+
+	@Column (name = "comune")
+	public String getComune() {
+		return comune;
+	}
+	
+	@XmlAttribute(name="comune")
+	public void setComune(String idComune) {
+		this.comune = idComune;
+	}
+	
+	@Column (name = "data_ora_da")
+	public Date getData_ora_da() {
+		return data_ora_da;
+	}
+	
+	@XmlAttribute(name="data_ora_da")
+	public void setData_ora_da(Date data_ora_da) {
+		this.data_ora_da = data_ora_da;
+	}
+	
+	@Column (name = "data_ora_a")
+	public Date getData_ora_a() {
+		return data_ora_a;
+	}
+	
+	@XmlAttribute(name="data_ora_a")
+	public void setData_ora_a(Date data_ora_a) {
+		this.data_ora_a = data_ora_a;
+	}
+	
+	@Column (name = "id_prestazione")
+	public Integer getId_prestazione() {
+		return id_prestazione;
+	}
+	
+	@XmlAttribute(name="id_prestazione")
+	public void setId_prestazione(Integer id_prestazione) {
+		this.id_prestazione = id_prestazione;
+	}
+	
+	@Column (name = "flag_confermato")
+	public Boolean getFlag_confermato() {
+		return flag_confermato;
+	}
+	
+	@XmlAttribute(name="flag_confermato")
+	public void setFlag_confermato(Boolean flag_confermato) {
+		this.flag_confermato = flag_confermato;
+	}
+
+	
+	@ManyToOne(cascade = CascadeType.ALL)	
+	public Operatore getOperatore() {
+		return operatore;
+	}
+	public void setOperatore(Operatore operatore) {
+		this.operatore = operatore;
+	}
+
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	public DatiAssistito getAssistito() {
+		return assistito;
+	}
+	public void setAssistito(DatiAssistito assistito) {
+		this.assistito = assistito;
+	}
+	/**
+	 * Instantiates a new Intervento.
+	 */
+	public Intervento() {
+    }
+	
+	
+	
+}

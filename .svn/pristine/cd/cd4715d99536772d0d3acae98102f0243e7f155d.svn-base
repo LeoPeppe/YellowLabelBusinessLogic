@@ -1,0 +1,128 @@
+package it.cle.project.dao.hbn;
+
+import it.cle.project.dao.InterventoDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.dto.ReportPrestazioniDTO;
+import it.cle.project.model.Intervento;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class HbnInterventoDao.
+ */
+@Repository("interventoDao")
+public class HbnInterventoDao extends AbstractHbnDao<Intervento> implements InterventoDao {
+	
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.dao.InterventoDao#insert(it.cle.project.model.Intervento)
+	 */
+	@Override
+	public void insert(Intervento intervento) {
+		
+		this.create(intervento);
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.dao.InterventoDao#selectById(java.lang.Integer)
+	 */
+	@Override
+	public Intervento selectById(Integer idintervento) {
+		
+		return this.get(idintervento);
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.dao.InterventoDao#selectByComune(java.lang.String)
+	 */
+	@Override
+	public List<Intervento> selectByComune(String comune) {
+		
+		String sql = "select idintervento, data_ora_da, data_ora_a,"
+				+ "flag_confermato, comune, assistito_idDatiAssistito as assistito , operatore_idOperatore as operatore"
+				+ "  from intervento "
+				+ "where upper(comune) like upper('%"+ "%') ";
+		
+		Session session = getSession();
+		
+		SQLQuery query = session.createSQLQuery(sql);
+		query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+//		query.setResultTransformer(Transformers.aliasToBean(Intervento.class)); 
+		List<Intervento> result = new ArrayList<Intervento>();
+		
+		result = query.list();
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.dao.InterventoDao#selectByComuneData(java.lang.String, java.util.Date, java.util.Date)
+	 */
+	@Override
+	public List<Intervento> selectByComuneData(String comune, Date data_da, Date data_a) {
+
+
+		String sql = "select idintervento, data_ora_da, data_ora_a, comune, id_prestazione "
+				+ " from intervento "
+				+ " where  upper(comune) like upper('%"+ comune + "%') "
+						+ " and trunc(data_ora_da) between ? and ? ";
+		Session session = getSession();
+		
+		SQLQuery query = session.createSQLQuery(sql);
+		query.setDate(0, data_da);
+		query.setDate(1, data_a);
+		query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+		
+		List<Intervento> result = new ArrayList<Intervento>();
+		
+		result = query.list();
+		return result;
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.dao.InterventoDao#selectReportPrestazioni(java.lang.String, java.util.Date, java.util.Date)
+	 */
+	@Override
+	public List<ReportPrestazioniDTO> selectReportPrestazioni(String comune, Date data_da, Date data_a) {
+		List<ReportPrestazioniDTO> result = new ArrayList<ReportPrestazioniDTO>();
+		
+		String sql = "SELECT tp.descrizione, tp.costo_prestazione, COUNT(*) AS num_prestazioni, SUM(tp.costo_prestazione) AS costo_totale "
+				+ " FROM INTERVENTO I JOIN tipo_prestazione TP ON TP.idPrestazione = I.ID_PRESTAZIONE "
+				+ " WHERE upper(comune) like upper('%"+comune+"%') "
+				+ " AND date(data_ora_da) between ? and ? "
+				+ " GROUP BY i.comune, i.id_prestazione ";
+		
+		Session session = getSession();
+		
+		SQLQuery query = session.createSQLQuery(sql);
+		query.setDate(0, data_da);
+		query.setDate(1, data_a);
+		
+		List<Object[]> list = query.list();
+		
+		for(Object[] row: list){
+			
+			ReportPrestazioniDTO dto = new ReportPrestazioniDTO();
+			dto.setPrestazione((String) row[0]);
+			dto.setCosto_unitario(((BigDecimal) row[1]).doubleValue());
+			dto.setNum_prestazioni(((BigInteger) row[2]).intValue());
+			dto.setImporto_prestazioni(((BigDecimal) row[3]).doubleValue());
+			
+			result.add(dto);
+		}
+		return result;
+	}
+	
+
+}

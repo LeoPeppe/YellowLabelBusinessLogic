@@ -1,0 +1,491 @@
+package it.cle.project.service.impl;
+
+
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import it.cle.project.dao.hbn.HbnCommittenteDao;
+import it.cle.project.dao.hbn.HbnDatiFatturaDao;
+import it.cle.project.dao.hbn.HbnErogatoreDao;
+import it.cle.project.dto.ReportPrestazioniDTO;
+import it.cle.project.dto.fattura.AnagraficaDTO;
+import it.cle.project.dto.fattura.CedentePrestatoreDTO;
+import it.cle.project.dto.fattura.CessionarioCommittenteDTO;
+import it.cle.project.dto.fattura.ContattiDTO;
+import it.cle.project.dto.fattura.DatiAnagraficiDTO;
+import it.cle.project.dto.fattura.DatiBeniServiziDTO;
+import it.cle.project.dto.fattura.DatiGeneraliDTO;
+import it.cle.project.dto.fattura.DatiGeneraliDocumentoDTO;
+import it.cle.project.dto.fattura.DatiInputFatturaDTO;
+import it.cle.project.dto.fattura.DatiRiepilogoDTO;
+import it.cle.project.dto.fattura.DatiTrasmissioneDTO;
+import it.cle.project.dto.fattura.DettaglioLineeDTO;
+import it.cle.project.dto.fattura.FatturaElettronicaBodyDTO;
+import it.cle.project.dto.fattura.FatturaElettronicaDTO;
+import it.cle.project.dto.fattura.FatturaElettronicaHeaderDTO;
+import it.cle.project.dto.fattura.IdentificativoFiscaleDTO;
+import it.cle.project.dto.fattura.SedeDTO;
+import it.cle.project.model.Committente;
+import it.cle.project.model.DatiFattura;
+import it.cle.project.model.Erogatore;
+import it.cle.project.model.Pai_Prestazioni;
+import it.cle.project.service.ComponiFatturaService;
+import it.cle.project.utils.Utils;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ComponiFatturaServiceImpl.
+ * Questa classe implementa la Business Logic e 
+ * i metodi per le operazioni base relative all' Intervento
+ */
+@Service("componiFatturaService")
+@Transactional
+public class ComponiFatturaServiceImpl implements ComponiFatturaService {
+	
+	
+	/** The logger. */
+	protected Logger logger = Logger.getLogger(ComponiFatturaServiceImpl.class);
+	
+	/** The dao erogatore. */
+	@Autowired
+	private HbnErogatoreDao daoErogatore ;
+	
+	/** The dao committente. */
+	@Autowired
+	private HbnCommittenteDao daoCommittente ;
+	
+	/** The fattura generata. */
+	private DatiFattura fatturaGenerata;
+	
+	/** The dao dati fattura. */
+	@Autowired
+	private HbnDatiFatturaDao daoDatiFattura ;
+	
+	/** The fattura elettronica. */
+	private FatturaElettronicaDTO fatturaElettronica;
+	
+	
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#getFatturaElettronica()
+	 */
+	public FatturaElettronicaDTO getFatturaElettronica() {
+		return fatturaElettronica;
+	}
+
+	/**
+	 * Sets the fattura elettronica.
+	 *
+	 * @param fatturaElettronica the new fattura elettronica
+	 */
+	public void setFatturaElettronica(FatturaElettronicaDTO fatturaElettronica) {
+		this.fatturaElettronica = fatturaElettronica;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#componiFatturaBody(it.cle.project.dto.fattura.DatiGeneraliDocumentoDTO, it.cle.project.dto.fattura.DatiBeniServiziDTO)
+	 */
+	@Override
+	public FatturaElettronicaBodyDTO componiFatturaBody(DatiGeneraliDocumentoDTO datiGeneraliDoc, DatiBeniServiziDTO datiBeniServizi) {
+		FatturaElettronicaBodyDTO body = new FatturaElettronicaBodyDTO();
+		DatiGeneraliDTO datiGenerali = new DatiGeneraliDTO();
+		datiGenerali.setDatiGeneraliDocumento(datiGeneraliDoc);
+		body.setDatiGenerali(datiGenerali);
+		body.setDatiBeniServizi(datiBeniServizi);
+		
+		return body;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#componiFatturaHeader(it.cle.project.dto.fattura.DatiTrasmissioneDTO, it.cle.project.dto.fattura.CedentePrestatoreDTO, it.cle.project.dto.fattura.CessionarioCommittenteDTO)
+	 */
+	@Override
+	public FatturaElettronicaHeaderDTO componiFatturaHeader(DatiTrasmissioneDTO datiTrasmissione, CedentePrestatoreDTO cedentePrestatore, CessionarioCommittenteDTO cessionarioCommittente) {
+		FatturaElettronicaHeaderDTO header = new FatturaElettronicaHeaderDTO();
+		header.setDatiTrasmissione(datiTrasmissione);
+		header.setCedentePrestatore(cedentePrestatore);
+		header.setCessionarioCommittente(cessionarioCommittente);
+		
+		return header;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#componiDatiTrasmissione(java.lang.String, java.lang.String, java.lang.String, it.cle.project.dto.fattura.IdentificativoFiscaleDTO, it.cle.project.dto.fattura.ContattiDTO, java.lang.String)
+	 */
+	@Override
+	public DatiTrasmissioneDTO componiDatiTrasmissione(String codiceDestinatario, String formatoTrasmissione, String progressivoInvio, IdentificativoFiscaleDTO trasmittente, ContattiDTO contattiTrasmittente,String emailDestinatario) {
+		DatiTrasmissioneDTO datiTrasmissione = new DatiTrasmissioneDTO();
+		datiTrasmissione.setCodiceDestinatario(codiceDestinatario);
+		datiTrasmissione.setFormatoTrasmissione(formatoTrasmissione);
+		datiTrasmissione.setProgressivoInvio(progressivoInvio);
+		datiTrasmissione.setTrasmittente(trasmittente);
+		datiTrasmissione.setContattiTrasmittente(contattiTrasmittente);
+		datiTrasmissione.setEmailDestinatario(emailDestinatario);
+		
+		return datiTrasmissione;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#componiCedentePrestatore()
+	 */
+	@Override
+	public CedentePrestatoreDTO componiCedentePrestatore() {
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#componiCessionarioCommittente()
+	 */
+	@Override
+	public CessionarioCommittenteDTO componiCessionarioCommittente() {
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#compilaDatiGeneraliDocumento(java.lang.String, java.lang.Double, java.lang.Double)
+	 */
+	@Override
+	public DatiGeneraliDocumentoDTO compilaDatiGeneraliDocumento(String numeroFattura, Double importo, Double aliquotaIVA) {
+		DatiGeneraliDocumentoDTO datiGenerali = new DatiGeneraliDocumentoDTO();
+		datiGenerali.setData(new Date());
+		datiGenerali.setDivisa("EUR");
+		datiGenerali.setTipoDocumento("TD01");
+		datiGenerali.setNumero(numeroFattura);
+		Double importoTotale = new Double("0.0");
+		if(aliquotaIVA > 0)
+			importoTotale = importo * (1+aliquotaIVA);
+		else
+			importoTotale = importo;
+		datiGenerali.setImportoTotaleDocumento(importoTotale);
+		
+		return datiGenerali;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#compilaSede()
+	 */
+	@Override
+	public SedeDTO compilaSede() {
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#compilaDettaglioLinee(java.util.List)
+	 */
+	@Override
+	public List<DettaglioLineeDTO> compilaDettaglioLinee(List<ReportPrestazioniDTO> dettagli) {
+
+		List<DettaglioLineeDTO> result = new ArrayList<DettaglioLineeDTO>();
+		Double aliquotaIVA = new Double(Utils.getPropertyFromConfig("aliquotaIVA", "0.00"));
+		
+		for(int i = 0; i<dettagli.size(); i++) {
+			
+			DettaglioLineeDTO riga = new DettaglioLineeDTO();
+			ReportPrestazioniDTO dettaglioPrestazione = dettagli.get(i);
+			riga.setNumeroLinea(i+1);
+			riga.setDescrizione(dettaglioPrestazione.getPrestazione());
+			riga.setQuantita(dettaglioPrestazione.getNum_prestazioni().doubleValue());
+			riga.setPrezzoUnitario(dettaglioPrestazione.getCosto_unitario());
+			riga.setPrezzoTotale(dettaglioPrestazione.getImporto_prestazioni());
+			riga.setAliquotaIva(aliquotaIVA);
+			
+			result.add(riga);
+			
+		}
+		
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#compilaDatiRiepilogo(java.lang.Double)
+	 */
+	@Override
+	public DatiRiepilogoDTO compilaDatiRiepilogo(Double imponibile) {
+
+		DatiRiepilogoDTO result = new DatiRiepilogoDTO();
+		result.setImponibileImporto(imponibile);
+		Double aliquota =  new Double(Utils.getPropertyFromConfig("aliquotaIVA", "0.00")); 
+		result.setAliquotaIva(aliquota);
+		Double imposta = imponibile * aliquota - imponibile;
+		result.setImposta(imposta);
+		return result;
+	}
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#compilaDatiBeniServizi(java.util.List, it.cle.project.dto.fattura.DatiRiepilogoDTO)
+	 */
+	@Override
+	public DatiBeniServiziDTO compilaDatiBeniServizi(List<DettaglioLineeDTO> dettagli, DatiRiepilogoDTO datiRiepilogo) {
+		DatiBeniServiziDTO datiBeniServizi = new DatiBeniServiziDTO();
+		datiBeniServizi.setDatiRiepilogo(datiRiepilogo);
+		datiBeniServizi.setDettaglioLinee(dettagli);
+		
+		
+		return datiBeniServizi;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#compilaDatiBeniServizi(java.util.List, java.lang.Double)
+	 */
+	@Override
+	public DatiBeniServiziDTO compilaDatiBeniServizi(List<DettaglioLineeDTO> dettagli, Double imponibile) {
+		DatiBeniServiziDTO datiBeniServizi = new DatiBeniServiziDTO();
+		datiBeniServizi.setDettaglioLinee(dettagli);
+		DatiRiepilogoDTO datiRiepilogo = compilaDatiRiepilogo(imponibile);
+		datiBeniServizi.setDatiRiepilogo(datiRiepilogo);
+		return datiBeniServizi;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#fatturaToXML(it.cle.project.dto.fattura.FatturaElettronicaHeaderDTO, it.cle.project.dto.fattura.FatturaElettronicaBodyDTO)
+	 */
+	@Override
+	/**
+	 * dati gli elementi della fattura (intestazione e corpo) compone l'xml
+	 */
+	public String fatturaToXML(FatturaElettronicaHeaderDTO header, FatturaElettronicaBodyDTO body) {
+		String xml = "";
+		try {
+		JAXBContext jcHeader = JAXBContext.newInstance(FatturaElettronicaHeaderDTO.class);
+//		Unmarshaller unmarshaller = jcHeader.createUnmarshaller();
+		Marshaller marsh = jcHeader.createMarshaller();
+		marsh.setProperty("com.sun.xml.bind.xmlDeclaration", Boolean.FALSE);
+		StringWriter outHeader = new StringWriter();			
+		marsh.marshal(header, outHeader);
+		JAXBContext jcBody = JAXBContext.newInstance(FatturaElettronicaBodyDTO.class);
+		marsh = jcBody.createMarshaller();
+		marsh.setProperty("com.sun.xml.bind.xmlDeclaration", Boolean.FALSE);
+		StringWriter outBody = new StringWriter();
+		marsh.marshal(body, outBody);
+		StringBuilder builder = new StringBuilder();
+		builder.append("<p:FatturaElettronica versione=\"1.1\" xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\" xmlns:p=\"http://www.fatturapa.gov.it/sdi/fatturapa/v1.1\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">");
+		builder.append(outHeader.toString());
+		builder.append(outBody.toString());
+		builder.append("</p:FatturaElettronica>");
+		xml = builder.toString();
+
+		logger.info("fatturaToXML: " + xml);
+		} catch (JAXBException e) {
+			xml = "<esito>ERRORE</esito><dettagli>"+e.getMessage()+"</dettagli>";
+			logger.error("Errore nel metodo <fatturaToXML> : " +  Utils.getStackTrace(e));
+//			e.printStackTrace();
+		}
+		return xml;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#getFatturaGenerata()
+	 */
+	public DatiFattura getFatturaGenerata() {
+		return fatturaGenerata;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#setFatturaGenerata(it.cle.project.model.DatiFattura)
+	 */
+	public void setFatturaGenerata(DatiFattura fatturaGenerata) {
+		this.fatturaGenerata = fatturaGenerata;
+	}
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#salvaFatturaGenerata()
+	 */
+	public String salvaFatturaGenerata() {
+		String result = "";
+		
+		daoDatiFattura.create(getFatturaGenerata());
+		Long idFatturaGenerata = daoDatiFattura.getIdFattura(getFatturaGenerata());
+		if(idFatturaGenerata != null && idFatturaGenerata != 0) {
+			result = "OK";
+		}
+		else {
+			result = "Si è verificato un errore nel salvataggio della fattura.";
+		}
+		
+		
+		return result;
+		
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#getTrasmittenteDefault()
+	 */
+	@Override
+	public IdentificativoFiscaleDTO getTrasmittenteDefault() {
+		IdentificativoFiscaleDTO trasmittente = new IdentificativoFiscaleDTO();
+		try {
+		
+		Erogatore erogatore = daoErogatore.get(new Long(1));
+		
+		trasmittente.setIdPaese(erogatore.getCodicePaese());
+		trasmittente.setIdCodice(erogatore.getCodiceFiscale());
+		} catch(Exception e) {
+			trasmittente = null;
+			logger.error("Errore in <getTrasmittenteDefault>: ");
+			logger.error(Utils.getStackTrace(e));
+//			e.printStackTrace();
+		}
+		return trasmittente;
+	}
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.ComponiFatturaService#componiFatturaXML(it.cle.project.dto.fattura.DatiInputFatturaDTO)
+	 */
+	@Override
+	public String componiFatturaXML(DatiInputFatturaDTO datiInputFatturaDTO) {
+		
+		List<ReportPrestazioniDTO> prestazioni = datiInputFatturaDTO.getListaPrestazioni();
+		// HEADER
+		FatturaElettronicaHeaderDTO header = new FatturaElettronicaHeaderDTO();
+		DatiTrasmissioneDTO datiTrasmissione = new DatiTrasmissioneDTO();
+		String result = "";
+		try {
+		datiTrasmissione.setTrasmittente(getTrasmittenteDefault());
+		
+		if(datiTrasmissione.getTrasmittente() == null) throw new Exception("Impossibile recuperare i dati del trasmittente.");
+		
+		Integer numFattura = daoDatiFattura.getNuovoNumFattura();
+		String progressivoInvio = daoDatiFattura.getNuovoProgressivoInvio();
+		
+		datiTrasmissione.setProgressivoInvio(progressivoInvio);
+		// Chi emette la fattura
+		CedentePrestatoreDTO cedentePrestatore = new CedentePrestatoreDTO();
+		DatiAnagraficiDTO datiAnagraficiPrestatore = new DatiAnagraficiDTO();
+		AnagraficaDTO anagraficaPrestatore = new AnagraficaDTO();
+		Erogatore prestatore = daoErogatore.get(new Long(1));
+		anagraficaPrestatore.setDenominazione(prestatore.getDenominazione());
+		datiAnagraficiPrestatore.setRegimeFiscale(prestatore.getRegimeFiscale());
+		datiAnagraficiPrestatore.setIdFiscaleIVA(getTrasmittenteDefault());
+		datiAnagraficiPrestatore.setAnagrafica(anagraficaPrestatore);
+		SedeDTO sedePrestatore = new SedeDTO();
+		sedePrestatore.setIndirizzo(prestatore.getIndirizzo());
+		sedePrestatore.setCap(prestatore.getCap());
+		sedePrestatore.setComune(prestatore.getComune());
+		sedePrestatore.setNumeroCivico(prestatore.getNumeroCivico());
+		sedePrestatore.setNazione(prestatore.getNazione());
+		sedePrestatore.setProvincia(prestatore.getProvincia());
+		cedentePrestatore.setDatiAnagrafici(datiAnagraficiPrestatore);
+		cedentePrestatore.setSede(sedePrestatore);
+		cedentePrestatore.setContatti(new ContattiDTO(prestatore.getAccount(), ""));
+		
+		header.setCedentePrestatore(cedentePrestatore);
+		// Destinatario della fattura
+		CessionarioCommittenteDTO cessionarioCommittente = new CessionarioCommittenteDTO();
+		Committente committente = daoCommittente.getCommittenteByDenominazione(datiInputFatturaDTO.getComuneFattura());
+		if(committente == null) {
+			 throw new Exception("Impossibile recuperare i dati del committente.");
+//			return "";
+		}
+		
+		datiTrasmissione.setCodiceDestinatario(committente.getCodiceUfficio());
+		datiTrasmissione.setEmailDestinatario(committente.getEmailDestinatario());
+		DatiAnagraficiDTO datiAnagraficiCommittente = new DatiAnagraficiDTO();
+		IdentificativoFiscaleDTO idFiscaleCommittente = new IdentificativoFiscaleDTO();
+		idFiscaleCommittente.setIdCodice(committente.getCodiceFiscale());
+		idFiscaleCommittente.setIdPaese(committente.getNazione());
+		datiAnagraficiCommittente.setIdFiscaleIVA(idFiscaleCommittente);
+		
+		cessionarioCommittente.setDatiAnagrafici(datiAnagraficiCommittente);
+		AnagraficaDTO anagraficaCommittente = new AnagraficaDTO();
+		anagraficaCommittente.setDenominazione(committente.getDenominazione());
+		
+		datiAnagraficiCommittente.setAnagrafica(anagraficaCommittente);
+		
+		SedeDTO sedeCommittente = new SedeDTO();
+		sedeCommittente.setIndirizzo(committente.getIndirizzo());
+		sedeCommittente.setNumeroCivico(committente.getNumeroCivico());
+		sedeCommittente.setCap(committente.getCap());
+		sedeCommittente.setComune(committente.getComune());
+		sedeCommittente.setProvincia(committente.getProvincia());
+		sedeCommittente.setNazione(committente.getNazione());
+		cessionarioCommittente.setSede(sedeCommittente);
+		header.setCessionarioCommittente(cessionarioCommittente);
+		
+		// BODY
+		FatturaElettronicaBodyDTO body = new FatturaElettronicaBodyDTO();
+		DatiBeniServiziDTO datiBeniServizi = new DatiBeniServiziDTO();
+		List<DettaglioLineeDTO> dettaglioLinee = new ArrayList<DettaglioLineeDTO>();
+		dettaglioLinee = compilaDettaglioLinee(prestazioni);
+		datiBeniServizi.setDettaglioLinee(dettaglioLinee);
+		
+		DatiRiepilogoDTO datiRiepilogo = new DatiRiepilogoDTO();
+		datiRiepilogo = compilaDatiRiepilogo(new Double(datiInputFatturaDTO.getTotaleFattura()));		
+		datiBeniServizi.setDatiRiepilogo(datiRiepilogo);
+		
+		body.setDatiBeniServizi(datiBeniServizi);
+		
+		
+		DatiGeneraliDocumentoDTO datiGeneraliDocumento = compilaDatiGeneraliDocumento(numFattura.toString(), datiRiepilogo.getImponibileImporto(), datiRiepilogo.getAliquotaIva());
+		DatiGeneraliDTO datiGenerali = new DatiGeneraliDTO();
+		datiGenerali.setDatiGeneraliDocumento(datiGeneraliDocumento);
+		body.setDatiGenerali(datiGenerali);
+		header.setDatiTrasmissione(datiTrasmissione);
+		
+		// DatiFattura
+		DatiFattura fattura = new DatiFattura();
+		fattura.setCommittente(committente);
+		fattura.setErogatore(prestatore);
+		fattura.setImporto(datiGeneraliDocumento.getImportoTotaleDocumento());
+		fattura.setTipoDocumento(datiGeneraliDocumento.getTipoDocumento());
+		fattura.setData(new Date());
+		fattura.setDivisa(datiGeneraliDocumento.getDivisa());
+		fattura.setNumeroFattura(numFattura);
+		this.setFatturaGenerata(fattura);
+		
+			result = fatturaToXML(header, body);
+			FatturaElettronicaDTO dto = fatturaElettronica(header, body);
+			setFatturaElettronica(dto);
+
+			insert(fattura);
+		} catch(Exception e) {
+			logger.error("Errore in <componiFatturaXML>: ");
+			logger.error(Utils.getStackTrace(e));
+			e.printStackTrace();
+			
+			result = "<esito>ERRORE</esito><dettagli>"+e.getMessage()+"</dettagli>";
+			
+			
+			
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * Fattura elettronica.
+	 *
+	 * @param header the header
+	 * @param body the body
+	 * @return the fattura elettronica dto
+	 */
+	public FatturaElettronicaDTO fatturaElettronica(FatturaElettronicaHeaderDTO header, FatturaElettronicaBodyDTO body) {
+		
+		FatturaElettronicaDTO dto = new FatturaElettronicaDTO();
+		dto.setFatturaElettronicaBody(body);
+		dto.setFatturaElettronicaHeader(header);
+		return dto;
+		
+	}
+	
+	@Override
+	public void insert(DatiFattura datiFattura) {
+		daoDatiFattura.create(datiFattura);
+		
+	}
+	
+	
+	
+
+}

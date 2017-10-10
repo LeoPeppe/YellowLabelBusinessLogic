@@ -1,0 +1,312 @@
+package it.cle.project.model;
+
+
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Prestazioni.
+ */
+@Entity
+@Table(name = "prestazione_range")
+@XmlRootElement(name = "prestazione_range")  
+//@XmlAccessorType(XmlAccessType.FIELD)
+public class Prestazioni implements Serializable{
+	
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The id prestazione_range. */
+	private Integer idPrestazione_range;
+	
+	/** The id prestazione. */
+	private Integer idPrestazione;
+	
+	/** The range ad l_0_14. */
+	private boolean rangeADL_0_14;
+	
+	/** The range ad l_15_49. */
+	private boolean rangeADL_15_49;
+	
+	/** The range ad l_50_60. */
+	private boolean rangeADL_50_60;
+	
+	/** The range barthel_0_14. */
+	private boolean rangeBarthel_0_14;
+	
+	/** The range barthel_15_29. */
+	private boolean rangeBarthel_15_29;
+	
+	/** The range barthel_30_40. */
+	private boolean rangeBarthel_30_40;
+	
+	/** The range rete_0_80. */
+	private boolean rangeRete_0_80;
+	
+	/** The range rete_85_150. */
+	private boolean rangeRete_85_150;
+	
+	/** The range rete_165_240. */
+	private boolean rangeRete_165_240;
+	
+	
+	
+	
+	
+	/**
+	 * Gets the id prestazione.
+	 *
+	 * @return the id prestazione
+	 */
+	@NotNull
+	@Column(name = "idPrestazione")
+	public Integer getIdPrestazione() {
+		return idPrestazione;
+	}
+	
+	/**
+	 * Sets the id prestazione.
+	 *
+	 * @param idPrestazione the new id prestazione
+	 */
+	@XmlElement(name="idPrestazione")
+	public void setIdPrestazione(Integer idPrestazione) {
+		this.idPrestazione = idPrestazione;
+	}
+	
+	/**
+	 * Checks if is range ad l_0_14.
+	 *
+	 * @return true, if is range ad l_0_14
+	 */
+	@NotNull
+	@Column(name = "rangeADL_0_14")
+	public boolean isRangeADL_0_14() {
+		return rangeADL_0_14;
+	}
+	
+	/**
+	 * Sets the range ad l_0_14.
+	 *
+	 * @param rangeADL_0_14 the new range ad l_0_14
+	 */
+	@XmlElement(name="rangeADL_15_49")
+	public void setRangeADL_0_14(boolean rangeADL_0_14) {
+		this.rangeADL_0_14 = rangeADL_0_14;
+	}
+	
+	/**
+	 * Checks if is range ad l_15_49.
+	 *
+	 * @return true, if is range ad l_15_49
+	 */
+	@NotNull
+	@Column(name = "rangeADL_15_49")
+	public boolean isRangeADL_15_49() {
+		return rangeADL_15_49;
+	}
+	
+	/**
+	 * Sets the range ad l_15_49.
+	 *
+	 * @param rangeADL_15_49 the new range ad l_15_49
+	 */
+	@XmlElement(name="rangeADL_15_49")
+	public void setRangeADL_15_49(boolean rangeADL_15_49) {
+		this.rangeADL_15_49 = rangeADL_15_49;
+	}
+	
+	/**
+	 * Checks if is range ad l_50_60.
+	 *
+	 * @return true, if is range ad l_50_60
+	 */
+	@NotNull
+	@Column(name = "rangeADL_50_60")
+	public boolean isRangeADL_50_60() {
+		return rangeADL_50_60;
+	}
+	
+	/**
+	 * Sets the range ad l_50_60.
+	 *
+	 * @param rangeADL_50_60 the new range ad l_50_60
+	 */
+	@XmlElement(name="rangeADL_50_60")
+	public void setRangeADL_50_60(boolean rangeADL_50_60) {
+		this.rangeADL_50_60 = rangeADL_50_60;
+	}
+	
+	/**
+	 * Checks if is range barthel_0_14.
+	 *
+	 * @return true, if is range barthel_0_14
+	 */
+	@NotNull
+	@Column(name = "rangeBarthel_0_14")
+	public boolean isRangeBarthel_0_14() {
+		return rangeBarthel_0_14;
+	}
+	
+	/**
+	 * Sets the range barthel_0_14.
+	 *
+	 * @param rangeBarthel_0_14 the new range barthel_0_14
+	 */
+	@XmlElement(name="rangeBarthel_0_14")
+	public void setRangeBarthel_0_14(boolean rangeBarthel_0_14) {
+		this.rangeBarthel_0_14 = rangeBarthel_0_14;
+	}
+	
+	/**
+	 * Checks if is range barthel_15_29.
+	 *
+	 * @return true, if is range barthel_15_29
+	 */
+	@NotNull
+	@Column(name = "rangeBarthel_15_29")
+	public boolean isRangeBarthel_15_29() {
+		return rangeBarthel_15_29;
+	}
+	
+	/**
+	 * Sets the range barthel_15_29.
+	 *
+	 * @param rangeBarthel_15_29 the new range barthel_15_29
+	 */
+	@XmlElement(name="rangeBarthel_15_29")
+	public void setRangeBarthel_15_29(boolean rangeBarthel_15_29) {
+		this.rangeBarthel_15_29 = rangeBarthel_15_29;
+	}
+	
+	/**
+	 * Checks if is range barthel_30_40.
+	 *
+	 * @return true, if is range barthel_30_40
+	 */
+	@NotNull
+	@Column(name = "rangeBarthel_30_40")
+	public boolean isRangeBarthel_30_40() {
+		return rangeBarthel_30_40;
+	}
+	
+	/**
+	 * Sets the range barthel_30_40.
+	 *
+	 * @param rangeBarthel_30_40 the new range barthel_30_40
+	 */
+	@XmlElement(name="rangeBarthel_30_40")
+	public void setRangeBarthel_30_40(boolean rangeBarthel_30_40) {
+		this.rangeBarthel_30_40 = rangeBarthel_30_40;
+	}
+	
+	/**
+	 * Checks if is range rete_0_80.
+	 *
+	 * @return true, if is range rete_0_80
+	 */
+	@NotNull
+	@Column(name = "rangeRete_0_80")
+	public boolean isRangeRete_0_80() {
+		return rangeRete_0_80;
+	}
+	
+	/**
+	 * Sets the range rete_0_80.
+	 *
+	 * @param rangeRete_0_80 the new range rete_0_80
+	 */
+	@XmlElement(name="rangeRete_0_80")
+	public void setRangeRete_0_80(boolean rangeRete_0_80) {
+		this.rangeRete_0_80 = rangeRete_0_80;
+	}
+	
+	/**
+	 * Checks if is range rete_85_150.
+	 *
+	 * @return true, if is range rete_85_150
+	 */
+	@NotNull
+	@Column(name = "rangeRete_85_150")
+	public boolean isRangeRete_85_150() {
+		return rangeRete_85_150;
+	}
+	
+	/**
+	 * Sets the range rete_85_150.
+	 *
+	 * @param rangeRete_85_150 the new range rete_85_150
+	 */
+	@XmlElement(name="rangeRete_85_150")
+	public void setRangeRete_85_150(boolean rangeRete_85_150) {
+		this.rangeRete_85_150 = rangeRete_85_150;
+	}
+	
+	/**
+	 * Checks if is range rete_165_240.
+	 *
+	 * @return true, if is range rete_165_240
+	 */
+	@NotNull
+	@Column(name = "rangeRete_165_240")
+	public boolean isRangeRete_165_240() {
+		return rangeRete_165_240;
+	}
+	
+	/**
+	 * Sets the range rete_165_240.
+	 *
+	 * @param rangeRete_165_240 the new range rete_165_240
+	 */
+	@XmlElement(name="rangeRete_165_240")
+	public void setRangeRete_165_240(boolean rangeRete_165_240) {
+		this.rangeRete_165_240 = rangeRete_165_240;
+	}
+	
+	
+	
+	/**
+	 * Gets the id prestazione_range.
+	 *
+	 * @return the id prestazione_range
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdPrestazione_range() {
+		return idPrestazione_range;
+	}
+	
+	/**
+	 * Sets the id prestazione_range.
+	 *
+	 * @param idPrestazione_range the new id prestazione_range
+	 */
+	@XmlAttribute(name="idPrestazione_range")
+	public void setIdPrestazione_range(Integer idPrestazione_range) {
+		this.idPrestazione_range = idPrestazione_range;
+	}
+	
+	
+	/**
+	 * Instantiates a new prestazioni.
+	 */
+	public Prestazioni() {
+    }
+	
+
+}

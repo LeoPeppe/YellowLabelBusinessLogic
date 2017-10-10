@@ -1,0 +1,138 @@
+package it.cle.project.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+// TODO: Auto-generated Javadoc
+//pai_prestazioni
+
+/**
+ * The Class Pai_Prestazioni.
+ */
+@Entity
+@Table(name = "pai_prestazioni")
+@XmlRootElement(name="pai_prestazioni")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Pai_Prestazioni {
+	
+	/** The id pai prestazione. */
+	private Integer idPaiPrestazione;
+	
+	/** The descrizione. */
+	private String descrizione;
+	
+	/** The durata. */
+	private String durata;
+	
+	/** The frequenza. */
+	private String frequenza;
+	
+	/** The id pai. */
+	private Integer idPai;
+	
+	/**
+	 * Gets the id pai prestazione.
+	 *
+	 * @return the id pai prestazione
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdPaiPrestazione() {
+		return idPaiPrestazione;
+	}
+	
+	/**
+	 * Sets the id pai prestazione.
+	 *
+	 * @param idPaiPrestazione the new id pai prestazione
+	 */
+	public void setIdPaiPrestazione(Integer idPaiPrestazione) {
+		this.idPaiPrestazione = idPaiPrestazione;
+	}
+	
+	/**
+	 * Gets the descrizione.
+	 *
+	 * @return the descrizione
+	 */
+	@Column(name = "descrizione")
+	public String getDescrizione() {
+		return descrizione;
+	}
+	
+	/**
+	 * Sets the descrizione.
+	 *
+	 * @param descrizione the new descrizione
+	 */
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+	
+	/**
+	 * Gets the durata.
+	 *
+	 * @return the durata
+	 */
+	@Column(name = "durata")
+	public String getDurata() {
+		return durata;
+	}
+	
+	/**
+	 * Sets the durata.
+	 *
+	 * @param durata the new durata
+	 */
+	public void setDurata(String durata) {
+		this.durata = durata;
+	}
+	
+	/**
+	 * Gets the frequenza.
+	 *
+	 * @return the frequenza
+	 */
+	@Column(name = "frequenza")
+	public String getFrequenza() {
+		return frequenza;
+	}
+	
+	/**
+	 * Sets the frequenza.
+	 *
+	 * @param frequenza the new frequenza
+	 */
+	public void setFrequenza(String frequenza) {
+		this.frequenza = frequenza;
+	}
+	
+	/**
+	 * Gets the id pai.
+	 *
+	 * @return the id pai
+	 */
+	@Column(name = "idPai")
+	public Integer getIdPai() {
+		return idPai;
+	}
+	
+	/**
+	 * Sets the id pai.
+	 *
+	 * @param idPai the new id pai
+	 */
+	public void setIdPai(Integer idPai) {
+		this.idPai = idPai;
+	}
+	
+
+}

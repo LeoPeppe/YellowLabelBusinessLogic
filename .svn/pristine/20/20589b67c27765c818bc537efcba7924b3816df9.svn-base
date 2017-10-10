@@ -1,0 +1,51 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
+public class DatiGestionaliDTO implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String tipoDato;
+	private String riferimentoTesto;
+	private Double riferimentoNumero;
+	private String riferimentoData; // YYYY-MM-DD
+	
+	
+	public String getTipoDato() {
+		return tipoDato;
+	}
+	@XmlElement(name="TipoDato")
+	public void setTipoDato(String tipoDato) {
+		this.tipoDato = tipoDato;
+	}
+	public String getRiferimentoTesto() {
+		return riferimentoTesto;
+	}
+	@XmlElement(name="RiferimentoTesto")
+	public void setRiferimentoTesto(String riferimentoTesto) {
+		this.riferimentoTesto = riferimentoTesto;
+	}
+	public Double getRiferimentoNumero() {
+		return riferimentoNumero;
+	}
+	@XmlElement(name="RiferimentoNumero")
+	public void setRiferimentoNumero(Double riferimentoNumero) {
+		this.riferimentoNumero = riferimentoNumero;
+	}
+	public String getRiferimentoData() {
+		return riferimentoData;
+	}
+	@XmlElement(name="RiferimentoData")
+	public void setRiferimentoData(String riferimentoData) {
+		this.riferimentoData = riferimentoData;
+	}
+	
+	
+
+}

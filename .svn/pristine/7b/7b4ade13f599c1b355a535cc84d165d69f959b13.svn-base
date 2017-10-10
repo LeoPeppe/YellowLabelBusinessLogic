@@ -1,0 +1,83 @@
+package it.cle.project.model;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+//risultati_indice
+@Entity
+@Table(name = "risultati_indici")
+@XmlRootElement(name = "risultati_indici")  
+@XmlAccessorType(XmlAccessType.FIELD)
+public class RisultatiIndici {
+	
+	private Integer idRisultatiIndici;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdRisultatiIndici() {
+		return idRisultatiIndici;
+	}
+	public void setIdRisultatiIndici(Integer idRisultatiIndici) {
+		this.idRisultatiIndici = idRisultatiIndici;
+	}
+	
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	public DatiAssistito getIdAssistito() {
+//		return idAssistito;
+//	}
+//	public void setIdAssistito(DatiAssistito idAssistito) {
+//		this.idAssistito = idAssistito;
+//	}
+	@Column(name = "risultatoADL")
+	public String getRisultatoADL() {
+		return risultatoADL;
+	}
+	public void setRisultatoADL(String risultatoADL) {
+		this.risultatoADL = risultatoADL;
+	}
+	@Column(name = "risultatoBarthel")
+	public String getRisultatoBarthel() {
+		return risultatoBarthel;
+	}
+	public void setRisultatoBarthel(String risultatoBarthel) {
+		this.risultatoBarthel = risultatoBarthel;
+	}
+	@Column(name = "risultatoReteSociale")
+	public String getRisultatoReteSociale() {
+		return risultatoReteSociale;
+	}
+	public void setRisultatoReteSociale(String risultatoReteSociale) {
+		this.risultatoReteSociale = risultatoReteSociale;
+	}
+
+	
+	@Column(name = "idAssistito")
+	public Integer getIdAssistito() {
+		return idAssistito;
+	}
+	public void setIdAssistito(Integer idAssistito) {
+		this.idAssistito = idAssistito;
+	}
+
+	//	private DatiAssistito idAssistito;
+	private Integer idAssistito;
+	private String risultatoADL;
+	private String risultatoBarthel;
+	private String risultatoReteSociale;
+	
+	
+	public RisultatiIndici() {
+    }
+	
+
+}

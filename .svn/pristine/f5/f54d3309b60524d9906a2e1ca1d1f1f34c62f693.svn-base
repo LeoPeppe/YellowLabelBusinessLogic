@@ -1,0 +1,128 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DatiGeneraliDTO.
+ */
+@XmlRootElement(name = "DatiGenerali") 
+public class DatiGeneraliDTO implements Serializable {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The dati generali documento. */
+	private DatiGeneraliDocumentoDTO datiGeneraliDocumento;
+	
+	/** The dati ordine acquisto. */
+	private DatiDocumentoDTO datiOrdineAcquisto;
+	
+	/** The dati contratto. */
+	private DatiDocumentoDTO datiContratto;
+	
+	/** The dati convenzione. */
+	private DatiDocumentoDTO datiConvenzione;
+	
+	/** The dati ricezione. */
+	private DatiDocumentoDTO datiRicezione;
+	
+	/**
+	 * mancano altri.
+	 *
+	 * @return the dati generali documento
+	 */
+	public DatiGeneraliDocumentoDTO getDatiGeneraliDocumento() {
+		return datiGeneraliDocumento;
+	}
+	
+	/**
+	 * Sets the dati generali documento.
+	 *
+	 * @param datiGeneraliDocumento the new dati generali documento
+	 */
+	@XmlElement(name="DatiGeneraliDocumento")
+	public void setDatiGeneraliDocumento(DatiGeneraliDocumentoDTO datiGeneraliDocumento) {
+		this.datiGeneraliDocumento = datiGeneraliDocumento;
+	}
+	
+	/**
+	 * Gets the dati ordine acquisto.
+	 *
+	 * @return the dati ordine acquisto
+	 */
+	public DatiDocumentoDTO getDatiOrdineAcquisto() {
+		return datiOrdineAcquisto;
+	}
+	
+	/**
+	 * Sets the dati ordine acquisto.
+	 *
+	 * @param datiOrdineAcquisto the new dati ordine acquisto
+	 */
+	@XmlElement(name="DatiOrdineAcquisto")
+	public void setDatiOrdineAcquisto(DatiDocumentoDTO datiOrdineAcquisto) {
+		this.datiOrdineAcquisto = datiOrdineAcquisto;
+	}
+	
+	/**
+	 * Gets the dati contratto.
+	 *
+	 * @return the dati contratto
+	 */
+	public DatiDocumentoDTO getDatiContratto() {
+		return datiContratto;
+	}
+	
+	/**
+	 * Sets the dati contratto.
+	 *
+	 * @param datiContratto the new dati contratto
+	 */
+	@XmlElement(name="DatiContratto")
+	public void setDatiContratto(DatiDocumentoDTO datiContratto) {
+		this.datiContratto = datiContratto;
+	}
+	
+	/**
+	 * Gets the dati convenzione.
+	 *
+	 * @return the dati convenzione
+	 */
+	public DatiDocumentoDTO getDatiConvenzione() {
+		return datiConvenzione;
+	}
+	
+	/**
+	 * Sets the dati convenzione.
+	 *
+	 * @param datiConvenzione the new dati convenzione
+	 */
+	public void setDatiConvenzione(DatiDocumentoDTO datiConvenzione) {
+		this.datiConvenzione = datiConvenzione;
+	}
+	
+	/**
+	 * Gets the dati ricezione.
+	 *
+	 * @return the dati ricezione
+	 */
+	public DatiDocumentoDTO getDatiRicezione() {
+		return datiRicezione;
+	}
+	
+	/**
+	 * Sets the dati ricezione.
+	 *
+	 * @param datiRicezione the new dati ricezione
+	 */
+	public void setDatiRicezione(DatiDocumentoDTO datiRicezione) {
+		this.datiRicezione = datiRicezione;
+	}
+	
+	
+
+}

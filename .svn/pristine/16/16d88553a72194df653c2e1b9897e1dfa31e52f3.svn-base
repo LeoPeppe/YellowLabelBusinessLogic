@@ -1,0 +1,116 @@
+package it.cle.project.dto.fattura;
+
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
+@XmlRootElement
+public class DatiDocumentoDTO {
+	
+	
+	private Integer riferimentoNumeroLinea;
+	private String idDocumento;
+	private Date data;
+	private String numItem;
+	private String codiceCommessaConvenzione;
+	private String codiceCup;
+	private String codiceCIG;
+	/**
+	 * @return the riferimentoNumeroLinea
+	 */
+	public Integer getRiferimentoNumeroLinea() {
+		return riferimentoNumeroLinea;
+	}
+	/**
+	 * @param riferimentoNumeroLinea the riferimentoNumeroLinea to set
+	 */
+	@XmlElement(name="RiferimentoNumeroLinea")
+	public void setRiferimentoNumeroLinea(Integer riferimentoNumeroLinea) {
+		this.riferimentoNumeroLinea = riferimentoNumeroLinea;
+	}
+	/**
+	 * @return the idDocumento
+	 */
+	public String getIdDocumento() {
+		return idDocumento;
+	}
+	/**
+	 * @param idDocumento the idDocumento to set
+	 */
+	@XmlElement(name="IdDocumento")
+	public void setIdDocumento(String idDocumento) {
+		this.idDocumento = idDocumento;
+	}
+	/**
+	 * @return the data
+	 */
+	public Date getData() {
+		return data;
+	}
+	/**
+	 * @param data the data to set
+	 */
+	@XmlElement(name="Data")
+	public void setData(Date data) {
+		this.data = data;
+	}
+	/**
+	 * @return the numItem
+	 */
+	public String getNumItem() {
+		return numItem;
+	}
+	/**
+	 * @param numItem the numItem to set
+	 */
+	@XmlElement(name="NumItem")
+	public void setNumItem(String numItem) {
+		this.numItem = numItem;
+	}
+	/**
+	 * @return the codiceCommessaConvenzione
+	 */
+	public String getCodiceCommessaConvenzione() {
+		return codiceCommessaConvenzione;
+	}
+	/**
+	 * @param codiceCommessaConvenzione the codiceCommessaConvenzione to set
+	 */
+	@XmlElement(name="CodiceCommessaConvenzione")
+	public void setCodiceCommessaConvenzione(String codiceCommessaConvenzione) {
+		this.codiceCommessaConvenzione = codiceCommessaConvenzione;
+	}
+	/**
+	 * @return the codiceCup
+	 */
+	public String getCodiceCup() {
+		return codiceCup;
+	}
+	/**
+	 * @param codiceCup the codiceCup to set
+	 */
+	@XmlElement(name="CodiceCUP")
+	public void setCodiceCup(String codiceCup) {
+		this.codiceCup = codiceCup;
+	}
+	/**
+	 * @return the codiceCIG
+	 */
+	public String getCodiceCIG() {
+		return codiceCIG;
+	}
+	/**
+	 * @param codiceCIG the codiceCIG to set
+	 */
+	@XmlElement(name="CodiceCIG")
+	public void setCodiceCIG(String codiceCIG) {
+		this.codiceCIG = codiceCIG;
+	}
+	
+	
+	
+
+}

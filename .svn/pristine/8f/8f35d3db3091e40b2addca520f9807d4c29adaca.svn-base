@@ -1,0 +1,68 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+@XmlRootElement(name = "FatturaElettronicaBody") 
+@XmlType(propOrder={"datiGenerali", "datiBeniServizi", "datiVeicoli", "datiPagamento", "allegati"})
+public class FatturaElettronicaBodyDTO implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private DatiGeneraliDTO datiGenerali;
+	private DatiBeniServiziDTO datiBeniServizi;
+	private DatiVeicoliDTO datiVeicoli;
+	private DatiPagamentoDTO datiPagamento;
+	private AllegatiDTO allegati;
+	
+	
+	
+	public DatiGeneraliDTO getDatiGenerali() {
+		return datiGenerali;
+	}
+	@XmlElement(name="DatiGenerali")
+	public void setDatiGenerali(DatiGeneraliDTO datiGenerali) {
+		this.datiGenerali = datiGenerali;
+	}
+	public DatiBeniServiziDTO getDatiBeniServizi() {
+		return datiBeniServizi;
+	}
+	@XmlElement(name="DatiBeniServizi")
+	public void setDatiBeniServizi(DatiBeniServiziDTO datiBeniServizi) {
+		this.datiBeniServizi = datiBeniServizi;
+	}
+	public DatiVeicoliDTO getDatiVeicoli() {
+		return datiVeicoli;
+	}
+	@XmlElement(name="DatiVeicoli")
+	public void setDatiVeicoli(DatiVeicoliDTO datiVeicoli) {
+		this.datiVeicoli = datiVeicoli;
+	}
+	public DatiPagamentoDTO getDatiPagamento() {
+		return datiPagamento;
+	}
+	@XmlElement(name="DatiPagamento")
+	public void setDatiPagamento(DatiPagamentoDTO datiPagamento) {
+		this.datiPagamento = datiPagamento;
+	}
+	public AllegatiDTO getAllegati() {
+		return allegati;
+	}
+	@XmlElement(name="Allegati")
+	public void setAllegati(AllegatiDTO allegati) {
+		this.allegati = allegati;
+	}
+	
+	
+
+	
+	
+
+}

@@ -1,0 +1,12 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.IndiceBarthelMobilita;
+
+/**
+ * Interfaccia IndiceBarthelDao.
+ *
+ * @author Fronza
+ */
+public interface IndiceBarthelMobilitaDao extends Dao<IndiceBarthelMobilita> {
+
+}

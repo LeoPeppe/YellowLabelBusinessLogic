@@ -1,0 +1,81 @@
+package it.cle.project.service.impl;
+
+import it.cle.project.dao.hbn.HbnIndiceSupportoReteSocialeDao;
+import it.cle.project.model.IndiceSupportoReteSociale;
+import it.cle.project.service.IndiceSupportoReteSocialeService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * The Class IndiceSupportoReteSocialeServiceImpl.
+ * Questa classe implementa i metodi per le operazioni base relative all' indice Supporto della Rete Sociale
+ */
+@Service("indiceSupportoReteSocialeService")
+@Transactional
+public class IndiceSupportoReteSocialeServiceImpl implements IndiceSupportoReteSocialeService {
+	
+	private static final String vsoc1="Ben assistito";
+	private static final String vsoc2="Parzialmente assistito";
+	private static final String vsoc3="Non sufficientemente assistito";
+	
+	@Autowired
+	private HbnIndiceSupportoReteSocialeDao dao;
+
+	@Override
+	public Integer calcolaIndiceSupportoReteSociale(IndiceSupportoReteSociale indiceSupportoReteSociale) {
+		
+		Integer punteggioSupportoReteSociale = indiceSupportoReteSociale.getAbbigliamento()+
+				indiceSupportoReteSociale.getAlimentazione()+
+				indiceSupportoReteSociale.getAssunzioneMedicinali()+
+				indiceSupportoReteSociale.getBagno()+
+				indiceSupportoReteSociale.getDeambulazione()+
+				indiceSupportoReteSociale.getEffettuazioneAcquisti()+
+				indiceSupportoReteSociale.getGestioneDenaro()+
+				indiceSupportoReteSociale.getLavanderia()+
+				indiceSupportoReteSociale.getPreparazionePasti()+
+				indiceSupportoReteSociale.getPuliziaCasa()+
+				indiceSupportoReteSociale.getSostegnoPsicoAffettivo()+
+				indiceSupportoReteSociale.getSupervisioneDiurna()+
+				indiceSupportoReteSociale.getSupervisioneNotturna()+
+				indiceSupportoReteSociale.getToelettaPersonale()+
+				indiceSupportoReteSociale.getTrasferimenti()+
+				indiceSupportoReteSociale.getUsoWC();
+		
+		return punteggioSupportoReteSociale;
+	}
+
+	@Override
+	public void insert(IndiceSupportoReteSociale indiceSupportoReteSociale) {
+		dao.create(indiceSupportoReteSociale);
+		
+	}
+
+	@Override
+	public IndiceSupportoReteSociale selectById(
+			Integer idIndiceSupportoReteSociale) {
+		return dao.get(idIndiceSupportoReteSociale);
+		
+	}
+
+	@Override
+	public String codificaPsoc(Integer vsoc) {
+		String vsocCodificato = null;
+		
+		if(vsoc>=0 && vsoc<=80 ){
+			vsocCodificato = vsoc1;
+		}
+		if(vsoc>=85 && vsoc<=160){
+			vsocCodificato = vsoc2;
+		}
+		if(vsoc>=165 && vsoc<=240){
+			vsocCodificato = vsoc3;
+		}
+		
+		return vsocCodificato;
+	}
+	
+	
+	
+}

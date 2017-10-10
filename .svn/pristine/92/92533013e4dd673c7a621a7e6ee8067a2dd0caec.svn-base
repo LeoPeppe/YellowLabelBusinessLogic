@@ -1,0 +1,15 @@
+package it.cle.project.dao.hbn;
+
+import it.cle.project.dao.IndiceVPIADao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.IndiceVPIA;
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * The Class HbnIndiceVPIADao.
+ */
+@Repository
+public class HbnIndiceVPIADao extends AbstractHbnDao<IndiceVPIA> implements IndiceVPIADao {
+	
+}

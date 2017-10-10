@@ -1,0 +1,95 @@
+package it.cle.project.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import it.cle.project.dao.IndiceVPIADao;
+import it.cle.project.model.IndiceVPIA;
+import it.cle.project.service.IndiceVPIAService;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndiceVPIAServiceImpl.
+ */
+@Service("indiceVPIAService")
+@Transactional
+public class IndiceVPIAServiceImpl implements IndiceVPIAService {
+	
+	
+	/** The dao. */
+	@Autowired
+	private IndiceVPIADao dao;
+
+	
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.IndiceVPIAService#calcolaVPIA(it.cle.project.model.IndiceVPIA)
+	 */
+	@Override
+	public Integer calcolaVPIA(IndiceVPIA indiceVPIA) {
+		Integer totaleExton= null;
+		Integer prevDecub= 0;
+		Integer totPrevDecub= 0;
+		Integer piaghe=0;
+		
+		
+		
+		totaleExton = indiceVPIA.getAttivita()+
+			   indiceVPIA.getCondizioniGenerali()+
+			   indiceVPIA.getIncontinenza()+
+			   indiceVPIA.getMobilita()+
+			   indiceVPIA.getStatoMentale();
+		
+		if(totaleExton>4 &&totaleExton<=10){
+			prevDecub=10;
+			if(indiceVPIA.getPiaghe() != null){
+				piaghe= indiceVPIA.getPiaghe();
+				}
+			
+			
+		}
+		else{ prevDecub=0;
+		if(indiceVPIA.getPiaghe() != null){
+		piaghe= indiceVPIA.getPiaghe();
+		}
+		}
+		
+		totPrevDecub= prevDecub+piaghe;
+		
+		
+		return totPrevDecub;
+	}
+	
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.IndiceVPIAService#insert(it.cle.project.model.IndiceVPIA)
+	 */
+	@Override
+	public void insert(IndiceVPIA indiceVPIA) {
+		dao.create(indiceVPIA);
+		
+	}
+
+
+	/* (non-Javadoc)
+	 * @see it.cle.project.service.IndiceVPIAService#selectById(java.lang.Integer)
+	 */
+	@Override
+	public IndiceVPIA selectById(Integer idIndiceVPIA) {
+		return dao.get(idIndiceVPIA);
+	}
+
+	
+	
+
+
+
+
+
+	
+
+	
+	
+
+}

@@ -1,0 +1,17 @@
+package it.cle.project.dao.hbn;
+
+import it.cle.project.dao.IndiceSPMSQDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.IndiceSPMSQ;
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * The Class HbnIndiceBarthelDao.
+ */
+@Repository
+public class HbnIndiceSPMSQDao extends AbstractHbnDao<IndiceSPMSQ> implements IndiceSPMSQDao {
+
+}
+
+

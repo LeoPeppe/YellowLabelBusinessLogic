@@ -1,0 +1,14 @@
+package it.cle.project.dao.hbn;
+
+import it.cle.project.dao.ProfiloAutonomiaDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.ProfiloAutonomia;
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * The Class HbnIndiceNPIDao.
+ */
+@Repository
+public class HbnProfiloAutonomiaDao extends AbstractHbnDao<ProfiloAutonomia> implements ProfiloAutonomiaDao {
+}

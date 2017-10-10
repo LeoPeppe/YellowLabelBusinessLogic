@@ -1,0 +1,61 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class ContattiDTO implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String telefono;
+	private String fax;
+	private String email;
+	/**
+	 * @return the telefono
+	 */
+	public String getTelefono() {
+		return telefono;
+	}
+	/**
+	 * @param telefono the telefono to set
+	 */
+	@XmlElement(name="telefono")
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	/**
+	 * @return the fax
+	 */
+	public String getFax() {
+		return fax;
+	}
+	/**
+	 * @param fax the fax to set
+	 */
+	@XmlElement(name="fax", nillable=true)
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
+	/**
+	 * @return the email
+	 */
+	
+	public String getEmail() {
+		return email;
+	}
+	/**
+	 * @param email the email to set
+	 */
+	@XmlElement(name="email")
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
+
+}

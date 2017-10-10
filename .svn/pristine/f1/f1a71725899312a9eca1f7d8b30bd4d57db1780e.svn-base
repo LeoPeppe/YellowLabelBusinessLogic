@@ -1,0 +1,19 @@
+package it.cle.project.utils;
+
+import java.math.BigDecimal;
+
+public class Utils {
+	public static float Round(float value,int decimalpos)
+	{
+		BigDecimal bd = new BigDecimal(Float.toString(value));
+        bd = bd.setScale(decimalpos, BigDecimal.ROUND_HALF_UP);
+        return bd.floatValue();
+	}
+	
+	public static Integer Round(float value)
+	{
+		return Math.round(value);
+		
+	}
+
+}

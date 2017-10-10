@@ -1,0 +1,56 @@
+package it.cle.project.dto;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@XmlRootElement(name = "report_prestazioni")  
+public class ReportPrestazioniResponseDTO  implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6382772159122404320L;
+	/**
+	 * 
+	 */
+	private List<ReportPrestazioniDTO> elencoPrestazioni;
+	
+	private Double totale;
+	
+	
+	public ReportPrestazioniResponseDTO(){
+		
+		elencoPrestazioni = new ArrayList<ReportPrestazioniDTO>();
+		totale = 0.00 ;
+		
+	}
+
+	public List<ReportPrestazioniDTO> getElencoPrestazioni() {
+		return elencoPrestazioni;
+	}
+
+	public void setElencoPrestazioni(List<ReportPrestazioniDTO> elencoPrestazioni) {
+		this.elencoPrestazioni = elencoPrestazioni;
+	}
+
+	public Double getTotale() {
+		return totale;
+	}
+
+	public void setTotale(Double totale) {
+		this.totale = totale;
+	}
+	
+	
+	
+	
+	
+	
+	
+
+}

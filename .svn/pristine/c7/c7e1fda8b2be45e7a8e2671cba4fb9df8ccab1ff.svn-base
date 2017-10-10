@@ -1,0 +1,14 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DatiVeicoliDTO.
+ */
+public class DatiVeicoliDTO implements Serializable {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+}

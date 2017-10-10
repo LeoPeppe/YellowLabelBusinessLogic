@@ -1,0 +1,5 @@
+package it.cle.project.dao;
+
+public interface ErogatoreDao {
+
+}

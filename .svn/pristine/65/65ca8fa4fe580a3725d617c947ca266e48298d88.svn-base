@@ -1,0 +1,61 @@
+package it.cle.project.model;
+
+import it.cle.project.model.composti.but.IndiceBUTa;
+import it.cle.project.model.composti.but.IndiceBUTb;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@Entity
+@Table(name = "indice_but")
+@XmlRootElement(name="indice_but")
+public class IndiceBUT {
+	
+	private Integer idIndiceBUT;
+	
+	@Valid
+	private IndiceBUTa indiceBUTa;
+	
+	@Valid
+	private IndiceBUTb indiceBUTb;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceBUT() {
+		return idIndiceBUT;
+	}
+
+	public void setIdIndiceBUT(Integer idIndiceBUT) {
+		this.idIndiceBUT = idIndiceBUT;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceBUTa getIndiceBUTa() {
+		return indiceBUTa;
+	}
+
+	public void setIndiceBUTa(IndiceBUTa indiceBUTa) {
+		this.indiceBUTa = indiceBUTa;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceBUTb getIndiceBUTb() {
+		return indiceBUTb;
+	}
+
+	public void setIndiceBUTb(IndiceBUTb indiceBUTb) {
+		this.indiceBUTb = indiceBUTb;
+	}
+	
+	
+
+}

@@ -1,0 +1,47 @@
+package it.cle.project.dto;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@XmlRootElement(name = "filtri_prestazioni")  
+public class ReportPrestazioniRequestDTO  implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private String comune;
+	private String data_da;
+	private String data_a;
+	public String getComune() {
+		return comune;
+	}
+	@XmlElement(name="comune")
+	public void setComune(String comune) {
+		this.comune = comune;
+	}
+	public String getData_da() {
+		return data_da;
+	}
+	@XmlElement(name="data_da")
+	public void setData_da(String data_da) {
+		this.data_da = data_da;
+	}
+	public String getData_a() {
+		return data_a;
+	}
+	@XmlElement(name="data_a")
+	public void setData_a(String data_a) {
+		this.data_a = data_a;
+	}
+	
+	
+	
+	
+	
+
+}

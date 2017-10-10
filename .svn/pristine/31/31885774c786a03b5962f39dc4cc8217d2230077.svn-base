@@ -1,0 +1,15 @@
+package it.cle.project.service;
+
+import it.cle.project.model.RisultatiIndici;
+
+/**
+
+ */
+public interface RisultatiIndiciService {
+	
+	
+	public void insert(RisultatiIndici risultatiIndici);
+	
+	
+	
+}

@@ -1,0 +1,77 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+@XmlRootElement(name = "FatturaElettronicaHeader") 
+@XmlType(propOrder={"datiTrasmissione", "cedentePrestatore", "cessionarioCommittente", "soggettoEmittente"})
+public class FatturaElettronicaHeaderDTO implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private DatiTrasmissioneDTO datiTrasmissione;
+	private CedentePrestatoreDTO cedentePrestatore;
+	private CessionarioCommittenteDTO cessionarioCommittente;
+	private String soggettoEmittente;
+	/**
+	 * @return the datiTrasmissione
+	 */
+	public DatiTrasmissioneDTO getDatiTrasmissione() {
+		return datiTrasmissione;
+	}
+	/**
+	 * @param datiTrasmissione the datiTrasmissione to set
+	 */
+	@XmlElement(name="DatiTrasmissione")
+	public void setDatiTrasmissione(DatiTrasmissioneDTO datiTrasmissione) {
+		this.datiTrasmissione = datiTrasmissione;
+	}
+	/**
+	 * @return the cedentePrestatore
+	 */
+	public CedentePrestatoreDTO getCedentePrestatore() {
+		return cedentePrestatore;
+	}
+	/**
+	 * @param cedentePrestatore the cedentePrestatore to set
+	 */
+	@XmlElement(name="CedentePrestatore")
+	public void setCedentePrestatore(CedentePrestatoreDTO cedentePrestatore) {
+		this.cedentePrestatore = cedentePrestatore;
+	}
+	/**
+	 * @return the cessionarioCommittente
+	 */
+	public CessionarioCommittenteDTO getCessionarioCommittente() {
+		return cessionarioCommittente;
+	}
+	/**
+	 * @param cessionarioCommittente the cessionarioCommittente to set
+	 */
+	@XmlElement(name="CessionarioCommittente")
+	public void setCessionarioCommittente(CessionarioCommittenteDTO cessionarioCommittente) {
+		this.cessionarioCommittente = cessionarioCommittente;
+	}
+	/**
+	 * @return the soggettoEmittente
+	 */
+	public String getSoggettoEmittente() {
+		return soggettoEmittente;
+	}
+	/**
+	 * @param soggettoEmittente the soggettoEmittente to set
+	 */
+	@XmlElement(name="SoggettoEmittente")
+	public void setSoggettoEmittente(String soggettoEmittente) {
+		this.soggettoEmittente = soggettoEmittente;
+	}
+	
+	
+
+}

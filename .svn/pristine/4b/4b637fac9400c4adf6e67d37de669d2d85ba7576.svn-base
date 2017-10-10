@@ -1,0 +1,15 @@
+package it.cle.project.dao.hbn;
+
+import org.springframework.stereotype.Repository;
+
+import it.cle.project.dao.IndiceVIPDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.IndiceVIP;
+
+/**
+ * The Class HbnIndiceVIPDao.
+ */
+@Repository
+public class HbnIndiceVIPDao extends AbstractHbnDao<IndiceVIP> implements IndiceVIPDao {
+
+}

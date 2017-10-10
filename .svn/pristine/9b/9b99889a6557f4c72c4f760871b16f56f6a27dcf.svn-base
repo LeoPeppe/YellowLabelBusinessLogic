@@ -1,0 +1,40 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceBarthelMobilita;
+
+// TODO: Auto-generated Javadoc
+/**
+ * Interfaccia IndiceBarthelService.
+ *
+ * @author Fronza
+ */
+public interface IndiceBarthelMobilitaService {
+	
+	/**
+	 * Calcola la situazione p 
+	 * @param IndiceADL indiceBarthel
+	 */
+	public Integer calcolaMobilita(IndiceBarthelMobilita indiceBarthelMobilita);
+	
+	
+	/**
+	 * Codifica la situazione funzionale in base al punteggio
+	 * @param Integer vmob
+	 */
+	public String codificaVMOB(Integer vmob);
+	
+	/**
+	 * inserisce i valori per il calcolo dell' indice di Barthel
+	 * @param IndiceBarthelMobilita indiceBarthelMobilita
+	 */
+	public void insert(IndiceBarthelMobilita indiceBarthelMobilita);
+	
+
+	/**
+	 * Recupera i valori per il calcolo dell'indice di Barthel
+	 * @param Integer idIndiceBarthelMobilita
+	 */
+	public IndiceBarthelMobilita selectById(Integer idIndiceBarthelMobilita);
+	
+	
+}

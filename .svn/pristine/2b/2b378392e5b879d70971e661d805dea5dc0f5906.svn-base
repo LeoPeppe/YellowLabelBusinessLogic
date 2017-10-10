@@ -1,0 +1,15 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.IndiceADL;
+
+/**
+ * The Interface IndiceADLDao.
+ */
+public interface IndiceADLDao extends Dao<IndiceADL> {
+	
+	
+	
+		
+	
+
+}

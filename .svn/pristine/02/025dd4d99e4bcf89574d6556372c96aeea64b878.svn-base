@@ -1,0 +1,95 @@
+package it.cle.project.utils;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.StringReader;
+import java.math.BigDecimal;
+import java.util.Properties;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.xml.sax.InputSource;
+
+
+import org.apache.log4j.Logger;
+import org.w3c.dom.Document;
+
+
+public class Utils {
+	
+	public Logger logger = Logger.getLogger(Utils.class);
+	
+	public static float Round(float value,int decimalpos)
+	{
+		BigDecimal bd = new BigDecimal(Float.toString(value));
+        bd = bd.setScale(decimalpos, BigDecimal.ROUND_HALF_UP);
+        return bd.floatValue();
+	}
+	
+	public static Integer Round(float value)
+	{
+		return Math.round(value);
+		
+	}
+	
+	
+	public static String getPropertyFromConfig(String property, String defaultValue) {
+		Properties properties = new Properties(); 
+		
+		String res = "";
+
+		// load a properties file
+		try {
+			ClassLoader cl = Thread.currentThread().getContextClassLoader();
+			InputStream input = cl.getResourceAsStream("config-fattura.properties");// new FileInputStream("config-fattura.properties");
+			properties.load(input);
+			res = properties.getProperty(property, defaultValue);
+		} catch (IOException e) {
+        	
+			Utils utils = new Utils();
+        	utils.logger.error(getStackTrace(e));
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+	
+	
+	public static String getStackTrace(Exception ex) {
+		
+		StringWriter stringWriter=new StringWriter();
+        PrintWriter printWriter=new PrintWriter(stringWriter);
+        ex.printStackTrace(printWriter);
+        
+        return stringWriter.toString();
+        
+	}
+	
+	
+	public static Document convertStringToDocument(String xmlStr) {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();  
+        DocumentBuilder builder;  
+        System.out.println("convertStringToDocument");
+        try 
+        {  
+            builder = factory.newDocumentBuilder(); 
+            InputSource is = new InputSource();
+            is.setCharacterStream(new StringReader(xmlStr));
+//            Document doc = builder.parse( new InputSource( new java.io.StringReader( xmlStr ) ) );
+            Document doc = builder.parse(is);
+            System.out.println("DOCUMENTO: " + ((doc == null) ? "vuoto" : "pieno"));
+            return doc;
+        } catch (Exception e) {  
+           
+        	e.printStackTrace();  
+        	Utils utils = new Utils();
+        	utils.logger.error(getStackTrace(e));
+        	
+        } 
+        return null;
+    }
+	
+
+}

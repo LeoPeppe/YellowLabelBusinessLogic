@@ -1,0 +1,342 @@
+package it.cle.project.model.composti.npi;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+@Entity
+@Table(name = "disturbi_sonno")
+@XmlRootElement(name="disturbi_sonno")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class DisturbiSonno {
+
+	/** The id DisturbiSonno */
+	private Integer idDisturbiSonno;
+	
+	/** Questo flag indica se il questionario è applicabile o meno */
+	private Boolean nonApplicabile;
+	
+	/** Questo campo indica la motivazione in caso di non applicabilità */
+	private String motivazione;
+	
+	/** 
+	 * Questo campo indica la seguente domanda: 
+	 * Il paziente sembra agire impulsivamente senza pensarci? Fa o dice cose che di solito non dice o non 
+	 * fa in pubblico? Fa cose imbarazzanti per voi o per altri?
+	 *  
+	 * NO (se no, procedere con la successiva domanda di screening) 
+	 * SÌ (procedere con le seguenti domande)
+	*/
+	private Boolean domandaPreliminare;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Presenta difficoltà ad addormentarsi?
+	 * */
+	private Integer fDomandaAddormentarsi;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Presenta difficoltà ad addormentarsi?
+	 * */
+	private Integer gDomandaAddormentarsi;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Si alza spesse volte durante la notte? [Non è da considerare se il paziente si alza due o tre volte 
+	 * per notte per andare in bagno e poi torna a letto e si addormenta immediatamente]
+	 * */
+	private Integer fDomandaAlzaDuranteNotte;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Si alza spesse volte durante la notte? [Non è da considerare se il paziente si alza due o tre volte 
+	 * per notte per andare in bagno e poi torna a letto e si addormenta immediatamente]
+	 * */
+	private Integer gDomandaAlzaDuranteNotte;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Vaga per la casa o svolge attività inopportune?
+	 * */
+	private Integer fDomandaVaga;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Vaga per la casa o svolge attività inopportune?
+	 * */
+	private Integer gDomandaVaga;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Disturba i familiari e li tiene svegli?
+	 * */
+	private Integer fDomandaDisturba;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Disturba i familiari e li tiene svegli?
+	 * */
+	private Integer gDomandaDisturba;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Si veste e vuole uscire di casa credendo che sia mattina?
+	 * */
+	private Integer fDomandaEsceDiCasa;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Si veste e vuole uscire di casa credendo che sia mattina?
+	 * */
+	private Integer gDomandaEsceDiCasa;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Si sveglia molto presto al mattino [rispetto alle sue abitudini]?
+	 * */
+	private Integer fDomandaSiSvegliaPresto;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Si sveglia molto presto al mattino [rispetto alle sue abitudini]?
+	 * */
+	private Integer gDomandaSiSvegliaPresto;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Dorme eccessivamente durante il giorno?
+	 * */
+	private Integer fDomandaDormeEccessivamente;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Dorme eccessivamente durante il giorno?
+	 * */
+	private Integer gDomandaDormeEccessivamente;
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Il Paziente presenta altri disturbi notturni che le provocano fastidio e che non le ho nominato?
+	 * */
+	private Integer fDomandaAltriDisturbi;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Il Paziente presenta altri disturbi notturni che le provocano fastidio e che non le ho nominato?
+	 * */
+	private Integer gDomandaAltriDisturbi;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdDisturbiSonno() {
+		return idDisturbiSonno;
+	}
+
+	public void setIdDisturbiSonno(Integer idDisturbiSonno) {
+		this.idDisturbiSonno = idDisturbiSonno;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "non_applicabile")
+	public Boolean getNonApplicabile() {
+		return nonApplicabile;
+	}
+
+	public void setNonApplicabile(Boolean nonApplicabile) {
+		this.nonApplicabile = nonApplicabile;
+	}
+
+	@Column(name = "motivazione")
+	public String getMotivazione() {
+		return motivazione;
+	}
+
+	public void setMotivazione(String motivazione) {
+		this.motivazione = motivazione;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_preliminare")
+	public Boolean getDomandaPreliminare() {
+		return domandaPreliminare;
+	}
+
+	public void setDomandaPreliminare(Boolean domandaPreliminare) {
+		this.domandaPreliminare = domandaPreliminare;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_addormentarsi")
+	public Integer getfDomandaAddormentarsi() {
+		return fDomandaAddormentarsi;
+	}
+
+	public void setfDomandaAddormentarsi(Integer fDomandaAddormentarsi) {
+		this.fDomandaAddormentarsi = fDomandaAddormentarsi;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_addormentarsi")
+	public Integer getgDomandaAddormentarsi() {
+		return gDomandaAddormentarsi;
+	}
+
+	public void setgDomandaAddormentarsi(Integer gDomandaAddormentarsi) {
+		this.gDomandaAddormentarsi = gDomandaAddormentarsi;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_alza_durante_notte")
+	public Integer getfDomandaAlzaDuranteNotte() {
+		return fDomandaAlzaDuranteNotte;
+	}
+
+	public void setfDomandaAlzaDuranteNotte(Integer fDomandaAlzaDuranteNotte) {
+		this.fDomandaAlzaDuranteNotte = fDomandaAlzaDuranteNotte;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_alza_durante_notte")
+	public Integer getgDomandaAlzaDuranteNotte() {
+		return gDomandaAlzaDuranteNotte;
+	}
+
+	public void setgDomandaAlzaDuranteNotte(Integer gDomandaAlzaDuranteNotte) {
+		this.gDomandaAlzaDuranteNotte = gDomandaAlzaDuranteNotte;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_vaga")
+	public Integer getfDomandaVaga() {
+		return fDomandaVaga;
+	}
+
+	public void setfDomandaVaga(Integer fDomandaVaga) {
+		this.fDomandaVaga = fDomandaVaga;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_vaga")
+	public Integer getgDomandaVaga() {
+		return gDomandaVaga;
+	}
+
+	public void setgDomandaVaga(Integer gDomandaVaga) {
+		this.gDomandaVaga = gDomandaVaga;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_disturba")
+	public Integer getfDomandaDisturba() {
+		return fDomandaDisturba;
+	}
+
+	public void setfDomandaDisturba(Integer fDomandaDisturba) {
+		this.fDomandaDisturba = fDomandaDisturba;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_disturba")
+	public Integer getgDomandaDisturba() {
+		return gDomandaDisturba;
+	}
+
+	public void setgDomandaDisturba(Integer gDomandaDisturba) {
+		this.gDomandaDisturba = gDomandaDisturba;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_esce_di_casa")
+	public Integer getfDomandaEsceDiCasa() {
+		return fDomandaEsceDiCasa;
+	}
+
+	public void setfDomandaEsceDiCasa(Integer fDomandaEsceDiCasa) {
+		this.fDomandaEsceDiCasa = fDomandaEsceDiCasa;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_esce_di_casa")
+	public Integer getgDomandaEsceDiCasa() {
+		return gDomandaEsceDiCasa;
+	}
+
+	public void setgDomandaEsceDiCasa(Integer gDomandaEsceDiCasa) {
+		this.gDomandaEsceDiCasa = gDomandaEsceDiCasa;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_si_sveglia_presto")
+	public Integer getfDomandaSiSvegliaPresto() {
+		return fDomandaSiSvegliaPresto;
+	}
+
+	public void setfDomandaSiSvegliaPresto(Integer fDomandaSiSvegliaPresto) {
+		this.fDomandaSiSvegliaPresto = fDomandaSiSvegliaPresto;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_si_sveglia_presto")
+	public Integer getgDomandaSiSvegliaPresto() {
+		return gDomandaSiSvegliaPresto;
+	}
+
+	public void setgDomandaSiSvegliaPresto(Integer gDomandaSiSvegliaPresto) {
+		this.gDomandaSiSvegliaPresto = gDomandaSiSvegliaPresto;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_dorme_eccessivamente")
+	public Integer getfDomandaDormeEccessivamente() {
+		return fDomandaDormeEccessivamente;
+	}
+
+	public void setfDomandaDormeEccessivamente(Integer fDomandaDormeEccessivamente) {
+		this.fDomandaDormeEccessivamente = fDomandaDormeEccessivamente;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_dorme_eccessivamente")
+	public Integer getgDomandaDormeEccessivamente() {
+		return gDomandaDormeEccessivamente;
+	}
+
+	public void setgDomandaDormeEccessivamente(Integer gDomandaDormeEccessivamente) {
+		this.gDomandaDormeEccessivamente = gDomandaDormeEccessivamente;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_altri_disturbi")
+	public Integer getfDomandaAltriDisturbi() {
+		return fDomandaAltriDisturbi;
+	}
+
+	public void setfDomandaAltriDisturbi(Integer fDomandaAltriDisturbi) {
+		this.fDomandaAltriDisturbi = fDomandaAltriDisturbi;
+	}
+
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_altri_disturbi")
+	public Integer getgDomandaAltriDisturbi() {
+		return gDomandaAltriDisturbi;
+	}
+
+	public void setgDomandaAltriDisturbi(Integer gDomandaAltriDisturbi) {
+		this.gDomandaAltriDisturbi = gDomandaAltriDisturbi;
+	}
+}

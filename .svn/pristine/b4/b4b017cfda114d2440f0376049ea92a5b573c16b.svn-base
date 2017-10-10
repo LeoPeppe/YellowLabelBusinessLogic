@@ -1,0 +1,66 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+// TODO: Auto-generated Javadoc
+
+/**
+ * The Class DatiBeniServiziDTO.
+ */
+@XmlRootElement
+public class DatiBeniServiziDTO implements Serializable {
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The dettaglio linee. */
+	private List<DettaglioLineeDTO> dettaglioLinee;
+	
+	/** The dati riepilogo. */
+	private DatiRiepilogoDTO datiRiepilogo;
+	
+	
+	/**
+	 * Gets the dettaglio linee.
+	 *
+	 * @return the dettaglio linee
+	 */
+	public List<DettaglioLineeDTO> getDettaglioLinee() {
+		return dettaglioLinee;
+	}
+	
+	/**
+	 * Sets the dettaglio linee.
+	 *
+	 * @param dettaglioLinee the new dettaglio linee
+	 */
+	@XmlElement(name="DettaglioLinee")
+	public void setDettaglioLinee(List<DettaglioLineeDTO> dettaglioLinee) {
+		this.dettaglioLinee = dettaglioLinee;
+	}
+	
+	/**
+	 * Gets the dati riepilogo.
+	 *
+	 * @return the dati riepilogo
+	 */
+	public DatiRiepilogoDTO getDatiRiepilogo() {
+		return datiRiepilogo;
+	}
+	
+	/**
+	 * Sets the dati riepilogo.
+	 *
+	 * @param datiRiepilogo the new dati riepilogo
+	 */
+	@XmlElement(name="DatiRiepilogo")
+	public void setDatiRiepilogo(DatiRiepilogoDTO datiRiepilogo) {
+		this.datiRiepilogo = datiRiepilogo;
+	}
+	
+	
+
+}

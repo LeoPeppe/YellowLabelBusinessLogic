@@ -1,0 +1,508 @@
+package it.cle.project.model.composti.npi;
+
+import it.cle.project.validator.annotation.ValidateIntegerSet;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DisturbiAlimentazione.
+ */
+@Entity
+@Table(name = "disturbi_alimentazione")
+@XmlRootElement(name="disturbi_alimentazione")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class DisturbiAlimentazione {
+
+	/**  The id DisturbiAlimentazione. */
+	private Integer idDisturbiAlimentazione;
+	
+	/**  Questo flag indica se il questionario è applicabile o meno. */
+	private Boolean nonApplicabile;
+	
+	/**  Questo campo indica la motivazione in caso di non applicabilità. */
+	private String motivazione;
+	
+	/** 
+	 * Questo campo indica la seguente domanda: 
+	 * Il paziente presenta disturbi dell’alimentazione come alterazioni dell’appetito, alterazioni delle 
+	 * abitudini o delle preferenze alimentari. Ha subito variazioni di peso? [Se è incapace ad alimentarsi 
+	 * rispondere NA]
+	 *  
+	 * NO (se no, procedere con la successiva domanda di screening) 
+	 * SÌ (procedere con le seguenti domande)
+	*/
+	private Boolean domandaPreliminare;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Presenta perdita dell’appetito?. */
+	private Integer fDomandaPerditaAppetito;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Presenta perdita dell’appetito?. */
+	private Integer gDomandaPerditaAppetito;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Presenta aumento dell’appetito?. */
+	private Integer fDomandaAumentoAppetito;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Presenta aumento dell’appetito?. */
+	private Integer gDomandaAumentoAppetito;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Presenta diminuzione di peso?. */
+	private Integer fDomandaPerditaPeso;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Presenta diminuzione di peso?. */
+	private Integer gDomandaPerditaPeso;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Presenta aumento di peso?. */
+	private Integer fDomandaAumentoPeso;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Presenta aumento di peso?. */
+	private Integer gDomandaAumentoPeso;	
+	
+	/** 
+	 * Questo campo indica la frequenza assegnata alla domanda: 
+	 * Ha cambiato le sue abitudini alimentari (per esempio, mangia voracemente).?
+	 * */
+	private Integer fDomandaCambioAbitudiniAlimentari;
+
+	/** 
+	 * Questo campo indica la gravità assegnata alla domanda: 
+	 * Ha cambiato le sue abitudini alimentari (per esempio, mangia voracemente).?
+	 * */
+	private Integer gDomandaCambioAbitudiniAlimentari;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Presenta cambiamenti di gusto riguardo ai tipi di cibo che gli/le piacevano ( per esempio, mangia  molti alimenti dolci o preferisce un cibo particolare)?. */
+	private Integer fDomandaCambioGustiAlimentari;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Presenta cambiamenti di gusto riguardo ai tipi di cibo che gli/le piacevano ( per esempio, mangia  molti alimenti dolci o preferisce un cibo particolare)?. */
+	private Integer gDomandaCambioGustiAlimentari;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Ha sviluppato specifiche abitudini, come mangiare sempre le stesse cose ogni giorno o sempre nello stesso ordine?. */
+	private Integer fDomandaSpecificheAbitudini;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Ha sviluppato specifiche abitudini, come mangiare sempre le stesse cose ogni giorno o sempre nello stesso ordine?. */
+	private Integer gDomandaSpecificheAbitudini;
+	
+	/**   Questo campo indica la frequenza assegnata alla domanda:  Il paziente presenta altri disturbi dell’appetito o dell’alimentazione che non le ho nominato?	 . */
+	private Integer fDomandaAltriDisturbi;
+
+	/**   Questo campo indica la gravità assegnata alla domanda:  Il paziente presenta altri disturbi dell’appetito o dell’alimentazione che non le ho nominato?	 . */
+	private Integer gDomandaAltriDisturbi;
+
+	/**
+	 * Gets the id disturbi alimentazione.
+	 *
+	 * @return the id disturbi alimentazione
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdDisturbiAlimentazione() {
+		return idDisturbiAlimentazione;
+	}
+
+	/**
+	 * Sets the id disturbi alimentazione.
+	 *
+	 * @param idDisturbiAlimentazione the new id disturbi alimentazione
+	 */
+	public void setIdDisturbiAlimentazione(Integer idDisturbiAlimentazione) {
+		this.idDisturbiAlimentazione = idDisturbiAlimentazione;
+	}
+
+	/**
+	 * Gets the non applicabile.
+	 *
+	 * @return the non applicabile
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "non_applicabile")
+	public Boolean getNonApplicabile() {
+		return nonApplicabile;
+	}
+
+	/**
+	 * Sets the non applicabile.
+	 *
+	 * @param nonApplicabile the new non applicabile
+	 */
+	public void setNonApplicabile(Boolean nonApplicabile) {
+		this.nonApplicabile = nonApplicabile;
+	}
+
+	/**
+	 * Gets the motivazione.
+	 *
+	 * @return the motivazione
+	 */
+	@Column(name = "motivazione")
+	public String getMotivazione() {
+		return motivazione;
+	}
+
+	/**
+	 * Sets the motivazione.
+	 *
+	 * @param motivazione the new motivazione
+	 */
+	public void setMotivazione(String motivazione) {
+		this.motivazione = motivazione;
+	}
+
+	/**
+	 * Gets the domanda preliminare.
+	 *
+	 * @return the domanda preliminare
+	 */
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_preliminare")
+	public Boolean getDomandaPreliminare() {
+		return domandaPreliminare;
+	}
+
+	/**
+	 * Sets the domanda preliminare.
+	 *
+	 * @param domandaPreliminare the new domanda preliminare
+	 */
+	public void setDomandaPreliminare(Boolean domandaPreliminare) {
+		this.domandaPreliminare = domandaPreliminare;
+	}
+
+	/**
+	 * Gets the f domanda perdita appetito.
+	 *
+	 * @return the f domanda perdita appetito
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_perdita_appetito")
+	public Integer getfDomandaPerditaAppetito() {
+		return fDomandaPerditaAppetito;
+	}
+
+	/**
+	 * Sets the f domanda perdita appetito.
+	 *
+	 * @param fDomandaPerditaAppetito the new f domanda perdita appetito
+	 */
+	public void setfDomandaPerditaAppetito(Integer fDomandaPerditaAppetito) {
+		this.fDomandaPerditaAppetito = fDomandaPerditaAppetito;
+	}
+
+	/**
+	 * Gets the g domanda perdita appetito.
+	 *
+	 * @return the g domanda perdita appetito
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_perdita_appetito")
+	public Integer getgDomandaPerditaAppetito() {
+		return gDomandaPerditaAppetito;
+	}
+
+	/**
+	 * Sets the g domanda perdita appetito.
+	 *
+	 * @param gDomandaPerditaAppetito the new g domanda perdita appetito
+	 */
+	public void setgDomandaPerditaAppetito(Integer gDomandaPerditaAppetito) {
+		this.gDomandaPerditaAppetito = gDomandaPerditaAppetito;
+	}
+
+	/**
+	 * Gets the f domanda aumento appetito.
+	 *
+	 * @return the f domanda aumento appetito
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_aumento_appetito")
+	public Integer getfDomandaAumentoAppetito() {
+		return fDomandaAumentoAppetito;
+	}
+
+	/**
+	 * Sets the f domanda aumento appetito.
+	 *
+	 * @param fDomandaAumentoAppetito the new f domanda aumento appetito
+	 */
+	public void setfDomandaAumentoAppetito(Integer fDomandaAumentoAppetito) {
+		this.fDomandaAumentoAppetito = fDomandaAumentoAppetito;
+	}
+
+	/**
+	 * Gets the g domanda aumento appetito.
+	 *
+	 * @return the g domanda aumento appetito
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_aumento_appetito")
+	public Integer getgDomandaAumentoAppetito() {
+		return gDomandaAumentoAppetito;
+	}
+
+	/**
+	 * Sets the g domanda aumento appetito.
+	 *
+	 * @param gDomandaAumentoAppetito the new g domanda aumento appetito
+	 */
+	public void setgDomandaAumentoAppetito(Integer gDomandaAumentoAppetito) {
+		this.gDomandaAumentoAppetito = gDomandaAumentoAppetito;
+	}
+
+	/**
+	 * Gets the f domanda perdita peso.
+	 *
+	 * @return the f domanda perdita peso
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_perdita_peso")
+	public Integer getfDomandaPerditaPeso() {
+		return fDomandaPerditaPeso;
+	}
+
+	/**
+	 * Sets the f domanda perdita peso.
+	 *
+	 * @param fDomandaPerditaPeso the new f domanda perdita peso
+	 */
+	public void setfDomandaPerditaPeso(Integer fDomandaPerditaPeso) {
+		this.fDomandaPerditaPeso = fDomandaPerditaPeso;
+	}
+
+	/**
+	 * Gets the g domanda perdita peso.
+	 *
+	 * @return the g domanda perdita peso
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_perdita_peso")
+	public Integer getgDomandaPerditaPeso() {
+		return gDomandaPerditaPeso;
+	}
+
+	/**
+	 * Sets the g domanda perdita peso.
+	 *
+	 * @param gDomandaPerditaPeso the new g domanda perdita peso
+	 */
+	public void setgDomandaPerditaPeso(Integer gDomandaPerditaPeso) {
+		this.gDomandaPerditaPeso = gDomandaPerditaPeso;
+	}
+
+	/**
+	 * Gets the f domanda aumento peso.
+	 *
+	 * @return the f domanda aumento peso
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_aumento_peso")
+	public Integer getfDomandaAumentoPeso() {
+		return fDomandaAumentoPeso;
+	}
+
+	/**
+	 * Sets the f domanda aumento peso.
+	 *
+	 * @param fDomandaAumentoPeso the new f domanda aumento peso
+	 */
+	public void setfDomandaAumentoPeso(Integer fDomandaAumentoPeso) {
+		this.fDomandaAumentoPeso = fDomandaAumentoPeso;
+	}
+
+	/**
+	 * Gets the g domanda aumento peso.
+	 *
+	 * @return the g domanda aumento peso
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_aumento_peso")
+	public Integer getgDomandaAumentoPeso() {
+		return gDomandaAumentoPeso;
+	}
+
+	/**
+	 * Sets the g domanda aumento peso.
+	 *
+	 * @param gDomandaAumentoPeso the new g domanda aumento peso
+	 */
+	public void setgDomandaAumentoPeso(Integer gDomandaAumentoPeso) {
+		this.gDomandaAumentoPeso = gDomandaAumentoPeso;
+	}
+
+	/**
+	 * Gets the f domanda cambio abitudini alimentari.
+	 *
+	 * @return the f domanda cambio abitudini alimentari
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_cambio_abitudini_alimentari")
+	public Integer getfDomandaCambioAbitudiniAlimentari() {
+		return fDomandaCambioAbitudiniAlimentari;
+	}
+
+	/**
+	 * Sets the f domanda cambio abitudini alimentari.
+	 *
+	 * @param fDomandaCambioAbitudiniAlimentari the new f domanda cambio abitudini alimentari
+	 */
+	public void setfDomandaCambioAbitudiniAlimentari(Integer fDomandaCambioAbitudiniAlimentari) {
+		this.fDomandaCambioAbitudiniAlimentari = fDomandaCambioAbitudiniAlimentari;
+	}
+
+	/**
+	 * Gets the g domanda cambio abitudini alimentari.
+	 *
+	 * @return the g domanda cambio abitudini alimentari
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_cambio_abitudini_alimentari")
+	public Integer getgDomandaCambioAbitudiniAlimentari() {
+		return gDomandaCambioAbitudiniAlimentari;
+	}
+
+	/**
+	 * Sets the g domanda cambio abitudini alimentari.
+	 *
+	 * @param gDomandaCambioAbitudiniAlimentari the new g domanda cambio abitudini alimentari
+	 */
+	public void setgDomandaCambioAbitudiniAlimentari(Integer gDomandaCambioAbitudiniAlimentari) {
+		this.gDomandaCambioAbitudiniAlimentari = gDomandaCambioAbitudiniAlimentari;
+	}
+
+	/**
+	 * Gets the f domanda cambio gusti alimentari.
+	 *
+	 * @return the f domanda cambio gusti alimentari
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_cambio_gusti_alimentari")
+	public Integer getfDomandaCambioGustiAlimentari() {
+		return fDomandaCambioGustiAlimentari;
+	}
+
+	/**
+	 * Sets the f domanda cambio gusti alimentari.
+	 *
+	 * @param fDomandaCambioGustiAlimentari the new f domanda cambio gusti alimentari
+	 */
+	public void setfDomandaCambioGustiAlimentari(Integer fDomandaCambioGustiAlimentari) {
+		this.fDomandaCambioGustiAlimentari = fDomandaCambioGustiAlimentari;
+	}
+
+	/**
+	 * Gets the g domanda cambio gusti alimentari.
+	 *
+	 * @return the g domanda cambio gusti alimentari
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_cambio_gusti_alimentari")
+	public Integer getgDomandaCambioGustiAlimentari() {
+		return gDomandaCambioGustiAlimentari;
+	}
+
+	/**
+	 * Sets the g domanda cambio gusti alimentari.
+	 *
+	 * @param gDomandaCambioGustiAlimentari the new g domanda cambio gusti alimentari
+	 */
+	public void setgDomandaCambioGustiAlimentari(Integer gDomandaCambioGustiAlimentari) {
+		this.gDomandaCambioGustiAlimentari = gDomandaCambioGustiAlimentari;
+	}
+
+	/**
+	 * Gets the f domanda specifiche abitudini.
+	 *
+	 * @return the f domanda specifiche abitudini
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_specifiche_abitudini")
+	public Integer getfDomandaSpecificheAbitudini() {
+		return fDomandaSpecificheAbitudini;
+	}
+
+	/**
+	 * Sets the f domanda specifiche abitudini.
+	 *
+	 * @param fDomandaSpecificheAbitudini the new f domanda specifiche abitudini
+	 */
+	public void setfDomandaSpecificheAbitudini(Integer fDomandaSpecificheAbitudini) {
+		this.fDomandaSpecificheAbitudini = fDomandaSpecificheAbitudini;
+	}
+
+	/**
+	 * Gets the g domanda specifiche abitudini.
+	 *
+	 * @return the g domanda specifiche abitudini
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_specifiche_abitudini")
+	public Integer getgDomandaSpecificheAbitudini() {
+		return gDomandaSpecificheAbitudini;
+	}
+
+	/**
+	 * Sets the g domanda specifiche abitudini.
+	 *
+	 * @param gDomandaSpecificheAbitudini the new g domanda specifiche abitudini
+	 */
+	public void setgDomandaSpecificheAbitudini(Integer gDomandaSpecificheAbitudini) {
+		this.gDomandaSpecificheAbitudini = gDomandaSpecificheAbitudini;
+	}
+
+	/**
+	 * Gets the f domanda altri disturbi.
+	 *
+	 * @return the f domanda altri disturbi
+	 */
+	@ValidateIntegerSet(acceptedValues = { 0,1,2,3,4 })
+	@Column(name = "f_domanda_altri_disturbi")
+	public Integer getfDomandaAltriDisturbi() {
+		return fDomandaAltriDisturbi;
+	}
+
+	/**
+	 * Sets the f domanda altri disturbi.
+	 *
+	 * @param fDomandaAltriDisturbi the new f domanda altri disturbi
+	 */
+	public void setfDomandaAltriDisturbi(Integer fDomandaAltriDisturbi) {
+		this.fDomandaAltriDisturbi = fDomandaAltriDisturbi;
+	}
+
+	/**
+	 * Gets the g domanda altri disturbi.
+	 *
+	 * @return the g domanda altri disturbi
+	 */
+	@ValidateIntegerSet(acceptedValues = { 1,2,3 })
+	@Column(name = "g_domanda_altri_disturbi")
+	public Integer getgDomandaAltriDisturbi() {
+		return gDomandaAltriDisturbi;
+	}
+
+	/**
+	 * Sets the g domanda altri disturbi.
+	 *
+	 * @param gDomandaAltriDisturbi the new g domanda altri disturbi
+	 */
+	public void setgDomandaAltriDisturbi(Integer gDomandaAltriDisturbi) {
+		this.gDomandaAltriDisturbi = gDomandaAltriDisturbi;
+	}
+
+
+	
+	
+	
+}

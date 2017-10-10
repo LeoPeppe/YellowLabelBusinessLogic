@@ -1,0 +1,15 @@
+package it.cle.project.dao.hbn;
+
+import it.cle.project.dao.PsanDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.Psan;
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * The Class HbnIndiceVPOTDao.
+ */
+@Repository
+public class HbnPsanDao extends AbstractHbnDao<Psan> implements PsanDao {
+	
+}

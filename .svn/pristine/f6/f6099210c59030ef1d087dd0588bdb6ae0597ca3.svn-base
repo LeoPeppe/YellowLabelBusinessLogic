@@ -1,0 +1,25 @@
+package it.cle.project.service;
+
+
+import it.cle.project.model.IndiceEAT26;
+
+
+/**
+ * Interfaccia IndiceEATService.
+ *
+ */
+public interface IndiceEAT26Service {
+	
+	/**
+	 * Calcola l' indice di EAT26
+	 * @param IndiceEAT26 indiceEAT
+	 */
+	public String calcolaIndiceEAT26(IndiceEAT26 indiceEAT26);
+
+	public void insert(IndiceEAT26 indiceEAT);
+
+	public Integer calcolaIndiceBMI(IndiceEAT26 indiceEAT26);
+	
+	
+
+}

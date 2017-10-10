@@ -1,0 +1,15 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.DatiAssistito;
+
+/**
+ * The Interface IndiceADLDao.
+ */
+public interface DatiAssistitoDao extends Dao<DatiAssistito> {
+	
+	
+	
+		
+	
+
+}

@@ -1,0 +1,14 @@
+package it.cle.project.dao.hbn;
+
+import it.cle.project.dao.IndiceNPIDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.IndiceNPI;
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * The Class HbnIndiceNPIDao.
+ */
+@Repository
+public class HbnIndiceNPIDao extends AbstractHbnDao<IndiceNPI> implements IndiceNPIDao {
+}

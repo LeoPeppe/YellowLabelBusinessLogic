@@ -1,0 +1,147 @@
+package it.cle.project.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@Entity
+@Table(name="indice_vip")
+@XmlRootElement(name="indice_vip")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class IndiceVIP {
+	
+	private Integer idIndiceVIP;
+	private Boolean diabeteInsulinoIndipendente;
+	private Boolean scompensoCardiaco;
+	private Boolean cirrosiScompensata;
+	private Boolean tracheostomia;
+	private Boolean ossigenoterapia;
+	private Boolean gastrostomia;
+	private Boolean catetereVenoso;
+	private Boolean catetereVescicale;
+	private Boolean anoArtificiale;
+	private Boolean nefrostomia;
+	private Boolean ulcereDistrofiche;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceVIP() {
+		return idIndiceVIP;
+	}
+	public void setIdIndiceVIP(Integer idIndiceVIP) {
+		this.idIndiceVIP = idIndiceVIP;
+	}
+	
+	@NotNull
+	@Column(name="diabete_insulino_dipendente")
+	public Boolean getDiabeteInsulinoIndipendente() {
+		return diabeteInsulinoIndipendente;
+	}
+	public void setDiabeteInsulinoIndipendente(Boolean diabeteInsulinoIndipendente) {
+		this.diabeteInsulinoIndipendente = diabeteInsulinoIndipendente;
+	}
+	
+	@NotNull
+	@Column(name="scompenso_cardiaco")
+	public Boolean getScompensoCardiaco() {
+		return scompensoCardiaco;
+	}
+	public void setScompensoCardiaco(Boolean scompensoCardiaco) {
+		this.scompensoCardiaco = scompensoCardiaco;
+	}
+	
+	@NotNull
+	@Column(name="cirrosi_scompensata")
+	public Boolean getCirrosiScompensata() {
+		return cirrosiScompensata;
+	}
+	public void setCirrosiScompensata(Boolean cirrosiScompensata) {
+		this.cirrosiScompensata = cirrosiScompensata;
+	}
+	
+	@NotNull
+	@Column(name="tracheostomia")
+	public Boolean getTracheostomia() {
+		return tracheostomia;
+	}
+	public void setTracheostomia(Boolean tracheostomia) {
+		this.tracheostomia = tracheostomia;
+	}
+	
+	@NotNull
+	@Column(name="ossigenoterapia")
+	public Boolean getOssigenoterapia() {
+		return ossigenoterapia;
+	}
+	public void setOssigenoterapia(Boolean ossigenoterapia) {
+		this.ossigenoterapia = ossigenoterapia;
+	}
+	
+	@NotNull
+	@Column(name="gastrostomia")
+	public Boolean getGastrostomia() {
+		return gastrostomia;
+	}
+	public void setGastrostomia(Boolean gastrostomia) {
+		this.gastrostomia = gastrostomia;
+	}
+	
+	@NotNull
+	@Column(name="catetere_venoso")
+	public Boolean getCatetereVenoso() {
+		return catetereVenoso;
+	}
+	public void setCatetereVenoso(Boolean catetereVenoso) {
+		this.catetereVenoso = catetereVenoso;
+	}
+	
+	@NotNull
+	@Column(name="catetere_vescicale")
+	public Boolean getCatetereVescicale() {
+		return catetereVescicale;
+	}
+	public void setCatetereVescicale(Boolean catetereVescicale) {
+		this.catetereVescicale = catetereVescicale;
+	}
+	
+	@NotNull
+	@Column(name="ano_artificiale")
+	public Boolean getAnoArtificiale() {
+		return anoArtificiale;
+	}
+	public void setAnoArtificiale(Boolean anoArtificiale) {
+		this.anoArtificiale = anoArtificiale;
+	}
+	
+	@NotNull
+	@Column(name="nefrostomia")
+	public Boolean getNefrostomia() {
+		return nefrostomia;
+	}
+	public void setNefrostomia(Boolean nefrostomia) {
+		this.nefrostomia = nefrostomia;
+	}
+	
+	@NotNull
+	@Column(name="ulcere_distrofiche")
+	public Boolean getUlcereDistrofiche() {
+		return ulcereDistrofiche;
+	}
+	public void setUlcereDistrofiche(Boolean ulcereDistrofiche) {
+		this.ulcereDistrofiche = ulcereDistrofiche;
+	}
+	
+	
+	
+	
+
+}

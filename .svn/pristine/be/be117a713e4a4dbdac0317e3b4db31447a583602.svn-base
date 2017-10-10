@@ -1,0 +1,91 @@
+package it.cle.project.model;
+
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Pcog.
+ */
+@Entity
+@Table(name = "pcog")
+@XmlRootElement(name = "pcog")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Pcog implements Serializable {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+	
+	/** The id pcog. */
+	private Integer idPcog;
+	
+	/** The indice spmsq. */
+	@Valid
+	private IndiceSPMSQ indiceSPMSQ;
+	
+	/**
+	 * Instantiates a new pcog.
+	 */
+	public Pcog() {
+	}
+
+	/**
+	 * Gets the id pcog.
+	 *
+	 * @return the id pcog
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdPcog() {
+		return idPcog;
+	}
+
+	/**
+	 * Sets the id pcog.
+	 *
+	 * @param idPcog the new id pcog
+	 */
+	public void setIdPcog(Integer idPcog) {
+		this.idPcog = idPcog;
+	}
+	
+	/**
+	 * Gets the indice spmsq.
+	 *
+	 * @return the indice spmsq
+	 */
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceSPMSQ getIndiceSPMSQ() {
+		return indiceSPMSQ;
+	}
+
+	/**
+	 * Sets the indice spmsq.
+	 *
+	 * @param indiceSPMSQ the new indice spmsq
+	 */
+	public void setIndiceSPMSQ(IndiceSPMSQ indiceSPMSQ) {
+		this.indiceSPMSQ = indiceSPMSQ;
+	}
+
+	
+
+	
+
+
+}

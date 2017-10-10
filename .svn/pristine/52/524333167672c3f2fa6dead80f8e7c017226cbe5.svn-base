@@ -1,0 +1,146 @@
+package it.cle.project.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class RisultatiIndici.
+ */
+//risultati_indice
+@Entity
+@Table(name = "risultati_indici")
+@XmlRootElement(name = "risultati_indici")  
+@XmlAccessorType(XmlAccessType.FIELD)
+public class RisultatiIndici {
+	
+	/** The id risultati indici. */
+	private Integer idRisultatiIndici;
+	
+	/**
+	 * Gets the id risultati indici.
+	 *
+	 * @return the id risultati indici
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdRisultatiIndici() {
+		return idRisultatiIndici;
+	}
+	
+	/**
+	 * Sets the id risultati indici.
+	 *
+	 * @param idRisultatiIndici the new id risultati indici
+	 */
+	public void setIdRisultatiIndici(Integer idRisultatiIndici) {
+		this.idRisultatiIndici = idRisultatiIndici;
+	}
+	
+	/**
+	 * Gets the risultato adl.
+	 *
+	 * @return the risultato adl
+	 */
+	@Column(name = "risultatoADL")
+	public String getRisultatoADL() {
+		return risultatoADL;
+	}
+	
+	/**
+	 * Sets the risultato adl.
+	 *
+	 * @param risultatoADL the new risultato adl
+	 */
+	public void setRisultatoADL(String risultatoADL) {
+		this.risultatoADL = risultatoADL;
+	}
+	
+	/**
+	 * Gets the risultato barthel.
+	 *
+	 * @return the risultato barthel
+	 */
+	@Column(name = "risultatoBarthel")
+	public String getRisultatoBarthel() {
+		return risultatoBarthel;
+	}
+	
+	/**
+	 * Sets the risultato barthel.
+	 *
+	 * @param risultatoBarthel the new risultato barthel
+	 */
+	public void setRisultatoBarthel(String risultatoBarthel) {
+		this.risultatoBarthel = risultatoBarthel;
+	}
+	
+	/**
+	 * Gets the risultato rete sociale.
+	 *
+	 * @return the risultato rete sociale
+	 */
+	@Column(name = "risultatoReteSociale")
+	public String getRisultatoReteSociale() {
+		return risultatoReteSociale;
+	}
+	
+	/**
+	 * Sets the risultato rete sociale.
+	 *
+	 * @param risultatoReteSociale the new risultato rete sociale
+	 */
+	public void setRisultatoReteSociale(String risultatoReteSociale) {
+		this.risultatoReteSociale = risultatoReteSociale;
+	}
+
+	
+	/**
+	 * Gets the id assistito.
+	 *
+	 * @return the id assistito
+	 */
+	@Column(name = "idAssistito")
+	public Integer getIdAssistito() {
+		return idAssistito;
+	}
+	
+	/**
+	 * Sets the id assistito.
+	 *
+	 * @param idAssistito the new id assistito
+	 */
+	public void setIdAssistito(Integer idAssistito) {
+		this.idAssistito = idAssistito;
+	}
+
+	/** The id assistito. */
+	//	private DatiAssistito idAssistito;
+	private Integer idAssistito;
+	
+	/** The risultato adl. */
+	private String risultatoADL;
+	
+	/** The risultato barthel. */
+	private String risultatoBarthel;
+	
+	/** The risultato rete sociale. */
+	private String risultatoReteSociale;
+	
+	
+	/**
+	 * Instantiates a new risultati indici.
+	 */
+	public RisultatiIndici() {
+    }
+	
+
+}

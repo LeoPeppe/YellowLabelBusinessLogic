@@ -1,0 +1,66 @@
+package it.cle.project.service.impl;
+
+import it.cle.project.dao.IndiceBarthelMobilitaDao;
+import it.cle.project.model.IndiceBarthelMobilita;
+import it.cle.project.service.IndiceBarthelMobilitaService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndiceBarthelServiceImpl.
+ * Questa classe implementa i metodi per le operazioni base relative all' indice di Barthel
+ */
+@Service("indiceBarthelMobilitaService")
+@Transactional
+public class IndiceBarthelMobilitaServiceImpl implements IndiceBarthelMobilitaService {
+	
+	private static final String vmob1 = "si sposta da solo"; 
+	private static final String vmob2 = "si sposta assistito";  
+	private static final String vmob3 = "non si sposta";  
+	
+	@Autowired
+	private IndiceBarthelMobilitaDao dao;
+	
+
+	public Integer calcolaMobilita(IndiceBarthelMobilita indiceBarthelMobilita) {
+		Integer vmob = null;
+		vmob = indiceBarthelMobilita.getmDeambulazione()+
+				indiceBarthelMobilita.getmScale()+
+				indiceBarthelMobilita.getmTrasferimentoLS();
+		return vmob;
+	}
+	
+
+	public String codificaVMOB(Integer vmob){
+		String vmobCodificato = "";
+		if(vmob < 15){
+			vmobCodificato = vmob1;
+		}
+		if(vmob >= 15 && vmob < 30){
+			vmobCodificato = vmob2;
+		}
+		if(vmob > 30){
+			vmobCodificato = vmob3;
+		}
+		return vmobCodificato;
+	}
+
+
+	@Override
+	public void insert(IndiceBarthelMobilita indiceBarthelMobilita) {
+		dao.create(indiceBarthelMobilita);
+		
+	}
+
+
+	
+	public IndiceBarthelMobilita selectById(Integer idindiceBarthelMobilita) {
+		return dao.get(idindiceBarthelMobilita);
+		
+	}
+	
+
+}

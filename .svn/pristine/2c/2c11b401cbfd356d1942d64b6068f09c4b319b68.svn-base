@@ -1,0 +1,141 @@
+package it.cle.project.dao.hbn;
+
+import java.math.BigInteger;
+
+import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.NonUniqueResultException;
+import org.hibernate.Session;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
+
+import it.cle.project.dao.DatiFatturaDao;
+import it.cle.project.dao.hibernate.AbstractHbnDao;
+import it.cle.project.model.DatiFattura;
+import it.cle.project.utils.Utils;
+
+/**
+ * The Class HbnDatiAssistitoDao.
+ */
+//@Component //aggiunto da me
+@Repository
+public class HbnDatiFatturaDao extends AbstractHbnDao<DatiFattura> implements DatiFatturaDao {
+
+	protected Logger logger = Logger.getLogger(HbnDatiFatturaDao.class);
+	@Override
+	public Long getIdFattura(DatiFattura datiFattura) {
+		
+		Session session = getSession();
+		Long idFattura = new Long(0);
+		/* committente, erogatore, data, importo */
+		try {
+			Criteria cr = session.createCriteria(DatiFattura.class);
+			Criterion critCommittente;
+			Criterion critErogatore;
+			Criterion critData;
+			Criterion critImporto;
+			Criterion critNumFattura;
+			if(datiFattura.getCommittente() != null) {
+			critCommittente = Restrictions.eq("committente", datiFattura.getCommittente());
+			cr.add(critCommittente);
+			}
+			if(datiFattura.getErogatore() != null) {
+			critErogatore = Restrictions.eq("erogatore", datiFattura.getErogatore());
+			cr.add(critErogatore);
+			}
+			if(datiFattura.getData() != null) {
+			critData = Restrictions.eq("data", datiFattura.getData());
+			cr.add(critData);
+			}
+			if(datiFattura.getImporto() != null) {
+			critImporto = Restrictions.eq("importo", datiFattura.getImporto());
+			cr.add(critImporto);
+			}
+//			if(datiFattura.getNumeroFattura() != null) {
+//			critNumFattura = Restrictions.eq("numeroFattura", datiFattura.getNumeroFattura());
+//			cr.add(critNumFattura);
+//			}
+			
+			idFattura = (Long)cr.uniqueResult();
+//			cr.add(Restrictions.like("denominazione", denominazione));
+//			committente = (Committente)cr.uniqueResult();
+		}catch(NonUniqueResultException nure) {
+			
+			logger.error("Errore in <getIdFattura>: ");
+			logger.error("i criteri inseriti non sono sufficienti ad individuare la fattura: " );
+			logger.error("Committente: " + datiFattura.getCommittente().getDenominazione());
+			logger.error("Erogatore: " + datiFattura.getErogatore().getDenominazione());
+			logger.error("Data: " + datiFattura.getData());
+			logger.error("Importo: " + datiFattura.getImporto());
+			logger.error("Numero Fattura: " + datiFattura.getNumeroFattura());
+			logger.error(Utils.getStackTrace(nure));
+			
+		
+			
+		} catch (Exception e) {
+			
+			logger.error("Errore in <getIdFattura>: ");
+			logger.error(Utils.getStackTrace(e));
+			
+		}
+		
+		return idFattura;
+	}
+	@Override
+	public Integer getNuovoNumFattura() {
+
+
+		Integer nuovoNumFattura = new Integer(0);
+		Session session = getSession();
+		try {
+			String sql = "SELECT IFNULL(MAX(numero_fattura), 99) AS num_fattura FROM dati_fattura ";
+			
+			nuovoNumFattura = ((BigInteger)session.createSQLQuery(sql).uniqueResult()).intValue();
+			
+			nuovoNumFattura = nuovoNumFattura +1;
+			
+		} catch (Exception e) {
+			
+			logger.error("Errore in <getNuovoNumFattura>: ");
+			logger.error(e.getMessage());
+		}
+		return nuovoNumFattura;
+	}
+	
+	
+	@Override
+	public Integer getNuovoIdFattura() {
+
+
+		Integer nuovoNumFattura = new Integer(0);
+		Session session = getSession();
+		try {
+			String sql = "SELECT IFNULL(MAX(id_fattura), 1) AS id_fattura FROM dati_fattura ";
+			
+			nuovoNumFattura = ((BigInteger)session.createSQLQuery(sql).uniqueResult()).intValue();
+			
+			nuovoNumFattura = nuovoNumFattura +1;
+			
+		} catch (Exception e) {
+			
+			logger.error("Errore in <getNuovoIdFattura>: ");
+			logger.error(e.getMessage());
+		}
+		return nuovoNumFattura;
+	}
+	
+	
+	
+	public String getNuovoProgressivoInvio() {
+
+
+		String progressivoInvio = getNuovoIdFattura().toString() + "N" + getNuovoNumFattura().toString();
+		
+		return progressivoInvio;
+	}
+	
+	
+	
+
+}

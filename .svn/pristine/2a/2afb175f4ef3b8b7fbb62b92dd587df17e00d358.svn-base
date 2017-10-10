@@ -1,0 +1,40 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name="p:FatturaElettronica")
+@XmlType(name="p:FatturaElettronica", propOrder={"fatturaElettronicaHeader", "fatturaElettronicaBody"}, namespace="xmlns:ds=http://www.w3.org/2000/09/xmldsig# xmlns:p=http://www.fatturapa.gov.it/sdi/fatturapa/v1.1 xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance")
+public class FatturaElettronicaDTO implements Serializable {
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private FatturaElettronicaHeaderDTO  fatturaElettronicaHeader;
+	private FatturaElettronicaBodyDTO fatturaElettronicaBody;
+
+	
+	public FatturaElettronicaHeaderDTO getFatturaElettronicaHeader() {
+		return fatturaElettronicaHeader;
+	}
+	
+	@XmlElement
+	public void setFatturaElettronicaHeader(FatturaElettronicaHeaderDTO fatturaElettronicaHeader) {
+		this.fatturaElettronicaHeader = fatturaElettronicaHeader;
+	}
+	public FatturaElettronicaBodyDTO getFatturaElettronicaBody() {
+		return fatturaElettronicaBody;
+	}
+	@XmlElement
+	public void setFatturaElettronicaBody(FatturaElettronicaBodyDTO fatturaElettronicaBody) {
+		this.fatturaElettronicaBody = fatturaElettronicaBody;
+	}
+	
+	
+
+}

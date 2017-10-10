@@ -1,0 +1,12 @@
+package it.cle.project.dao;
+
+import it.cle.project.model.IndiceVPOT;
+
+/**
+ * Interfaccia IndiceBarthelDao.
+ *
+ * @author Leo
+ */
+public interface IndiceVPOTDao extends Dao<IndiceVPOT> {
+
+}

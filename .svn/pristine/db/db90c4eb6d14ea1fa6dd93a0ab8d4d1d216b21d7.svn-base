@@ -1,0 +1,79 @@
+package it.cle.project.model;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+//pai_prestazioni
+
+@Entity
+@Table(name = "pai_prestazioni")
+@XmlRootElement(name="pai_prestazioni")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Pai_Prestazioni {
+	private Integer idPaiPrestazione;
+	private String descrizione;
+	private String durata;
+	private String frequenza;
+	
+//	private Pai idPai;
+	private Integer idPai;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdPaiPrestazione() {
+		return idPaiPrestazione;
+	}
+	public void setIdPaiPrestazione(Integer idPaiPrestazione) {
+		this.idPaiPrestazione = idPaiPrestazione;
+	}
+	
+	@Column(name = "descrizione")
+	public String getDescrizione() {
+		return descrizione;
+	}
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+	
+	@Column(name = "durata")
+	public String getDurata() {
+		return durata;
+	}
+	public void setDurata(String durata) {
+		this.durata = durata;
+	}
+	
+	@Column(name = "frequenza")
+	public String getFrequenza() {
+		return frequenza;
+	}
+	public void setFrequenza(String frequenza) {
+		this.frequenza = frequenza;
+	}
+	@Column(name = "idPai")
+	public Integer getIdPai() {
+		return idPai;
+	}
+	public void setIdPai(Integer idPai) {
+		this.idPai = idPai;
+	}
+	
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	public Pai getIdPai() {
+//		return idPai;
+//	}
+//	public void setIdPai(Pai idPai) {
+//		this.idPai = idPai;
+//	}
+
+}

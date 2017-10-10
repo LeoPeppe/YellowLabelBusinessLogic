@@ -1,0 +1,200 @@
+package it.cle.project.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Type;
+
+/**
+ * Questa classe definisce l'entità Indice SPMSQ (Short Portable Mental Status Questionnaire), 
+ * una lista di domande poste al soggetto le cui risposte esatte sommate attribuendo un punteggio
+ * pari ad uno per ogni risposta esatta, danno un indicatore sulla sua situazione cognitiva.
+ *
+ * @author Germano
+ * @version 1.0
+ */
+
+
+@Entity
+@Table(name = "indice_spmsq")
+@XmlRootElement(name="indice_spmsq")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class IndiceSPMSQ {
+	
+	/** The id indice SPMSQ. */
+	private Integer idIndiceSPMSQ;
+
+	/** Questo campo indica la risposta alla domanda: Che giorno oggi? */
+	private Boolean domandaGiornoOdierno;
+	
+	/** Questo campo indica la risposta alla domanda: Che giorno è della settimana? */
+	private Boolean domandaGiornoSettimanale;
+	
+	/** Questo campo indica la risposta alla domanda: Come si chiama questo posto? */
+	private Boolean domandaNomePosto;
+	
+	/** Questo campo indica la risposta alla domanda: Qual è il suo indirizzo? */
+	private Boolean domandaIndirizzo;	
+	
+	/** Questo campo indica la risposta alla domanda: Quanti anni ha? */
+	private Boolean domandaAnni;	
+	
+	/** Questo campo indica la risposta alla domanda: Quando è nato? */
+	private Boolean domandaDataNascita;	
+	
+	/** Questo campo indica la risposta alla domanda: Chi è il Presidente della Repubblica ? (o il Papa?) */
+	private Boolean domandaPresRepPapa;	
+	
+	/** Questo campo indica la risposta alla domanda: Chi era il Presidente precedente? (o il Papa?) */
+	private Boolean domandaPrecedentePresRepPapa;	
+	
+	/** Questo campo indica la risposta alla domanda: Qual è il cognome da ragazza di sua madre? */
+	private Boolean domandaNomeMadre;
+	
+	/** Questo campo indica la risposta alla domanda: Sottragga da 20 tre e poi ancora fino in fondo */
+	private Boolean domandaSottrazione;
+	
+	/** Questo campo indica che il questionario non è somministrabile */
+	private Boolean nonSomministrabile;	
+	
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_giorno_odierno")
+	public Boolean getDomandaGiornoOdierno() {
+		return domandaGiornoOdierno;
+	}
+
+	public void setDomandaGiornoOdierno(Boolean domandaGiornoOdierno) {
+		this.domandaGiornoOdierno = domandaGiornoOdierno;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_giorno_settimanale")
+	public Boolean getDomandaGiornoSettimanale() {
+		return domandaGiornoSettimanale;
+	}
+
+	public void setDomandaGiornoSettimanale(Boolean domandaGiornoSettimanale) {
+		this.domandaGiornoSettimanale = domandaGiornoSettimanale;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_nome_posto")
+	public Boolean getDomandaNomePosto() {
+		return domandaNomePosto;
+	}
+
+	public void setDomandaNomePosto(Boolean domandaNomePosto) {
+		this.domandaNomePosto = domandaNomePosto;
+	}
+	
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_indirizzo")
+	public Boolean getDomandaIndirizzo() {
+		return domandaIndirizzo;
+	}
+
+	public void setDomandaIndirizzo(Boolean domandaIndirizzo) {
+		this.domandaIndirizzo = domandaIndirizzo;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_anni")
+	public Boolean getDomandaAnni() {
+		return domandaAnni;
+	}
+
+	public void setDomandaAnni(Boolean domandaAnni) {
+		this.domandaAnni = domandaAnni;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_data_nascita")
+	public Boolean getDomandaDataNascita() {
+		return domandaDataNascita;
+	}
+
+	public void setDomandaDataNascita(Boolean domandaDataNascita) {
+		this.domandaDataNascita = domandaDataNascita;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_pres_rep_papa")
+	public Boolean getDomandaPresRepPapa() {
+		return domandaPresRepPapa;
+	}
+
+	public void setDomandaPresRepPapa(Boolean domandaPresRepPapa) {
+		this.domandaPresRepPapa = domandaPresRepPapa;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_prec_pres_rep_papa")
+	public Boolean getDomandaPrecedentePresRepPapa() {
+		return domandaPrecedentePresRepPapa;
+	}
+
+	public void setDomandaPrecedentePresRepPapa(Boolean domandaPrecedentePresRepPapa) {
+		this.domandaPrecedentePresRepPapa = domandaPrecedentePresRepPapa;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_nome_madre")
+	public Boolean getDomandaNomeMadre() {
+		return domandaNomeMadre;
+	}
+
+	public void setDomandaNomeMadre(Boolean domandaNomeMadre) {
+		this.domandaNomeMadre = domandaNomeMadre;
+	}
+
+	@NotNull
+	@Type(type = "boolean")
+	@Column(name = "domanda_sottrazione")
+	public Boolean getDomandaSottrazione() {
+		return domandaSottrazione;
+	}
+
+	public void setDomandaSottrazione(Boolean domandaSottrazione) {
+		this.domandaSottrazione = domandaSottrazione;
+	}
+
+	@Type(type = "boolean")
+	@Column(name = "domanda_non_somministrabile")
+	public Boolean getNonSomministrabile() {
+		return nonSomministrabile;
+	}
+
+	public void setNonSomministrabile(Boolean nonSomministrabile) {
+		this.nonSomministrabile = nonSomministrabile;
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdIndiceSPMSQ() {
+		return idIndiceSPMSQ;
+	}
+
+	public void setIdIndiceSPMSQ(Integer idIndiceSPMSQ) {
+		this.idIndiceSPMSQ = idIndiceSPMSQ;
+	}
+
+
+}

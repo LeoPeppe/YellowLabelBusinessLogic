@@ -1,0 +1,52 @@
+package it.cle.project.service.impl;
+
+
+import it.cle.project.dao.IndiceExtonSmithDao;
+import it.cle.project.model.IndiceExtonSmith;
+import it.cle.project.service.IndiceExtonSmithService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * The Class IndiceBarthelServiceImpl.
+ * Questa classe implementa i metodi per le operazioni base relative all' indice di Barthel
+ */
+@Service("indiceExtonSmithService")
+@Transactional
+public class IndiceExtonSmithServiceImpl implements IndiceExtonSmithService {
+	
+	@Autowired
+	private IndiceExtonSmithDao dao;
+	
+	/**
+	 * Metodo per il calcolo della punteggio Prevenzione Decubiti
+	 * @param IndiceADL indiceBarthel
+	 * @return Integer 
+	 */
+	public Integer calcolaPrevDecub(IndiceExtonSmith indiceExtonSmith) {
+		Integer prevDecub = null;
+		prevDecub = indiceExtonSmith.getpDecubitiAttivita()+
+				indiceExtonSmith.getpDecubitiCondGen()+
+				indiceExtonSmith.getpDecubitiIncontinenza()+
+				indiceExtonSmith.getpDecubitiMobilita()+
+				indiceExtonSmith.getpDecubitiStatoMen()+
+				indiceExtonSmith.getpPresenzaPiaghe();
+		return prevDecub;
+	}
+
+	@Override
+	public void insert(IndiceExtonSmith indiceExtonSmith) {
+		dao.create(indiceExtonSmith);
+		
+		
+	}
+
+	@Override
+	public IndiceExtonSmith selectById(Integer idIndiceExtonSmith) {
+		
+		return dao.get(idIndiceExtonSmith);
+	}
+
+}

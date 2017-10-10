@@ -1,0 +1,47 @@
+package it.cle.project.dto;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@XmlRootElement(name = "indici")  
+public class PrestazioniRequestDTO  implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private String rangeADL;
+	private String rangeBarthel;
+	private String rangeRete;
+	
+	
+	
+	public String getRangeADL() {
+		return rangeADL;
+	}
+	@XmlElement(name="rangeADL")
+	public void setRangeADL(String rangeADL) {
+		this.rangeADL = rangeADL;
+	}
+	public String getRangeBarthel() {
+		return rangeBarthel;
+	}
+	@XmlElement(name="rangeBarthel")
+	public void setRangeBarthel(String rangeBarthel) {
+		this.rangeBarthel = rangeBarthel;
+	}
+	public String getRangeRete() {
+		return rangeRete;
+	}
+	@XmlElement(name="rangeRete")
+	public void setRangeRete(String rangeRete) {
+		this.rangeRete = rangeRete;
+	}
+	
+	
+
+}

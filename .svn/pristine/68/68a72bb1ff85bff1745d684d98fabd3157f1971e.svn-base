@@ -1,0 +1,15 @@
+package it.cle.project.service;
+
+import it.cle.project.model.DatiAssistito;
+
+/**
+
+ */
+public interface DatiAssistitoService {
+	
+	
+	public void insert(DatiAssistito datiAssistito);
+	
+	
+	public DatiAssistito selectById(Integer idDatiAssistito);
+}

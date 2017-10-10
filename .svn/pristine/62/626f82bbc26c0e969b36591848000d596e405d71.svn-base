@@ -1,0 +1,183 @@
+package it.cle.project.service;
+
+import java.util.List;
+
+import it.cle.project.dto.ReportPrestazioniDTO;
+import it.cle.project.dto.fattura.CedentePrestatoreDTO;
+import it.cle.project.dto.fattura.CessionarioCommittenteDTO;
+import it.cle.project.dto.fattura.ContattiDTO;
+import it.cle.project.dto.fattura.DatiBeniServiziDTO;
+import it.cle.project.dto.fattura.DatiGeneraliDocumentoDTO;
+import it.cle.project.dto.fattura.DatiInputFatturaDTO;
+import it.cle.project.dto.fattura.DatiRiepilogoDTO;
+import it.cle.project.dto.fattura.DatiTrasmissioneDTO;
+import it.cle.project.dto.fattura.DettaglioLineeDTO;
+import it.cle.project.dto.fattura.FatturaElettronicaBodyDTO;
+import it.cle.project.dto.fattura.FatturaElettronicaDTO;
+import it.cle.project.dto.fattura.FatturaElettronicaHeaderDTO;
+import it.cle.project.dto.fattura.IdentificativoFiscaleDTO;
+import it.cle.project.dto.fattura.SedeDTO;
+import it.cle.project.model.DatiFattura;
+
+// TODO: Auto-generated Javadoc
+/**
+ * Interfaccia ComponiFatturaService.
+ *
+ * @author mbrunetti
+ */
+public interface ComponiFatturaService {
+	
+
+	
+	/**
+ * Componi fattura body.
+ *
+ * @param datiGeneraliDoc the dati generali doc
+ * @param datiBeniServizi the dati beni servizi
+ * @return the fattura elettronica body dto
+ */
+public FatturaElettronicaBodyDTO componiFatturaBody(DatiGeneraliDocumentoDTO datiGeneraliDoc, DatiBeniServiziDTO datiBeniServizi);
+	
+	/**
+	 * Componi fattura header.
+	 *
+	 * @param datiTrasmissione the dati trasmissione
+	 * @param cedentePrestatore the cedente prestatore
+	 * @param cessionarioCommittente the cessionario committente
+	 * @return the fattura elettronica header dto
+	 */
+	public FatturaElettronicaHeaderDTO componiFatturaHeader(DatiTrasmissioneDTO datiTrasmissione, CedentePrestatoreDTO cedentePrestatore, CessionarioCommittenteDTO cessionarioCommittente);
+		
+	/**
+	 * Componi cedente prestatore.
+	 *
+	 * @return the cedente prestatore dto
+	 */
+	public CedentePrestatoreDTO componiCedentePrestatore();
+	
+	/**
+	 * Componi cessionario committente.
+	 *
+	 * @return the cessionario committente dto
+	 */
+	public CessionarioCommittenteDTO componiCessionarioCommittente();
+	
+	/**
+	 * Compila dati generali documento.
+	 *
+	 * @param numeroFattura the numero fattura
+	 * @param importo the importo
+	 * @param aliquotaIVA the aliquota iva
+	 * @return the dati generali documento dto
+	 */
+	public DatiGeneraliDocumentoDTO compilaDatiGeneraliDocumento(String numeroFattura, Double importo, Double aliquotaIVA) ;
+	
+	/**
+	 * Compila sede.
+	 *
+	 * @return the sede dto
+	 */
+	public SedeDTO compilaSede();
+	
+	/**
+	 * Compila dettaglio linee.
+	 *
+	 * @param dettagli the dettagli
+	 * @return the list
+	 */
+	public List<DettaglioLineeDTO> compilaDettaglioLinee(List<ReportPrestazioniDTO> dettagli);
+	
+	/**
+	 * Compila dati riepilogo.
+	 *
+	 * @param imponibile the imponibile
+	 * @return the dati riepilogo dto
+	 */
+	public DatiRiepilogoDTO compilaDatiRiepilogo(Double imponibile);
+	
+	/**
+	 * Compila dati beni servizi.
+	 *
+	 * @param dettagli the dettagli
+	 * @param datiRiepilogo the dati riepilogo
+	 * @return the dati beni servizi dto
+	 */
+	public DatiBeniServiziDTO compilaDatiBeniServizi(List<DettaglioLineeDTO> dettagli, DatiRiepilogoDTO datiRiepilogo);
+	
+	/**
+	 * Compila dati beni servizi.
+	 *
+	 * @param dettagli the dettagli
+	 * @param imponibile the imponibile
+	 * @return the dati beni servizi dto
+	 */
+	public DatiBeniServiziDTO compilaDatiBeniServizi(List<DettaglioLineeDTO> dettagli, Double imponibile);
+
+	/**
+	 * Componi dati trasmissione.
+	 *
+	 * @param codiceDestinatario the codice destinatario
+	 * @param formatoTrasmissione the formato trasmissione
+	 * @param progressivoInvio the progressivo invio
+	 * @param trasmittente the trasmittente
+	 * @param contattiTrasmittente the contatti trasmittente
+	 * @param emailDestinatario the email destinatario
+	 * @return the dati trasmissione dto
+	 */
+	public DatiTrasmissioneDTO componiDatiTrasmissione(String codiceDestinatario, String formatoTrasmissione,
+			String progressivoInvio, IdentificativoFiscaleDTO trasmittente, ContattiDTO contattiTrasmittente,String emailDestinatario);
+	
+	/**
+	 * Fattura to xml.
+	 *
+	 * @param header the header
+	 * @param body the body
+	 * @return the string
+	 */
+	public String fatturaToXML(FatturaElettronicaHeaderDTO header, FatturaElettronicaBodyDTO body);
+	
+	/**
+	 * Gets the trasmittente default.
+	 *
+	 * @return the trasmittente default
+	 */
+	public IdentificativoFiscaleDTO getTrasmittenteDefault();
+	
+	/**
+	 * Componi fattura xml.
+	 *
+	 * @param datiInputFatturaDTO the dati input fattura dto
+	 * @return the string
+	 */
+	public String componiFatturaXML(DatiInputFatturaDTO datiInputFatturaDTO);
+	
+	/**
+	 * Gets the fattura generata.
+	 *
+	 * @return the fattura generata
+	 */
+	public DatiFattura getFatturaGenerata();
+	
+	/**
+	 * Sets the fattura generata.
+	 *
+	 * @param fatturaGenerata the new fattura generata
+	 */
+	public void setFatturaGenerata(DatiFattura fatturaGenerata);
+	
+	/**
+	 * Salva fattura generata.
+	 *
+	 * @return the string
+	 */
+	public String salvaFatturaGenerata();
+	
+	/**
+	 * Gets the fattura elettronica.
+	 *
+	 * @return the fattura elettronica
+	 */
+	public FatturaElettronicaDTO getFatturaElettronica();
+
+	void insert(DatiFattura datiFattura);
+}

@@ -1,0 +1,41 @@
+package it.cle.project.dto.fattura;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
+public class DatiBolloDTO implements Serializable {
+	
+	private String bolloVirtuale = "SI";
+	private Double importoBollo ;
+	/**
+	 * @return the bolloVirtuale
+	 */
+	public String getBolloVirtuale() {
+		return bolloVirtuale;
+	}
+	/**
+	 * @param bolloVirtuale the bolloVirtuale to set
+	 */
+	@XmlElement(name="BolloVirtuale")
+	public void setBolloVirtuale(String bolloVirtuale) {
+		this.bolloVirtuale = bolloVirtuale;
+	}
+	/**
+	 * @return the importoBollo
+	 */
+	public Double getImportoBollo() {
+		return importoBollo;
+	}
+	/**
+	 * @param importoBollo the importoBollo to set
+	 */
+	@XmlElement(name="ImportoBollo")
+	public void setImportoBollo(Double importoBollo) {
+		this.importoBollo = importoBollo;
+	}
+	
+	
+
+}

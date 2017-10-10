@@ -1,0 +1,56 @@
+package it.cle.project.service;
+
+import it.cle.project.model.IndiceADL;
+import it.cle.project.model.IndiceBarthelMobilita;
+import it.cle.project.model.IndiceSPMSQ;
+import it.cle.project.model.IndiceSupportoReteSociale;
+import it.cle.project.model.ProfiloAutonomia;
+import it.cle.project.model.Psan;
+
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface ProfiloAutonomiaService.
+ */
+public interface ProfiloAutonomiaService {
+
+	
+	/**
+	 * Calcola prof.
+	 *
+	 * @param indiceADL the indice adl
+	 * @param indiceSPMSQ the indice spmsq
+	 * @param indiceBarthelMobilita the indice barthel mobilita
+	 * @param psan the psan
+	 * @param indiceSupportoReteSociale the indice supporto rete sociale
+	 * @return the integer
+	 */
+	public Integer calcolaProf(IndiceADL indiceADL,IndiceSPMSQ indiceSPMSQ,IndiceBarthelMobilita indiceBarthelMobilita,Psan psan,IndiceSupportoReteSociale indiceSupportoReteSociale);
+	
+	
+	/**
+	 * Insert.
+	 *
+	 * @param profiloAutonomia the profilo autonomia
+	 */
+	public void insert(ProfiloAutonomia profiloAutonomia);
+	
+	/**
+	 * Select by id.
+	 *
+	 * @param idProfiloAutonomia the id profilo autonomia
+	 * @return the profilo autonomia
+	 */
+	public ProfiloAutonomia selectById(Integer idProfiloAutonomia);
+
+
+	/**
+	 * Calcola psoc.
+	 *
+	 * @param indiceSupportoReteSociale the indice supporto rete sociale
+	 * @return the integer
+	 */
+	public Integer calcolaPsoc(IndiceSupportoReteSociale indiceSupportoReteSociale);
+
+	
+}

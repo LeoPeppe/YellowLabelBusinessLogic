@@ -1,0 +1,26 @@
+package it.cle.project.service;
+
+import java.util.Date;
+import java.util.List;
+
+import it.cle.project.dto.ReportPrestazioniDTO;
+import it.cle.project.dto.ReportPrestazioniResponseDTO;
+import it.cle.project.model.Intervento;
+
+/**
+ * Interfaccia InterventoService.
+ *
+ * @author mbrunetti
+ */
+public interface InterventoService {
+	
+	public Intervento selectById(Integer idintervento) ;
+	
+	public List<Intervento> selectByComune(String comune);
+	
+	public List<Intervento> selectByComuneData(String comune, Date data_da, Date data_a);
+	
+	public ReportPrestazioniResponseDTO getReportPrestazioni(String comune, Date data_da, Date data_a);
+	
+	public Double calcolaTotale(List<ReportPrestazioniDTO> elenco);
+}

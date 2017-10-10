@@ -1,0 +1,126 @@
+package it.cle.project.model;
+
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+
+@Entity
+@Table(name = "profilo_autonomia")
+@XmlRootElement(name = "profilo_autonomia")  
+@XmlAccessorType(XmlAccessType.FIELD)
+public class ProfiloAutonomia implements Serializable{
+	
+	
+	private static final long serialVersionUID = 1L;
+
+	/** The id ProfiloAutonomia */
+	private Integer idProfiloAutonomia;
+	
+	
+	@Valid
+	private IndiceADL indiceADL;
+	@Valid
+	private IndiceSPMSQ indiceSPMSQ;
+	@Valid
+	private IndiceBarthelMobilita indiceBarthelMobilita;
+	@Valid
+	private Psan psan;
+	@Valid
+	private IndiceSupportoReteSociale indiceSupportoReteSociale;
+	
+	private Integer valorePSOC;
+	private Integer valorePROF;
+	
+	
+	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	public Integer getIdProfiloAutonomia() {
+		return idProfiloAutonomia;
+	}
+
+	public void setIdProfiloAutonomia(Integer idProfiloAutonomia) {
+		this.idProfiloAutonomia = idProfiloAutonomia;
+	}
+
+	
+	
+	
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceADL getIndiceADL() {
+		return indiceADL;
+	}
+
+	public void setIndiceADL(IndiceADL indiceADL) {
+		this.indiceADL = indiceADL;
+	}
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceSPMSQ getIndiceSPMSQ() {
+		return indiceSPMSQ;
+	}
+
+	public void setIndiceSPMSQ(IndiceSPMSQ indiceSPMSQ) {
+		this.indiceSPMSQ = indiceSPMSQ;
+	}
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceBarthelMobilita getIndiceBarthelMobilita() {
+		return indiceBarthelMobilita;
+	}
+
+	public void setIndiceBarthelMobilita(IndiceBarthelMobilita indiceBarthelMobilita) {
+		this.indiceBarthelMobilita = indiceBarthelMobilita;
+	}
+	@OneToOne(cascade = CascadeType.ALL)
+	public Psan getPsan() {
+		return psan;
+	}
+
+	public void setPsan(Psan psan) {
+		this.psan = psan;
+	}
+	
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	public IndiceSupportoReteSociale getIndiceSupportoReteSociale() {
+		return indiceSupportoReteSociale;
+	}
+
+	public void setIndiceSupportoReteSociale(IndiceSupportoReteSociale indiceSupportoReteSociale) {
+		this.indiceSupportoReteSociale = indiceSupportoReteSociale;
+	}
+
+	public ProfiloAutonomia() {
+	}
+
+	public Integer getValorePSOC() {
+		return valorePSOC;
+	}
+
+	public void setValorePSOC(Integer valorePSOC) {
+		this.valorePSOC = valorePSOC;
+	}
+
+	public Integer getValorePROF() {
+		return valorePROF;
+	}
+
+	public void setValorePROF(Integer valorePROF) {
+		this.valorePROF = valorePROF;
+	}
+}
